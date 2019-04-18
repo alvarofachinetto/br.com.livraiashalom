@@ -1,0 +1,49 @@
+﻿<Window x:Name="windowFornecedor" x:Class="br.com.livrariashalom.View.TelaFornecedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:br.com.livrariashalom.View"
+        mc:Ignorable="d"
+        Title="TelaFornecedor" Height="649" Width="818">
+    <Grid x:Name="gridFornecedor" Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="596*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="209*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Razao" HorizontalAlignment="Right" Margin="0,0,449,523" VerticalAlignment="Bottom" Width="63" Height="26"/>
+        <Label Content="Fantasia" HorizontalAlignment="Right" Margin="0,0,449,476" VerticalAlignment="Bottom" Width="63" Height="26"/>
+        <Label Content="CNPJ/CPF" HorizontalAlignment="Right" Margin="0,0,449,437" VerticalAlignment="Bottom" Width="63" Height="26"/>
+        <Label Content="IE" HorizontalAlignment="Right" Margin="0,0,88,477" VerticalAlignment="Bottom" Width="63" Height="26"/>
+        <Label Content="Observações" HorizontalAlignment="Right" Margin="0,0,73,423" VerticalAlignment="Bottom" Width="78" Height="26"/>
+        <TextBox x:Name="txtRazao" HorizontalAlignment="Right" Height="23" Margin="0,0,234,521" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210"/>
+        <TextBox x:Name="txtFantasia" HorizontalAlignment="Right" Height="23" Margin="0,0,234,480" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210"/>
+        <TextBox x:Name="txtCnpjCpf" HorizontalAlignment="Right" Height="23" Margin="0,0,234,437" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" TextChanged="TxtCnpjCpf_TextChanged"/>
+        <TextBox x:Name="txtIe" HorizontalAlignment="Right" Height="23" Margin="0,0,62,476" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtObservacoes" Height="63" Margin="0,0,108,386" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.ColumnSpan="3" HorizontalAlignment="Right" Width="164"/>
+        <Label Content="Empresa" HorizontalAlignment="Right" Margin="0,0,96,523" VerticalAlignment="Bottom" Height="26" Width="55"/>
+        <ComboBox x:Name="cmbEmpresa" HorizontalAlignment="Right" Margin="0,0,152,522" VerticalAlignment="Bottom" Width="120" Height="22" SelectionChanged="CmbEmpresa_SelectionChanged" Grid.ColumnSpan="3">
+            <ComboBoxItem>Selecione</ComboBoxItem>
+            <ComboBoxItem>Matriz</ComboBoxItem>
+            <ComboBoxItem>Filial</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Right" Margin="0,0,463,352" VerticalAlignment="Bottom" Width="85" Click="BtnCadastrar_Click" Height="41"/>
+        <DataGrid x:Name="dgFornecedor" HorizontalAlignment="Right" Height="298" Margin="0,0,26,31" VerticalAlignment="Bottom" Width="772" MouseDoubleClick="DgFornecedor_MouseDoubleClick" Grid.ColumnSpan="3"/>
+
+
+
+
+        <Button x:Name="btnListar"  Content="Listar" HorizontalAlignment="Right" Margin="0,0,334,352" VerticalAlignment="Bottom" Width="85" Height="41" Click="BtnListar_Click"/>
+        <Label Content="Código" HorizontalAlignment="Right" Margin="0,0,463,566" VerticalAlignment="Bottom" RenderTransformOrigin="0.053,0.192"/>
+        <TextBox x:Name="txtcodFornecedor" HorizontalAlignment="Right" Height="23" Margin="0,0,385,566" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="59"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="304,225,0,0" VerticalAlignment="Top" Width="85" Height="41" Click="BtnEditar_Click"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="437,225,0,0" VerticalAlignment="Top" Width="86" Height="41" Click="BtnExcluir_Click"/>
+
+
+    </Grid>
+</Window>

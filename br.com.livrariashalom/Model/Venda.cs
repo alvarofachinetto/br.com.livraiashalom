@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.Model
 {
-    public enum FormaPagamento
-    {
-        Credito, Debito, Dinheiro
-    }
-
+   
     public class Venda
     {
         private long codVenda;
@@ -19,12 +15,12 @@ namespace br.com.livrariashalom.Model
         private String telefoneCli;
         private String dataVenda;
         private double frete;
-        private FormaPagamento formaPagamento;
+        private String formaPagamento;
         private Prazo codPrazo;
         private LoginFuncionario loginFuncionario;
         private int parcelamento;
-        private ItemVenda itemVenda;
         private String observacao;
+        private double totalVenda;
 
         public long CodVenda
         {
@@ -43,8 +39,8 @@ namespace br.com.livrariashalom.Model
             set { dataVenda = value; }
         }
 
-        
-        public FormaPagamento FormaPagamento
+
+        public String FormaPagamento
         {
             get { return formaPagamento; }
             set { formaPagamento = value; }
@@ -80,17 +76,16 @@ namespace br.com.livrariashalom.Model
             set { parcelamento = value; }
         }
 
-        public ItemVenda ItemVenda
-        {
-            get { return itemVenda; }
-            set { itemVenda = value; }
-        }
-
         public String Observacao
         {
             get { return observacao; }
             set { observacao = value; }
         }
 
+        public double TotalVenda
+        {
+            get { return totalVenda; }
+            set { totalVenda = value; }
+        }
     }
 }

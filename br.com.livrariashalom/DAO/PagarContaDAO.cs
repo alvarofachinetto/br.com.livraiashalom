@@ -17,7 +17,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into pagarconta (data, descricao, valor, datavencimento, status) values (@data, @descricao, @valor, @dataVencimento, @status)");
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
@@ -34,7 +34,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
             
         }
@@ -43,7 +43,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -59,7 +59,7 @@ namespace br.com.livrariashalom.DAO
                 throw error;
             }
             finally{
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -67,7 +67,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update pagarconta set data = @data, descricao = @descricao, valor = @valor, datavencimento = @dataVencimento, status = @status where codPagarConta = @codPagarConta", conexao);
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
@@ -86,7 +86,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -95,7 +95,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from pagarconta where idPagarConta = @codPagarConta", conexao);
                 command.Parameters.AddWithValue("@codPagarConta", pagarConta.CodPagarConta);
@@ -106,7 +106,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
     }

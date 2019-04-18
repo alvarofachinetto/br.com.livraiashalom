@@ -11,15 +11,16 @@ namespace br.com.livrariashalom.DAO
 {
     class ContatoDAO : Conexao
     {
-        MySqlCommand command = null;
+        private MySqlCommand command = null;
 
         //salvar contato
         public void SalvarContato(Contato contato)
         {
             try
             {
-                conectar();
-
+                Conectar();
+                
+                
                 command = new MySqlCommand("insert into contato (email_primario, email_secundario, telefone_principal, telefone_reserva, Fornecedor_codFornecedor) " +
                 "values (@email_primario, @email_secundario, @telefone_principal, @telefone_reserva, @codFornecedor)", conexao); 
 
@@ -27,8 +28,9 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@email_secundario", contato.EmailSecundario);
                 command.Parameters.AddWithValue("@telefone_principal", contato.TelefonePrincipal);
                 command.Parameters.AddWithValue("@telefone_reserva", contato.TelefoneReserva);
-                command.Parameters.AddWithValue("@codFornecedor", contato.CodFornecedor.CodFornecedor);
-                
+                command.Parameters.AddWithValue("@codFornecedor", contato.Fornecedor.CodFornecedor);
+
+
                 command.ExecuteNonQuery();
             }
             catch (Exception error)
@@ -37,7 +39,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -47,7 +49,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -65,7 +67,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -74,7 +76,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update contato set email_primario = @email_primario, email_secundario = @email_secundario," +
                 " telefone_principal = @telefone_principal, telefone_reserva = @telefone_reserva, Fornecedor_codFornecedor = @codFornecedor where codContato = @codContato", conexao);
@@ -95,7 +97,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -104,7 +106,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from contato where codContato = @codContato", conexao);
                 command.Parameters.AddWithValue("@codContato", contato.CodContato);
@@ -115,7 +117,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
     }

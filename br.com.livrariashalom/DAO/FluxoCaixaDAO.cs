@@ -17,7 +17,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into fluxocaixa (dia, observacoes, valorEntrada, valorSaida, saldo, valorPrevisto, PagarConta_idPagarConta, ReceberConta_idReceberConta) " +
                 "values (@dia, @observacoes, @valorEntrada, @valorSaida, @saldo, @valorPrevisto, @codPagarConta, @codReceberConta)");
@@ -40,7 +40,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
 
         }
@@ -49,7 +49,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -67,7 +67,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 

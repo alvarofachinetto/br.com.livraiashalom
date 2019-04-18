@@ -17,7 +17,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, quantidade, qtdAlerta, categoriaLivro, valorUnit, descricao, Fornecedor_codFornecedor) values " +
                 "(@titulo, @autor, @editora, @fase, @quantidade, @qtdAlerta, @categoriaLivro, @valorUnit, @descricao, @codFornecedor)", conexao); //conexao está referente as infos do banco
@@ -41,7 +41,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -51,7 +51,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -69,7 +69,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -78,7 +78,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update livro set titulo = @titulo, autor = @autor, editora = @editora, " +
                 "fase = @fase, quantidade = @quantidade, categoriaLivro = @categoriaLivro, valorUnit = @valorUnit, " +
@@ -104,7 +104,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -113,7 +113,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from livro where codLivro = @codLivro", conexao);
                 command.Parameters.AddWithValue("@codLivro", livro.CodLivro);
@@ -124,7 +124,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 

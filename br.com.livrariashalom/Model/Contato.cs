@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.Model
 {
-    class Contato
+    public class Contato
     {
         private long codContato;
         private String emailPrimario;
         private String emailSecundario;
         private String telefonePrincipal;
         private String telefoneReserva;
-        private Fornecedor fornecedor;
+        private Fornecedor fornecedor = new Fornecedor();
 
         public long CodContato
         {
@@ -47,8 +47,8 @@ namespace br.com.livrariashalom.Model
 
         public Fornecedor Fornecedor
         {
-            get { return fornecedor; }
-            set { fornecedor = value; }
+            get {return this.fornecedor; }
+            set {this.fornecedor = value; }
         }
     }
 }

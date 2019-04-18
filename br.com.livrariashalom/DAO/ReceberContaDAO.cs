@@ -18,7 +18,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into receberconta (data, descricao, valor, status) values (@data, @descricao, @valor, @status)");
                 command.Parameters.AddWithValue("@data", receberConta.Data);
@@ -35,7 +35,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
 
         }
@@ -44,7 +44,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -62,7 +62,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -70,7 +70,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update receberconta set data = @data, descricao = @descricao, valor = @valor, status = @status where codReceberConta = @codReceberConta", conexao);
                 command.Parameters.AddWithValue("@data", receberConta.Data);
@@ -88,7 +88,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -97,7 +97,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from pagarconta where idRceberConta = @codReceberConta", conexao);
                 command.Parameters.AddWithValue("@codReceberConta", receberConta.CodReceberConta);
@@ -108,7 +108,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 

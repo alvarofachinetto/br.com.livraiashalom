@@ -18,7 +18,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into produto (produto, valorUnit, qtd, qtdAlerta, Fornecedor_codFornecedor, Categoria_codCategoria) " +
                 "values (@produto, @valorUnit, @qtd, @qtdAlerta, @codFornecedor)", conexao); //conexao está referente as infos do banco
@@ -37,7 +37,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -47,7 +47,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -65,7 +65,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
         
@@ -74,7 +74,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update produto set produto = @produto, valorUnit = @valorUnit, qtd = @qtd, Fornecedor_codFornecedor = @codFornecedor where codProduto = @codProduto", conexao);
                 command.Parameters.AddWithValue("@produto", produto.NomeProduto);
@@ -92,7 +92,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -101,7 +101,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from produto where codProduto = @codProduto", conexao);
                 command.Parameters.AddWithValue("@codProduto", produto.CodProduto);
@@ -112,7 +112,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 

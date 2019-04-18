@@ -55,14 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\ContatoBLL.cs" />
+    <Compile Include="BLL\FornecedorBLL.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />
@@ -77,9 +75,11 @@
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\ReceberContaDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="View\TelaContato.xaml.cs">
+      <DependentUpon>TelaContato.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaFornecedor.xaml.cs">
+      <DependentUpon>TelaFornecedor.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,8 +122,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controler\" />
-    <Folder Include="View\" />
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\TelaContato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaFornecedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

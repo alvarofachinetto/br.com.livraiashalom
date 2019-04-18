@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.Model
 {
-
-    public enum Empresa
-    {
-        MATRIZ, FILIAL
-    }
-
+    
     public class Fornecedor
     {
         private long codFornecedor;
         private String nomeRazao;
         private String nomeFantasia;
-        private String cnpj;
+        private String cnpjcpf;
         private String ie;
-        private String cpf;
         private String observacoes;
-        private Empresa empresa;
+        private String empresa;
 
         public long CodFornecedor
         {
             get { return codFornecedor; }
-
+            set { codFornecedor = value; }
         }
 
         public String NomeRazao
@@ -41,10 +36,10 @@ namespace br.com.livrariashalom.Model
             set { nomeFantasia = value; }
         }
 
-        public String Cnpj
+        public String CnpjCpf
         {
-            get { return cnpj; }
-            set { cnpj = value; }
+            get { return cnpjcpf; }
+            set { cnpjcpf = value; }
         }
 
         public String Ie
@@ -53,18 +48,12 @@ namespace br.com.livrariashalom.Model
             set { ie = value; }
         }
 
-        public Empresa Empresa
+        public String Empresa
         {
             get { return empresa; }
             set { empresa = value; }
         }
-
-        public string Cpf
-        {
-            get { return cpf; }
-            set { cpf = value; }
-        }
-
+        
         public string Observacoes
         {
             get { return observacoes; }

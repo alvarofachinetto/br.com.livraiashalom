@@ -17,7 +17,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into categoria (categoriaGeral) value (@categoriaGeral)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis de classe login 
@@ -31,7 +31,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -68,7 +68,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from categoria where codUsuario = @codCategoria", conexao);
                 command.Parameters.AddWithValue("@codUsuario", categoria.CodCategoria);
@@ -79,7 +79,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
     }

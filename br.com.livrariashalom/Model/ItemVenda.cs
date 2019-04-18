@@ -16,6 +16,7 @@ namespace br.com.livrariashalom.Model
         private double valorTot;
         private Produto produto;
         private Livro livro;
+        private Venda venda;
 
         public long CodItemVenda
         {
@@ -50,5 +51,11 @@ namespace br.com.livrariashalom.Model
             get {return livro; }
             set { livro = value; }
         }
+        public Venda Venda
+        {
+            get { return venda; }
+            set { venda = value; }
+        }
+
     }
 }

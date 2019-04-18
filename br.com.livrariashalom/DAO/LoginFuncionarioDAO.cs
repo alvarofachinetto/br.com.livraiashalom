@@ -19,7 +19,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into loginfuncionario (usuario, senha, confirmacao_senha, tipo_usuario) values " +
                 "(@usuario, @senha, @confSenha, @tipousuario)", conexao); //conexao está referente as infos do banco
@@ -37,7 +37,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -47,7 +47,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -65,7 +65,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
         //metodo editar
@@ -73,7 +73,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update loginfuncionario set usuario = @usuario, senha = @senha, " +
                 "confirmacao_senha = @confirmacao_senha, tipo_usuario = @tipo_usuario where codUsuario = @codUsuario", conexao);
@@ -93,7 +93,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -103,7 +103,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from loginfuncionario where codUsuario = @codUsuario", conexao);
                 command.Parameters.AddWithValue("@codUsuario", login.CodUsuario);
@@ -114,7 +114,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
     }

@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace br.com.livrariashalom.DAO
 {
     public class Conexao
     {
-        String conecta = "DATABASE = livraria_shalom; SERVER=Localhost; UID=root; PWD=3303";
-        protected MySqlConnection conexao = null;
-        MySqlCommand comando = null;
+        protected MySqlConnection conexao;
 
-        public void conectar()
+
+        public MySqlConnection Conectar()
         {
             try
             {
-                conexao = new MySqlConnection(conecta);
+                conexao = new MySqlConnection("server = localhost; database=livraria_shalom;  UID=root; pwd=;");
+                
                 conexao.Open();
+                
+                return conexao;
             }
             catch(Exception erro)
             {
                 throw erro;
             }
-            finally{
-                conexao.Close();
-            }
+           
         }
 
-        public void desconectar()
+        public void Desconectar()
         {
             try
             {
@@ -39,11 +40,9 @@ namespace br.com.livrariashalom.DAO
             catch(Exception erro)
             {
                 throw erro;
+               
             }
-            finally
-            {
-                conexao.Close();
-            }
+         
         }
     }
 }

@@ -19,15 +19,15 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
-                command = new MySqlCommand("insert into itemvenda (Livro_codLivro, Item_idProduto, quantidade, subTotal, valorTotal) value (@codLivro, @codProduto, @quantidade, @subTotal, @valorTotal)", conexao); //conexao está referente as infos do banco
+                command = new MySqlCommand("insert into itemvenda (Livro_codLivro, Item_idProduto, quantidade, subTotal, Venda_codVenda) value (@codLivro, @codProduto, @quantidade, @subTotal, @codVenda)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis 
                 command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                 command.Parameters.AddWithValue("@codProduto", itemVenda.Produto.CodProduto);
                 command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
                 command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
-                command.Parameters.AddWithValue("@valorTotal", itemVenda.ValorTotal);
+                command.Parameters.AddWithValue("@codVenda", itemVenda.Venda);
 
                 command.ExecuteNonQuery();
             }
@@ -37,7 +37,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -47,7 +47,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -65,7 +65,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -74,16 +74,16 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
-                command = new MySqlCommand("update itemvenda set Livro_codLivro = @codLivro, Item_idProduto = @codProduto, quantidade = @quantidade, subTotal = @subTotal, valorTotal = @valorTotal where idProdutoVenda = @codVenda", conexao);
+                command = new MySqlCommand("update itemvenda set Livro_codLivro = @codLivro, Item_idProduto = @codProduto, quantidade = @quantidade, subTotal = @subTotal, valorTotal = @valorTotal where idProdutoVenda = @codItemVenda", conexao);
 
                 command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                 command.Parameters.AddWithValue("@codProduto", itemVenda.Produto.CodProduto);
                 command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
                 command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
                 command.Parameters.AddWithValue("@valorTotal", itemVenda.ValorTotal);
-                command.Parameters.AddWithValue("@codVenda", itemVenda.CodProdutoVenda);
+                command.Parameters.AddWithValue("@codItemVenda", itemVenda.CodItemVenda);
 
                 command.ExecuteNonQuery();
 
@@ -94,7 +94,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -103,10 +103,10 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from itemvenda where idProdutoVenda = @codVenda", conexao);
-                command.Parameters.AddWithValue("@codVenda", itemVenda.CodProdutoVenda);
+                command.Parameters.AddWithValue("@codVenda", itemVenda.CodItemVenda);
             }
             catch (Exception erro)
             {
@@ -114,7 +114,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 

@@ -19,7 +19,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into endereco (logradouro, numero, bairro, cidade, estado, cep, Fornecedor_codFornecedor) " +
                 "values (@logradouro, @numero, @bairro, @cidade, @cep, @codFornecedor)", conexao);
@@ -40,7 +40,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -50,7 +50,7 @@ namespace br.com.livrariashalom.DAO
             try
             {
 
-                conectar();
+                Conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
@@ -68,7 +68,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -77,7 +77,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("update contato set logradouro = @logradouro, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, cep = @cep , Fornecedor_codFornecedor = @codFornecedor where codEndereco = @codEndereco", conexao);
                 command.Parameters.AddWithValue("@logradouro", endereco.Logradouro);
@@ -99,7 +99,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
@@ -108,7 +108,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("delete from endereco where codEndereco = @codEndereco", conexao);
                 command.Parameters.AddWithValue("@codEndereco", contato.CodContato);
@@ -119,7 +119,7 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
     }

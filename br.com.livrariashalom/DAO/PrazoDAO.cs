@@ -18,7 +18,7 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                conectar();
+                Conectar();
 
                 command = new MySqlCommand("insert into prazo (condicao_pagamento) value (@condicao_pagamento)", conexao);
 
@@ -32,13 +32,13 @@ namespace br.com.livrariashalom.DAO
             }
             finally
             {
-                desconectar();
+                Desconectar();
             }
         }
 
         public void DeletarPrazo(Prazo prazo)
         {
-            conectar();
+            Conectar();
 
             command = new MySqlCommand("delete from prazo where codCondicao_pagamento = @codCondPagamento");
 
