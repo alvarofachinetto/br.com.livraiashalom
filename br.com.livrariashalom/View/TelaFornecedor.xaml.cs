@@ -36,7 +36,7 @@ namespace br.com.livrariashalom.View
         }
 
         //limpa os valores após uma ação
-        public void Limpar()
+        private void Limpar()
         {
             txtcodFornecedor.Clear();
             txtRazao.Clear();

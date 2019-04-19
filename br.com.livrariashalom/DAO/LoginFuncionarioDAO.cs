@@ -117,5 +117,31 @@ namespace br.com.livrariashalom.DAO
                 Desconectar();
             }
         }
+
+        //metodo para entrar no sistema 
+        public void Logar(LoginFuncionario login)
+        {
+            try
+            {
+
+                Conectar();
+                command = new MySqlCommand("select * from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
+
+                command.Parameters.AddWithValue("@usuario", login.Usuario);
+                command.Parameters.AddWithValue("@senha", login.Senha);
+
+                command.ExecuteNonQuery();
+                
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
     }
+
 }

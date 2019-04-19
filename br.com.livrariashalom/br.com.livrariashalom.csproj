@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="BLL\ContatoBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
+    <Compile Include="BLL\LoginFuncionarioBLL.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="View\TelaFornecedor.xaml.cs">
       <DependentUpon>TelaFornecedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaLogin.xaml.cs">
+      <DependentUpon>TelaLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaPrincipal.xaml.cs">
+      <DependentUpon>TelaPrincipal.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +137,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaFornecedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
