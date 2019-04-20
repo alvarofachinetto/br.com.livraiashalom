@@ -70,6 +70,7 @@ namespace br.com.livrariashalom.View
                     fornecedorBLL.SalvarFornecedor(fornecedor);
 
                     MessageBox.Show("Cadastro feito com sucesso");
+                    MessageBox.Show("Código do fornecedor: " + fornecedor.CodFornecedor);
 
                     TelaContato telacontato = new TelaContato();
                     telacontato.Show();
