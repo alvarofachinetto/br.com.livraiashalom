@@ -22,7 +22,7 @@ namespace br.com.livrariashalom.DAO
                 Conectar();
 
                 command = new MySqlCommand("insert into endereco (logradouro, numero, bairro, cidade, estado, cep, Fornecedor_codFornecedor) " +
-                "values (@logradouro, @numero, @bairro, @cidade, @cep, @codFornecedor)", conexao);
+                "values (@logradouro, @numero, @bairro, @cidade, @estado, @cep, @codFornecedor)", conexao);
 
                 command.Parameters.AddWithValue("@logradouro", endereco.Logradouro);
                 command.Parameters.AddWithValue("@numero", endereco.Numero);

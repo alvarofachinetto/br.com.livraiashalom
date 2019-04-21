@@ -21,49 +21,14 @@ namespace br.com.livrariashalom.View
     /// </summary>
     public partial class TelaContato : Window
     {
-        private ContatoBLL contatoBLL = new ContatoBLL();
-        private Contato contato = new Contato();
+       
 
         public TelaContato()
         {
             InitializeComponent();
         }
 
-        public bool CadastrarContato(Contato contato)
-        {
-            try
-            {
-                
-                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedor.Text == "")
-                {
-                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
-                    
-                }
-                else
-                {
-                    
-                    contato.EmailPrimario = txtEmailEmpresa.Text;
-                    contato.EmailSecundario = txtEmailFuncionario.Text;
-                    contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
-                    contato.TelefoneReserva = txtTelefoneFuncionrio.Text;
-                    contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedor.Text); 
-
-                    contatoBLL.SavarContato(contato);
-
-                    MessageBox.Show("Cadastro feito com sucesso");
-
-                    return true;
-                }
-
-                
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-
-            return false;
-        }
+       
 
         private void BtnCadastroContato_Click(object sender, RoutedEventArgs e)
         {

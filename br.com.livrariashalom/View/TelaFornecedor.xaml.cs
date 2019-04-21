@@ -27,6 +27,11 @@ namespace br.com.livrariashalom.View
         private FornecedorBLL fornecedorBLL = new FornecedorBLL();
         private Fornecedor fornecedor = new Fornecedor();
 
+        private ContatoBLL contatoBLL = new ContatoBLL();
+        private Contato contato = new Contato();
+
+        private Endereco endereco = new Endereco();
+        private EnderecoBLL enderecoBLL = new EnderecoBLL();
 
         public TelaFornecedor()
         {
@@ -54,7 +59,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtRazao.Text == "" || txtFantasia.Text == "" ||  txtCnpjCpf.Text == "" || cmbEmpresa.Text == "" || txtIe.Text == "")
+                if (txtRazao.Text == "" || txtFantasia.Text == "" ||  txtCnpjCpf.Text == "" || cmbEmpresa.Text == "" || txtIe.Text == "" || txtFornecedor.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -72,9 +77,8 @@ namespace br.com.livrariashalom.View
                     MessageBox.Show("Cadastro feito com sucesso");
                     MessageBox.Show("Código do fornecedor: " + fornecedor.CodFornecedor);
 
-                    TelaContato telacontato = new TelaContato();
-                    telacontato.Show();
-                    this.Hide();
+
+                    tabControlFornecedor.SelectedIndex = 1;
 
                     return true;
                 }
@@ -171,6 +175,89 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
+        //Salvar Endereço 
+        private bool SalvarEndereco()
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtLogradouro.Text == "" || txtNumero.Text == "" || txtBairro.Text == "" || txtCidade.Text == "" || cmbEstado.Text == "" || txtCep.Text == "" || txtFornecedorEndereco.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    endereco.Logradouro = txtLogradouro.Text;
+                    endereco.Numero = Convert.ToInt16(txtNumero.Text);
+                    endereco.Bairro = txtBairro.Text;
+                    endereco.Cidade = txtCidade.Text;
+                    endereco.Estado = cmbEstado.Text;
+                    endereco.Cep = txtCep.Text;
+                    endereco.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorEndereco.Text);
+
+                    enderecoBLL.SalvarEndereco(endereco);
+
+                    MessageBox.Show("Fornecedor salvo com sucesso");
+                    MessageBox.Show("Código do fornecedor: " + fornecedor.CodFornecedor);
+
+
+                    tabControlFornecedor.SelectedIndex = 2;
+
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+
+        //Salvar Contato
+        public bool CadastrarContato(Contato contato)
+        {
+            try
+            {
+
+                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedor.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+
+                }
+                else
+                {
+
+                    contato.EmailPrimario = txtEmailEmpresa.Text;
+                    contato.EmailSecundario = txtEmailFuncionario.Text;
+                    contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
+                    contato.TelefoneReserva = txtTelefoneFuncionrio.Text;
+                    contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedor.Text);
+
+                    contatoBLL.SavarContato(contato);
+
+                    MessageBox.Show("Contato salvo com sucesso");
+
+                    tabControlFornecedor.SelectedIndex = 1;
+
+                    return true;
+                }
+
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+            return false;
+        }
+
+        
+
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             SalvarFornecedor();
@@ -221,6 +308,16 @@ namespace br.com.livrariashalom.View
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
             DeletarFornecedor();
+        }
+
+        private void TabControlFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnCadastroContato_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarContato(contato);
         }
     }
 }
