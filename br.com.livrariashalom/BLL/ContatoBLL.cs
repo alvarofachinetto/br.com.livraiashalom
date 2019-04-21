@@ -17,7 +17,6 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-                this.contatoDAO = new ContatoDAO();
                 contatoDAO.SalvarContato(contato);
             }
             catch (Exception error)

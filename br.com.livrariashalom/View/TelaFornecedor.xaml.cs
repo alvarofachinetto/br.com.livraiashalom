@@ -25,12 +25,7 @@ namespace br.com.livrariashalom.View
     public partial class TelaFornecedor : Window
     {
         private FornecedorBLL fornecedorBLL = new FornecedorBLL();
-        private Fornecedor fornecedor = new Fornecedor();
-
         private ContatoBLL contatoBLL = new ContatoBLL();
-        private Contato contato = new Contato();
-
-        private Endereco endereco = new Endereco();
         private EnderecoBLL enderecoBLL = new EnderecoBLL();
 
         public TelaFornecedor()
@@ -53,13 +48,13 @@ namespace br.com.livrariashalom.View
         }
 
         //recebe os valores para salvar
-        private bool SalvarFornecedor()
+        private bool SalvarFornecedor(Fornecedor fornecedor)
         {
 
             try
             {
                 //caso os campos estiverem vazios
-                if (txtRazao.Text == "" || txtFantasia.Text == "" ||  txtCnpjCpf.Text == "" || cmbEmpresa.Text == "" || txtIe.Text == "" || txtFornecedor.Text == "")
+                if (txtRazao.Text == "" || txtFantasia.Text == "" ||  txtCnpjCpf.Text == "" || cmbEmpresa.Text == "" || txtIe.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -107,7 +102,7 @@ namespace br.com.livrariashalom.View
         }
 
         //EditarFornecedor recebe os valores para alteração
-        private bool EditarFornecedor()
+        private bool EditarFornecedor(Fornecedor fornecedor)
         {
             try
             {
@@ -150,7 +145,7 @@ namespace br.com.livrariashalom.View
         }
 
         //deletar o fornecedor
-        private bool DeletarFornecedor()
+        private bool DeletarFornecedor(Fornecedor fornecedor)
         {
             if (txtcodFornecedor.Text == "")
             {
@@ -176,7 +171,7 @@ namespace br.com.livrariashalom.View
         }
 
         //Salvar Endereço 
-        private bool SalvarEndereco()
+        private bool SalvarEndereco(Endereco endereco)
         {
 
             try
@@ -194,15 +189,13 @@ namespace br.com.livrariashalom.View
                     endereco.Cidade = txtCidade.Text;
                     endereco.Estado = cmbEstado.Text;
                     endereco.Cep = txtCep.Text;
-                    endereco.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorEndereco.Text);
+                    endereco.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorEndereco.Text); //arrumar
 
                     enderecoBLL.SalvarEndereco(endereco);
 
                     MessageBox.Show("Fornecedor salvo com sucesso");
-                    MessageBox.Show("Código do fornecedor: " + fornecedor.CodFornecedor);
-
-
-                    tabControlFornecedor.SelectedIndex = 2;
+                    
+                    tabControlFornecedor.SelectedIndex = 2; //irá para proxima tela
 
                     return true;
                 }
@@ -222,8 +215,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-
-                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedor.Text == "")
+                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedorContato.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
 
@@ -235,13 +227,13 @@ namespace br.com.livrariashalom.View
                     contato.EmailSecundario = txtEmailFuncionario.Text;
                     contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
                     contato.TelefoneReserva = txtTelefoneFuncionrio.Text;
-                    contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedor.Text);
+                    contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorContato.Text);
 
                     contatoBLL.SavarContato(contato);
 
                     MessageBox.Show("Contato salvo com sucesso");
 
-                    tabControlFornecedor.SelectedIndex = 1;
+                    tabControlFornecedor.SelectedIndex = 0;
 
                     return true;
                 }
@@ -256,11 +248,11 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
-        
-
+        //botao cadastrar fornecedor
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            SalvarFornecedor();
+            Fornecedor fornecedor = new Fornecedor();
+            SalvarFornecedor(fornecedor);
         }
 
         private void CmbEmpresa_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -268,16 +260,19 @@ namespace br.com.livrariashalom.View
             String valor = cmbEmpresa.SelectedValue.ToString();
         }
 
+        //ler cpf ou cnpj
         private void TxtCnpjCpf_TextChanged(object sender, TextChangedEventArgs e)
         {
-            txtCnpjCpf.MaxLength = 18;
+            if (txtCnpjCpf.Text.Length == 18)
+            {
+                lblCnpjCpf.Content = "CNPJ"; //se tiver 18 caraceres a label se chamará cnpj
+            }else if (txtCnpjCpf.Text.Length == 14)
+            {
+                lblCnpjCpf.Content = "CPF";//se tiver 14 caraceres a label se chamará cpf
+            }
         }
 
-        private void BtnListar_Click(object sender, RoutedEventArgs e)
-        {
-            ListarFornecedor();
-        }
-        
+        //metodo para aparecer as informações nas labels
         private void DgFornecedor_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
@@ -299,25 +294,34 @@ namespace br.com.livrariashalom.View
             }
 
         }
-
+        //botao para editar fornecedor
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
-            EditarFornecedor();
+            Fornecedor fornecedor = new Fornecedor();
+            EditarFornecedor(fornecedor);
         }
-
+        //botao para excluir fornecedor
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            DeletarFornecedor();
+            Fornecedor fornecedor = new Fornecedor();
+            DeletarFornecedor(fornecedor);
         }
 
         private void TabControlFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-
+        //botao para salvar contato
         private void BtnCadastroContato_Click(object sender, RoutedEventArgs e)
         {
+            Contato contato = new Contato();
             CadastrarContato(contato);
+        }
+        //botao para cadastrar endereco
+        private void BtnCadastrarEndereco_Click(object sender, RoutedEventArgs e)
+        {
+            Endereco endereco = new Endereco();
+            SalvarEndereco(endereco);
         }
     }
 }

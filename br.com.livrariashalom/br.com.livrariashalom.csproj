@@ -60,6 +60,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BLL\ContatoBLL.cs" />
+    <Compile Include="BLL\EnderecoBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
     <Compile Include="BLL\LoginFuncionarioBLL.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />

@@ -33,7 +33,7 @@ namespace br.com.livrariashalom.View
         private void BtnCadastroContato_Click(object sender, RoutedEventArgs e)
         {
             
-            CadastrarContato(contato);
+           
         }
 
         private void txtFornecedor_TextChanged(object sender, TextChangedEventArgs e)
