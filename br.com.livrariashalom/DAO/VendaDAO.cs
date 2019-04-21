@@ -24,7 +24,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@nomeCli", venda.NomeCliente);
                 command.Parameters.AddWithValue("@telefoneCli", venda.Telefone);
                 command.Parameters.AddWithValue("@dataVenda", venda.DataVenda);
-                command.Parameters.AddWithValue("@codUsuario", venda.LoginFuncionario.CodUsuario);
+                command.Parameters.AddWithValue("@codUsuario", venda.LoginFuncionario.CodFuncionario);
                 command.Parameters.AddWithValue("@condicaoPagamento", venda.CodPrazo.CodCondPagamento);
                 command.Parameters.AddWithValue("@formaPagamento", venda.FormaPagamento);
                 command.Parameters.AddWithValue("@frete", venda.Frete);

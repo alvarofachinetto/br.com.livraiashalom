@@ -89,6 +89,12 @@
     <Compile Include="View\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TelaVenda.xaml.cs">
+      <DependentUpon>TelaVenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaFuncionario.xaml.cs">
+      <DependentUpon>TelaFuncionario.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Categoria.cs" />
@@ -146,6 +152,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaVenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaFuncionario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

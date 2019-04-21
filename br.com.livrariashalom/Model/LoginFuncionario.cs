@@ -10,20 +10,21 @@ namespace br.com.livrariashalom.Model
     
     public class LoginFuncionario
     {
-        private long codUsuario;
-        private String usuario;
+        private long codFuncionaro;
+        private String funcionario;
         private String senha;
         private string confSenha;
-        
-        public long CodUsuario
+        private String tipoFuncionario;
+
+        public long CodFuncionario
         {
-            get { return codUsuario; }
+            get { return codFuncionaro; }
         }
 
-        public String Usuario
+        public String Funcionario
         {
-            get { return usuario; }
-            set { usuario = value; }
+            get { return funcionario; }
+            set { funcionario = value; }
         }
 
         public String Senha
@@ -39,10 +40,10 @@ namespace br.com.livrariashalom.Model
         }
         
 
-        public TipoUsuario TipoUsuario
+        public String TipoFuncionario
         {
-            get { return tipoUsuario; }
-            set { tipoUsuario = value; }
+            get { return tipoFuncionario; }
+            set { tipoFuncionario = value; }
         }
     }
 }

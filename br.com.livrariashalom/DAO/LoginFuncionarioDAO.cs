@@ -24,10 +24,10 @@ namespace br.com.livrariashalom.DAO
                 command = new MySqlCommand("insert into loginfuncionario (usuario, senha, confirmacao_senha, tipo_usuario) values " +
                 "(@usuario, @senha, @confSenha, @tipousuario)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis de classe login 
-                command.Parameters.AddWithValue("@usuario", login.Usuario);
+                command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
                 command.Parameters.AddWithValue("@confirmacao_senha", login.ConfSenha);
-                command.Parameters.AddWithValue("@tipo_usuario", login.TipoUsuario);
+                command.Parameters.AddWithValue("@tipo_usuario", login.TipoFuncionario);
 
                 command.ExecuteNonQuery();
             }
@@ -78,11 +78,11 @@ namespace br.com.livrariashalom.DAO
                 command = new MySqlCommand("update loginfuncionario set usuario = @usuario, senha = @senha, " +
                 "confirmacao_senha = @confirmacao_senha, tipo_usuario = @tipo_usuario where codUsuario = @codUsuario", conexao);
 
-                command.Parameters.AddWithValue("@codUsuario", login.CodUsuario);
-                command.Parameters.AddWithValue("@usuario", login.Usuario);
+                command.Parameters.AddWithValue("@codUsuario", login.CodFuncionario);
+                command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
                 command.Parameters.AddWithValue("@confSenha", login.ConfSenha);
-                command.Parameters.AddWithValue("@tipousuario", login.TipoUsuario);
+                command.Parameters.AddWithValue("@tipousuario", login.TipoFuncionario);
 
                 command.ExecuteNonQuery();
 
@@ -106,7 +106,7 @@ namespace br.com.livrariashalom.DAO
                 Conectar();
 
                 command = new MySqlCommand("delete from loginfuncionario where codUsuario = @codUsuario", conexao);
-                command.Parameters.AddWithValue("@codUsuario", login.CodUsuario);
+                command.Parameters.AddWithValue("@codUsuario", login.CodFuncionario);
             }
             catch (Exception erro)
             {
@@ -127,7 +127,7 @@ namespace br.com.livrariashalom.DAO
                 Conectar();
                 command = new MySqlCommand("select * from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
 
-                command.Parameters.AddWithValue("@usuario", login.Usuario);
+                command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
 
                 command.ExecuteNonQuery();
