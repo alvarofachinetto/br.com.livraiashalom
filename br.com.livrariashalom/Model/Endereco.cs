@@ -15,7 +15,7 @@ namespace br.com.livrariashalom.Model
         private String cidade;
         private String estado;
         private String cep;
-        private Fornecedor fornecedor;
+        private Fornecedor fornecedor = new Fornecedor();
 
         public long CodEndereco
         {

@@ -16,11 +16,11 @@ namespace br.com.livrariashalom.MODEL
         private String editora;
         private String fase;
         private int qtd;
-        private CategoriaLivro categoriaLivro;
+        private CategoriaLivro categoriaLivro = new CategoriaLivro();
         private double valorUnit;
         private String descricao;
         private int qtdAlerta;
-        private Fornecedor codFornecedor;
+        private Fornecedor codFornecedor = new Fornecedor();
         
         public long CodLivro
         {

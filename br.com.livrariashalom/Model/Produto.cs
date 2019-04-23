@@ -11,10 +11,10 @@ namespace br.com.livrariashalom.Model
         private long codProduto;
         private String nomeProduto;
         private double valorUnit;
-        private String categoria;
+        private categoria;
         private int qtd;
         private int qtdAlerta;
-        private Fornecedor fornecedor;
+        private Fornecedor fornecedor = new Fornecedor();
 
         public long CodProduto
         {
