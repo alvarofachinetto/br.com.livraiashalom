@@ -59,11 +59,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BLL\CategoriaLivroBLL.cs" />
     <Compile Include="BLL\ContatoBLL.cs" />
     <Compile Include="BLL\EnderecoBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
+    <Compile Include="BLL\LivroBLL.cs" />
     <Compile Include="BLL\LoginFuncionarioBLL.cs" />
-    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\CategoriaLivroDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
@@ -77,11 +79,17 @@
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\ReceberContaDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
+    <Compile Include="View\TelaCategoriaLivro.xaml.cs">
+      <DependentUpon>TelaCategoriaLivro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TelaContato.xaml.cs">
       <DependentUpon>TelaContato.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaFornecedor.xaml.cs">
       <DependentUpon>TelaFornecedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaLivro.xaml.cs">
+      <DependentUpon>TelaLivro.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaLogin.xaml.cs">
       <DependentUpon>TelaLogin.xaml</DependentUpon>
@@ -97,7 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Categoria.cs" />
+    <Compile Include="Model\CategoriaLivro.cs" />
     <Compile Include="Model\Contato.cs" />
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="Model\FluxoCaixa.cs" />
@@ -139,11 +147,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\TelaCategoriaLivro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TelaContato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaFornecedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaLivro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

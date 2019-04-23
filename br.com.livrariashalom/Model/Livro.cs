@@ -7,13 +7,7 @@ using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.MODEL
 {
-    public enum CategoriaLivro
-    {
-        Biblia, Cura, Devocao, Espiritualidade, Estudo_Biblico, Evangelizacao, Familia,
-        Formacao_Humana, Ifantil, Jovem, EBook, Literatura, Livros_Ouvir, Maria_Emmir, Santos,
-        Teologia, Vocacao
-    }
-
+   
     public class Livro
     {
         private long codLivro;

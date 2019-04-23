@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using br.com.livrariashalom.Model;
 using System.Data;
 using System.Windows;
+using br.com.livrariashalom.View;
 
 namespace br.com.livrariashalom.DAO
 {
@@ -26,8 +27,8 @@ namespace br.com.livrariashalom.DAO
                 //parameters são os @value, AddWithValue são as variaveis de classe login 
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
-                command.Parameters.AddWithValue("@confirmacao_senha", login.ConfSenha);
-                command.Parameters.AddWithValue("@tipo_usuario", login.TipoFuncionario);
+                command.Parameters.AddWithValue("@confSenha", login.ConfSenha);
+                command.Parameters.AddWithValue("@tipousuario", login.TipoFuncionario);
 
                 command.ExecuteNonQuery();
             }
@@ -123,15 +124,31 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-
                 Conectar();
-                command = new MySqlCommand("select * from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
-
+                command = new MySqlCommand("select usuario, senha from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
-
                 command.ExecuteNonQuery();
-                
+
+                Boolean autenticar = command.ExecuteReader().HasRows;//verifica a informação no banco
+               
+                //verificar a autencação da senha
+                if (autenticar != true)
+                {
+                    MessageBox.Show("Usuário e/ou senha incorretos");
+                }
+                else
+                {
+                    MessageBox.Show("Welcome !");
+
+                    TelaPrincipal telaPrincipal = new TelaPrincipal();
+                    telaPrincipal.Show();
+
+                    TelaLogin telaLogin = new TelaLogin();
+                    telaLogin.Close();
+
+                }
+
             }
             catch (Exception erro)
             {
