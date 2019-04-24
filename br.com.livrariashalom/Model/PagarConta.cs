@@ -6,26 +6,22 @@ using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.Model
 {
-    public enum StatusPagar
-    {
-        Pago, Pagar
-    }
-
+    
     public class PagarConta
     {
         private long codPagarConta;
-        private String data;
+        private DateTime data;
         private String descricao;
         private double valor;
-        private String dataVencimento;
-        private StatusPagar status;
+        private DateTime dataVencimento;
+        private String status;
 
         public long CodPagarConta
         {
             get { return codPagarConta; }
         }
 
-        public String Data
+        public DateTime Data
         {
             get { return data; }
             set { data = value; }
@@ -43,13 +39,13 @@ namespace br.com.livrariashalom.Model
             set { valor = value; }
         }
 
-        public String DataVencimento
+        public DateTime DataVencimento
         {
             get { return dataVencimento; }
             set { dataVencimento = value; }
         }
 
-        public StatusPagar Status
+        public String Status
         {
             get { return status; }
             set { status = value; }

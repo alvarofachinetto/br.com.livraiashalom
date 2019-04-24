@@ -1,0 +1,24 @@
+﻿<Window x:Class="br.com.livrariashalom.View.TelaFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:br.com.livrariashalom.View"
+        mc:Ignorable="d"
+        Title="Funcionario" Height="323.333" Width="515.556" Background="Black">
+    <Grid x:Name="gridFuncionario">
+        <Label Content="Funcionario" HorizontalAlignment="Left" Margin="40,31,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Senha" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Confirmação de Senha" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Tipo Funcionario" HorizontalAlignment="Left" Margin="40,133,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="txtFuncionario" HorizontalAlignment="Left" Height="23" Margin="223,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
+        <PasswordBox x:Name="pswSenha" HorizontalAlignment="Left" Margin="223,71,0,0" VerticalAlignment="Top" Width="194" Height="23" TextInput="PswSenha_TextInput"/>
+        <PasswordBox x:Name="pswConfSenha" HorizontalAlignment="Left" Margin="223,105,0,0" VerticalAlignment="Top" Width="194" Height="23" TextInput="PswConfSenha_TextInput"/>
+        <ComboBox x:Name="cmbTipoFuncionario" HorizontalAlignment="Left" Margin="223,140,0,0" VerticalAlignment="Top" Width="148">
+            <ComboBoxItem Content="Administrador"></ComboBoxItem>
+            <ComboBoxItem Content="Usuário"></ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="380,207,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click"/>
+
+    </Grid>
+</Window>

@@ -28,7 +28,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@fase", livro.Fase);
                 command.Parameters.AddWithValue("@quantidade", livro.Qtd);
                 command.Parameters.AddWithValue("@qtdAlerta", livro.QtdAlerta);
-                command.Parameters.AddWithValue("@categoriaLivro", livro.CategoriaLivro);
+                command.Parameters.AddWithValue("@categoriaLivro", livro.Categoria);
                 command.Parameters.AddWithValue("@valorUnit", livro.ValorUnit);
                 command.Parameters.AddWithValue("@descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@codFornecedor", livro.Fornecedor.CodFornecedor);
@@ -89,7 +89,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@editora", livro.Editora);
                 command.Parameters.AddWithValue("@fase", livro.Fase);
                 command.Parameters.AddWithValue("@quantidade", livro.Qtd);
-                command.Parameters.AddWithValue("@categoriaLivro", livro.CategoriaLivro);
+                command.Parameters.AddWithValue("@categoriaLivro", livro.Categoria);
                 command.Parameters.AddWithValue("@valorUnit", livro.ValorUnit);
                 command.Parameters.AddWithValue("@descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@codFornecedor", livro.Fornecedor.CodFornecedor);

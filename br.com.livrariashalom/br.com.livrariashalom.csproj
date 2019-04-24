@@ -59,14 +59,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BLL\CategoriaLivroBLL.cs" />
+    <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\ContatoBLL.cs" />
     <Compile Include="BLL\EnderecoBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
     <Compile Include="BLL\LivroBLL.cs" />
     <Compile Include="BLL\LoginFuncionarioBLL.cs" />
+    <Compile Include="BLL\PrazoBLL.cs" />
     <Compile Include="BLL\ProdutoBLL.cs" />
-    <Compile Include="DAO\CategoriaLivroDAO.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
@@ -80,8 +81,8 @@
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\ReceberContaDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
-    <Compile Include="View\TelaCategoriaLivro.xaml.cs">
-      <DependentUpon>TelaCategoriaLivro.xaml</DependentUpon>
+    <Compile Include="View\TelaCategoria.xaml.cs">
+      <DependentUpon>TelaCategoria.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaContato.xaml.cs">
       <DependentUpon>TelaContato.xaml</DependentUpon>
@@ -94,6 +95,12 @@
     </Compile>
     <Compile Include="View\TelaLogin.xaml.cs">
       <DependentUpon>TelaLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaPagarConta.xaml.cs">
+      <DependentUpon>TelaPagarConta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaPrazo.xaml.cs">
+      <DependentUpon>TelaPrazo.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
@@ -109,7 +116,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CategoriaLivro.cs" />
+    <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\Contato.cs" />
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="Model\FluxoCaixa.cs" />
@@ -151,7 +158,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\TelaCategoriaLivro.xaml">
+    <Page Include="View\TelaCategoria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +175,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaPagarConta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaPrazo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

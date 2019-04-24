@@ -323,5 +323,10 @@ namespace br.com.livrariashalom.View
             Endereco endereco = new Endereco();
             SalvarEndereco(endereco);
         }
+
+        private void BtnListar_Click(object sender, RoutedEventArgs e)
+        {
+            ListarFornecedor();
+        }
     }
 }

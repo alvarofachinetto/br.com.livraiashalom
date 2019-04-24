@@ -11,7 +11,7 @@ namespace br.com.livrariashalom.Model
         private long codProduto;
         private String nomeProduto;
         private double valorUnit;
-        private categoria;
+        private Categoria categoria;
         private int qtd;
         private int qtdAlerta;
         private Fornecedor fornecedor = new Fornecedor();
@@ -33,7 +33,7 @@ namespace br.com.livrariashalom.Model
             set { valorUnit = value; }
         }
 
-        public String Categoria
+        public Categoria Categoria
         {
             get { return categoria; }
             set { categoria = value; }
