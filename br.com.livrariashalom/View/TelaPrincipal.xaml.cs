@@ -77,5 +77,19 @@ namespace br.com.livrariashalom.View
             telaPrazo.Show();
             this.Hide();
         }
+
+        private void MenuItem_Click_PagarContas(object sender, RoutedEventArgs e)
+        {
+            TelaPagarConta telaPagarConta = new TelaPagarConta();
+            telaPagarConta.Show();
+            this.Hide();
+        }
+
+        private void MenuItem_Click_PagarReceber(object sender, RoutedEventArgs e)
+        {
+            TelaReceberConta telaReceberConta = new TelaReceberConta();
+            telaReceberConta.Show();
+            this.Hide();
+        }
     }
 }

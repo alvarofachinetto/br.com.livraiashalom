@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.Model
 {
-    public enum StatusReceber
-    {
-        Recebido, Cobrar
-    }
+    
 
     public class ReceberConta
     {
         private long codReceberConta;
-        private String data;
+        private DateTime data;
         private String descricao;
         private double valor;
-        private StatusReceber status;
+        private String status;
 
         public long CodReceberConta
         {
             get { return codReceberConta; }
         }
 
-        public String Data
+        public DateTime Data
         {
             get { return data; }
             set { data = value; }
@@ -43,7 +40,7 @@ namespace br.com.livrariashalom.Model
         }
 
       
-        public StatusReceber Status
+        public String Status
         {
             get { return status; }
             set { status = value; }

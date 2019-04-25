@@ -20,9 +20,9 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into receberconta (data, descricao, valor, status) values (@data, @descricao, @valor, @status)");
+                command = new MySqlCommand("insert into receberconta (data, descricao, valor, status) values (@data, @descricao, @valor, @status)", conexao);
                 command.Parameters.AddWithValue("@data", receberConta.Data);
-                command.Parameters.AddWithValue("@dscricao", receberConta.Descricao);
+                command.Parameters.AddWithValue("@descricao", receberConta.Descricao);
                 command.Parameters.AddWithValue("@valor", receberConta.Valor);
                 command.Parameters.AddWithValue("@status", receberConta.Status);
 

@@ -1,0 +1,17 @@
+﻿<Window x:Class="br.com.livrariashalom.View.TelaCategoria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:br.com.livrariashalom.View"
+        mc:Ignorable="d"
+        Title="TelaCategoriaLivro" Height="224" Width="520" Background="#FF080404">
+    <Grid>
+        <Label Content="Código" HorizontalAlignment="Left" Margin="49,49,0,0" VerticalAlignment="Top" Foreground="#FFFDFD04" FontWeight="Bold"/>
+        <Label Content="Categoria" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Foreground="#FFFDFD04" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodCategoriaLivro" HorizontalAlignment="Left" Height="23" Margin="129,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51"/>
+        <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Height="23" Margin="129,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="366,136,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnCadastrar_Click"/>
+
+    </Grid>
+</Window>

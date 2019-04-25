@@ -65,8 +65,10 @@
     <Compile Include="BLL\FornecedorBLL.cs" />
     <Compile Include="BLL\LivroBLL.cs" />
     <Compile Include="BLL\LoginFuncionarioBLL.cs" />
+    <Compile Include="BLL\PagarContaBLL.cs" />
     <Compile Include="BLL\PrazoBLL.cs" />
     <Compile Include="BLL\ProdutoBLL.cs" />
+    <Compile Include="BLL\ReceberContaBLL.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />
@@ -90,6 +92,9 @@
     <Compile Include="View\TelaFornecedor.xaml.cs">
       <DependentUpon>TelaFornecedor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TelaFuxoCaixa.xaml.cs">
+      <DependentUpon>TelaFuxoCaixa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TelaLivro.xaml.cs">
       <DependentUpon>TelaLivro.xaml</DependentUpon>
     </Compile>
@@ -107,6 +112,9 @@
     </Compile>
     <Compile Include="View\TelaProduto.xaml.cs">
       <DependentUpon>TelaProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaReceberConta.xaml.cs">
+      <DependentUpon>TelaReceberConta.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaVenda.xaml.cs">
       <DependentUpon>TelaVenda.xaml</DependentUpon>
@@ -170,6 +178,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\TelaFuxoCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TelaLivro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaReceberConta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

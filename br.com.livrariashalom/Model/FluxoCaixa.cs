@@ -22,7 +22,7 @@ namespace br.com.livrariashalom.Model
         public long CodFluxo
         {
             get { return codFluxo; }
-
+            set { codFluxo = value; }
         }
 
         public String Dia

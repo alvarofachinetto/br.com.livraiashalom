@@ -24,7 +24,11 @@
             <MenuItem x:Name="barmenuItemVenda" Header="Venda" FontWeight="Bold" FontSize="14"/>
             <MenuItem x:Name="menuItemEstoque" Header="Estoque" FontWeight="Bold" FontSize="14"/>
             <MenuItem x:Name="menuItemFuxoCaixa" Header="Fluxo de Caixa" FontWeight="Bold" FontSize="14"/>
-            <MenuItem x:Name="menuItemContas" Header="Contas" FontWeight="Bold" FontSize="14"/>
+            <MenuItem x:Name="menuItemContas" Header="Contas" FontWeight="Bold" FontSize="14">
+                <MenuItem x:Name="menuItemPagarContas" Header="Contas a Pagar" Click="MenuItem_Click_PagarContas"/>
+                <Separator/>
+                <MenuItem x:Name="menuItemReceberContas" Header="Contas a Receber" Click="MenuItem_Click_PagarReceber"/>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>
