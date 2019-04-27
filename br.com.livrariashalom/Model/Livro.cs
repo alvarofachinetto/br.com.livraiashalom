@@ -25,6 +25,7 @@ namespace br.com.livrariashalom.MODEL
         public long CodLivro
         {
             get{return codLivro;}
+            set { codLivro = value; }
         }
 
         public String Titulo

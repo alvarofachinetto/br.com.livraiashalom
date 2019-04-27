@@ -19,6 +19,7 @@ namespace br.com.livrariashalom.Model
         public long CodReceberConta
         {
             get { return codReceberConta; }
+            set { codReceberConta = value; }
         }
 
         public DateTime Data

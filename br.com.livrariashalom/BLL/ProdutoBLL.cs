@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,5 +25,24 @@ namespace br.com.livrariashalom.BLL
                 MessageBox.Show("Erro: " + error);
             }
         }
+
+        public DataTable ListarProduto()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt = produtoDAO.ListarProduto();
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                throw error;
+
+            }
+
+        }
     }
+
 }

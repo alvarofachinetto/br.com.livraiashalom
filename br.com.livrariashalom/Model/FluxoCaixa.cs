@@ -10,14 +10,14 @@ namespace br.com.livrariashalom.Model
     public class FluxoCaixa
     {
         private long codFluxo;
-        private String dia;
+        private DateTime dia;
         private double valorPrevisto;
         private String observacoes;
         private double valorEntrada;
         private double valorSaida;
         private double saldo;
-        private PagarConta pagarConta;
-        private ReceberConta receberConta;
+        private PagarConta pagarConta = new PagarConta();
+        private ReceberConta receberConta = new ReceberConta();
         
         public long CodFluxo
         {
@@ -25,7 +25,7 @@ namespace br.com.livrariashalom.Model
             set { codFluxo = value; }
         }
 
-        public String Dia
+        public DateTime Dia
         {
             get { return dia; }
             set { dia = value; }

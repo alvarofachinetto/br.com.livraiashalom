@@ -78,6 +78,7 @@ namespace br.com.livrariashalom.View
             this.Hide();
         }
 
+        //tela pagar contas
         private void MenuItem_Click_PagarContas(object sender, RoutedEventArgs e)
         {
             TelaPagarConta telaPagarConta = new TelaPagarConta();
@@ -85,7 +86,24 @@ namespace br.com.livrariashalom.View
             this.Hide();
         }
 
-        private void MenuItem_Click_PagarReceber(object sender, RoutedEventArgs e)
+        //tela fluxo de caixa
+        private void MenuItemFluxo_Click(object sender, RoutedEventArgs e)
+        {
+            TelaFuxoCaixa telaFuxoCaixa = new TelaFuxoCaixa();
+            telaFuxoCaixa.Show();
+            this.Hide();
+        }
+
+        //tela estoque
+        private void MenuItem_Click_EstoqueLivroProduto(object sender, RoutedEventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.Show();
+            this.Hide();
+        }
+
+        //receber contas
+        private void MenuItem_Click_ReceberContas(object sender, RoutedEventArgs e)
         {
             TelaReceberConta telaReceberConta = new TelaReceberConta();
             telaReceberConta.Show();

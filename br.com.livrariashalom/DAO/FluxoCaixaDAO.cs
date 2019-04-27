@@ -13,14 +13,14 @@ namespace br.com.livrariashalom.DAO
     {
         MySqlCommand command = null;
 
-        public void SalvarPagarConta(FluxoCaixa fluxoCaixa)
+        public void SalvarFluxo(FluxoCaixa fluxoCaixa)
         {
             try
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into fluxocaixa (dia, observacoes, valorEntrada, valorSaida, saldo, valorPrevisto, PagarConta_idPagarConta, ReceberConta_idReceberConta) " +
-                "values (@dia, @observacoes, @valorEntrada, @valorSaida, @saldo, @valorPrevisto, @codPagarConta, @codReceberConta)");
+                command = new MySqlCommand("insert into fluxocaixa (dia, observacoes, valorEntrada, valorSaida, saldo, valorPrevisto, PagarConta_codPagarConta, ReceberConta_codReceberConta) " +
+                "values (@dia, @observacoes, @valorEntrada, @valorSaida, @saldo, @valorPrevisto, @codPagarConta, @codReceberConta)", conexao);
                 command.Parameters.AddWithValue("@dia", fluxoCaixa.Dia);
                 command.Parameters.AddWithValue("@observacoes", fluxoCaixa.Observacoes);
                 command.Parameters.AddWithValue("@valorEntrada", fluxoCaixa.ValorEntrada);
@@ -28,7 +28,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@saldo", fluxoCaixa.Saldo);
                 command.Parameters.AddWithValue("@valorPrevisto", fluxoCaixa.ValorPrevisto);
                 command.Parameters.AddWithValue("@codPagarConta", fluxoCaixa.PagarConta.CodPagarConta);
-                command.Parameters.AddWithValue("@codReceberConta", fluxoCaixa.ReceberConta);
+                command.Parameters.AddWithValue("@codReceberConta", fluxoCaixa.ReceberConta.CodReceberConta);
 
 
                 command.ExecuteNonQuery();

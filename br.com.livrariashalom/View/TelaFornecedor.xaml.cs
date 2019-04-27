@@ -255,6 +255,7 @@ namespace br.com.livrariashalom.View
             SalvarFornecedor(fornecedor);
         }
 
+        //aparece informação no combobox
         private void CmbEmpresa_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String valor = cmbEmpresa.SelectedValue.ToString();
