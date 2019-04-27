@@ -13,14 +13,13 @@ namespace br.com.livrariashalom.Model
         private long codVenda;
         private String nomeCliente;
         private String telefoneCli;
-        private String dataVenda;
+        private DateTime dataVenda;
         private double frete;
         private String formaPagamento;
         private Prazo codPrazo;
         private LoginFuncionario loginFuncionario;
-        private int parcelamento;
         private String observacao;
-        private double totalVenda;
+        
 
         public long CodVenda
         {
@@ -33,7 +32,7 @@ namespace br.com.livrariashalom.Model
             set { nomeCliente = value; }
         }
 
-        public String DataVenda
+        public DateTime DataVenda
         {
             get { return dataVenda; }
             set { dataVenda = value; }
@@ -70,22 +69,11 @@ namespace br.com.livrariashalom.Model
             set { loginFuncionario = value; }
         }
 
-        public int Parcelamento
-        {
-            get { return parcelamento; }
-            set { parcelamento = value; }
-        }
-
         public String Observacao
         {
             get { return observacao; }
             set { observacao = value; }
         }
 
-        public double TotalVenda
-        {
-            get { return totalVenda; }
-            set { totalVenda = value; }
-        }
     }
 }

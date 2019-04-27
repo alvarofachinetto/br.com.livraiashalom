@@ -14,9 +14,9 @@ namespace br.com.livrariashalom.Model
         private int quantidade;
         private double subTotal;
         private double valorTot;
-        private Produto produto;
-        private Livro livro;
-        private Venda venda;
+        private Produto produto = new Produto();
+        private Livro livro = new Livro();
+        private Venda venda = new Venda();
 
         public long CodItemVenda
         {

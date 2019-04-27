@@ -64,12 +64,14 @@
     <Compile Include="BLL\EnderecoBLL.cs" />
     <Compile Include="BLL\FluxoCaixaBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
+    <Compile Include="BLL\ItemBLL.cs" />
     <Compile Include="BLL\LivroBLL.cs" />
     <Compile Include="BLL\LoginFuncionarioBLL.cs" />
     <Compile Include="BLL\PagarContaBLL.cs" />
     <Compile Include="BLL\PrazoBLL.cs" />
     <Compile Include="BLL\ProdutoBLL.cs" />
     <Compile Include="BLL\ReceberContaBLL.cs" />
+    <Compile Include="BLL\VendaBLL.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />

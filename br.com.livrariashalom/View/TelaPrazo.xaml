@@ -15,7 +15,9 @@
         <Label Content="Condição Pagamento" HorizontalAlignment="Left" Margin="68,141,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" Height="38" Width="200" FontSize="18"/>
         <TextBox x:Name="txtCodigo" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="0,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"/>
         <TextBox x:Name="txtCondPagamento" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="0,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
-        <Button x:Name="btnPrazo" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="203,215,0,0" VerticalAlignment="Top" Width="88" Height="44" Click="BtnPrazo_Click"/>
+        <Button x:Name="btnPrazo" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="277,238,0,0" VerticalAlignment="Top" Width="88" Height="44" Click="BtnPrazo_Click"/>
+        <Label Content="Pracelamento" HorizontalAlignment="Left" Margin="68,184,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" Height="38" Width="200" FontSize="18"/>
+        <TextBox x:Name="txtParcelamento" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
 
     </Grid>
 </Window>

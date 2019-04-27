@@ -20,10 +20,10 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into prazo (condicao_pagamento) value (@condicao_pagamento)", conexao);
+                command = new MySqlCommand("insert into prazo (condicao_pagamento, parcelamento) value (@condicao_pagamento, @parcelamento)", conexao);
 
                 command.Parameters.AddWithValue("@condicao_pagamento", prazo.CondPagamento);
-                
+                command.Parameters.AddWithValue("@parcelamento", prazo.Parcelamento);
                 command.ExecuteNonQuery();
             }
             catch (Exception error)

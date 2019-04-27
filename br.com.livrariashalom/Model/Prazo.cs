@@ -10,6 +10,7 @@ namespace br.com.livrariashalom.Model
     {
         private long codCondPagamento;
         private String condPagamento;
+        private int parcelamento;
         
 
         public long CodCondPagamento
@@ -24,6 +25,10 @@ namespace br.com.livrariashalom.Model
             set { condPagamento = value; }
         }
 
-        
+        public int Parcelamento
+        {
+            get { return parcelamento; }
+            set { parcelamento = value; }
+        }
     }
 }

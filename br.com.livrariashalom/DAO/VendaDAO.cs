@@ -18,18 +18,16 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into venda (nome_cliente, telefoneCli, data_venda, LoginFuncionario_codUsusario, Prazo_codCondicao_Pagamento, forma_pagamento, frete, parcelamento, valorVenda, observacoes)" +
-                " values (@nomeCli, @telefoneCli, @dataVenda, @codUsuario, @condicaoPagamento, @formaPagamento, @frete, @parcelamento, @valorVenda, @observacoes)");
+                command = new MySqlCommand("insert into venda (nome_cliente, telefoneCli, data_venda, LoginFuncionario_codUsusario, Prazo_codCondicao_Pagamento, forma_pagamento, frete,  observacoes)" +
+                " values (@nomeCli, @telefoneCli, @dataVenda, @codFuncionario, @condicaoPagamento, @formaPagamento, @frete, @observacoes)");
 
                 command.Parameters.AddWithValue("@nomeCli", venda.NomeCliente);
                 command.Parameters.AddWithValue("@telefoneCli", venda.Telefone);
                 command.Parameters.AddWithValue("@dataVenda", venda.DataVenda);
-                command.Parameters.AddWithValue("@codUsuario", venda.LoginFuncionario.CodFuncionario);
+                command.Parameters.AddWithValue("@codFuncionario", venda.LoginFuncionario.CodFuncionario);
                 command.Parameters.AddWithValue("@condicaoPagamento", venda.CodPrazo.CodCondPagamento);
                 command.Parameters.AddWithValue("@formaPagamento", venda.FormaPagamento);
                 command.Parameters.AddWithValue("@frete", venda.Frete);
-                command.Parameters.AddWithValue("@parcelamento", venda.Parcelamento);
-                command.Parameters.AddWithValue("@valorVenda", venda.TotalVenda);
                 command.Parameters.AddWithValue("@observacoes", venda.Observacao);
                 
                 command.ExecuteNonQuery();

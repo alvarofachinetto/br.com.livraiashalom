@@ -34,13 +34,14 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtCondPagamento.Text == "")
+                if (txtCondPagamento.Text == "" || txtParcelamento.Text == "") 
                 {
                     MessageBox.Show("É obrigatório preencher a condição pagamento");
                 }
                 else
                 {
                     prazo.CondPagamento = txtCondPagamento.Text;
+                    prazo.Parcelamento = Convert.ToInt16(txtParcelamento.Text);
                     prazoBLL.SalvaPrazo(prazo);
 
                     MessageBox.Show("Cadastro feito com sucesso");
