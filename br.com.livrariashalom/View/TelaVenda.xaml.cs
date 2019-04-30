@@ -1,4 +1,6 @@
-﻿using System;
+﻿using br.com.livrariashalom.BLL;
+using br.com.livrariashalom.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,96 @@ namespace br.com.livrariashalom.View
     /// </summary>
     public partial class TelaVendas : Window
     {
+        private VendaBLL vendaBLL;
+        private ItemVendaBLL itemVendaBLL; 
+
         public TelaVendas()
         {
             InitializeComponent();
+        }
+
+        //recebe os valores para salvar
+        private bool SalvarVenda(Venda venda)
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCliente.Text == "" || txtData.Text == "" || txtFrete.Text == "" || cmbFormaPag.Text == "" || txtCodPrazo.Text == "" || txtCodVendedor.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    venda.NomeCliente = txtCliente.Text;
+                    venda.Telefone = txtTelefone.Text;
+                    venda.LoginFuncionario.CodFuncionario = Convert.ToInt32(txtCodVendedor.Text);
+                    venda.DataVenda = Convert.ToDateTime(txtData.Text);
+                    venda.FormaPagamento = cmbFormaPag.Text;
+                    venda.Frete = Convert.ToDouble(txtFrete.Text);
+                    venda.CodPrazo.CodCondPagamento = Convert.ToInt16(txtCodPrazo.Text);
+                    venda.Observacao = txtObservacao.Text;
+
+
+                    vendaBLL = new VendaBLL();
+                    vendaBLL.SalvarVenda(venda);
+                    
+                    MessageBox.Show("Cadastro feito com sucesso");
+                    MessageBox.Show("Código do venda: " + venda.CodVenda);
+
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+        private bool SalvarItem(ItemVenda itemVenda)
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtQtd.Text == "" || txtSubTotal.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+                    itemVenda.Livro.CodLivro = Convert.ToInt32(txtCodLivro.Text);
+                    itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
+                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+
+                    itemVendaBLL = new ItemVendaBLL();
+                    itemVendaBLL.SalvarItem(itemVenda);
+
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+        private void BtnPesquisarLivro_Click(object sender, RoutedEventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.Show();
+        }
+
+        private void TxtCodLivro_TextChanged(object sender, TextChangedEventArgs e)
+        {
+          
         }
     }
 }

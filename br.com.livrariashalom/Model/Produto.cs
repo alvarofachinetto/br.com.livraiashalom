@@ -19,6 +19,7 @@ namespace br.com.livrariashalom.Model
         public long CodProduto
         {
             get { return codProduto; }
+            set { codProduto = value; }
         }
 
         public String NomeProduto

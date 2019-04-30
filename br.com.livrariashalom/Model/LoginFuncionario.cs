@@ -19,6 +19,7 @@ namespace br.com.livrariashalom.Model
         public long CodFuncionario
         {
             get { return codFuncionaro; }
+            set { codFuncionaro = value; }
         }
 
         public String Funcionario

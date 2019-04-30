@@ -18,8 +18,8 @@
         <Label Content="Forma Pag." HorizontalAlignment="Left" Margin="527,66,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <Label Content="Prazo" HorizontalAlignment="Left" Margin="527,94,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtCodPrazo" HorizontalAlignment="Left" Height="23" Margin="665,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
-        <Label Content="Total" HorizontalAlignment="Left" Margin="562,577,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="683,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="11,574,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="132,577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Vendedor" HorizontalAlignment="Left" Margin="42,122,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtCodVendedor" HorizontalAlignment="Left" Height="23" Margin="163,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label Content="Obsevação" HorizontalAlignment="Left" Margin="42,164,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
@@ -37,6 +37,8 @@
         <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="623,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label Content="Frete" HorizontalAlignment="Left" Margin="527,122,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtFrete" HorizontalAlignment="Left" Height="23" Margin="665,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="687,562,0,0" VerticalAlignment="Top" Width="116" Height="44"/>
+        <Button x:Name="btnPesquisarLivro" Content="..." HorizontalAlignment="Left" Margin="361,287,0,0" VerticalAlignment="Top" Width="22" Height="23"/>
 
     </Grid>
 </Window>

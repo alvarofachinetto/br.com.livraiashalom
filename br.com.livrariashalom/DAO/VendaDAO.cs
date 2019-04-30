@@ -61,7 +61,6 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@condicaoPagamento", venda.CodPrazo.CodCondPagamento);
                 command.Parameters.AddWithValue("@formaPagamento", venda.FormaPagamento);
                 command.Parameters.AddWithValue("@frete", venda.Frete);
-                command.Parameters.AddWithValue("@parcelamento", venda.Parcelamento);
                 command.Parameters.AddWithValue("@observacoes", venda.Observacao);
                 command.Parameters.AddWithValue("@codVenda", venda.CodVenda);
                 
