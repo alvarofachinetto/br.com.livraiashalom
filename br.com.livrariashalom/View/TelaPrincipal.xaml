@@ -26,7 +26,10 @@
                 <Separator/>
                 <MenuItem x:Name="menuItemPrazo" Header="Prazo" Click="MenuItemPrazo_Click"/>
             </MenuItem>
-            <MenuItem x:Name="barmenuItemVenda" Header="Venda" FontWeight="Bold" FontSize="14"/>
+            <MenuItem x:Name="barmenuItemVenda" Header="Venda" FontWeight="Bold" FontSize="14">
+                <MenuItem x:Name="menuItemVenda" Header="Venda" Click="MenuItemVenda_Click"/>
+
+            </MenuItem>
             <MenuItem x:Name="menuItemEstoque" Header="Estoque" FontWeight="Bold" FontSize="14">
                 <MenuItem x:Name="menuItemEstoqueLivroProduto" Header="Livros e Produtos" Click="MenuItem_Click_EstoqueLivroProduto"/>
             </MenuItem>

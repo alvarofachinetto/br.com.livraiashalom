@@ -10,14 +10,16 @@
         <Label Content="Quantidade" HorizontalAlignment="Left" Margin="16,25,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtQtd" HorizontalAlignment="Left" Height="23" Margin="137,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label Content="Produto" HorizontalAlignment="Left" Margin="16,81,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-        <TextBox x:Name="txtCodProduto" HorizontalAlignment="Left" Height="23" Margin="137,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtCodProduto" HorizontalAlignment="Left" Height="23" Margin="137,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" TextChanged="TxtCodProduto_TextChanged"/>
         <Label Content="Livro" HorizontalAlignment="Left" Margin="16,53,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="137,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" TextChanged="TxtCodLivro_TextChanged"/>
         <Label Content="Sub Total" HorizontalAlignment="Left" Margin="16,109,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-        <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="137,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="137,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" TextChanged="TxtSubTotal_TextChanged"/>
         <Button x:Name="btnPesquisarLivro" Content="..." HorizontalAlignment="Left" Margin="335,56,0,0" VerticalAlignment="Top" Width="22" Height="23" Click="BtnPesquisarLivro_Click"/>
-        <Button x:Name="btnAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="238,182,0,0" VerticalAlignment="Top" Width="79" Height="38"/>
+        <Button x:Name="btnAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="238,182,0,0" VerticalAlignment="Top" Width="79" Height="38" Click="BtnAdicionar_Click"/>
         <Button x:Name="btnPesquisarLivro_Copy" Content="..." HorizontalAlignment="Left" Margin="335,84,0,0" VerticalAlignment="Top" Width="22" Height="23" Click="BtnPesquisarLivro_Click"/>
+        <Label Content="Venda" HorizontalAlignment="Left" Margin="16,137,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodVenda" HorizontalAlignment="Left" Height="23" Margin="137,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" TextChanged="TxtSubTotal_TextChanged"/>
 
     </Grid>
 </Window>

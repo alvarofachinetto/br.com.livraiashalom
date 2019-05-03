@@ -24,6 +24,7 @@ namespace br.com.livrariashalom.Model
         public long CodVenda
         {
             get { return codVenda; }
+            set { codVenda = value; }
         }
 
         public String NomeCliente
