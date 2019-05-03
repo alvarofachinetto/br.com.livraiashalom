@@ -64,7 +64,7 @@
     <Compile Include="BLL\EnderecoBLL.cs" />
     <Compile Include="BLL\FluxoCaixaBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
-    <Compile Include="BLL\ItemBLL.cs" />
+    <Compile Include="BLL\ItemVendaBLL.cs" />
     <Compile Include="BLL\LivroBLL.cs" />
     <Compile Include="BLL\LoginFuncionarioBLL.cs" />
     <Compile Include="BLL\PagarContaBLL.cs" />
@@ -100,6 +100,9 @@
     </Compile>
     <Compile Include="View\TelaFuxoCaixa.xaml.cs">
       <DependentUpon>TelaFuxoCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaItemVenda.xaml.cs">
+      <DependentUpon>TelaItemVenda.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaLivro.xaml.cs">
       <DependentUpon>TelaLivro.xaml</DependentUpon>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaFuxoCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaItemVenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
