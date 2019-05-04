@@ -1,5 +1,4 @@
-﻿using br.com.livrariashalom.Model;
-using br.com.livrariashalom.MODEL;
+﻿using br.com.livrariashalom.MODEL;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace br.com.livrariashalom.DAO
 {
@@ -130,31 +128,7 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
-        //calcula o subTotal na venda
-        public double CalcularSubTotal()
-        {
-            double subTotal = 0;
-            try
-            {
-                var reader = command.ExecuteReader();
-                
-                if (reader.HasRows)
-                {
-                    ItemVenda itemVenda = new ItemVenda();
 
-                    reader.Read();
-                    var preco = reader["valorUnit"].ToString();
 
-                    subTotal = (itemVenda.Quantidade * Convert.ToDouble(preco));
-                }
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-
-            return subTotal;
-        }
     }
 }

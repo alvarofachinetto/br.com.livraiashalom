@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaVendas" Height="598.235" Width="823.529" Background="Black">
+        Title="TelaVendas" Height="640.588" Width="823.529" Background="Black">
     <Grid>
         <Label Content="Código Venda" HorizontalAlignment="Left" Margin="42,37,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtCodVenda" HorizontalAlignment="Left" Height="23" Margin="163,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
@@ -18,18 +18,27 @@
         <Label Content="Forma Pag." HorizontalAlignment="Left" Margin="527,66,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <Label Content="Prazo" HorizontalAlignment="Left" Margin="527,94,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtCodPrazo" HorizontalAlignment="Left" Height="23" Margin="665,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
-        <Label Content="Total" HorizontalAlignment="Left" Margin="14,513,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="135,516,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="11,574,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="132,577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Vendedor" HorizontalAlignment="Left" Margin="42,122,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtCodVendedor" HorizontalAlignment="Left" Height="23" Margin="163,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label Content="Obsevação" HorizontalAlignment="Left" Margin="42,164,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtObservacao" HorizontalAlignment="Left" Height="84" Margin="163,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="640"/>
         <ComboBox x:Name="cmbFormaPag" HorizontalAlignment="Left" Margin="665,69,0,0" VerticalAlignment="Top" Width="138"/>
-        <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="13,317,0,0" VerticalAlignment="Top" Width="793"/>
-        <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="116" Height="44" Click="BtnAdicionarItem_Click"/>
+        <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="10,378,0,0" VerticalAlignment="Top" Width="793"/>
+        <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="687,329,0,0" VerticalAlignment="Top" Width="116" Height="44"/>
+        <Label Content="Quantidade" HorizontalAlignment="Left" Margin="42,256,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtQtd" HorizontalAlignment="Left" Height="23" Margin="163,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Produto" HorizontalAlignment="Left" Margin="502,256,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodProduto" HorizontalAlignment="Left" Height="23" Margin="623,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Livro" HorizontalAlignment="Left" Margin="42,284,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="163,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Sub Total" HorizontalAlignment="Left" Margin="502,284,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+        <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="623,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <Label Content="Frete" HorizontalAlignment="Left" Margin="527,122,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
         <TextBox x:Name="txtFrete" HorizontalAlignment="Left" Height="23" Margin="665,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="690,501,0,0" VerticalAlignment="Top" Width="116" Height="44"/>
+        <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="687,562,0,0" VerticalAlignment="Top" Width="116" Height="44"/>
+        <Button x:Name="btnPesquisarLivro" Content="..." HorizontalAlignment="Left" Margin="361,287,0,0" VerticalAlignment="Top" Width="22" Height="23"/>
 
     </Grid>
 </Window>

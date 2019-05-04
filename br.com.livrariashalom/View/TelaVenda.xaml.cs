@@ -70,10 +70,47 @@ namespace br.com.livrariashalom.View
 
         }
 
-        private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
+        private bool SalvarItem(ItemVenda itemVenda)
         {
-            TelaItemVenda telaItemVenda = new TelaItemVenda();
-            telaItemVenda.Show();
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtQtd.Text == "" || txtSubTotal.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+                    itemVenda.Livro.CodLivro = Convert.ToInt32(txtCodLivro.Text);
+                    itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
+                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+
+                    itemVendaBLL = new ItemVendaBLL();
+                    itemVendaBLL.SalvarItem(itemVenda);
+
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+        private void BtnPesquisarLivro_Click(object sender, RoutedEventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.Show();
+        }
+
+        private void TxtCodLivro_TextChanged(object sender, TextChangedEventArgs e)
+        {
+          
         }
     }
 }
