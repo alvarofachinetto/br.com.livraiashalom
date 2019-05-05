@@ -101,9 +101,6 @@
     <Compile Include="View\TelaFuxoCaixa.xaml.cs">
       <DependentUpon>TelaFuxoCaixa.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TelaItemVenda.xaml.cs">
-      <DependentUpon>TelaItemVenda.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\TelaLivro.xaml.cs">
       <DependentUpon>TelaLivro.xaml</DependentUpon>
     </Compile>
@@ -192,10 +189,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TelaFuxoCaixa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TelaItemVenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
