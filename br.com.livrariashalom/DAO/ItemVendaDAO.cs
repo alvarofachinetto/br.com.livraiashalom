@@ -11,17 +11,15 @@ namespace br.com.livrariashalom.DAO
 {
     public class ItemVendaDAO : Conexao
     {
-
-
         MySqlCommand command = null;
-
+        
         public void SalvarItemVenda(ItemVenda itemVenda)
         {
             try
             {
                 Conectar();
-
-                command = new MySqlCommand("insert into itemvenda (Livro_codLivro, Item_idProduto, quantidade, subTotal, Venda_codVenda) value (@codLivro, @codProduto, @quantidade, @subTotal, @codVenda)", conexao); //conexao está referente as infos do banco
+                                
+                command = new MySqlCommand("insert into itemvenda (Livro_codLivro, Produto_codProduto, quantidade, subTotal, Venda_codVenda) value (@codLivro, @codProduto, @quantidade, @subTotal, @codVenda)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis 
                 command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                 command.Parameters.AddWithValue("@codProduto", itemVenda.Produto.CodProduto);
@@ -42,7 +40,7 @@ namespace br.com.livrariashalom.DAO
         }
 
         //Metodo listar 
-        public DataTable ListarItemVenda()
+        public DataTable ListarItemVenda(ItemVenda itemVenda)
         {
             try
             {
@@ -51,7 +49,8 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from itemvenda", conexao);
+                command = new MySqlCommand("select * from itemvenda where codVenda = @codVenda", conexao);
+                command.Parameters.AddWithValue("codVenda", itemVenda.Venda.CodVenda);
 
                 dataAdapter.SelectCommand = command;
                 dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
@@ -76,7 +75,7 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("update itemvenda set Livro_codLivro = @codLivro, Item_idProduto = @codProduto, quantidade = @quantidade, subTotal = @subTotal, valorTotal = @valorTotal where idProdutoVenda = @codItemVenda", conexao);
+                command = new MySqlCommand("update itemvenda set Livro_codLivro = @codLivro, Item_codProduto = @codProduto, quantidade = @quantidade, subTotal = @subTotal, valorTotal = @valorTotal where idProdutoVenda = @codItemVenda", conexao);
 
                 command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                 command.Parameters.AddWithValue("@codProduto", itemVenda.Produto.CodProduto);

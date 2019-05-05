@@ -27,6 +27,7 @@ namespace br.com.livrariashalom.View
         public TelaVendas()
         {
             InitializeComponent();
+            
         }
 
         //recebe os valores para salvar
@@ -69,10 +70,9 @@ namespace br.com.livrariashalom.View
             return false;
 
         }
-
+        //salvar itens
         private bool SalvarItem(ItemVenda itemVenda)
         {
-
             try
             {
                 //caso os campos estiverem vazios
@@ -80,9 +80,34 @@ namespace br.com.livrariashalom.View
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
+                else if(txtCodLivro.Text == ""){
+
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+                    itemVenda.Livro.CodLivro = Convert.ToInt64(null);
+                    itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
+                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+
+                    itemVendaBLL = new ItemVendaBLL();
+                    itemVendaBLL.SalvarItem(itemVenda);
+
+                    return true;
+                }
+                else if (txtCodProduto.Text == "")
+                {
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+                    itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+                    itemVenda.Produto.CodProduto = Convert.ToInt64(null);
+                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+
+                    itemVendaBLL = new ItemVendaBLL();
+                    itemVendaBLL.SalvarItem(itemVenda);
+
+                    return true;
+                }
                 else
                 {
                     itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+
                     itemVenda.Livro.CodLivro = Convert.ToInt32(txtCodLivro.Text);
                     itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
@@ -102,6 +127,21 @@ namespace br.com.livrariashalom.View
 
         }
 
+        //lista todos os livros
+        private void ListarItem(ItemVenda itemVenda)
+        {
+            try
+            {
+                itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
+                dgItem.ItemsSource = itemVendaBLL.ListarItem(itemVenda).DefaultView;//obtém todos os dados
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
+
         private void BtnPesquisarLivro_Click(object sender, RoutedEventArgs e)
         {
             TelaEstoque telaEstoque = new TelaEstoque();
@@ -110,7 +150,14 @@ namespace br.com.livrariashalom.View
 
         private void TxtCodLivro_TextChanged(object sender, TextChangedEventArgs e)
         {
-          
+            
+        }
+
+        private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
+        {
+            ItemVenda itemVenda = new ItemVenda();
+            SalvarItem(itemVenda);
+            ListarItem(itemVenda);
         }
     }
 }
