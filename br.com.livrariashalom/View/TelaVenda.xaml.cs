@@ -86,6 +86,7 @@ namespace br.com.livrariashalom.View
                     itemVenda.Livro.CodLivro = Convert.ToInt64(null);
                     itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+                    itemVenda.ValorTotal = Convert.ToDouble(txtTotal.Text);
 
                     itemVendaBLL = new ItemVendaBLL();
                     itemVendaBLL.SalvarItem(itemVenda);
@@ -159,5 +160,14 @@ namespace br.com.livrariashalom.View
             SalvarItem(itemVenda);
             ListarItem(itemVenda);
         }
+
+        private void BtnProximo_Click(object sender, RoutedEventArgs e)
+        {
+            Venda venda = new Venda(); 
+            SalvarVenda(venda);
+            tabControlVenda.SelectedIndex = 1;
+        }
+
+        
     }
 }
