@@ -19,13 +19,12 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
                                 
-                command = new MySqlCommand("insert into itemvenda (Livro_codLivro, Produto_codProduto, quantidade, subTotal, total, Venda_codVenda) value (@codLivro, @codProduto, @quantidade, @subTotal, @total, @codVenda)", conexao); //conexao está referente as infos do banco
+                command = new MySqlCommand("insert into itemvenda (Livro_codLivro, Produto_codProduto, quantidade, subTotal, Venda_codVenda) value (@codLivro, @codProduto, @quantidade, @subTotal, @codVenda)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis 
                 command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                 command.Parameters.AddWithValue("@codProduto", itemVenda.Produto.CodProduto);
                 command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
                 command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
-                command.Parameters.AddWithValue("@total", itemVenda.ValorTotal);
                 command.Parameters.AddWithValue("@codVenda", itemVenda.Venda);
 
                 command.ExecuteNonQuery();
