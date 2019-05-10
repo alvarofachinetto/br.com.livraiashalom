@@ -18,8 +18,8 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into venda (nome_cliente, telefoneCli, data_venda, LoginFuncionario_codUsusario, Prazo_codCondicao_Pagamento, forma_pagamento, frete,  observacoes)" +
-                " values (@nomeCli, @telefoneCli, @dataVenda, @codFuncionario, @condicaoPagamento, @formaPagamento, @frete, @observacoes)");
+                command = new MySqlCommand("insert into venda (nome_cliente, telefoneCli, data_venda, LoginFuncionario_codUsusario, Prazo_codCondicao_Pagamento, forma_pagamento, frete,  observacao)" +
+                " values (@nomeCli, @telefoneCli, @dataVenda, @codFuncionario, @condicaoPagamento, @formaPagamento, @frete, @observacao)", conexao);
 
                 command.Parameters.AddWithValue("@nomeCli", venda.NomeCliente);
                 command.Parameters.AddWithValue("@telefoneCli", venda.Telefone);
@@ -28,7 +28,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@condicaoPagamento", venda.CodPrazo.CodCondPagamento);
                 command.Parameters.AddWithValue("@formaPagamento", venda.FormaPagamento);
                 command.Parameters.AddWithValue("@frete", venda.Frete);
-                command.Parameters.AddWithValue("@observacoes", venda.Observacao);
+                command.Parameters.AddWithValue("@observacao", venda.Observacao);
                 
                 command.ExecuteNonQuery();
 

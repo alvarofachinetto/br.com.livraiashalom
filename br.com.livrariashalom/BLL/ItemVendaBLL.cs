@@ -43,5 +43,20 @@ namespace br.com.livrariashalom.BLL
             }
 
         }
+
+        public void VendaLivro(ItemVenda itemVenda)
+        {
+            try
+            {
+                itemVendaDAO.VendaLivro(itemVenda);
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+
+            }
+        }
+
     }
 }

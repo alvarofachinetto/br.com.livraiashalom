@@ -133,11 +133,7 @@ namespace br.com.livrariashalom.DAO
                 Boolean autenticar = command.ExecuteReader().HasRows;//verifica a informação no banco
                
                 //verificar a autencação da senha
-                if (autenticar != true)
-                {
-                    MessageBox.Show("Usuário e/ou senha incorretos");
-                }
-                else
+                if (autenticar == true)
                 {
                     MessageBox.Show("Welcome !");
 
@@ -146,7 +142,11 @@ namespace br.com.livrariashalom.DAO
 
                     TelaLogin telaLogin = new TelaLogin();
                     telaLogin.Close();
-
+                }
+                else
+                {
+                    MessageBox.Show("Usuário e/ou senha incorretos", "Error");
+                    
                 }
 
             }
@@ -154,10 +154,7 @@ namespace br.com.livrariashalom.DAO
             {
                 throw erro;
             }
-            finally
-            {
-                Desconectar();
-            }
+           
         }
     }
 

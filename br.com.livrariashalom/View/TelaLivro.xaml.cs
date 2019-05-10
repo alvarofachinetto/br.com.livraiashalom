@@ -66,6 +66,8 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
+        //editar livro
+
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             Livro livro = new Livro();

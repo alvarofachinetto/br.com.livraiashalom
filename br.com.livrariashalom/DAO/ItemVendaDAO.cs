@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,13 +26,46 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@codProduto", itemVenda.Produto.CodProduto);
                 command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
                 command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
-                command.Parameters.AddWithValue("@codVenda", itemVenda.Venda);
+                command.Parameters.AddWithValue("@codVenda", itemVenda.Venda.CodVenda);
 
                 command.ExecuteNonQuery();
             }
             catch (Exception error)
             {
                 throw error;
+            }
+            
+        }
+
+        //baixa no estoque de livro
+        public void VendaLivro(ItemVenda itemVenda)
+        {
+            try
+            {
+                Conectar();
+                command = new MySqlCommand("select quantidade from livro where codLivro = @codLivro", conexao);
+                command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+                int qtdBanco = 0;
+
+                while (dataReader.Read())
+                {
+                    qtdBanco = Convert.ToInt32(dataReader["quantidade"]);
+                }
+
+                dataReader.Close();
+
+                int qtdAtual = qtdBanco - itemVenda.Quantidade;
+
+                command = new MySqlCommand("update livro set quantidade = @quantidade where codLivro = @codLivro", conexao);
+                command.Parameters.AddWithValue("@quantidade", qtdAtual);
+                command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
+                command.ExecuteNonQuery();
+
+            }catch(Exception erro)
+            {
+                throw erro;
             }
             finally
             {

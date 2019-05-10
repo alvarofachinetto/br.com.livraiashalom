@@ -16,8 +16,8 @@ namespace br.com.livrariashalom.Model
         private DateTime dataVenda;
         private double frete;
         private String formaPagamento;
-        private Prazo codPrazo;
-        private LoginFuncionario loginFuncionario;
+        private Prazo codPrazo = new Prazo();
+        private LoginFuncionario loginFuncionario = new LoginFuncionario();
         private String observacao;
         
 

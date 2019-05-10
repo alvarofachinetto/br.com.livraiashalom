@@ -30,6 +30,7 @@ namespace br.com.livrariashalom.View
             
         }
 
+       
         //recebe os valores para salvar
         private bool SalvarVenda(Venda venda)
         {
@@ -80,30 +81,35 @@ namespace br.com.livrariashalom.View
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
-                else if(txtCodLivro.Text == ""){
+                //caso somente livros vendidos
+                else if (txtCodLivro.Text == ""){
 
                     itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
                     itemVenda.Livro.CodLivro = Convert.ToInt64(null);
                     itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+                    itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
 
                     itemVendaBLL = new ItemVendaBLL();
                     itemVendaBLL.SalvarItem(itemVenda);
 
                     return true;
                 }
+                //caso somente produtos vendidos
                 else if (txtCodProduto.Text == "")
                 {
                     itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
                     itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
                     itemVenda.Produto.CodProduto = Convert.ToInt64(null);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+                    itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
 
                     itemVendaBLL = new ItemVendaBLL();
                     itemVendaBLL.SalvarItem(itemVenda);
 
                     return true;
                 }
+                //caso os dois vendidos
                 else
                 {
                     itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
@@ -111,6 +117,7 @@ namespace br.com.livrariashalom.View
                     itemVenda.Livro.CodLivro = Convert.ToInt32(txtCodLivro.Text);
                     itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+                    itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
 
                     itemVendaBLL = new ItemVendaBLL();
                     itemVendaBLL.SalvarItem(itemVenda);
@@ -141,6 +148,23 @@ namespace br.com.livrariashalom.View
             }
 
         }
+        //baixa no estoque de livro
+        private void VendaLivro(ItemVenda itemVenda)
+        {
+            try
+            {
+                itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
+                itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+
+                itemVendaBLL = new ItemVendaBLL();
+                itemVendaBLL.VendaLivro(itemVenda);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
 
         private void BtnPesquisarLivro_Click(object sender, RoutedEventArgs e)
         {
@@ -157,7 +181,69 @@ namespace br.com.livrariashalom.View
         {
             ItemVenda itemVenda = new ItemVenda();
             SalvarItem(itemVenda);
-            ListarItem(itemVenda);
+            //ListarItem(itemVenda);
+        }
+
+        private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        
+        //abre o estoque de produtos
+        private void BtnPesquisarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.Show();
+            telaEstoque.tabControlEstoque.SelectedIndex = 1;
+
+        }
+
+        private void CmbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cmbFormaPag.SelectedValue.ToString();
+        }
+
+        private void BtnFinalizar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult finalizar = MessageBox.Show("Deseja finalizar a venda ?", "Finalizar", MessageBoxButton.YesNo);
+
+            if (finalizar == MessageBoxResult.Yes)
+            {
+                ItemVenda itemVenda = new ItemVenda();
+                VendaLivro(itemVenda);
+                MessageBox.Show("Venda finalizada com sucesso !");
+            }
+            else if (finalizar == MessageBoxResult.No)
+            {
+                //metodo excluir
+            }
+        }
+
+        private void btnProximo_Click(object sender, RoutedEventArgs e)
+        {
+            Venda venda = new Venda();
+            SalvarVenda(venda);
+        }
+
+        private void TxtSubTotal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                double preco = Convert.ToDouble(txtPreco.Text);
+                double quantidade = Convert.ToDouble(txtQtd.Text);
+
+                double subTotal = preco * quantidade;
+
+                txtSubTotal.Text = Convert.ToString(subTotal);
+
+                System.Console.WriteLine(txtSubTotal);
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro);
+            }
         }
     }
 }
