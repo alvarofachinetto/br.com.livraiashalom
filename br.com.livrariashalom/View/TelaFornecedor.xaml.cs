@@ -106,7 +106,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                if (txtRazao.Text == "" || txtFantasia.Text == "" || txtCnpjCpf.Text == "" || cmbEmpresa.Text == "" || txtIe.Text == "")
+                if (txtcodFornecedor.Text == "" || txtRazao.Text == "" || txtFantasia.Text == "" || txtCnpjCpf.Text == "" || cmbEmpresa.Text == "" || txtIe.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                     

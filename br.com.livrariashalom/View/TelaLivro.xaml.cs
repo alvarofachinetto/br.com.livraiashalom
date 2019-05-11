@@ -2,6 +2,7 @@
 using br.com.livrariashalom.MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,26 @@ namespace br.com.livrariashalom.View
     /// </summary>
     public partial class TelaLivro : Window
     {
-        private LivroBLL livroBLL = new LivroBLL();
+        private LivroBLL livroBLL;
 
         public TelaLivro()
         {
             InitializeComponent();
+        }
+
+        //limpa os valores após uma ação
+        private void Limpar()
+        {
+            txtCodLivro.Clear();
+            txtTitulo.Clear();
+            txtAutor.Clear();
+            txtEditora.Clear();
+            cmbFase.SelectedIndex = 0;
+            txtQtd.Clear();
+            txtCategoria.Clear();
+            txtValor.Clear();
+            txtAlerta.Clear();
+            txtFornecedorLivro.Clear();
         }
 
         private bool SalvarLivro(Livro livro)
@@ -39,6 +55,7 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
+                    
                     livro.Titulo = txtTitulo.Text;
                     livro.Autor = txtAutor.Text;
                     livro.Editora = txtTitulo.Text;
@@ -50,6 +67,7 @@ namespace br.com.livrariashalom.View
                     livro.Descricao = txtDescricao.Text;
                     livro.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorLivro.Text);
 
+                    livroBLL = new LivroBLL();
                     livroBLL.SalvarLivro(livro);
 
                     MessageBox.Show("Cadastro feito com sucesso");
@@ -67,6 +85,80 @@ namespace br.com.livrariashalom.View
         }
 
         //editar livro
+        private bool EditarLivro(Livro livro)
+        {
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCodLivro.Text == "" || txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtQtd.Text == "" || txtCategoria.Text == "" || txtValor.Text == "" || txtAlerta.Text == "" || txtFornecedorLivro.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    livro.Titulo = txtTitulo.Text;
+                    livro.Autor = txtAutor.Text;
+                    livro.Editora = txtTitulo.Text;
+                    livro.Fase = cmbFase.Text;
+                    livro.Qtd = Convert.ToInt32(txtQtd.Text);
+                    livro.Categoria = txtCategoria.Text;
+                    livro.ValorUnit = Convert.ToDouble(txtValor.Text);
+                    livro.QtdAlerta = Convert.ToInt32(txtQtd.Text);
+                    livro.Descricao = txtDescricao.Text;
+                    livro.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorLivro.Text);
+                    livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+
+
+                    MessageBoxResult alteracao = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a alteração
+                    if (alteracao == MessageBoxResult.Yes)
+                    {
+                        livroBLL = new LivroBLL();
+                        livroBLL.EditarLivro(livro);
+                        MessageBox.Show("Edição feita com sucesso");
+                         
+                        Limpar();
+
+                        return true;
+                    }
+
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+        }
+
+        public bool PesquisarLivro(Livro livro)
+        {
+            try
+            {
+                if (txtCodLivro.Text == "")
+                {
+                    MessageBox.Show("Preencha o campo do código", "Alerta");
+                    return false;
+                }
+                else
+                {
+                    livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+
+                    livroBLL = new LivroBLL();
+                    livroBLL.PesquisarLivro(livro);
+
+                    return true;
+                }
+            }
+            catch(Exception erro)
+            {
+                throw erro;
+            }
+            
+        }
 
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
@@ -77,6 +169,31 @@ namespace br.com.livrariashalom.View
         private void CmbFase_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String valor = cmbFase.SelectedValue.ToString();
+        }
+
+        private void BtnAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            Livro livro = new Livro();
+            EditarLivro(livro);
+        }
+
+        private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            Livro livro = new Livro();
+            PesquisarLivro(livro);
+        }
+
+        private void BtnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.Show();
+            this.Close();
+        }
+
+        private void BtnEstoque_Click(object sender, RoutedEventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.Show();
         }
     }
 }

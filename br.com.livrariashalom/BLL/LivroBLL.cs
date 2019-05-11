@@ -42,7 +42,32 @@ namespace br.com.livrariashalom.BLL
                 throw error;
 
             }
+        }
 
+        //pesquiar os livros
+        public void PesquisarLivro(Livro livro)
+        {
+            try
+            {
+                livroDAO.PesquisarLivro(livro);
+            }
+            catch (Exception error)
+            {
+                throw error;
+
+            }
+        }
+
+        public void EditarLivro(Livro livro)
+        {
+            try
+            {
+                livroDAO.EditarLivro(livro);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
         }
     }
 
