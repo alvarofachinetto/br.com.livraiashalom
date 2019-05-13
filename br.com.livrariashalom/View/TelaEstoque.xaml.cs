@@ -22,13 +22,13 @@ namespace br.com.livrariashalom.View
     public partial class TelaEstoque : Window
     {
         private LivroBLL livroBLL = new LivroBLL();
-        private ProdutoBLL produtoBLL = new ProdutoBLL();
+        
 
         public TelaEstoque()
         {
             InitializeComponent();
             ListarLivro();//lista todos os livros quando inicia
-            ListarProduto();//lista todos os produtos quando inicia
+           
         }
 
         //lista todos os livros
@@ -45,21 +45,7 @@ namespace br.com.livrariashalom.View
 
         }
 
-        //lista todos os produto
-        private void ListarProduto()
-        {
-            try
-            {
-                dgProduto.ItemsSource = produtoBLL.ListarProduto().DefaultView;//obtém todos os dados
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-
-        }
-
-        /*private void TabItemEstoqueLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+       /*private void TabItemEstoqueLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -76,7 +62,7 @@ namespace br.com.livrariashalom.View
                 telaLivro.txtCategoria.Text = rowView["Categoria"].ToString();
                 telaLivro.txtValor.Text = rowView["Preço"].ToString();
                 telaLivro.txtAlerta.Text = rowView["Alerta"].ToString();
-                telaLivro.txtFornecedorLivro.Text    = rowView["Fornecedor"].ToString();
+                telaLivro.txtFornecedorLivro.Text = rowView["Fornecedor"].ToString();
                 telaLivro.txtDescricao.Text = rowView["Descrição"].ToString();
             }
             catch(Exception error)

@@ -16,7 +16,7 @@ namespace br.com.livrariashalom.MODEL
         private String editora;
         private String fase;
         private int qtd;
-        private String categoriaLivro;
+        private Categoria codCategoria;
         private double valorUnit;
         private String descricao;
         private int qtdAlerta;
@@ -82,10 +82,10 @@ namespace br.com.livrariashalom.MODEL
             set { codFornecedor = value; }
         }
 
-        public String Categoria
+        public Categoria CodCategoria
         {
-            get { return categoriaLivro; }
-            set { categoriaLivro = value; }
+            get { return codCategoria; }
+            set { codCategoria = value; }
         }
 
     }

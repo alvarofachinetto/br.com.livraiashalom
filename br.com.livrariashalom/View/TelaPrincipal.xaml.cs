@@ -54,14 +54,6 @@ namespace br.com.livrariashalom.View
             this.Hide();
         }
 
-        //Mostrar Tela Produto
-        private void MenuItemProduto_Click(object sender, RoutedEventArgs e)
-        {
-            TelaProduto telaProduto = new TelaProduto();
-            telaProduto.Show();
-            this.Hide();
-        }
-
         //Mostrar Tela Categoria
         private void MenuItemCategoria_Click(object sender, RoutedEventArgs e)
         {

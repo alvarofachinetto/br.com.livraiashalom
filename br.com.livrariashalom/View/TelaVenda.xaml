@@ -49,13 +49,10 @@
                 <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="493.439,259,0,0" VerticalAlignment="Top" Width="116" Height="44" Grid.Column="1" Click="BtnFinalizar_Click"/>
                 <Label Content="Quantidade" HorizontalAlignment="Left" Margin="246,5,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
                 <TextBox x:Name="txtQtd" HorizontalAlignment="Left" Height="23" Margin="333,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Grid.Column="1" Text="0"/>
-                <Label Content="Produto" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-                <TextBox x:Name="txtCodProduto" HorizontalAlignment="Left" Height="23" Margin="130,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Grid.ColumnSpan="2" />
                 <Label Content="Livro" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
                 <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="130,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" TextChanged="TxtCodLivro_TextChanged" Grid.ColumnSpan="2"/>
                 <Label Content="Sub Total" HorizontalAlignment="Left" Margin="246,37,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
                 <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="333,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Grid.Column="1" TextChanged="TxtSubTotal_TextChanged"/>
-                <Button x:Name="btnPesquisarProduto" Content="..." HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="22" Height="23" Click="BtnPesquisarProduto_Click" Grid.Column="1"/>
                 <Button x:Name="btnPesquisarLivro_Copy" Content="..." HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="22" Height="23" Click="BtnPesquisarLivro_Click" Grid.Column="1" RenderTransformOrigin="1.712,1.271"/>
                 <Label Content="Preço" Grid.Column="1" HorizontalAlignment="Left" Margin="76,6,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold"/>
                 <TextBox x:Name="txtPreco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="126,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Text="0"/>

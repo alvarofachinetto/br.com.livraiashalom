@@ -20,8 +20,7 @@
                 <Separator/>
                 <MenuItem x:Name="menuItemLivro" Header="Livro" Click="MenuItemLivro_Click" />
                 <Separator/>
-                <MenuItem x:Name="menuItemProduto" Header="Produto" Click="MenuItemProduto_Click" />
-                <Separator/>
+                
                 <MenuItem x:Name="menuItemCategoria" Header="Categoria" Click="MenuItemCategoria_Click"/>
                 <Separator/>
                 <MenuItem x:Name="menuItemPrazo" Header="Prazo" Click="MenuItemPrazo_Click"/>

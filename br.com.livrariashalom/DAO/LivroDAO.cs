@@ -21,8 +21,8 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, quantidade, qtdAlerta, categoriaLivro, valorUnit, descricao, Fornecedor_codFornecedor) values " +
-                "(@titulo, @autor, @editora, @fase, @quantidade, @qtdAlerta, @categoriaLivro, @valorUnit, @descricao, @codFornecedor)", conexao); //conexao está referente as infos do banco
+                command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, quantidade, qtdAlerta, Categoria_codCategoria, valorUnit, descricao, Fornecedor_codFornecedor) values " +
+                "(@titulo, @autor, @editora, @fase, @quantidade, @qtdAlerta, @codCategoria, @valorUnit, @descricao, @codFornecedor)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis 
                 command.Parameters.AddWithValue("@titulo", livro.Titulo);
                 command.Parameters.AddWithValue("@autor", livro.Autor);
@@ -30,7 +30,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@fase", livro.Fase);
                 command.Parameters.AddWithValue("@quantidade", livro.Qtd);
                 command.Parameters.AddWithValue("@qtdAlerta", livro.QtdAlerta);
-                command.Parameters.AddWithValue("@categoriaLivro", livro.Categoria);
+                command.Parameters.AddWithValue("@codCategoria", livro.CodCategoria.CodCategoria);
                 command.Parameters.AddWithValue("@valorUnit", livro.ValorUnit);
                 command.Parameters.AddWithValue("@descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@codFornecedor", livro.Fornecedor.CodFornecedor);
@@ -83,32 +83,35 @@ namespace br.com.livrariashalom.DAO
 
                 Conectar();
                 
-                command = new MySqlCommand("select titulo, autor, editora, fase, quantidade, categoriaLivro, valorUnit, qtdAlerta, Fornecedor_codFornecedor, descricao from livro where codLivro = @codLivro", conexao);
+                command = new MySqlCommand("select * from livro where codLivro = @codLivro", conexao);
                 command.Parameters.AddWithValue("@codLivro", livro.CodLivro);
 
                 MySqlDataReader dr = command.ExecuteReader();
 
-                if(dr.HasRows != true)
+                while(dr.Read())
                 {
-                    MessageBox.Show("Produto não existe no estoque");
-                }
-                else { 
-                
-                    dr.Read();
+                    if (dr.HasRows != true)
+                    {
+                        MessageBox.Show("Produto não existe no estoque");
+                    }
+                    else
+                    {
+                        TelaLivro telaLivro = new TelaLivro();
 
-                    TelaLivro telaLivro = new TelaLivro();
-                    
-                    telaLivro.txtTitulo.Text = Convert.ToString(dr["titulo"]);
-                    telaLivro.txtAutor.Text = Convert.ToString(dr["autor"]);
-                    telaLivro.txtEditora.Text = Convert.ToString(dr["editora"]);
-                    telaLivro.cmbFase.Text = Convert.ToString(dr["fase"]);
-                    telaLivro.txtQtd.Text = Convert.ToString(dr["quantidade"]);
-                    telaLivro.txtCategoria.Text = Convert.ToString(dr["categoriaLivro"]);//mudar
-                    telaLivro.txtValor.Text = Convert.ToString(dr["valorUnit"]);
-                    telaLivro.txtAlerta.Text = Convert.ToString(dr["qtdAlerta"]);
-                    telaLivro.txtFornecedorLivro.Text = Convert.ToString(dr["Fornecedor_codFornecedor"]);
-                    telaLivro.txtDescricao.Text = Convert.ToString(dr["descricao"]);
+
+                        telaLivro.txtTitulo.Text = dr["titulo"].ToString();
+                        telaLivro.txtAutor.Text = dr["autor"].ToString();
+                        telaLivro.txtEditora.Text = dr["editora"].ToString();
+                        telaLivro.cmbFase.Text = dr["fase"].ToString();
+                        telaLivro.txtQtd.Text = dr["quantidade"].ToString();
+                        telaLivro.txtCategoria.Text = dr["categoriaLivro"].ToString();//mudar
+                        telaLivro.txtValor.Text = dr["valorUnit"].ToString();
+                        telaLivro.txtAlerta.Text = dr["qtdAlerta"].ToString();
+                        telaLivro.txtFornecedorLivro.Text = dr["Fornecedor_codFornecedor"].ToString();
+                        telaLivro.txtDescricao.Text = dr["descricao"].ToString();
+                    }
                 }
+  
             }
             catch (Exception erro)
             {
@@ -136,7 +139,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@editora", livro.Editora);
                 command.Parameters.AddWithValue("@fase", livro.Fase);
                 command.Parameters.AddWithValue("@quantidade", livro.Qtd);
-                command.Parameters.AddWithValue("@categoriaLivro", livro.Categoria);
+                command.Parameters.AddWithValue("@categoriaLivro", livro.CodCategoria.CodCategoria);
                 command.Parameters.AddWithValue("@valorUnit", livro.ValorUnit);
                 command.Parameters.AddWithValue("@descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@codFornecedor", livro.Fornecedor.CodFornecedor);

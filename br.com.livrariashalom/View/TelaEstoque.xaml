@@ -18,15 +18,5 @@
                 <Label Content="Pesquisar" Grid.Column="1" HorizontalAlignment="Left" Margin="503,10,0,0" VerticalAlignment="Top" Foreground="#FFFFD207" FontWeight="Bold"/>
             </Grid>
         </TabItem>
-        <TabItem x:Name="tabItemEstoqueProduto" Header="Produtos">
-            <Grid x:Name="gridProduto" Background="Black">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="379*"/>
-                </Grid.ColumnDefinitions>
-                <DataGrid x:Name="dgProduto" HorizontalAlignment="Left" Height="280" Margin="10,100,0,0" VerticalAlignment="Top" Width="764" Grid.ColumnSpan="3"/>
-            </Grid>
-        </TabItem>
     </TabControl>
 </Window>

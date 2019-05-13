@@ -61,7 +61,7 @@ namespace br.com.livrariashalom.View
                     livro.Editora = txtTitulo.Text;
                     livro.Fase = cmbFase.Text;
                     livro.Qtd = Convert.ToInt32(txtQtd.Text);
-                    livro.Categoria = txtCategoria.Text;
+                    livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
                     livro.QtdAlerta = Convert.ToInt32(txtQtd.Text);
                     livro.Descricao = txtDescricao.Text;
@@ -101,7 +101,7 @@ namespace br.com.livrariashalom.View
                     livro.Editora = txtTitulo.Text;
                     livro.Fase = cmbFase.Text;
                     livro.Qtd = Convert.ToInt32(txtQtd.Text);
-                    livro.Categoria = txtCategoria.Text;
+                    livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
                     livro.QtdAlerta = Convert.ToInt32(txtQtd.Text);
                     livro.Descricao = txtDescricao.Text;
@@ -134,7 +134,8 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
-        public bool PesquisarLivro(Livro livro)
+        //pesquisar Livro por código arrumar
+        private bool PesquisarLivro()
         {
             try
             {
@@ -145,11 +146,22 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
-                    livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+                    TelaEstoque telaEstoque = new TelaEstoque();
 
-                    livroBLL = new LivroBLL();
-                    livroBLL.PesquisarLivro(livro);
+                    int codLivro = Convert.ToInt32(txtCodLivro.Text);
+                    var rowView = telaEstoque.dgLivro.SelectedItems[0] as DataRowView;
 
+                    txtTitulo.Text = rowView["Titulo"].ToString();
+                    txtAutor.Text = rowView["Autor"].ToString();
+                    txtEditora.Text = rowView["Editora"].ToString();
+                    cmbFase.Text = rowView["Fase"].ToString();
+                    txtQtd.Text = rowView["Quantidade"].ToString();
+                    txtCategoria.Text = rowView["Categoria"].ToString();
+                    txtValor.Text = rowView["Preço"].ToString();
+                    txtAlerta.Text = rowView["Alerta"].ToString();
+                    txtFornecedorLivro.Text = rowView["Fornecedor"].ToString();
+                    txtDescricao.Text = rowView["Descrição"].ToString();
+                    
                     return true;
                 }
             }
@@ -179,8 +191,7 @@ namespace br.com.livrariashalom.View
 
         private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
         {
-            Livro livro = new Livro();
-            PesquisarLivro(livro);
+            PesquisarLivro();
         }
 
         private void BtnVoltar_Click(object sender, RoutedEventArgs e)

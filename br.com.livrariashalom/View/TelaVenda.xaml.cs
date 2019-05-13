@@ -81,41 +81,10 @@ namespace br.com.livrariashalom.View
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
-                //caso somente livros vendidos
-                else if (txtCodLivro.Text == ""){
-
-                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
-                    itemVenda.Livro.CodLivro = Convert.ToInt64(null);
-                    itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
-                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
-                    itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
-
-                    itemVendaBLL = new ItemVendaBLL();
-                    itemVendaBLL.SalvarItem(itemVenda);
-
-                    return true;
-                }
-                //caso somente produtos vendidos
-                else if (txtCodProduto.Text == "")
-                {
-                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
-                    itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
-                    itemVenda.Produto.CodProduto = Convert.ToInt64(null);
-                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
-                    itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
-
-                    itemVendaBLL = new ItemVendaBLL();
-                    itemVendaBLL.SalvarItem(itemVenda);
-
-                    return true;
-                }
-                //caso os dois vendidos
                 else
                 {
                     itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
-
                     itemVenda.Livro.CodLivro = Convert.ToInt32(txtCodLivro.Text);
-                    itemVenda.Produto.CodProduto = Convert.ToInt32(txtCodProduto.Text);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
                     itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
 
@@ -181,7 +150,7 @@ namespace br.com.livrariashalom.View
         {
             ItemVenda itemVenda = new ItemVenda();
             SalvarItem(itemVenda);
-            //ListarItem(itemVenda);
+            ListarItem(itemVenda);
         }
 
         private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
