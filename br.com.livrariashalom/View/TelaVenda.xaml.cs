@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,16 +76,15 @@ namespace br.com.livrariashalom.View
         private bool SalvarItem(ItemVenda itemVenda)
         {
             try
-            {
-                //caso os campos estiverem vazios
-                if (txtQtd.Text == "" || txtSubTotal.Text == "")
+            {                
+                if (txtCodLivro.Text == "" || txtQtd.Text == "" || txtSubTotal.Text == "" || txtCodVenda.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
                     itemVenda.Livro.CodLivro = Convert.ToInt32(txtCodLivro.Text);
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
                     itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
                     itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
 
@@ -118,15 +118,31 @@ namespace br.com.livrariashalom.View
 
         }
         //baixa no estoque de livro
-        private void VendaLivro(ItemVenda itemVenda)
+        private void VendaLivro()
         {
             try
             {
-                itemVenda.Venda.CodVenda = Convert.ToInt64(txtCodVenda.Text);
-                itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
-
+                ItemVenda itemVenda = new ItemVenda();
+                itemVenda.Venda.CodVenda = Convert.ToInt32(txtCodVenda.Text);
                 itemVendaBLL = new ItemVendaBLL();
-                itemVendaBLL.VendaLivro(itemVenda);
+                itemVendaBLL.VendaLivro(itemVenda.Venda.CodVenda);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
+
+        //SubTotal soma
+        private void SomarSubTotal()
+        {
+            try
+            {
+                ItemVenda itemVenda = new ItemVenda();
+                itemVenda.Venda.CodVenda = Convert.ToInt32(txtCodVenda.Text);
+                itemVendaBLL = new ItemVendaBLL();
+                itemVendaBLL.SomarSubTotal(itemVenda.Venda.CodVenda);
             }
             catch (Exception error)
             {
@@ -151,23 +167,15 @@ namespace br.com.livrariashalom.View
             ItemVenda itemVenda = new ItemVenda();
             SalvarItem(itemVenda);
             ListarItem(itemVenda);
+            SomarSubTotal();
         }
 
         private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            
         }
 
-        
-        //abre o estoque de produtos
-        private void BtnPesquisarProduto_Click(object sender, RoutedEventArgs e)
-        {
-            TelaEstoque telaEstoque = new TelaEstoque();
-            telaEstoque.Show();
-            telaEstoque.tabControlEstoque.SelectedIndex = 1;
-
-        }
-
+              
         private void CmbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             cmbFormaPag.SelectedValue.ToString();
@@ -180,7 +188,7 @@ namespace br.com.livrariashalom.View
             if (finalizar == MessageBoxResult.Yes)
             {
                 ItemVenda itemVenda = new ItemVenda();
-                VendaLivro(itemVenda);
+                VendaLivro();
                 MessageBox.Show("Venda finalizada com sucesso !");
             }
             else if (finalizar == MessageBoxResult.No)

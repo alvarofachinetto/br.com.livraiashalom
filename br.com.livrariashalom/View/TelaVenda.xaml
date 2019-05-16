@@ -43,7 +43,7 @@
                     <ColumnDefinition Width="619*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Total" HorizontalAlignment="Left" Margin="8,271,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-                <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="129,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" TextChanged="TxtTotal_TextChanged"/>
+                <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="71,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtTotal_TextChanged"/>
                 <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="7,75,0,0" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2"/>
                 <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="493.439,16,0,0" VerticalAlignment="Top" Width="116" Height="44" Click="BtnAdicionarItem_Click" Grid.Column="1"/>
                 <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="493.439,259,0,0" VerticalAlignment="Top" Width="116" Height="44" Grid.Column="1" Click="BtnFinalizar_Click"/>
@@ -58,6 +58,8 @@
                 <TextBox x:Name="txtPreco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="126,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Text="0"/>
                 <TextBox x:Name="txtCodVenda" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="126,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
                 <Label Content="Venda" Grid.Column="1" HorizontalAlignment="Left" Margin="76,37,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" RenderTransformOrigin="0.532,1.477"/>
+                <Label Content="Total Itens" HorizontalAlignment="Left" Margin="26,271,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtTotalItens" HorizontalAlignment="Left" Height="23" Margin="112,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" TextChanged="TxtTotal_TextChanged" Grid.Column="1"/>
             </Grid>
         </TabItem>
     </TabControl>

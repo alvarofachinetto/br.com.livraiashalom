@@ -98,7 +98,6 @@ namespace br.com.livrariashalom.DAO
                     {
                         TelaLivro telaLivro = new TelaLivro();
 
-
                         telaLivro.txtTitulo.Text = dr["titulo"].ToString();
                         telaLivro.txtAutor.Text = dr["autor"].ToString();
                         telaLivro.txtEditora.Text = dr["editora"].ToString();
@@ -111,7 +110,7 @@ namespace br.com.livrariashalom.DAO
                         telaLivro.txtDescricao.Text = dr["descricao"].ToString();
                     }
                 }
-  
+                dr.Close();
             }
             catch (Exception erro)
             {
