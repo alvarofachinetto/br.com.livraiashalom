@@ -45,31 +45,66 @@ namespace br.com.livrariashalom.View
 
         }
 
-       /*private void TabItemEstoqueLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private bool PesquisarLivro()
         {
             try
             {
-                TelaLivro telaLivro = new TelaLivro();
+                if (txtPesquisar.Text == "")
+                {
+                    MessageBox.Show("Preencha o campo ", "Alerta");
+                    return false;
+                }
+                else
+                {
+                    String titulo = txtPesquisar.Text;
 
-                var rowView = dgLivro.SelectedItems[0] as DataRowView;
-                telaLivro.txtCodLivro.Text = rowView["Código"].ToString();
-
-                telaLivro.txtTitulo.Text = rowView["Titulo"].ToString();
-                telaLivro.txtAutor.Text = rowView["Autor"].ToString();
-                telaLivro.txtEditora.Text = rowView["Editora"].ToString();
-                telaLivro.cmbFase.Text = rowView["Fase"].ToString();
-                telaLivro.txtQtd.Text = rowView["Quantidade"].ToString();
-                telaLivro.txtCategoria.Text = rowView["Categoria"].ToString();
-                telaLivro.txtValor.Text = rowView["Preço"].ToString();
-                telaLivro.txtAlerta.Text = rowView["Alerta"].ToString();
-                telaLivro.txtFornecedorLivro.Text = rowView["Fornecedor"].ToString();
-                telaLivro.txtDescricao.Text = rowView["Descrição"].ToString();
+                    livroBLL = new LivroBLL();
+                    livroBLL.PesquisarTituloLivro(titulo);
+                    return true;
+                }
             }
-            catch(Exception error)
+            catch (Exception erro)
             {
-                MessageBox.Show("Erro: " + error);
+                throw erro;
             }
 
-        }*/
+        }
+
+        private void TxtPesquisar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            PesquisarLivro();
+        }
+
+        /*private void TabItemEstoqueLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+         {
+             try
+             {
+                 TelaLivro telaLivro = new TelaLivro();
+
+                 var rowView = dgLivro.SelectedItems[0] as DataRowView;
+                 telaLivro.txtCodLivro.Text = rowView["Código"].ToString();
+
+                 telaLivro.txtTitulo.Text = rowView["Titulo"].ToString();
+                 telaLivro.txtAutor.Text = rowView["Autor"].ToString();
+                 telaLivro.txtEditora.Text = rowView["Editora"].ToString();
+                 telaLivro.cmbFase.Text = rowView["Fase"].ToString();
+                 telaLivro.txtQtd.Text = rowView["Quantidade"].ToString();
+                 telaLivro.txtCategoria.Text = rowView["Categoria"].ToString();
+                 telaLivro.txtValor.Text = rowView["Preço"].ToString();
+                 telaLivro.txtAlerta.Text = rowView["Alerta"].ToString();
+                 telaLivro.txtFornecedorLivro.Text = rowView["Fornecedor"].ToString();
+                 telaLivro.txtDescricao.Text = rowView["Descrição"].ToString();
+             }
+             catch(Exception error)
+             {
+                 MessageBox.Show("Erro: " + error);
+             }
+
+         }*/
     }
 }

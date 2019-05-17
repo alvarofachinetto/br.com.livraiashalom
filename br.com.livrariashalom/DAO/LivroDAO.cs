@@ -76,7 +76,7 @@ namespace br.com.livrariashalom.DAO
         }
 
         //pesquisar livro
-        public void PesquisarLivro(Livro livro)
+        public void PesquisarLivro(int codLivro)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace br.com.livrariashalom.DAO
                 Conectar();
                 
                 command = new MySqlCommand("select * from livro where codLivro = @codLivro", conexao);
-                command.Parameters.AddWithValue("@codLivro", livro.CodLivro);
+                command.Parameters.AddWithValue("@codLivro", codLivro);
 
                 MySqlDataReader dr = command.ExecuteReader();
 
@@ -98,19 +98,50 @@ namespace br.com.livrariashalom.DAO
                     {
                         TelaLivro telaLivro = new TelaLivro();
 
-                        telaLivro.txtTitulo.Text = dr["titulo"].ToString();
-                        telaLivro.txtAutor.Text = dr["autor"].ToString();
-                        telaLivro.txtEditora.Text = dr["editora"].ToString();
-                        telaLivro.cmbFase.Text = dr["fase"].ToString();
-                        telaLivro.txtQtd.Text = dr["quantidade"].ToString();
-                        telaLivro.txtCategoria.Text = dr["categoriaLivro"].ToString();//mudar
-                        telaLivro.txtValor.Text = dr["valorUnit"].ToString();
-                        telaLivro.txtAlerta.Text = dr["qtdAlerta"].ToString();
-                        telaLivro.txtFornecedorLivro.Text = dr["Fornecedor_codFornecedor"].ToString();
-                        telaLivro.txtDescricao.Text = dr["descricao"].ToString();
+                        telaLivro.txtTitulo.Text = dr.GetString(1);
+                        telaLivro.txtAutor.Text = dr.GetString(2);
+                        telaLivro.txtEditora.Text = dr.GetString(3);
+                        telaLivro.cmbFase.Text = dr.GetString(4);
+                        telaLivro.txtQtd.Text = dr.GetString(5);
+                        telaLivro.txtCategoria.Text = dr.GetString(6);
+                        telaLivro.txtValor.Text = dr.GetString(7);
+                        telaLivro.txtAlerta.Text = dr.GetString(8);
+                        telaLivro.txtFornecedorLivro.Text = dr.GetString(9);
+                        telaLivro.txtDescricao.Text = dr.GetString(10);
                     }
                 }
                 dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        public DataTable PesquisarTituloLivro(String titulo)
+        {
+            try
+            {
+                Conectar();
+
+                TelaEstoque telaEstoque = new TelaEstoque();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                command = new MySqlCommand("select * from livro where titulo like @titulo", conexao);
+                command.Parameters.AddWithValue("@titulo", titulo);
+
+                command.CommandType = CommandType.Text;
+                
+                da.SelectCommand = command;
+                da.Fill(dt);
+
+                telaEstoque.dgLivro.ItemsSource = dt.AsDataView();
+
+                return dt;
             }
             catch (Exception erro)
             {

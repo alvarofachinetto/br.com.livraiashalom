@@ -73,6 +73,8 @@ namespace br.com.livrariashalom.DAO
                 dataReader.Close();
 
                 //
+
+                
                 if (qtdBanco < itemVenda.Quantidade)
                 {
                     MessageBox.Show("Quantidade não suficiente", "Alerta");
@@ -83,7 +85,7 @@ namespace br.com.livrariashalom.DAO
                     {
                         int qtdAtual = qtdBanco - itemVenda.Quantidade;
                         //foreach()
-                        command = new MySqlCommand("update livro set quantidade = @quantidade where codLivro = @codLivro", conexao);
+                        command = new MySqlCommand("update livro set quantidade = @quantidade where codLivro = @codLivro - 1", conexao);
                         command.Parameters.AddWithValue("@quantidade", qtdAtual);
                         command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                         command.ExecuteNonQuery();
@@ -118,8 +120,8 @@ namespace br.com.livrariashalom.DAO
                 if (dr.HasRows)
                 {
                     dr.Read();
-                    TelaVendas telaVendas = new TelaVendas();
-                    telaVendas.txtTotal.Text = dr["sum(subTotal)"].ToString();
+                    //txtTotal.Text = dr["sum(subTotal)"].ToString();
+
                 }
 
 

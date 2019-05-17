@@ -24,5 +24,29 @@ namespace br.com.livrariashalom.BLL
                 MessageBox.Show("Error: " + error);
             }
         }
+
+        public void EditarContato(Contato contato)
+        {
+            try
+            {
+                contatoDAO.EditarContato(contato);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
+
+        public void ExcluirContato(Contato contato)
+        {
+            try
+            {
+                contatoDAO.ExcluirContato(contato);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
     }
 }

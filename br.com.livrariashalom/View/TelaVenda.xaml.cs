@@ -1,4 +1,5 @@
 ﻿using br.com.livrariashalom.BLL;
+using br.com.livrariashalom.DAO;
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
@@ -172,7 +173,7 @@ namespace br.com.livrariashalom.View
 
         private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+           
         }
 
               

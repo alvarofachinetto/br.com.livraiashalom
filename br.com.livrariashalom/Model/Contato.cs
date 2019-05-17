@@ -18,7 +18,7 @@ namespace br.com.livrariashalom.Model
         public long CodContato
         {
             get { return codContato; }
-            
+            set { codContato = value; }
         }
 
         public String EmailPrimario

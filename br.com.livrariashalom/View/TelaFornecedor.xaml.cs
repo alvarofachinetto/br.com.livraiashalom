@@ -248,6 +248,71 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
+        //EditarFornecedor recebe os valores para alteração
+        private bool EditarContato(Contato contato)
+        {
+            try
+            {
+                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedorContato.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+
+                }
+                else
+                {
+                    
+                    MessageBoxResult alteracao = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);
+
+                    contato.EmailPrimario = txtEmailEmpresa.Text;
+                    contato.EmailSecundario = txtEmailFuncionario.Text;
+                    contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
+                    contato.TelefoneReserva = txtTelefoneFuncionrio.Text;
+                    contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorContato.Text);
+
+                    //caso o usuário realmente queira fazer a alteração
+                    if (alteracao == MessageBoxResult.Yes)
+                    {
+                        contatoBLL.EditarContato(contato);
+                        MessageBox.Show("Edição feita com sucesso");
+                        Limpar();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+            return false;
+        }
+
+        //deletar o fornecedor
+        private bool DeletarContato(Contato contato)
+        {
+            if (txtCodContato.Text == "")
+            {
+                MessageBox.Show("Campo código precisa estar preenchido");
+            }
+            else
+            {
+                MessageBoxResult deletar = MessageBox.Show("Deseja excluir o fornecedor ?", "Deletar", MessageBoxButton.YesNo);
+
+                if (deletar == MessageBoxResult.Yes)
+                {
+                    contato.CodContato = Convert.ToInt32(txtCodContato.Text);
+                    contatoBLL.ExcluirContato(contato);
+                    MessageBox.Show("Fornecedor removido com sucesso");
+                    Limpar();
+
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
         //botao cadastrar fornecedor
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {

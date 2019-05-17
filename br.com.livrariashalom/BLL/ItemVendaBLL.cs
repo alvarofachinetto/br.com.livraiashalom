@@ -62,7 +62,7 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-                itemVendaDAO.SomarSubtotal(codVenda);
+                // itemVendaDAO.SomarSubtotal(codVenda);
 
             }
             catch (Exception error)

@@ -45,11 +45,24 @@ namespace br.com.livrariashalom.BLL
         }
 
         //pesquiar os livros
-        public void PesquisarLivro(Livro livro)
+        public void PesquisarLivro(int codLivro)
         {
             try
             {
-                livroDAO.PesquisarLivro(livro);
+                livroDAO.PesquisarLivro(codLivro);
+            }
+            catch (Exception error)
+            {
+                throw error;
+
+            }
+        }
+
+        public void PesquisarTituloLivro(String titulo)
+        {
+            try
+            {
+                livroDAO.PesquisarTituloLivro(titulo);
             }
             catch (Exception error)
             {
