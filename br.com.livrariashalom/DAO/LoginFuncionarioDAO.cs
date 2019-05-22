@@ -76,10 +76,26 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("update loginfuncionario set usuario = @usuario, senha = @senha, " +
-                "confirmacao_senha = @confirmacao_senha, tipo_usuario = @tipo_usuario where codUsuario = @codUsuario", conexao);
+                //seleciona o codigo do funcionario
+                command = new MySqlCommand("select codFuncionario from loginfuncionario where usuario = @usuario");
+                command.Parameters.AddWithValue("@usuario", login.Funcionario);
 
-                command.Parameters.AddWithValue("@codUsuario", login.CodFuncionario);
+                command.ExecuteNonQuery();
+                MySqlDataReader dr = command.ExecuteReader();
+
+                long codigo = 0;
+
+                while (dr.Read())
+                {//recebe o codigo
+                    login.CodFuncionario = Convert.ToInt32(dr["codFuncionario"]);
+
+                    codigo = login.CodFuncionario;
+                }
+
+                command = new MySqlCommand("update loginfuncionario set usuario = @usuario, senha = @senha, " +
+                "confirmacao_senha = @confirmacao_senha, tipo_usuario = @tipo_usuario where usuario = @usuario", conexao);
+
+                command.Parameters.AddWithValue("@codUsuario", codigo); //executa com o código selecionado
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
                 command.Parameters.AddWithValue("@confSenha", login.ConfSenha);

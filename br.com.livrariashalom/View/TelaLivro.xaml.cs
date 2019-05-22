@@ -134,7 +134,45 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
-        //pesquisar Livro por código arrumar
+        private bool ExcluirLivro(Livro livro)
+        {
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCodLivro.Text == "")
+                {
+                    MessageBox.Show("Preencha o campo do código");
+                }
+                else
+                {
+                    livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+
+                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete salvar as alterações ?", "Excluir", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a exclusão
+                    if (excluir == MessageBoxResult.Yes)
+                    {
+                        livroBLL = new LivroBLL();
+                        livroBLL.ExcluirLivro(livro);
+                        MessageBox.Show("Edição feita com sucesso");
+
+                        Limpar();
+
+                        return true;
+                    }
+
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+        }
+
+        //pesquisar Livro por código 
         private bool PesquisarLivro()
         {
             try

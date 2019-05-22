@@ -80,6 +80,11 @@ namespace br.com.livrariashalom.View
             PesquisarLivro();
         }
 
+        private void dgLivro_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
         /*private void TabItemEstoqueLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
          {
              try

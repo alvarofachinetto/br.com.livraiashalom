@@ -58,10 +58,92 @@ namespace br.com.livrariashalom.View
 
         }
 
+        private bool EditarCategoriaLivro(Categoria categoria)
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCategoria.Text == "")
+                {
+                    MessageBox.Show("É obrigatório preencher a categoria");
+                }
+                else
+                {
+                    categoria.CategoriaGeral = txtCategoria.Text;
+
+                    MessageBoxResult alteracao = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a alteração
+                    if (alteracao == MessageBoxResult.Yes)
+                    {
+                        categoriaBLL.EditarCategoria(categoria);
+                        MessageBox.Show("Edição feita com sucesso");
+                        
+                        return true;
+                    }
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+        private bool ExcluirCategoriaLivro(Categoria categoria)
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCodCategoriaLivro.Text == "")
+                {
+                    MessageBox.Show("É obrigatório preencher a o campo do código");
+                }
+                else
+                {
+                    categoria.CategoriaGeral = txtCategoria.Text;
+
+                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete excluir a categoria ?", "Excluir", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a alteração
+                    if (excluir == MessageBoxResult.Yes)
+                    {
+                        categoriaBLL.ExcluirCategoria(categoria);
+                        MessageBox.Show("Exclusão feita com sucesso");
+
+                        return true;
+                    }
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             Categoria categoriaLivro = new Categoria();
             SalvarCategoriaLivro(categoriaLivro);
+        }
+
+        private void btnAlterar_Click(object sender, RoutedEventArgs e)
+        {
+            Categoria categoria = new Categoria();
+            EditarCategoriaLivro(categoria);
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            Categoria categoria = new Categoria();
+            ExcluirCategoriaLivro(categoria);
         }
     }
 }

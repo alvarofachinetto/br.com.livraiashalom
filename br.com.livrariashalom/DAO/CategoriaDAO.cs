@@ -63,6 +63,29 @@ namespace br.com.livrariashalom.DAO
              }
          }*/
 
+        public void EditarCategoria(Categoria categoria)
+        {
+            try
+            {
+
+                Conectar();
+
+                command = new MySqlCommand("update from categoria set categoriaGeral = @categoria where codCategoria = @codCategoria", conexao);
+                command.Parameters.AddWithValue("@categoria", categoria.CategoriaGeral);
+                command.Parameters.AddWithValue("@codCategoria", categoria.CodCategoria);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
         public void ExcluirCategoria(Categoria categoria)
         {
             try
@@ -70,8 +93,10 @@ namespace br.com.livrariashalom.DAO
 
                 Conectar();
 
-                command = new MySqlCommand("delete from categoria where codUsuario = @codCategoria", conexao);
-                command.Parameters.AddWithValue("@codUsuario", categoria.CodCategoria);
+                command = new MySqlCommand("delete from categoria where codCategoria = @codCategoria", conexao);
+                command.Parameters.AddWithValue("@codCategoria", categoria.CodCategoria);
+
+                command.ExecuteNonQuery();
             }
             catch (Exception erro)
             {

@@ -38,5 +38,31 @@ namespace br.com.livrariashalom.BLL
             }
 
         }
+
+        public void EditarFuncionario(LoginFuncionario login)
+        {
+            try
+            {
+                loginFuncionarioDAO.EditarLogin(login);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
+
+        public void ExcluirFuncionario(LoginFuncionario login)
+        {
+            try
+            {
+                loginFuncionarioDAO.ExcluirLogin(login);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
     }
 }

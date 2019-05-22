@@ -132,14 +132,14 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 command = new MySqlCommand("select * from livro where titulo like @titulo", conexao);
-                command.Parameters.AddWithValue("@titulo", titulo);
+                command.Parameters.AddWithValue("@titulo", titulo + "%");
 
                 command.CommandType = CommandType.Text;
                 
                 da.SelectCommand = command;
                 da.Fill(dt);
 
-                telaEstoque.dgLivro.ItemsSource = dt.AsDataView();
+                //dgLivro.ItemsSource = dt.AsDataView();
 
                 return dt;
             }
@@ -189,7 +189,7 @@ namespace br.com.livrariashalom.DAO
         }
 
         //Metodo excluir
-        public void ExcluirFornecedor(Livro livro)
+        public void ExcluirLivro(Livro livro)
         {
             try
             {

@@ -87,9 +87,6 @@
     <Compile Include="View\TelaCategoria.xaml.cs">
       <DependentUpon>TelaCategoria.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TelaContato.xaml.cs">
-      <DependentUpon>TelaContato.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\TelaEstoque.xaml.cs">
       <DependentUpon>TelaEstoque.xaml</DependentUpon>
     </Compile>
@@ -167,10 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\TelaCategoria.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TelaContato.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,8 +22,32 @@ namespace br.com.livrariashalom.BLL
             catch(Exception error)
             {
                 MessageBox.Show("Erro: " + error);
-            }
-            
+            }   
         }
+
+        public void EditarCategoria(Categoria categoria)
+        {
+            try
+            {
+                categoriaDao.EditarCategoria(categoria);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+        }
+
+        public void ExcluirCategoria(Categoria categoria)
+        {
+            try
+            {
+                categoriaDao.ExcluirCategoria(categoria);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+        }
+
     }
 }

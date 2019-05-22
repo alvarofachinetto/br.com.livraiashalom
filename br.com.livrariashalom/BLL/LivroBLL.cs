@@ -82,6 +82,18 @@ namespace br.com.livrariashalom.BLL
                 MessageBox.Show("Erro: " + error);
             }
         }
+
+        public void ExcluirLivro(Livro livro)
+        {
+            try
+            {
+                livroDAO.ExcluirLivro(livro);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+        }
     }
 
    

@@ -60,6 +60,7 @@ namespace br.com.livrariashalom.View
                     loginFuncionario.Funcionario = txtFuncionario.Text;
                     loginFuncionario.Senha = pswSenha.Password;
                     loginFuncionario.ConfSenha = pswSenha.Password;
+                    loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
 
                     if (ValidarSenha() == false)
                     {
@@ -81,6 +82,42 @@ namespace br.com.livrariashalom.View
             }
         }
 
+        //editar funcionario
+        public bool EditarFuncionario(LoginFuncionario loginFuncionario)
+        {
+            try
+            {
+                //caso os campos estiverem vazios
+                if ( txtFuncionario.Text == "" || pswSenha.Password == "" || pswConfSenha.Password == "" || cmbTipoFuncionario.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    loginFuncionario.Funcionario = txtFuncionario.Text;
+                    loginFuncionario.Senha = pswSenha.Password;
+                    loginFuncionario.ConfSenha = pswSenha.Password;
+                    loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
+
+                    if (ValidarSenha() == false)
+                    {
+                        pswSenha.Focus();
+                    }
+
+                    loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
+                    funcionarioBLL.SalvarFuncionario(loginFuncionario);
+
+                    MessageBox.Show("Cadastro feito com sucesso");
+                    return true;
+                }
+                return false;
+            }
+
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
 
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
@@ -96,6 +133,17 @@ namespace br.com.livrariashalom.View
         private void PswConfSenha_TextInput(object sender, TextCompositionEventArgs e)
         {
            
+        }
+
+        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            LoginFuncionario login = new LoginFuncionario();
+            EditarFuncionario(login);
+        }
+
+        private void CmbTipoFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String tipo = cmbTipoFuncionario.SelectedValue.ToString();
         }
     }
 
