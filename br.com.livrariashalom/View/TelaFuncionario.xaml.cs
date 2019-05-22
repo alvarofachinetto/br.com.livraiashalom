@@ -26,8 +26,18 @@ namespace br.com.livrariashalom.View
         public TelaFuncionario()
         {
             InitializeComponent();
+            ListarFuncionario();
         }
 
+        //limpa os valores após uma ação
+        private void Limpar()
+        {
+            txtFuncionario.Clear();
+            pswSenha.Clear();
+            pswConfSenha.Clear();
+            cmbTipoFuncionario.SelectedIndex = 0;
+            
+        }
 
         //caso a confirmação de senha não esteja igual e 
         private bool ValidarSenha()
@@ -44,7 +54,7 @@ namespace br.com.livrariashalom.View
 
             return false;
         }
-
+        //salvar
         public bool SalvarFuncionario(LoginFuncionario loginFuncionario)
         {
             try
@@ -67,7 +77,6 @@ namespace br.com.livrariashalom.View
                         pswSenha.Focus();
                     }
                     
-                    loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
                     funcionarioBLL.SalvarFuncionario(loginFuncionario);
 
                     MessageBox.Show("Cadastro feito com sucesso");
@@ -99,16 +108,18 @@ namespace br.com.livrariashalom.View
                     loginFuncionario.ConfSenha = pswSenha.Password;
                     loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
 
-                    if (ValidarSenha() == false)
+                    MessageBoxResult alteracao = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a alteração
+                    if (alteracao == MessageBoxResult.Yes)
                     {
-                        pswSenha.Focus();
+                        funcionarioBLL.ExcluirFuncionario(loginFuncionario);
+
+                        MessageBox.Show("Edição feito com sucesso");
+                        Limpar();
+                        return true;
                     }
-
-                    loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
-                    funcionarioBLL.SalvarFuncionario(loginFuncionario);
-
-                    MessageBox.Show("Cadastro feito com sucesso");
-                    return true;
+   
                 }
                 return false;
             }
@@ -117,6 +128,59 @@ namespace br.com.livrariashalom.View
             {
                 throw error;
             }
+        }
+
+        //excluir funcionario
+        public bool ExcluirFuncionario(LoginFuncionario loginFuncionario)
+        {
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtFuncionario.Text == "" || pswSenha.Password == "" || pswConfSenha.Password == "" || cmbTipoFuncionario.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    loginFuncionario.Funcionario = txtFuncionario.Text;
+                    loginFuncionario.Senha = pswSenha.Password;
+                    loginFuncionario.ConfSenha = pswSenha.Password;
+                    loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
+
+                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a alteração
+                    if (excluir == MessageBoxResult.Yes)
+                    {
+                        funcionarioBLL.ExcluirFuncionario(loginFuncionario);
+
+                        MessageBox.Show("Cadastro feito com sucesso");
+                        Limpar();
+                        return true;
+                    }
+
+                }
+                return false;
+            }
+
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
+
+        //ListarFornecedor lista todos os funcionarios
+        private void ListarFuncionario()
+        {
+            try
+            {
+                dgFuncionario.ItemsSource = funcionarioBLL.ListarFuncionario().DefaultView;//obtém todos os dados
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
         }
 
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
@@ -144,6 +208,12 @@ namespace br.com.livrariashalom.View
         private void CmbTipoFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String tipo = cmbTipoFuncionario.SelectedValue.ToString();
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            LoginFuncionario loginFuncionario = new LoginFuncionario();
+            ExcluirFuncionario(loginFuncionario);
         }
     }
 

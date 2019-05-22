@@ -122,6 +122,22 @@ namespace br.com.livrariashalom.DAO
 
                 Conectar();
 
+                //seleciona o codigo do funcionario
+                command = new MySqlCommand("select codFuncionario from loginfuncionario where usuario = @usuario");
+                command.Parameters.AddWithValue("@usuario", login.Funcionario);
+
+                command.ExecuteNonQuery();
+                MySqlDataReader dr = command.ExecuteReader();
+
+                long codigo = 0;
+
+                while (dr.Read())
+                {//recebe o codigo
+                    login.CodFuncionario = Convert.ToInt32(dr["codFuncionario"]);
+
+                    codigo = login.CodFuncionario;
+                }
+
                 command = new MySqlCommand("delete from loginfuncionario where codUsuario = @codUsuario", conexao);
                 command.Parameters.AddWithValue("@codUsuario", login.CodFuncionario);
             }
@@ -147,25 +163,25 @@ namespace br.com.livrariashalom.DAO
                 command.ExecuteNonQuery();
 
                 Boolean autenticar = command.ExecuteReader().HasRows;//verifica a informação no banco
-               
+
                 //verificar a autencação da senha
                 //while (autenticar != true)
                 //{
-                    
-                    if (autenticar == true)
+
+                TelaLogin telaLogin = new TelaLogin();
+                if (autenticar == true)
                     {
                         MessageBox.Show("Welcome !");
 
                         TelaPrincipal telaPrincipal = new TelaPrincipal();
                         telaPrincipal.Show();
 
-                        TelaLogin telaLogin = new TelaLogin();
                         telaLogin.Close();
                     }
                     else
                     {
                         MessageBox.Show("Usuário e/ou senha incorretos");
-
+                        
                     }
 
                 //}

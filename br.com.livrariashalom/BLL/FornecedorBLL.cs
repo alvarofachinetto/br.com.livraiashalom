@@ -59,7 +59,14 @@ namespace br.com.livrariashalom.BLL
 
         public void DeletarFornecedor(Fornecedor fornecedor)
         {
-            fornecedorDAO.DeletarFornecedor(fornecedor);
+            try
+            {
+                fornecedorDAO.DeletarFornecedor(fornecedor);
+            }
+            catch(Exception erro)
+            {
+                MessageBox.Show("Error " + erro);
+            }
         }
     }
 }

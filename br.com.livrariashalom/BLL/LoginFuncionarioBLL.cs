@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,5 +65,21 @@ namespace br.com.livrariashalom.BLL
             }
 
         }
+
+        public DataTable ListarFuncionario()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = loginFuncionarioDAO.ListarLogin();
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return dt;
+        }
     }
+}
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="Funcionario" Height="323.333" Width="515.556" Background="Black">
+        Title="Funcionario" Height="433.454" Width="604.59" Background="Black">
     <Grid x:Name="gridFuncionario">
         <Label Content="Funcionario" HorizontalAlignment="Left" Margin="40,31,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
         <Label Content="Senha" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
@@ -18,8 +18,10 @@
             <ComboBoxItem Content="Administrador"></ComboBoxItem>
             <ComboBoxItem Content="Usuário"></ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="380,207,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="291,207,0,0" VerticalAlignment="Top" Width="75" Height="39" Click="BtnEditar_Click"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="223,205,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="134,205,0,0" VerticalAlignment="Top" Width="75" Height="39" Click="BtnEditar_Click"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="37,205,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnExcluir_Click"/>
+        <DataGrid x:Name="dgFuncionario" HorizontalAlignment="Left" Height="100" Margin="28,292,0,0" VerticalAlignment="Top" Width="542"/>
 
     </Grid>
 </Window>
