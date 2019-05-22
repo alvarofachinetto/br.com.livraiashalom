@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -214,6 +215,24 @@ namespace br.com.livrariashalom.View
         {
             LoginFuncionario loginFuncionario = new LoginFuncionario();
             ExcluirFuncionario(loginFuncionario);
+        }
+
+        private void DgFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+
+                var rowView = dgFuncionario.SelectedItems[0] as DataRowView;
+                txtFuncionario.Text = rowView["usuario"].ToString();
+
+                pswSenha.Password = rowView["senha"].ToString();
+                pswConfSenha.Password = rowView["confirmacao_senha"].ToString();
+                cmbTipoFuncionario.Text = rowView["tipo_usuario"].ToString();//arrumar
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
         }
     }
 

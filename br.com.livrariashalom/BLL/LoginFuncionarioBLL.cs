@@ -50,7 +50,6 @@ namespace br.com.livrariashalom.BLL
             {
                 MessageBox.Show("Erro: " + error);
             }
-
         }
 
         public void ExcluirFuncionario(LoginFuncionario login)
@@ -68,18 +67,20 @@ namespace br.com.livrariashalom.BLL
 
         public DataTable ListarFuncionario()
         {
-            DataTable dt = new DataTable();
+            
             try
             {
+                DataTable dt = new DataTable();
                 dt = loginFuncionarioDAO.ListarLogin();
+                return dt;
 
             }
             catch (Exception error)
             {
-                MessageBox.Show("Erro: " + error);
+                throw error;
             }
-            return dt;
+            
         }
     }
-}
+
 }

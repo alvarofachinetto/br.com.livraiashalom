@@ -21,7 +21,7 @@
         <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="223,205,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="134,205,0,0" VerticalAlignment="Top" Width="75" Height="39" Click="BtnEditar_Click"/>
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="37,205,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnExcluir_Click"/>
-        <DataGrid x:Name="dgFuncionario" HorizontalAlignment="Left" Height="100" Margin="28,292,0,0" VerticalAlignment="Top" Width="542"/>
+        <DataGrid x:Name="dgFuncionario" HorizontalAlignment="Left" Height="100" Margin="28,292,0,0" VerticalAlignment="Top" Width="542" SelectionChanged="DgFuncionario_SelectionChanged"/>
 
     </Grid>
 </Window>
