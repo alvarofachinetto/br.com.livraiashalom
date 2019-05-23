@@ -62,12 +62,29 @@ namespace br.com.livrariashalom.DAO
                 Desconectar();
             }
         }
-
+        //editar registro
         public void EditarContaPagar(PagarConta pagarConta)
         {
             try
             {
                 Conectar();
+
+                //seleciona o codigo do funcionario
+                command = new MySqlCommand("select codPagarConta from pagarconta where descricao = @descricao", conexao);
+                command.Parameters.AddWithValue("@descricao", pagarConta.Descricao);
+
+                command.ExecuteNonQuery();
+                MySqlDataReader dr = command.ExecuteReader();
+
+                long codigo = 0;
+
+                while (dr.Read())
+                {//recebe o codigo
+                    pagarConta.CodPagarConta = Convert.ToInt32(dr["codPagarConta"]);
+
+                    codigo = pagarConta.CodPagarConta;
+                }
+                dr.Close();
 
                 command = new MySqlCommand("update pagarconta set data = @data, descricao = @descricao, valor = @valor, datavencimento = @dataVencimento, status = @status where codPagarConta = @codPagarConta", conexao);
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
@@ -75,7 +92,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@valor", pagarConta.Valor);
                 command.Parameters.AddWithValue("@dataVencimento", pagarConta.DataVencimento);
                 command.Parameters.AddWithValue("@status", pagarConta.Status);
-                command.Parameters.AddWithValue("@idPagarConta", pagarConta.CodPagarConta);
+                command.Parameters.AddWithValue("@codPagarConta", pagarConta.CodPagarConta);
 
                 command.ExecuteNonQuery();
 
@@ -91,14 +108,32 @@ namespace br.com.livrariashalom.DAO
         }
 
         //Metodo excluir
-        public void ExcluirFornecedor(PagarConta pagarConta)
+        public void ExcluirContaPagar(PagarConta pagarConta)
         {
             try
             {
                 Conectar();
 
-                command = new MySqlCommand("delete from pagarconta where idPagarConta = @codPagarConta", conexao);
+                //seleciona o codigo do funcionario
+                command = new MySqlCommand("select codPagarConta from pagarconta where descricao = @descricao", conexao);
+                command.Parameters.AddWithValue("@descricao", pagarConta.Descricao);
+
+                command.ExecuteNonQuery();
+                MySqlDataReader dr = command.ExecuteReader();
+
+                long codigo = 0;
+
+                while (dr.Read())
+                {//recebe o codigo
+                    pagarConta.CodPagarConta = Convert.ToInt32(dr["codPagarConta"]);
+
+                    codigo = pagarConta.CodPagarConta;
+                }
+                dr.Close();
+
+                command = new MySqlCommand("delete from pagarconta where codPagarConta = @codPagarConta", conexao);
                 command.Parameters.AddWithValue("@codPagarConta", pagarConta.CodPagarConta);
+           
             }
             catch (Exception erro)
             {

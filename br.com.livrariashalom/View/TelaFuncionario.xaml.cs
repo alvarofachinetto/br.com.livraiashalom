@@ -77,11 +77,14 @@ namespace br.com.livrariashalom.View
                     {
                         pswSenha.Focus();
                     }
-                    
-                    funcionarioBLL.SalvarFuncionario(loginFuncionario);
+                    else
+                    {
+                        funcionarioBLL.SalvarFuncionario(loginFuncionario);
 
-                    MessageBox.Show("Cadastro feito com sucesso");
-                    return true;
+                        MessageBox.Show("Cadastro feito com sucesso");
+                        return true;
+                    }
+                    
                 }
                 return false;
             }
@@ -98,7 +101,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if ( txtFuncionario.Text == "" || pswSenha.Password == "" || pswConfSenha.Password == "" || cmbTipoFuncionario.Text == "")
+                if (txtFuncionario.Text == "" || pswSenha.Password == "" || pswConfSenha.Password == "" || cmbTipoFuncionario.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -114,10 +117,11 @@ namespace br.com.livrariashalom.View
                     //caso o usuário realmente queira fazer a alteração
                     if (alteracao == MessageBoxResult.Yes)
                     {
-                        funcionarioBLL.ExcluirFuncionario(loginFuncionario);
+                        funcionarioBLL.EditarFuncionario(loginFuncionario);
 
                         MessageBox.Show("Edição feito com sucesso");
                         Limpar();
+                        ListarFuncionario();
                         return true;
                     }
    
@@ -148,7 +152,7 @@ namespace br.com.livrariashalom.View
                     loginFuncionario.ConfSenha = pswSenha.Password;
                     loginFuncionario.TipoFuncionario = cmbTipoFuncionario.Text;
 
-                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);
+                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete salvar as alterações ?", "Excluir", MessageBoxButton.YesNo);
 
                     //caso o usuário realmente queira fazer a alteração
                     if (excluir == MessageBoxResult.Yes)
@@ -183,7 +187,7 @@ namespace br.com.livrariashalom.View
             }
 
         }
-
+        //botao salvar
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             LoginFuncionario loginFuncionario = new LoginFuncionario();
@@ -200,39 +204,41 @@ namespace br.com.livrariashalom.View
            
         }
 
+        //botao editar
         private void BtnEditar_Click(object sender, RoutedEventArgs e)
         {
             LoginFuncionario login = new LoginFuncionario();
             EditarFuncionario(login);
         }
-
-        private void CmbTipoFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            String tipo = cmbTipoFuncionario.SelectedValue.ToString();
-        }
-
+        //botao excluir
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
             LoginFuncionario loginFuncionario = new LoginFuncionario();
             ExcluirFuncionario(loginFuncionario);
         }
 
-        private void DgFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dgFuncionario_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
 
                 var rowView = dgFuncionario.SelectedItems[0] as DataRowView;
+                txtCodFuncionario.Text = rowView["codUsuario"].ToString();
                 txtFuncionario.Text = rowView["usuario"].ToString();
 
                 pswSenha.Password = rowView["senha"].ToString();
                 pswConfSenha.Password = rowView["confirmacao_senha"].ToString();
-                cmbTipoFuncionario.Text = rowView["tipo_usuario"].ToString();//arrumar
+                cmbTipoFuncionario.Text = rowView["tipo_usuario"].ToString();
             }
             catch (Exception error)
             {
                 MessageBox.Show("Erro: " + error);
             }
+        }
+
+        private void dgFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 

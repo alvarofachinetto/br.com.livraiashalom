@@ -23,6 +23,7 @@
         <TextBox x:Name="txtData" HorizontalAlignment="Left" Height="23" Margin="211,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtDataVencimento" HorizontalAlignment="Left" Height="23" Margin="211,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnSalvarContaPagar" Content="Salvar" HorizontalAlignment="Left" Margin="617,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click"/>
+        <DataGrid x:Name="dgPagarConta" HorizontalAlignment="Left" Height="143" Margin="66,242,0,0" VerticalAlignment="Top" Width="644" MouseDoubleClick="dgPagarConta_MouseDoubleClick"/>
 
     </Grid>
 </Window>

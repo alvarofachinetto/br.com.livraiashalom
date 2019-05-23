@@ -77,7 +77,7 @@ namespace br.com.livrariashalom.DAO
                 Conectar();
 
                 //seleciona o codigo do funcionario
-                command = new MySqlCommand("select codFuncionario from loginfuncionario where usuario = @usuario");
+                command = new MySqlCommand("select codUsuario from loginfuncionario where usuario = @usuario", conexao);
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
 
                 command.ExecuteNonQuery();
@@ -87,19 +87,20 @@ namespace br.com.livrariashalom.DAO
 
                 while (dr.Read())
                 {//recebe o codigo
-                    login.CodFuncionario = Convert.ToInt32(dr["codFuncionario"]);
+                    login.CodFuncionario = Convert.ToInt32(dr["codUsuario"]);
 
                     codigo = login.CodFuncionario;
                 }
+                dr.Close();
 
                 command = new MySqlCommand("update loginfuncionario set usuario = @usuario, senha = @senha, " +
-                "confirmacao_senha = @confirmacao_senha, tipo_usuario = @tipo_usuario where usuario = @usuario");
+                "confirmacao_senha = @confSenha, tipo_usuario = @tipoUsuario where usuario = @usuario", conexao);
 
                 command.Parameters.AddWithValue("@codUsuario", codigo); //executa com o código selecionado
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
                 command.Parameters.AddWithValue("@confSenha", login.ConfSenha);
-                command.Parameters.AddWithValue("@tipousuario", login.TipoFuncionario);
+                command.Parameters.AddWithValue("@tipoUsuario", login.TipoFuncionario);
 
                 command.ExecuteNonQuery();
 
@@ -123,7 +124,7 @@ namespace br.com.livrariashalom.DAO
                 Conectar();
 
                 //seleciona o codigo do funcionario
-                command = new MySqlCommand("select codFuncionario from loginfuncionario where usuario = @usuario",conexao);
+                command = new MySqlCommand("select codUsuario from loginfuncionario where usuario = @usuario",conexao);
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
 
                 command.ExecuteNonQuery();
@@ -133,10 +134,11 @@ namespace br.com.livrariashalom.DAO
 
                 while (dr.Read())
                 {//recebe o codigo
-                    login.CodFuncionario = Convert.ToInt32(dr["codFuncionario"]);
+                    login.CodFuncionario = Convert.ToInt32(dr["codUsuario"]);
 
                     codigo = login.CodFuncionario;
                 }
+                dr.Close();
 
                 command = new MySqlCommand("delete from loginfuncionario where codUsuario = @codUsuario", conexao);
                 command.Parameters.AddWithValue("@codUsuario", login.CodFuncionario);

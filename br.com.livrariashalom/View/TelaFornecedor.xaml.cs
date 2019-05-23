@@ -343,7 +343,6 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-
                 var rowView = dgFornecedor.SelectedItems[0] as DataRowView;
                 txtcodFornecedor.Text = rowView["codFornecedor"].ToString();
 
