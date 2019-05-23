@@ -34,8 +34,6 @@ namespace br.com.livrariashalom.View
         private void Limpar()
         {
             txtCodigoPagarConta.Clear();
-            txtData.Clear();
-            txtDataVencimento.Clear();
             txtDescricao.Clear();
             txtValor.Clear();
         }
@@ -46,16 +44,16 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" || txtDataVencimento.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
+                    pagarConta.Data = data.SelectedDate.Value;
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
+                    pagarConta.DataVencimento = dataVencimento.SelectedDate.Value;
                     pagarConta.Status = cmbStatus.Text;
 
                     pagarContaBLL.SalvarContaPagar(pagarConta);
@@ -81,16 +79,16 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" || txtDataVencimento.Text == "")
+                if ( txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
+                    pagarConta.Data = data.SelectedDate.Value;
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
+                    pagarConta.DataVencimento = dataVencimento.SelectedDate.Value;
                     pagarConta.Status = cmbStatus.Text;
 
 
@@ -125,16 +123,16 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" || txtDataVencimento.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" )
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
+                    pagarConta.Data = data.SelectedDate.Value;
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
+                    pagarConta.DataVencimento = dataVencimento.SelectedDate.Value;
                     pagarConta.Status = cmbStatus.Text;
 
 
@@ -189,9 +187,9 @@ namespace br.com.livrariashalom.View
 
                 var rowView = dgPagarConta.SelectedItems[0] as DataRowView;
                 txtCodigoPagarConta.Text = rowView["codPagarConta"].ToString();
-                txtData.Text = rowView["data"].ToString();
+                data.SelectedDate = Convert.ToDateTime(rowView["data"].ToString());
                 cmbStatus.Text = rowView["status"].ToString();
-                txtDataVencimento.Text = rowView["dataVencimento"].ToString();
+                dataVencimento.SelectedDate =Convert.ToDateTime(rowView["dataVencimento"].ToString());
                 txtDescricao.Text = rowView["descricao"].ToString();
                 txtValor.Text = rowView["valor"].ToString();
             }
@@ -199,6 +197,18 @@ namespace br.com.livrariashalom.View
             {
                 MessageBox.Show("Erro: " + error);
             }
+        }
+
+        private void BtnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            PagarConta pagarConta = new PagarConta();
+            EditarPagarConta(pagarConta);
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            PagarConta pagarConta = new PagarConta();
+            ExcluirPagarConta(pagarConta);
         }
     }
 }
