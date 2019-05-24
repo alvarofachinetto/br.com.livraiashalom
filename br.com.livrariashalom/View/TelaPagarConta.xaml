@@ -24,8 +24,8 @@
         <DataGrid x:Name="dgPagarConta" HorizontalAlignment="Left" Height="143" Margin="66,242,0,0" VerticalAlignment="Top" Width="644" MouseDoubleClick="dgPagarConta_MouseDoubleClick"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="506,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnEditar_Click"/>
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="396,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnExcluir_Click"/>
-        <Calendar x:Name="data" HorizontalAlignment="Left" Margin="179,73,0,0" VerticalAlignment="Top" Width="189" Height="72"/>
-        <Calendar x:Name="dataVencimento" HorizontalAlignment="Left" Margin="188,150,0,0" VerticalAlignment="Top" Width="180" Height="75"/>
+        <TextBox x:Name="txtData" HorizontalAlignment="Left" Height="23" Margin="188,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDataVencimento" HorizontalAlignment="Left" Height="23" Margin="188,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

@@ -50,10 +50,10 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
-                    pagarConta.Data = data.SelectedDate.Value;
+                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = dataVencimento.SelectedDate.Value;
+                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
                     pagarConta.Status = cmbStatus.Text;
 
                     pagarContaBLL.SalvarContaPagar(pagarConta);
@@ -85,10 +85,10 @@ namespace br.com.livrariashalom.View
                 else
                 {
                     pagarConta.CodPagarConta = Convert.ToInt64(txtCodigoPagarConta.Text);
-                    pagarConta.Data = data.SelectedDate.Value;
+                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = dataVencimento.SelectedDate.Value;
+                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
                     pagarConta.Status = cmbStatus.Text;
 
 
@@ -182,9 +182,9 @@ namespace br.com.livrariashalom.View
 
                 var rowView = dgPagarConta.SelectedItems[0] as DataRowView;
                 txtCodigoPagarConta.Text = rowView["codPagarConta"].ToString();
-                data.SelectedDate = Convert.ToDateTime(rowView["data"].ToString());
+                txtData.Text = rowView["data"].ToString();
                 cmbStatus.Text = rowView["status"].ToString();
-                dataVencimento.SelectedDate =Convert.ToDateTime(rowView["dataVencimento"].ToString());
+                txtDataVencimento.Text =rowView["dataVencimento"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
                 txtValor.Text = rowView["valor"].ToString();
             }
