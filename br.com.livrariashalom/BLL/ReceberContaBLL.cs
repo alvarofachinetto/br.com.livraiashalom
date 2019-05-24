@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,51 @@ namespace br.com.livrariashalom.BLL
                 MessageBox.Show("Erro: " + error);
             }
             
+        }
+
+        public void EditarReceberConta(ReceberConta receberConta)
+        {
+            try
+            {
+
+                receberContaDAO.EditarContaPagar(receberConta);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
+
+        public void ExcluirReceberConta(long codReceberConta)
+        {
+            try
+            {
+
+                receberContaDAO.ExcluirReceberConta(codReceberConta);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+
+        }
+
+        public DataTable ListarReceberConta()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt = receberContaDAO.ListarReceberConta();
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
         }
 
     }

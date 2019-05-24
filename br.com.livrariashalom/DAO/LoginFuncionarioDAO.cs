@@ -166,25 +166,25 @@ namespace br.com.livrariashalom.DAO
 
                 Boolean autenticar = command.ExecuteReader().HasRows;//verifica a informação no banco
 
+                TelaLogin telaLogin = new TelaLogin();
+
                 //verificar a autencação da senha
-                //while (autenticar != true)
+                //while (telaLogin.Close() == true)
                 //{
 
-                TelaLogin telaLogin = new TelaLogin();
+                
                 if (autenticar == true)
-                    {
-                        MessageBox.Show("Welcome !");
-
-                        TelaPrincipal telaPrincipal = new TelaPrincipal();
-                        telaPrincipal.Show();
-
-                        telaLogin.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuário e/ou senha incorretos");
-                        
-                    }
+                {
+                    MessageBox.Show("Welcome !");
+                    TelaPrincipal telaPrincipal = new TelaPrincipal();
+                    telaPrincipal.Show();
+                    telaLogin.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário e/ou senha incorretos");
+                    
+                }
 
                 //}
                 

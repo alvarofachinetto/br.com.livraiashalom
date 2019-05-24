@@ -77,20 +77,19 @@ namespace br.com.livrariashalom.View
 
         private void TxtEntrada_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
-        }
-        
-        //botao pré-calculado
-        private void TxtSaldo_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
             double entrada = Convert.ToDouble(txtEntrada.Text);
             double saida = Convert.ToDouble(txtSaida.Text);
             double saldo = entrada - saida;
 
             txtSaldo.Text = String.Format("{0:C}", saldo);
 
-            System.Console.WriteLine(txtSaldo);
+        }
+        
+        //botao pré-calculado
+        private void TxtSaldo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+           
         }
     }
 }

@@ -40,7 +40,7 @@ namespace br.com.livrariashalom.DAO
 
         }
 
-        public DataTable ListarContaPagar()
+        public DataTable ListarReceberConta()
         {
             try
             {
@@ -48,7 +48,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from receberconta");
+                command = new MySqlCommand("select * from receberconta",conexao);
                 dataAdapter.SelectCommand = command;
 
                 dataAdapter.Fill(dt);
@@ -74,13 +74,13 @@ namespace br.com.livrariashalom.DAO
 
                 command = new MySqlCommand("update receberconta set data = @data, descricao = @descricao, valor = @valor, status = @status where codReceberConta = @codReceberConta", conexao);
                 command.Parameters.AddWithValue("@data", receberConta.Data);
-                command.Parameters.AddWithValue("@dscricao", receberConta.Descricao);
+                command.Parameters.AddWithValue("@descricao", receberConta.Descricao);
                 command.Parameters.AddWithValue("@valor", receberConta.Valor);
                 command.Parameters.AddWithValue("@status", receberConta.Status);
                 command.Parameters.AddWithValue("@codReceberConta", receberConta.CodReceberConta);
 
                 command.ExecuteNonQuery();
-
+                
             }
             catch (Exception erro)
             {
@@ -93,14 +93,16 @@ namespace br.com.livrariashalom.DAO
         }
 
         //Metodo excluir
-        public void ExcluirFornecedor(ReceberConta receberConta)
+        public void ExcluirReceberConta(long codReceberConta)
         {
             try
             {
                 Conectar();
 
-                command = new MySqlCommand("delete from pagarconta where idRceberConta = @codReceberConta", conexao);
-                command.Parameters.AddWithValue("@codReceberConta", receberConta.CodReceberConta);
+                command = new MySqlCommand("delete from receberconta where codReceberConta = @codReceberConta", conexao);
+                command.Parameters.AddWithValue("@codReceberConta", codReceberConta);
+
+                command.ExecuteNonQuery();
             }
             catch (Exception erro)
             {

@@ -19,12 +19,12 @@
         </ComboBox>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="605,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="73" Margin="605,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtCodigoPagarConta" HorizontalAlignment="Left" Height="23" Margin="188,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCodigoPagarConta" HorizontalAlignment="Left" Height="23" Margin="188,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" IsReadOnly="True"/>
         <Button x:Name="btnSalvarContaPagar" Content="Salvar" HorizontalAlignment="Left" Margin="617,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click"/>
         <DataGrid x:Name="dgPagarConta" HorizontalAlignment="Left" Height="143" Margin="66,242,0,0" VerticalAlignment="Top" Width="644" MouseDoubleClick="dgPagarConta_MouseDoubleClick"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="506,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnEditar_Click"/>
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="396,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnExcluir_Click"/>
-        <Calendar x:Name="data" HorizontalAlignment="Left" Margin="188,70,0,0" VerticalAlignment="Top" Width="180" Height="75"/>
+        <Calendar x:Name="data" HorizontalAlignment="Left" Margin="179,73,0,0" VerticalAlignment="Top" Width="189" Height="72"/>
         <Calendar x:Name="dataVencimento" HorizontalAlignment="Left" Margin="188,150,0,0" VerticalAlignment="Top" Width="180" Height="75"/>
 
     </Grid>

@@ -38,11 +38,11 @@ namespace br.com.livrariashalom.BLL
             }
         }
 
-        public void ExcluirContaPagar(PagarConta pagarConta)
+        public void ExcluirContaPagar(long codPagarConta)
         {
             try
             {
-                pagarContaDAO.ExcluirContaPagar(pagarConta);
+                pagarContaDAO.ExcluirContaPagar(codPagarConta);
             }
             catch (Exception error)
             {

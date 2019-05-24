@@ -59,8 +59,7 @@ namespace br.com.livrariashalom.View
                     pagarContaBLL.SalvarContaPagar(pagarConta);
 
                     MessageBox.Show("Cadastro feito com sucesso");
-                    MessageBox.Show("Código do Conta: " + pagarConta.CodPagarConta);
-
+                    ListarContaPagar();
                     return true;
                 }
 
@@ -85,6 +84,7 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
+                    pagarConta.CodPagarConta = Convert.ToInt64(txtCodigoPagarConta.Text);
                     pagarConta.Data = data.SelectedDate.Value;
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
@@ -117,7 +117,7 @@ namespace br.com.livrariashalom.View
 
         }
 
-        private bool ExcluirPagarConta(PagarConta pagarConta)
+        private bool ExcluirPagarConta()
         {
 
             try
@@ -129,21 +129,16 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
-                    pagarConta.Data = data.SelectedDate.Value;
-                    pagarConta.Descricao = txtDescricao.Text;
-                    pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = dataVencimento.SelectedDate.Value;
-                    pagarConta.Status = cmbStatus.Text;
+                    long codPagarConta = Convert.ToInt64(txtCodigoPagarConta.Text);
 
-
-                    MessageBoxResult alteracao = MessageBox.Show("Deseja realmete Excluir essa conta ?", "Excluir", MessageBoxButton.YesNo);
+                    MessageBoxResult exclusao = MessageBox.Show("Deseja realmete Excluir essa conta ?", "Excluir", MessageBoxButton.YesNo);
 
                     //caso o usuário realmente queira fazer a alteração
-                    if (alteracao == MessageBoxResult.Yes)
+                    if (exclusao == MessageBoxResult.Yes)
                     {
-                        pagarContaBLL.ExcluirContaPagar(pagarConta);
+                        pagarContaBLL.ExcluirContaPagar(codPagarConta);
 
-                        MessageBox.Show("Edição feito com sucesso");
+                        MessageBox.Show("Exclusão feito com sucesso");
                         Limpar();
                         ListarContaPagar();
 
@@ -207,8 +202,7 @@ namespace br.com.livrariashalom.View
 
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            PagarConta pagarConta = new PagarConta();
-            ExcluirPagarConta(pagarConta);
+            ExcluirPagarConta();
         }
     }
 }

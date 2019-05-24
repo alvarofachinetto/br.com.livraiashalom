@@ -17,7 +17,6 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-
                 fluxoCaixaDAO.SalvarFluxo(fluxoCaixa);
             }
             catch(Exception error)
@@ -25,6 +24,18 @@ namespace br.com.livrariashalom.BLL
                 MessageBox.Show("Erro: " + error);
             }
         }
-             
+
+        public void EditarFluxo(FluxoCaixa fluxoCaixa)
+        {
+            try
+            {
+                fluxoCaixaDAO.(fluxoCaixa);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+        }
+
     }
 }

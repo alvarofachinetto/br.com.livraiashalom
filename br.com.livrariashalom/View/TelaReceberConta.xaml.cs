@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace br.com.livrariashalom.View
         public TelaReceberConta()
         {
             InitializeComponent();
+            ListarReceberConta();
         }
 
         private bool SalvarReceberConta(ReceberConta receberConta)
@@ -34,7 +36,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" || txtDataVencimento.Text == "")
+                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -50,6 +52,7 @@ namespace br.com.livrariashalom.View
                     MessageBox.Show("Cadastro feito com sucesso");
                     MessageBox.Show("Código do Conta: " + receberConta.CodReceberConta);
 
+                    ListarReceberConta();
                     return true;
                 }
 
@@ -62,10 +65,111 @@ namespace br.com.livrariashalom.View
 
         }
 
+        private bool EditarReceberConta(ReceberConta receberConta)
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" )
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    receberConta.CodReceberConta = Convert.ToInt64(txtCodigoReceberConta.Text);
+                    receberConta.Data = Convert.ToDateTime(txtData.Text);
+                    receberConta.Descricao = txtDescricao.Text;
+                    receberConta.Valor = Convert.ToDouble(txtValor.Text);
+                    receberConta.Status = cmbStatus.Text;
+
+                    receberContaBLL.EditarReceberConta(receberConta);
+
+                    MessageBox.Show("Edição feita com sucesso");
+
+                    ListarReceberConta();
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+        private bool ExcluirReceberConta()
+        {
+
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    long codReceberConta = Convert.ToInt64(txtCodigoReceberConta.Text);
+                    receberContaBLL.ExcluirReceberConta(codReceberConta);
+
+                    MessageBox.Show("Exclusão feita com sucesso");
+
+                    ListarReceberConta();
+                    return true;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+            return false;
+
+        }
+
+        public void ListarReceberConta()
+        {
+            dgReceberConta.ItemsSource = receberContaBLL.ListarReceberConta().DefaultView;
+        }
+
+
         private void BtnSalvarContaPagar_Click(object sender, RoutedEventArgs e)
         {
             ReceberConta receberConta = new ReceberConta();
             SalvarReceberConta(receberConta);
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            ReceberConta receberConta = new ReceberConta();
+            ExcluirReceberConta();
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            ReceberConta receberConta = new ReceberConta();
+            EditarReceberConta(receberConta);
+        }
+
+        private void dgReceberConta_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+
+                var rowView = dgReceberConta.SelectedItems[0] as DataRowView;
+                txtCodigoReceberConta.Text = rowView["codReceberConta"].ToString();
+                txtData.Text = rowView["data"].ToString();
+                cmbStatus.Text = rowView["status"].ToString();
+                txtDescricao.Text = rowView["descricao"].ToString();
+                txtValor.Text = rowView["valor"].ToString();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
         }
     }
 }
