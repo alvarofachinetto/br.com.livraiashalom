@@ -45,7 +45,7 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
-                    fluxoCaixa.Dia = Convert.ToDateTime(txtDia.Text);
+                    fluxoCaixa.Dia = DateTime.Now;
                     fluxoCaixa.Observacoes = txtObservaoes.Text;
                     fluxoCaixa.ValorEntrada = Convert.ToDouble(txtEntrada.Text);
                     fluxoCaixa.ValorSaida = Convert.ToDouble(txtSaida.Text);

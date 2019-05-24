@@ -29,7 +29,7 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-                fluxoCaixaDAO.(fluxoCaixa);
+                //fluxoCaixaDAO.ed(fluxoCaixa);
             }
             catch (Exception error)
             {

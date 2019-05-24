@@ -16,21 +16,21 @@
         <Label Content="Valor Entrada" HorizontalAlignment="Right" Margin="0,102,651,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
         <Label Content="Valor Saída" HorizontalAlignment="Right" Margin="0,128,664,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
         <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,154,649,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,189,696,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Pagar Conta" HorizontalAlignment="Left" Margin="433,185,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Receber Conta" HorizontalAlignment="Left" Margin="431,154,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,182,696,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Pagar Conta" HorizontalAlignment="Left" Margin="433,154,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Receber Conta" HorizontalAlignment="Left" Margin="431,130,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
         <Label Content="Observações" HorizontalAlignment="Left" Margin="431,49,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <TextBox x:Name="txtCodigo" HorizontalAlignment="Right" Height="23" Margin="0,51,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCodigo" HorizontalAlignment="Right" Height="23" Margin="0,51,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="txtDia" HorizontalAlignment="Right" Height="23" Margin="0,79,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtEntrada" HorizontalAlignment="Right" Height="23" Margin="0,105,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtEntrada_TextChanged"/>
         <TextBox x:Name="txtSaida" HorizontalAlignment="Left" Height="23" Margin="222,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtSaldo" HorizontalAlignment="Right" Height="23" Margin="0,192,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtSaldo_TextChanged"/>
-        <TextBox x:Name="txtPagarConta" HorizontalAlignment="Left" Height="23" Margin="606,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtReceberConta" HorizontalAlignment="Left" Height="23" Margin="606,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSaldo" HorizontalAlignment="Right" Height="23" Margin="0,185,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtSaldo_TextChanged"/>
+        <TextBox x:Name="txtPagarConta" HorizontalAlignment="Left" Height="23" Margin="606,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtReceberConta" HorizontalAlignment="Left" Height="23" Margin="606,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtObservaoes" HorizontalAlignment="Left" Height="75" Margin="606,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="675,272,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click"/>
         <TextBox x:Name="txtPrevisto" HorizontalAlignment="Right" Height="23" Margin="0,157,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DataGrid HorizontalAlignment="Right" Height="158" Margin="0,0,163,7" VerticalAlignment="Bottom" Width="619" Grid.RowSpan="2"/>
+        <DataGrid x:Name="dgFluxoCaixa" HorizontalAlignment="Right" Height="158" Margin="0,0,163,7" VerticalAlignment="Bottom" Width="619" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
