@@ -1,4 +1,5 @@
 ﻿using br.com.livrariashalom.BLL;
+using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,13 +23,13 @@ namespace br.com.livrariashalom.View
     public partial class TelaEstoque : Window
     {
         private LivroBLL livroBLL = new LivroBLL();
-        
+        private EstoqueBLL estoqueBLL = new EstoqueBLL();
 
         public TelaEstoque()
         {
             InitializeComponent();
             ListarLivro();//lista todos os livros quando inicia
-           
+
         }
 
         //lista todos os livros
@@ -69,6 +70,37 @@ namespace br.com.livrariashalom.View
             }
 
         }
+
+        public bool SalvarLivroEstoque(Estoque estoque)
+        {
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCodLivro.Text == "" || txtDescricao.Text == "" || txtEntrada.Text == "" || txtQtdEstoque.Text == "" || txtSaida.Text == "" || txtAlerta.Text == "")
+                {
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    estoque.CodLivro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+                    estoque.Livro = txtDescricao.Text;
+                    estoque.QtdAlerta = Convert.ToInt32(txtAlerta.Text);
+                    estoque.QtdEntrada = Convert.ToInt32(txtEntrada.Text);
+                    estoque.QtdSaida = Convert.ToInt32(txtSaida.Text);
+                    estoque.QtdEstoque = Convert.ToInt32(txtQtdEstoque.Text);
+
+                    estoqueBLL.SalvarLivroEsoque(estoque);
+                    MessageBox.Show("Cadastro feito com sucesso");
+
+                    return true;
+                }
+                return false;
+            }catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+    
 
         private void TxtPesquisar_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -111,6 +143,12 @@ namespace br.com.livrariashalom.View
         private void BtnVenda_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            Estoque estoque = new Estoque();
+            SalvarLivroEstoque(estoque);
         }
     }
 }

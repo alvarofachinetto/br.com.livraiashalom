@@ -62,6 +62,7 @@
     <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\ContatoBLL.cs" />
     <Compile Include="BLL\EnderecoBLL.cs" />
+    <Compile Include="BLL\EstoqueBLL.cs" />
     <Compile Include="BLL\FluxoCaixaBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
     <Compile Include="BLL\ItemVendaBLL.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="DAO\PrazoDAO.cs" />
     <Compile Include="DAO\ReceberContaDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
+    <Compile Include="Model\Estoque.cs" />
     <Compile Include="View\TelaCategoria.xaml.cs">
       <DependentUpon>TelaCategoria.xaml</DependentUpon>
     </Compile>

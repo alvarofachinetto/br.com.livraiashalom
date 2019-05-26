@@ -131,10 +131,9 @@ namespace br.com.livrariashalom.DAO
                         telaLivro.txtAutor.Text = dr.GetString(2);
                         telaLivro.txtEditora.Text = dr.GetString(3);
                         telaLivro.cmbFase.Text = dr.GetString(4);
-                        telaLivro.txtQtd.Text = dr.GetString(5);
+                        
                         telaLivro.txtCategoria.Text = dr.GetString(6);
                         telaLivro.txtValor.Text = dr.GetString(7);
-                        telaLivro.txtAlerta.Text = dr.GetString(8);
                         telaLivro.txtFornecedorLivro.Text = dr.GetString(9);
                         telaLivro.txtDescricao.Text = dr.GetString(10);
                     }

@@ -13,10 +13,22 @@
                     <ColumnDefinition Width="81*"/>
                     <ColumnDefinition Width="703*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="dgLivro" HorizontalAlignment="Left" Height="288" Margin="10,92,0,0" VerticalAlignment="Top" Width="764" Grid.ColumnSpan="2" SelectionChanged="dgLivro_SelectionChanged" MouseDoubleClick="dgLivro_MouseDoubleClick"/>
+                <DataGrid x:Name="dgLivro" HorizontalAlignment="Left" Height="187" Margin="10,193,0,0" VerticalAlignment="Top" Width="764" Grid.ColumnSpan="2" SelectionChanged="dgLivro_SelectionChanged" MouseDoubleClick="dgLivro_MouseDoubleClick"/>
                 <TextBox x:Name="txtPesquisar" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="571,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtPesquisar_TextChanged"/>
                 <Button x:Name="btnPesquisar" Content="Pesquisar" Grid.Column="1" HorizontalAlignment="Left" Margin="476,13,0,0" VerticalAlignment="Top" Width="76" Height="23" Click="BtnPesquisar_Click"/>
-                <Button x:Name="btnVenda" Content="Venda" Grid.Column="1" HorizontalAlignment="Left" Margin="376,15,0,0" VerticalAlignment="Top" Width="75" Click="BtnVenda_Click"/>
+                <Label Content="Quantidade" HorizontalAlignment="Left" Margin="146,12,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="23" Margin="227,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
+                <Label Content="Entrada" HorizontalAlignment="Left" Margin="67,12,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtEntrada" HorizontalAlignment="Left" Height="23" Margin="67,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
+                <Label Content="Saida" HorizontalAlignment="Left" Margin="307,12,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtSaida" HorizontalAlignment="Left" Height="23" Margin="388,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
+                <Label Content="Livro" HorizontalAlignment="Left" Margin="67,63,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="67,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
+                <Label Content="Alerta" HorizontalAlignment="Left" Margin="146,63,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtAlerta" HorizontalAlignment="Left" Height="23" Margin="227,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
+                <Label Content="Descricao" HorizontalAlignment="Left" Margin="316,60,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="23" Margin="397,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Grid.Column="1"/>
+                <Button x:Name="btnSalvar" Content="Salvar" Grid.Column="1" HorizontalAlignment="Left" Margin="602,63,0,0" VerticalAlignment="Top" Width="78" Height="23" Click="BtnSalvar_Click"/>
             </Grid>
         </TabItem>
     </TabControl>
