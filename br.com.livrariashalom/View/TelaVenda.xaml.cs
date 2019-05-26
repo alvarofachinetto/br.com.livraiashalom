@@ -1,6 +1,7 @@
 ﻿using br.com.livrariashalom.BLL;
 using br.com.livrariashalom.DAO;
 using br.com.livrariashalom.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +25,9 @@ namespace br.com.livrariashalom.View
     public partial class TelaVendas : Window
     {
         private VendaBLL vendaBLL;
-        private ItemVendaBLL itemVendaBLL; 
+        private ItemVendaBLL itemVendaBLL;
+        private Conexao conexao = new Conexao();
+        private MySqlCommand command = null;
 
         public TelaVendas()
         {
@@ -32,7 +35,6 @@ namespace br.com.livrariashalom.View
             
         }
 
-       
         //recebe os valores para salvar
         private bool SalvarVenda(Venda venda)
         {
@@ -55,13 +57,9 @@ namespace br.com.livrariashalom.View
                     venda.CodPrazo.CodCondPagamento = Convert.ToInt16(txtCodPrazo.Text);
                     venda.Observacao = txtObservacao.Text;
 
-
                     vendaBLL = new VendaBLL();
                     vendaBLL.SalvarVenda(venda);
                     
-                    MessageBox.Show("Cadastro feito com sucesso");
-                    MessageBox.Show("Código do venda: " + venda.CodVenda);
-
                     return true;
                 }
 
@@ -119,37 +117,90 @@ namespace br.com.livrariashalom.View
 
         }
         //baixa no estoque de livro
-        private void VendaLivro()
+        public List<ItemVenda> VendaLivro()
         {
             try
             {
                 ItemVenda itemVenda = new ItemVenda();
-                itemVenda.Venda.CodVenda = Convert.ToInt32(txtCodVenda.Text);
-                itemVendaBLL = new ItemVendaBLL();
-                itemVendaBLL.VendaLivro(itemVenda.Venda.CodVenda);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
 
+                conexao.Conectar();
+
+
+                command = new MySqlCommand("select Livro_codLivro, quantidade from itemvenda where Venda_codVenda = @codVenda;", conexao.conexao);
+                command.Parameters.AddWithValue("@codVenda", txtCodVenda.Text);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+                List<ItemVenda> listaItens = new List<ItemVenda>();
+
+                
+                //lê os itens e adiciona numa lista
+                while (dataReader.Read())
+                {
+                    itemVenda.Livro.CodLivro = Convert.ToInt64(dataReader["Livro_codLivro"]);
+                    itemVenda.Quantidade = Convert.ToInt32( dataReader["quantidade"]);
+                    
+                    listaItens.Add(itemVenda);
+                }
+                dataReader.Close();
+
+                int qtdEstoque = Convert.ToInt32(txtQtdEstoque.Text);
+
+                if (qtdEstoque < itemVenda.Quantidade)
+                {
+                    MessageBox.Show("Quantidade não suficiente", "Alerta");
+                }
+                else
+                {
+                    foreach (ItemVenda itensVenda in listaItens)
+                    {
+                        command = new MySqlCommand("UPDATE livro SET quantidade = quantidade - @quantidade WHERE codLivro = @codLivro", conexao.conexao);
+                        command.Parameters.AddWithValue("@quantidade", );
+                        command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
+                        command.ExecuteNonQuery();
+                    }
+
+                }
+
+                return listaItens;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+               conexao.Desconectar();
+            }
         }
 
-        //SubTotal soma
-        private void SomarSubTotal()
+        
+        //busca o código da venda
+        public void BuscarCodVenda()
         {
             try
             {
-                ItemVenda itemVenda = new ItemVenda();
-                itemVenda.Venda.CodVenda = Convert.ToInt32(txtCodVenda.Text);
-                itemVendaBLL = new ItemVendaBLL();
-                itemVendaBLL.SomarSubTotal(itemVenda.Venda.CodVenda);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
+                
+                conexao.Conectar();
 
+
+                MySqlCommand command = new MySqlCommand("select codVenda from venda where codVenda = last_insert_id(codVenda)", conexao.conexao);
+
+                MySqlDataReader dr = command.ExecuteReader();
+
+                String codVenda = "";
+                while (dr.Read())
+                {
+                    codVenda = dr["codVenda"].ToString();
+                }
+
+                txtCodVenda.Text = codVenda;
+                dr.Close();
+
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
         }
 
         private void BtnPesquisarLivro_Click(object sender, RoutedEventArgs e)
@@ -167,8 +218,7 @@ namespace br.com.livrariashalom.View
         {
             ItemVenda itemVenda = new ItemVenda();
             SalvarItem(itemVenda);
-            ListarItem(itemVenda);
-            SomarSubTotal();
+            ListarItem(itemVenda);           
         }
 
         private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
@@ -186,15 +236,18 @@ namespace br.com.livrariashalom.View
         {
             MessageBoxResult finalizar = MessageBox.Show("Deseja finalizar a venda ?", "Finalizar", MessageBoxButton.YesNo);
 
+            //se sim finaliza a venda e da a baxia no estoque
             if (finalizar == MessageBoxResult.Yes)
             {
                 ItemVenda itemVenda = new ItemVenda();
                 VendaLivro();
                 MessageBox.Show("Venda finalizada com sucesso !");
             }
+            //caso não a venda é totalmente excluida
             else if (finalizar == MessageBoxResult.No)
             {
-                //metodo excluir
+                long codVenda = Convert.ToInt64(txtCodVenda.Text);
+                vendaBLL.DeletarVenda(codVenda);
             }
         }
 
@@ -202,9 +255,25 @@ namespace br.com.livrariashalom.View
         {
             Venda venda = new Venda();
             SalvarVenda(venda);
+            
+            tabVenda.SelectedIndex = 1;
         }
 
-        private void TxtSubTotal_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtCodLivro_Copy_KeyUp(object sender, KeyEventArgs e)
+        {
+            LivroDAO livroDAO = new LivroDAO();
+            
+            livroDAO.BuscaLivro();
+            this.Close();
+
+        }
+
+        private void TxtPreco_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void TxtQtd_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
@@ -215,7 +284,6 @@ namespace br.com.livrariashalom.View
 
                 txtSubTotal.Text = Convert.ToString(subTotal);
 
-                System.Console.WriteLine(txtSubTotal);
 
             }
             catch (Exception erro)
@@ -223,5 +291,24 @@ namespace br.com.livrariashalom.View
                 MessageBox.Show("Erro: " + erro);
             }
         }
+
+        private void TxtCodVenda_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void GridItem_Initialized(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void DgItem_KeyUp(object sender, KeyEventArgs e)
+        {
+            //for(int i=0; i<dgItem.m)
+            //var rowView = dgItem.SelectedItems[0] as DataRowView;
+            //txtTotal.Text = rowView["valorUnit"].ToString();
+
+        }
+
     }
 }

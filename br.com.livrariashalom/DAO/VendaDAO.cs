@@ -1,4 +1,5 @@
 ﻿using br.com.livrariashalom.Model;
+using br.com.livrariashalom.View;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into venda (nome_cliente, telefoneCli, data_venda, LoginFuncionario_codUsusario, Prazo_codCondicao_Pagamento, forma_pagamento, frete,  observacao)" +
+                command = new MySqlCommand("insert into venda (nome_cliente, telefoneCli, data_venda, LoginFuncionario_codUsuario, Prazo_codCondicao_Pagamento, forma_pagamento, frete,  observacao)" +
                 " values (@nomeCli, @telefoneCli, @dataVenda, @codFuncionario, @condicaoPagamento, @formaPagamento, @frete, @observacao)", conexao);
 
                 command.Parameters.AddWithValue("@nomeCli", venda.NomeCliente);
@@ -78,14 +79,14 @@ namespace br.com.livrariashalom.DAO
         }
 
         //Metodo excluir
-        public void ExcluirVenda(Venda venda)
+        public void ExcluirVenda(long codVenda)
         {
             try
             {
                 Conectar();
 
                 command = new MySqlCommand("delete from venda where codVenda = @codVenda", conexao);
-                command.Parameters.AddWithValue("@codVenda", venda.CodVenda);
+                command.Parameters.AddWithValue("@codVenda", codVenda);
             }
             catch (Exception erro)
             {
@@ -96,6 +97,8 @@ namespace br.com.livrariashalom.DAO
                 Desconectar();
             }
         }
+
+       
 
     }
 }

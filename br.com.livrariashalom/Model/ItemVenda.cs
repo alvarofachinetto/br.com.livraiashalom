@@ -52,5 +52,6 @@ namespace br.com.livrariashalom.Model
             set { venda = value; }
         }
 
+        
     }
 }

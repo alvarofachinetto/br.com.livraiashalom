@@ -44,20 +44,7 @@ namespace br.com.livrariashalom.BLL
 
         }
 
-        public void VendaLivro(long codVenda)
-        {
-            try
-            {
-                itemVendaDAO.VendaLivro(codVenda);
-
-            }
-            catch (Exception error)
-            {
-                throw error;
-
-            }
-        }
-
+        
         public void SomarSubTotal(long codVenda)
         {
             try

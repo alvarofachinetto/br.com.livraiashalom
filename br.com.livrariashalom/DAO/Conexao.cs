@@ -10,7 +10,7 @@ namespace br.com.livrariashalom.DAO
 {
     public class Conexao
     {
-        protected MySqlConnection conexao;
+        public MySqlConnection conexao;
 
 
         public MySqlConnection Conectar()

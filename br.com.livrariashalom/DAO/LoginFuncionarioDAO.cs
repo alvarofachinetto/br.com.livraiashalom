@@ -173,7 +173,7 @@ namespace br.com.livrariashalom.DAO
                 //verifica a informação no banco
                 if (dr.HasRows)
                 {
-                    string user = dr.GetString("tipo_usuario");
+                    string user = dr.GetString(4);
 
                     if (user.Equals("usuario"))
                     {

@@ -26,5 +26,18 @@ namespace br.com.livrariashalom.BLL
             }
 
         }
+
+        public void DeletarVenda(long codVenda)
+        {
+            try
+            {
+                vendaDAO.ExcluirVenda(codVenda);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+
+        }
     }
 }

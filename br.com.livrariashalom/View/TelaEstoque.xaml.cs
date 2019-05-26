@@ -84,32 +84,33 @@ namespace br.com.livrariashalom.View
         {
             
         }
+        //busca as infos e coloca nas text box
+        private void dgLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                TelaVendas telaVendas = new TelaVendas();
 
-        /*private void TabItemEstoqueLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-         {
-             try
-             {
-                 TelaLivro telaLivro = new TelaLivro();
+                var rowView = dgLivro.SelectedItems[0] as DataRowView;
+                telaVendas.txtCodLivro.Text = rowView["codLivro"].ToString();
+                telaVendas.txtPreco.Text = rowView["valorUnit"].ToString();
+                telaVendas.txtQtdEstoque.Text = rowView["quantidade"].ToString();
 
-                 var rowView = dgLivro.SelectedItems[0] as DataRowView;
-                 telaLivro.txtCodLivro.Text = rowView["Código"].ToString();
+                telaVendas.tabVenda.SelectedIndex = 1;
+                telaVendas.BuscarCodVenda();
+                telaVendas.Show();
 
-                 telaLivro.txtTitulo.Text = rowView["Titulo"].ToString();
-                 telaLivro.txtAutor.Text = rowView["Autor"].ToString();
-                 telaLivro.txtEditora.Text = rowView["Editora"].ToString();
-                 telaLivro.cmbFase.Text = rowView["Fase"].ToString();
-                 telaLivro.txtQtd.Text = rowView["Quantidade"].ToString();
-                 telaLivro.txtCategoria.Text = rowView["Categoria"].ToString();
-                 telaLivro.txtValor.Text = rowView["Preço"].ToString();
-                 telaLivro.txtAlerta.Text = rowView["Alerta"].ToString();
-                 telaLivro.txtFornecedorLivro.Text = rowView["Fornecedor"].ToString();
-                 telaLivro.txtDescricao.Text = rowView["Descrição"].ToString();
-             }
-             catch(Exception error)
-             {
-                 MessageBox.Show("Erro: " + error);
-             }
+                this.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+        }
 
-         }*/
+        private void BtnVenda_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

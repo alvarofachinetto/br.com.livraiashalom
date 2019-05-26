@@ -75,12 +75,43 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
+        public DataTable BuscaLivro()
+        {
+            try
+            {
+
+                Conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+
+                TelaVendas telaVendas = new TelaVendas();
+                command = new MySqlCommand("select * from livro where titulo like '" +  telaVendas.txtCodLivro.Text+"%'", conexao);
+
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
+
+                TelaEstoque telaEstoque = new TelaEstoque();
+                telaEstoque.Show();
+                return dt;
+
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+
+
         //pesquisar livro
         public void PesquisarLivro(int codLivro)
         {
             try
             {
-
                 Conectar();
                 
                 command = new MySqlCommand("select * from livro where codLivro = @codLivro", conexao);
