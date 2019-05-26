@@ -37,10 +37,8 @@ namespace br.com.livrariashalom.View
             txtAutor.Clear();
             txtEditora.Clear();
             cmbFase.SelectedIndex = 0;
-            txtQtd.Clear();
             txtCategoria.Clear();
             txtValor.Clear();
-            txtAlerta.Clear();
             txtFornecedorLivro.Clear();
         }
 
@@ -49,7 +47,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtQtd.Text == "" || txtCategoria.Text == "" || txtValor.Text == "" || txtAlerta.Text == "" || txtFornecedorLivro.Text == "")
+                if (txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" ||  txtCategoria.Text == "" || txtValor.Text == "" ||  txtFornecedorLivro.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -60,10 +58,10 @@ namespace br.com.livrariashalom.View
                     livro.Autor = txtAutor.Text;
                     livro.Editora = txtTitulo.Text;
                     livro.Fase = cmbFase.Text;
-                    livro.Qtd = Convert.ToInt32(txtQtd.Text);
+                    
                     livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
-                    livro.QtdAlerta = Convert.ToInt32(txtQtd.Text);
+                    
                     livro.Descricao = txtDescricao.Text;
                     livro.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorLivro.Text);
 
@@ -90,7 +88,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtCodLivro.Text == "" || txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtQtd.Text == "" || txtCategoria.Text == "" || txtValor.Text == "" || txtAlerta.Text == "" || txtFornecedorLivro.Text == "")
+                if (txtCodLivro.Text == "" || txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtCategoria.Text == "" || txtValor.Text == ""  || txtFornecedorLivro.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -100,10 +98,8 @@ namespace br.com.livrariashalom.View
                     livro.Autor = txtAutor.Text;
                     livro.Editora = txtTitulo.Text;
                     livro.Fase = cmbFase.Text;
-                    livro.Qtd = Convert.ToInt32(txtQtd.Text);
                     livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
-                    livro.QtdAlerta = Convert.ToInt32(txtQtd.Text);
                     livro.Descricao = txtDescricao.Text;
                     livro.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorLivro.Text);
                     livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
