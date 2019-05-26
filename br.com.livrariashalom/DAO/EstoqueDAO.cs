@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,33 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@codLivro", estoque.CodLivro.CodLivro);
                 
                 command.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
+        //Metodo listar 
+        public DataTable ListarEstoque()
+        {
+            try
+            {
+                Conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+
+                command = new MySqlCommand("select e.* , l.preco from estoque e inner join livro l", conexao);
+
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
+
+                return dt;
+
             }
             catch (Exception error)
             {

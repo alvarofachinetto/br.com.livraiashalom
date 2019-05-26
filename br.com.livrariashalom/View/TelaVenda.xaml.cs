@@ -154,7 +154,7 @@ namespace br.com.livrariashalom.View
                     foreach (ItemVenda itensVenda in listaItens)
                     {
                         command = new MySqlCommand("UPDATE livro SET quantidade = quantidade - @quantidade WHERE codLivro = @codLivro", conexao.conexao);
-                        command.Parameters.AddWithValue("@quantidade", );
+                        //command.Parameters.AddWithValue("@quantidade", );
                         command.Parameters.AddWithValue("@codLivro", itemVenda.Livro.CodLivro);
                         command.ExecuteNonQuery();
                     }

@@ -37,7 +37,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                dgLivro.ItemsSource = livroBLL.ListarLivro().DefaultView;//obtém todos os dados
+                dgLivro.ItemsSource = estoqueBLL.ListarLivroEsoque().DefaultView;//obtém todos os dados
             }
             catch (Exception error)
             {
@@ -71,6 +71,7 @@ namespace br.com.livrariashalom.View
 
         }
 
+        //salva o livro no estoque
         public bool SalvarLivroEstoque(Estoque estoque)
         {
             try
@@ -124,9 +125,9 @@ namespace br.com.livrariashalom.View
                 TelaVendas telaVendas = new TelaVendas();
 
                 var rowView = dgLivro.SelectedItems[0] as DataRowView;
-                telaVendas.txtCodLivro.Text = rowView["codLivro"].ToString();
-                telaVendas.txtPreco.Text = rowView["valorUnit"].ToString();
-                telaVendas.txtQtdEstoque.Text = rowView["quantidade"].ToString();
+                telaVendas.txtCodLivro.Text = rowView["codRegistro"].ToString();
+                telaVendas.txtPreco.Text = rowView["preco"].ToString();
+                telaVendas.txtQtdEstoque.Text = rowView["qtd"].ToString();
 
                 telaVendas.tabVenda.SelectedIndex = 1;
                 telaVendas.BuscarCodVenda();
