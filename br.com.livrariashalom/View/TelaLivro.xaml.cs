@@ -297,6 +297,8 @@ namespace br.com.livrariashalom.View
                 txtAutor.Text = rowView["autor"].ToString();
                 txtEditora.Text = rowView["editora"].ToString();
                 cmbFase.Text = rowView["fase"].ToString();
+                txtCategoria.Text = rowView["Categoria_codCategoria"].ToString();
+                txtValor.Text = rowView["preco"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
                 txtAlerta.Text = rowView["qtdAlerta"].ToString();
                 txtFornecedorLivro.Text = rowView["Fornecedor_codFornecedor"].ToString();
