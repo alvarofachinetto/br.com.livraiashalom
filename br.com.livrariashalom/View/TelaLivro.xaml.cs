@@ -320,7 +320,7 @@ namespace br.com.livrariashalom.View
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    txtFornecedorLivro.Text = dr["codCategoria"].ToString();
+                    txtCategoria.Text = dr["codCategoria"].ToString();
                 }
                 dr.Close();
             }
