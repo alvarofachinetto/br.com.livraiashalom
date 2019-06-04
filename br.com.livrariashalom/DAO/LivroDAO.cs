@@ -56,7 +56,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from livro", conexao);
+                command = new MySqlCommand("select * from livro order by codLivro", conexao);
                 
                 dataAdapter.SelectCommand = command;
                 dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 

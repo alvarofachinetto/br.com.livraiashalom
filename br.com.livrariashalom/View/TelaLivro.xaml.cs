@@ -26,12 +26,13 @@ namespace br.com.livrariashalom.View
     {
         private Conexao conexao = new Conexao();
         private MySqlCommand command = null;
-        private LivroBLL livroBLL;
+        private LivroBLL livroBLL = new LivroBLL();
 
         public TelaLivro()
         {
             InitializeComponent();
             ListarFornecedor();
+            ListarLivros();
         }
 
         //limpa os valores após uma ação
@@ -74,8 +75,7 @@ namespace br.com.livrariashalom.View
                     livroBLL.SalvarLivro(livro);
 
                     MessageBox.Show("Cadastro feito com sucesso");
-                    MessageBox.Show("Código do fornecedor: " + livro.CodLivro);
-
+                    
                     return true;
                 }
 
