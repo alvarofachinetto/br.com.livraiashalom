@@ -45,31 +45,18 @@ namespace br.com.livrariashalom.BLL
         }
 
         //pesquiar os livros
-        public void PesquisarLivro(int codLivro)
-        {
-            try
-            {
-                livroDAO.PesquisarLivro(codLivro);
-            }
-            catch (Exception error)
-            {
-                throw error;
+        //public void PesquisarLivro(int codLivro)
+        //{
+        //    try
+        //    {
+        //        livroDAO.PesquisarLivro(codLivro);
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        throw error;
 
-            }
-        }
-
-        public void PesquisarTituloLivro(String titulo)
-        {
-            try
-            {
-                //livroDAO.PesquisarTituloLivro(titulo);
-            }
-            catch (Exception error)
-            {
-                throw error;
-
-            }
-        }
+        //    }
+        //}
 
         public void EditarLivro(Livro livro)
         {
@@ -83,11 +70,11 @@ namespace br.com.livrariashalom.BLL
             }
         }
 
-        public void ExcluirLivro(Livro livro)
+        public void ExcluirLivro(long codLivro)
         {
             try
             {
-                livroDAO.ExcluirLivro(livro);
+                livroDAO.ExcluirLivro(codLivro);
             }
             catch (Exception error)
             {

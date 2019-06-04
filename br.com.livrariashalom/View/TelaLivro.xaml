@@ -46,9 +46,9 @@
         </ComboBox>
         <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="509,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="BtnCadastrar_Click"/>
         <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="509,222,0,0" VerticalAlignment="Top" Width="88" Height="34" Click="BtnAtualizar_Click"/>
-        <Button x:Name="btnPesquisar" Content="Peqsuisar" HorizontalAlignment="Left" Margin="602,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="BtnPesquisar_Click"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="602,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="BtnPesquisar_Click"/>
         <Button x:Name="btnVoltar" Content="Voltar" HorizontalAlignment="Left" Margin="602,222,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="BtnVoltar_Click"/>
-        <DataGrid x:Name="dgLivro" HorizontalAlignment="Left" Height="132" Margin="55,278,0,0" VerticalAlignment="Top" Width="713"/>
+        <DataGrid x:Name="dgLivro" HorizontalAlignment="Left" Height="132" Margin="55,278,0,0" VerticalAlignment="Top" Width="713" MouseDoubleClick="DgLivro_MouseDoubleClick"/>
         <Label Content="Alerta" HorizontalAlignment="Left" Margin="553,144,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <TextBox x:Name="txtAlerta" HorizontalAlignment="Left" Height="23" Margin="672,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
         <ComboBox x:Name="cmbFornecedor" HorizontalAlignment="Left" Margin="606,23,0,0" VerticalAlignment="Top" Width="162" Height="23" SelectionChanged="cmbFornecedor_SelectionChanged"/>

@@ -107,49 +107,49 @@ namespace br.com.livrariashalom.DAO
 
 
         //pesquisar livro
-        public void PesquisarLivro(int codLivro)
-        {
-            try
-            {
-                Conectar();
+        //public void PesquisarLivro(int codLivro)
+        //{
+        //    try
+        //    {
+        //        Conectar();
                 
-                command = new MySqlCommand("select * from livro where codLivro = @codLivro", conexao);
-                command.Parameters.AddWithValue("@codLivro", codLivro);
+        //        command = new MySqlCommand("select * from livro where codLivro = @codLivro", conexao);
+        //        command.Parameters.AddWithValue("@codLivro", codLivro);
 
-                MySqlDataReader dr = command.ExecuteReader();
+        //        MySqlDataReader dr = command.ExecuteReader();
 
-                while(dr.Read())
-                {
-                    if (dr.HasRows != true)
-                    {
-                        MessageBox.Show("Produto não existe no estoque");
-                    }
-                    else
-                    {
-                        TelaLivro telaLivro = new TelaLivro();
+        //        while(dr.Read())
+        //        {
+        //            if (dr.HasRows != true)
+        //            {
+        //                MessageBox.Show("Produto não existe no estoque");
+        //            }
+        //            else
+        //            {
+        //                TelaLivro telaLivro = new TelaLivro();
 
-                        telaLivro.txtTitulo.Text = dr.GetString(1);
-                        telaLivro.txtAutor.Text = dr.GetString(2);
-                        telaLivro.txtEditora.Text = dr.GetString(3);
-                        telaLivro.cmbFase.Text = dr.GetString(4);
+        //                telaLivro.txtTitulo.Text = dr.GetString(1);
+        //                telaLivro.txtAutor.Text = dr.GetString(2);
+        //                telaLivro.txtEditora.Text = dr.GetString(3);
+        //                telaLivro.cmbFase.Text = dr.GetString(4);
                         
-                        telaLivro.txtCategoria.Text = dr.GetString(6);
-                        telaLivro.txtValor.Text = dr.GetString(7);
-                        telaLivro.txtFornecedorLivro.Text = dr.GetString(9);
-                        telaLivro.txtDescricao.Text = dr.GetString(10);
-                    }
-                }
-                dr.Close();
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                Desconectar();
-            }
-        }
+        //                telaLivro.txtCategoria.Text = dr.GetString(6);
+        //                telaLivro.txtValor.Text = dr.GetString(7);
+        //                telaLivro.txtFornecedorLivro.Text = dr.GetString(9);
+        //                telaLivro.txtDescricao.Text = dr.GetString(10);
+        //            }
+        //        }
+        //        dr.Close();
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        throw erro;
+        //    }
+        //    finally
+        //    {
+        //        Desconectar();
+        //    }
+        //}
 
         //public DataTable PesquisarTituloLivro(String titulo)
         //{
@@ -218,14 +218,14 @@ namespace br.com.livrariashalom.DAO
         }
 
         //Metodo excluir
-        public void ExcluirLivro(Livro livro)
+        public void ExcluirLivro(long codLivro)
         {
             try
             {
                 Conectar();
 
                 command = new MySqlCommand("delete from livro where codLivro = @codLivro", conexao);
-                command.Parameters.AddWithValue("@codLivro", livro.CodLivro);
+                command.Parameters.AddWithValue("@codLivro", codLivro);
             }
             catch (Exception erro)
             {

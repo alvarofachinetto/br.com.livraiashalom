@@ -135,43 +135,11 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
-        private bool ExcluirLivro(Livro livro)
-        {
-            try
-            {
-                //caso os campos estiverem vazios
-                if (txtCodLivro.Text == "")
-                {
-                    MessageBox.Show("Preencha o campo do código");
-                }
-                else
-                {
-                    livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+        //private bool ExcluirLivro(long codLivro)
+        //{
+            
+        //}
 
-                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete salvar as alterações ?", "Excluir", MessageBoxButton.YesNo);
-
-                    //caso o usuário realmente queira fazer a exclusão
-                    if (excluir == MessageBoxResult.Yes)
-                    {
-                        livroBLL = new LivroBLL();
-                        livroBLL.ExcluirLivro(livro);
-                        MessageBox.Show("Edição feita com sucesso");
-
-                        Limpar();
-
-                        return true;
-                    }
-
-                    return true;
-                }
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-            return false;
-        }
         //lista os fornecedores
         public void ListarFornecedor()
         {
@@ -206,7 +174,6 @@ namespace br.com.livrariashalom.View
                 command = new MySqlCommand("select codFornecedor from fornecedor where nome_razao = @razao", conexao.conexao);
                 command.Parameters.AddWithValue("@razao", razao);
 
-
                 MySqlDataReader dr = command.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
@@ -221,6 +188,16 @@ namespace br.com.livrariashalom.View
             }
         }
 
+        public void ListarLivros()
+        {
+            try
+            {
+                dgLivro.ItemsSource = livroBLL.ListarLivro().DefaultView;
+            }catch(Exception erro)
+            {
+                throw erro;
+            }
+        }
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             Livro livro = new Livro();
@@ -240,6 +217,38 @@ namespace br.com.livrariashalom.View
 
         private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                //caso os campos estiverem vazios
+                if (txtCodLivro.Text == "")
+                {
+                    MessageBox.Show("Preencha o campo do código");
+                    txtCodLivro.Focus();
+                }
+                else
+                {
+                    long codLivro = Convert.ToInt64(txtCodLivro.Text);
+
+                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete excluir as informações ?", "Excluir", MessageBoxButton.YesNo);
+
+                    //caso o usuário realmente queira fazer a exclusão
+                    if (excluir == MessageBoxResult.Yes)
+                    {
+                        livroBLL = new LivroBLL();
+                        livroBLL.ExcluirLivro(codLivro);
+                        MessageBox.Show("Edição feita com sucesso");
+
+                        Limpar();
+
+                    }
+
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
             
         }
 
@@ -253,6 +262,29 @@ namespace br.com.livrariashalom.View
         private void cmbFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BuscarPorCodigo();
+        }
+
+        private void DgLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var rowView = dgLivro.SelectedItems[0] as DataRowView;
+                txtCodLivro.Text = rowView["codLivro"].ToString();
+
+                txtTitulo.Text = rowView["titulo"].ToString();
+                txtAutor.Text = rowView["autor"].ToString();
+                txtEditora.Text = rowView["editora"].ToString();
+                cmbFase.Text = rowView["fase"].ToString();
+                txtCategoria.Text = rowView["categoria"].ToString();
+                txtValor.Text = rowView["valor"].ToString();
+                txtDescricao.Text = rowView["descricao"].ToString();
+                txtAlerta.Text = rowView["alerta"].ToString();
+                txtFornecedorLivro.Text = rowView["Fornecedor_codFornecedor"].ToString();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
         }
     }
 }
