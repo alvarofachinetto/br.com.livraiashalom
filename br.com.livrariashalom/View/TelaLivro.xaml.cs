@@ -68,7 +68,7 @@ namespace br.com.livrariashalom.View
                     
                     livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
-                    
+                    livro.Qtd = Convert.ToInt32(txtQtd.Text);
                     livro.Descricao = txtDescricao.Text;
                     livro.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorLivro.Text);
 
@@ -194,7 +194,7 @@ namespace br.com.livrariashalom.View
             {
                 conexao.Conectar();
 
-                command = new MySqlCommand("select c.categaoriaGeral from categoria c", conexao.conexao);
+                command = new MySqlCommand("select c.categoriaGeral from categoria c", conexao.conexao);
                 MySqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
@@ -297,10 +297,8 @@ namespace br.com.livrariashalom.View
                 txtAutor.Text = rowView["autor"].ToString();
                 txtEditora.Text = rowView["editora"].ToString();
                 cmbFase.Text = rowView["fase"].ToString();
-                txtCategoria.Text = rowView["categoria"].ToString();
-                txtValor.Text = rowView["valor"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
-                txtAlerta.Text = rowView["alerta"].ToString();
+                txtAlerta.Text = rowView["qtdAlerta"].ToString();
                 txtFornecedorLivro.Text = rowView["Fornecedor_codFornecedor"].ToString();
             }
             catch (Exception error)
