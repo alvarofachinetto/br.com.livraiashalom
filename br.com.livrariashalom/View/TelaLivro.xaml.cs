@@ -33,6 +33,7 @@ namespace br.com.livrariashalom.View
             InitializeComponent();
             ListarFornecedor();
             ListarLivros();
+            ListarCategoria();
         }
 
         //limpa os valores após uma ação
@@ -140,19 +141,19 @@ namespace br.com.livrariashalom.View
             
         //}
 
-        //lista os fornecedores
+        //lista os fornecedores e categoria
         public void ListarFornecedor()
         {
             try
             {
                 conexao.Conectar();
 
-                command = new MySqlCommand("select nome_razao from fornecedor", conexao.conexao);
+                command = new MySqlCommand("select f.nome_razao from fornecedor f", conexao.conexao);
                 MySqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
                     string razao = dr["nome_razao"].ToString();
-                    cmbFornecedor.Items.Add(razao);
+                    cmbFornecedor.Items.Add(razao);            
                 }
 
                 dr.Close();
@@ -161,17 +162,16 @@ namespace br.com.livrariashalom.View
             {
                 throw erro;
             }
-
         }
 
-        //busca o código do fornecedor
+        //busca o código do fornecedor e categoria
         public void BuscarPorCodigo()
         {
             try
             {
                 string razao = (string)cmbFornecedor.SelectedValue;
                 //coloca o cod na textbox
-                command = new MySqlCommand("select codFornecedor from fornecedor where nome_razao = @razao", conexao.conexao);
+                command = new MySqlCommand("select f.codFornecedor from fornecedor f where nome_razao = @razao", conexao.conexao);
                 command.Parameters.AddWithValue("@razao", razao);
 
                 MySqlDataReader dr = command.ExecuteReader();
@@ -180,6 +180,28 @@ namespace br.com.livrariashalom.View
                 {
                     txtFornecedorLivro.Text = dr["codFornecedor"].ToString();
                 }
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
+        public void ListarCategoria()
+        {
+            try
+            {
+                conexao.Conectar();
+
+                command = new MySqlCommand("select c.categaoriaGeral from categoria c", conexao.conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    string categoria = dr["categoriaGeral"].ToString();
+                    cmbCategoria.Items.Add(categoria);
+                }
+
                 dr.Close();
             }
             catch (Exception erro)
@@ -263,7 +285,7 @@ namespace br.com.livrariashalom.View
         {
             BuscarPorCodigo();
         }
-
+        //leva a info da tabela para textbox
         private void DgLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
@@ -284,6 +306,29 @@ namespace br.com.livrariashalom.View
             catch (Exception error)
             {
                 MessageBox.Show("Erro: " + error);
+            }
+        }
+
+        private void CmbCategoria_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string categoria = (string)cmbCategoria.SelectedValue;
+                //coloca o cod na textbox
+                command = new MySqlCommand("select c.codCategoria from categoria c where categoriaGeral = @categoria", conexao.conexao);
+                command.Parameters.AddWithValue("@categoria", categoria);
+
+                MySqlDataReader dr = command.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    txtFornecedorLivro.Text = dr["codCategoria"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
             }
         }
     }

@@ -12,17 +12,17 @@
         <Label Content="Autor" HorizontalAlignment="Left" Margin="55,105,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <Label Content="Editora" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <Label Content="Fase" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Categoria" HorizontalAlignment="Left" Margin="552,89,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
+        <Label Content="Categoria" HorizontalAlignment="Left" Margin="423,46,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <Label Content="Valor" HorizontalAlignment="Left" Margin="552,115,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <Label Content="Fornecedor" HorizontalAlignment="Left" Margin="423,18,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <Label Content="Descrição" HorizontalAlignment="Left" Margin="55,195,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="182,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
+        <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="182,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" IsReadOnly="True"/>
         <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="175,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
         <TextBox x:Name="txtAutor" HorizontalAlignment="Left" Height="23" Margin="175,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
         <TextBox x:Name="txtEditora" HorizontalAlignment="Left" Height="23" Margin="175,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
-        <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Height="23" Margin="672,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
+        <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Height="23" Margin="543,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" IsReadOnly="True"/>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="672,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
-        <TextBox x:Name="txtFornecedorLivro" HorizontalAlignment="Left" Height="23" Margin="543,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
+        <TextBox x:Name="txtFornecedorLivro" HorizontalAlignment="Left" Height="23" Margin="543,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" IsReadOnly="True"/>
         <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="57" Margin="175,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
         <ComboBox x:Name="cmbFase" HorizontalAlignment="Left" Margin="175,160,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbFase_SelectionChanged">
             <ComboBoxItem Content="Bíblia"></ComboBoxItem>
@@ -52,6 +52,7 @@
         <Label Content="Alerta" HorizontalAlignment="Left" Margin="553,144,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
         <TextBox x:Name="txtAlerta" HorizontalAlignment="Left" Height="23" Margin="672,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
         <ComboBox x:Name="cmbFornecedor" HorizontalAlignment="Left" Margin="606,23,0,0" VerticalAlignment="Top" Width="162" Height="23" SelectionChanged="cmbFornecedor_SelectionChanged"/>
+        <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Margin="608,51,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="CmbCategoria_SelectionChanged"/>
 
     </Grid>
 </Window>
