@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TelaVendas" Height="371.449" Width="823.529" Background="Black">
     <TabControl x:Name="tabVenda" HorizontalAlignment="Left" Height="340" VerticalAlignment="Top" Width="814" Background="Black">
-        <TabItem Header="Venda" Background="Black" Foreground="#FFEA0000">
+        <TabItem Header="Infos" Background="Black" Foreground="#FFEA0000">
             <Grid Background="Black" Margin="0,0,0,-1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="41*"/>
@@ -36,29 +36,41 @@
                 <Button x:Name="btnProximo" Content="Próximo" Grid.Column="1" HorizontalAlignment="Left" Margin="601,252,0,0" VerticalAlignment="Top" Width="138" Height="40" Click="btnProximo_Click"/>
             </Grid>
         </TabItem>
-        <TabItem Header="Item" Foreground="Red" Background="Black">
+        <TabItem Header="Item" Foreground="Red" Background="Black" Margin="-2,-2,-8,0">
             <Grid x:Name="gridItem" Background="Black" Initialized="GridItem_Initialized">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="191*"/>
                     <ColumnDefinition Width="619*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Total" HorizontalAlignment="Left" Margin="8,271,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-                <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="71,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtTotal_TextChanged"/>
-                <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="7,75,0,0" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" KeyUp="DgItem_KeyUp"/>
+
+                <Label Content="Total" HorizontalAlignment="Left" Margin="8,272,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+                <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="71,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" TextChanged="TxtTotal_TextChanged"/>
+                <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="7,75,0,0" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" AutoGenerateColumns="False" KeyUp="DgItem_KeyUp">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding codItem}" Width="90" Header="Item" Foreground="#FF8F7C7C"/>
+                        <DataGridTextColumn Binding="{Binding preco}" Width="90" Header="Preco"/>
+                        <DataGridTextColumn Binding="{Binding quantidade}" Header="Quantidade"/>
+                        <DataGridTextColumn Binding="{Binding subTotal}" Width="90" Header="SubTotal"/>
+                        <DataGridTextColumn Binding="{Binding venda}" Width="90" Header="Venda"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+
                 <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="493.439,16,0,0" VerticalAlignment="Top" Width="116" Height="44" Click="BtnAdicionarItem_Click" Grid.Column="1"/>
                 <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="493.439,259,0,0" VerticalAlignment="Top" Width="116" Height="44" Grid.Column="1" Click="BtnFinalizar_Click"/>
-                <Label Content="Estoque" HorizontalAlignment="Left" Margin="140,-1,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="23" Margin="227,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Grid.Column="1" Text="0" IsReadOnly="True"/>
-                <Label Content="Livro" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
-                <Label Content="Sub Total" HorizontalAlignment="Left" Margin="140,37,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="227,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Grid.Column="1"/>
+                <Label Content="Estoque" HorizontalAlignment="Left" Margin="180,1,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="23" Margin="274,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Grid.Column="1" Text="0" IsReadOnly="True"/>
+                <Label Content="Livro" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold"/>
+                <Label Content="Sub Total" HorizontalAlignment="Left" Margin="165,37,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="62,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Grid.Column="1"/>
                 <Label Content="Preço" HorizontalAlignment="Left" Margin="161,0,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtPreco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="20,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Text="0" TextChanged="TxtPreco_TextChanged" IsReadOnly="True"/>
-                <TextBox x:Name="txtCodVenda" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="20,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" KeyUp="TxtCodVenda_KeyUp" IsReadOnly="True"/>
-                <Label Content="Venda" HorizontalAlignment="Left" Margin="161,37,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" RenderTransformOrigin="0.532,1.477" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="71,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" KeyUp="txtCodLivro_Copy_KeyUp"/>
-                <Label Content="Quantidade" HorizontalAlignment="Left" Margin="280,1,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtQtd" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="374,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Text="0" TextChanged="TxtQtd_TextChanged" RenderTransformOrigin="3.048,0.913"/>
+                <TextBox x:Name="txtPreco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="62,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Text="0" TextChanged="TxtPreco_TextChanged" IsReadOnly="True"/>
+                <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="71,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" TextChanged="TxtCodLivro_TextChanged_1"/>
+                <Label Content="Quantidade" HorizontalAlignment="Left" Margin="319,6,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
+                <TextBox x:Name="txtQtd" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="413,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Text="0" TextChanged="TxtQtd_TextChanged" RenderTransformOrigin="3.048,0.913"/>
+                <TextBox x:Name="txtInfos" HorizontalAlignment="Left" Height="23" Margin="71,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
+                <Label Content="Venda" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Height="23" Foreground="#FFFFD100" FontWeight="Bold"/>
             </Grid>
         </TabItem>
     </TabControl>

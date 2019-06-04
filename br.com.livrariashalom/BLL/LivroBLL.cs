@@ -62,7 +62,7 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-                livroDAO.PesquisarTituloLivro(titulo);
+                //livroDAO.PesquisarTituloLivro(titulo);
             }
             catch (Exception error)
             {

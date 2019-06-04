@@ -55,16 +55,7 @@ namespace br.com.livrariashalom.View
 
         private void BtnLogar_Click(object sender, RoutedEventArgs e)
         {
-            if(Logar() == true)
-            {
-                this.Close();
-            }
-            else
-            {
-                TelaLogin telaLogin = new TelaLogin();
-                
-            }
-            
+            Logar();
             
         }
     }

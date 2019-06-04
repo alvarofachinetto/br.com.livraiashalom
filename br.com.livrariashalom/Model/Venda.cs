@@ -19,7 +19,7 @@ namespace br.com.livrariashalom.Model
         private Prazo codPrazo = new Prazo();
         private LoginFuncionario loginFuncionario = new LoginFuncionario();
         private String observacao;
-        
+        private ItemVenda itemVenda = new ItemVenda();
 
         public long CodVenda
         {
@@ -76,5 +76,6 @@ namespace br.com.livrariashalom.Model
             set { observacao = value; }
         }
 
+        public ItemVenda ItemVenda { get => itemVenda; set => itemVenda = value; }
     }
 }

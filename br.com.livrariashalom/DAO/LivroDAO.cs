@@ -21,8 +21,8 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, quantidade, qtdAlerta, Categoria_codCategoria, valorUnit, descricao, Fornecedor_codFornecedor) values " +
-                "(@titulo, @autor, @editora, @fase, @codCategoria, @valorUnit, @descricao, @codFornecedor)", conexao); //conexao está referente as infos do banco
+                command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, quantidade, qtdAlerta, Categoria_codCategoria, valorUnit, qtdAlerta, descricao, Fornecedor_codFornecedor, ItemVenda_codItemVenda) values " +
+                "(@titulo, @autor, @editora, @fase, @codCategoria, @valorUnit, @qtdAlerta, @descricao, @codFornecedor)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis 
                 command.Parameters.AddWithValue("@titulo", livro.Titulo);
                 command.Parameters.AddWithValue("@autor", livro.Autor);
@@ -30,6 +30,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@fase", livro.Fase);
                 command.Parameters.AddWithValue("@codCategoria", livro.CodCategoria.CodCategoria);
                 command.Parameters.AddWithValue("@valorUnit", livro.ValorUnit);
+                command.Parameters.AddWithValue("@qtdAlerta", livro.QtdAlerta);
                 command.Parameters.AddWithValue("@descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@codFornecedor", livro.Fornecedor.CodFornecedor);
 
@@ -73,35 +74,35 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
-        public DataTable BuscaLivro()
-        {
-            try
-            {
+        //public DataTable BuscaLivro()
+        //{
+        //    try
+        //    {
 
-                Conectar();
-                DataTable dt = new DataTable();
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+        //        Conectar();
+        //        DataTable dt = new DataTable();
+        //        MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                TelaVendas telaVendas = new TelaVendas();
-                command = new MySqlCommand("select * from livro where titulo like '" +  telaVendas.txtCodLivro.Text+"%'", conexao);
+        //        TelaVendas telaVendas = new TelaVendas();
+        //        command = new MySqlCommand("select * from livro where titulo like '" +  telaVendas.txtCodLivro.Text+"%'", conexao);
 
-                dataAdapter.SelectCommand = command;
-                dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
+        //        dataAdapter.SelectCommand = command;
+        //        dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
 
-                TelaEstoque telaEstoque = new TelaEstoque();
-                telaEstoque.Show();
-                return dt;
+        //        //TelaEstoque telaEstoque = new TelaEstoque();
+        //        //telaEstoque.Show();
+        //        //return dt;
 
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                Desconectar();
-            }
-        }
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        throw erro;
+        //    }
+        //    finally
+        //    {
+        //        Desconectar();
+        //    }
+        //}
 
 
 
@@ -150,36 +151,36 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
-        public DataTable PesquisarTituloLivro(String titulo)
-        {
-            try
-            {
-                Conectar();
+        //public DataTable PesquisarTituloLivro(String titulo)
+        //{
+        //    try
+        //    {
+        //        Conectar();
 
-                TelaEstoque telaEstoque = new TelaEstoque();
-                DataTable dt = new DataTable();
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                command = new MySqlCommand("select * from livro where titulo like @titulo", conexao);
-                command.Parameters.AddWithValue("@titulo", titulo + "%");
+        //        TelaEstoque telaEstoque = new TelaEstoque();
+        //        DataTable dt = new DataTable();
+        //        MySqlDataAdapter da = new MySqlDataAdapter();
+        //        command = new MySqlCommand("select * from livro where titulo like @titulo", conexao);
+        //        command.Parameters.AddWithValue("@titulo", titulo + "%");
 
-                command.CommandType = CommandType.Text;
+        //        command.CommandType = CommandType.Text;
                 
-                da.SelectCommand = command;
-                da.Fill(dt);
+        //        da.SelectCommand = command;
+        //        da.Fill(dt);
 
-                //dgLivro.ItemsSource = dt.AsDataView();
+        //        //dgLivro.ItemsSource = dt.AsDataView();
 
-                return dt;
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-            finally
-            {
-                Desconectar();
-            }
-        }
+        //        return dt;
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        throw erro;
+        //    }
+        //    finally
+        //    {
+        //        Desconectar();
+        //    }
+        //}
 
         //metodo editar
         public void EditarLivro(Livro livro)

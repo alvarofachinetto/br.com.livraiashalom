@@ -1,5 +1,7 @@
 ﻿using br.com.livrariashalom.BLL;
+using br.com.livrariashalom.DAO;
 using br.com.livrariashalom.MODEL;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,11 +24,14 @@ namespace br.com.livrariashalom.View
     /// </summary>
     public partial class TelaLivro : Window
     {
+        private Conexao conexao = new Conexao();
+        private MySqlCommand command = null;
         private LivroBLL livroBLL;
 
         public TelaLivro()
         {
             InitializeComponent();
+            ListarFornecedor();
         }
 
         //limpa os valores após uma ação
@@ -167,30 +172,53 @@ namespace br.com.livrariashalom.View
             }
             return false;
         }
-
-        //pesquisar Livro por código 
-        private bool PesquisarLivro()
+        //lista os fornecedores
+        public void ListarFornecedor()
         {
             try
             {
-                if (txtCodLivro.Text == "")
-                {
-                    MessageBox.Show("Preencha o campo do código", "Alerta");
-                    return false;
-                }
-                else
-                {
-                    int codLivro = Convert.ToInt32(txtCodLivro.Text);
+                conexao.Conectar();
 
-                    livroBLL = new LivroBLL();
-                    livroBLL.PesquisarLivro(codLivro);
-                    return true;
+                command = new MySqlCommand("select nome_razao from fornecedor", conexao.conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    string razao = dr["nome_razao"].ToString();
+                    cmbFornecedor.Items.Add(razao);
                 }
+
+                dr.Close();
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 throw erro;
-            }   
+            }
+
+        }
+
+        //busca o código do fornecedor
+        public void BuscarPorCodigo()
+        {
+            try
+            {
+                string razao = (string)cmbFornecedor.SelectedValue;
+                //coloca o cod na textbox
+                command = new MySqlCommand("select codFornecedor from fornecedor where nome_razao = @razao", conexao.conexao);
+                command.Parameters.AddWithValue("@razao", razao);
+
+
+                MySqlDataReader dr = command.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    txtFornecedorLivro.Text = dr["codFornecedor"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
         }
 
         private void BtnCadastrar_Click(object sender, RoutedEventArgs e)
@@ -212,7 +240,7 @@ namespace br.com.livrariashalom.View
 
         private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
         {
-            PesquisarLivro();
+            
         }
 
         private void BtnVoltar_Click(object sender, RoutedEventArgs e)
@@ -222,10 +250,9 @@ namespace br.com.livrariashalom.View
             this.Close();
         }
 
-        private void BtnEstoque_Click(object sender, RoutedEventArgs e)
+        private void cmbFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TelaEstoque telaEstoque = new TelaEstoque();
-            telaEstoque.Show();
+            BuscarPorCodigo();
         }
     }
 }

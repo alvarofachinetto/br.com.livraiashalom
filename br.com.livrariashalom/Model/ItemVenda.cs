@@ -14,8 +14,8 @@ namespace br.com.livrariashalom.Model
         private int quantidade;
         private double subTotal;
         private double valorTot;
-        private Livro livro = new Livro();
-        private Venda venda = new Venda();
+        private double preco;
+        private long info;
 
         public long CodItemVenda
         {
@@ -40,18 +40,7 @@ namespace br.com.livrariashalom.Model
             set { valorTot = value; }
         }
 
-       
-        public Livro Livro
-        {
-            get {return livro; }
-            set { livro = value; }
-        }
-        public Venda Venda
-        {
-            get { return venda; }
-            set { venda = value; }
-        }
-
-        
+        public double Preco { get => preco; set => preco = value; }
+        public long Info { get => info; set => info = value; }
     }
 }

@@ -16,7 +16,7 @@
         <PasswordBox x:Name="pswConfSenha" HorizontalAlignment="Left" Margin="223,105,0,0" VerticalAlignment="Top" Width="194" Height="23" TextInput="PswConfSenha_TextInput"/>
         <ComboBox x:Name="cmbTipoFuncionario" HorizontalAlignment="Left" Margin="223,140,0,0" VerticalAlignment="Top" Width="148" IsManipulationEnabled="True" IsEditable="True">
             <ComboBoxItem Content="Administrador" IsEnabled="False"></ComboBoxItem>
-            <ComboBoxItem Content="Usuário"></ComboBoxItem>
+            <ComboBoxItem Content="Usuario"></ComboBoxItem>
         </ComboBox>
         <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="223,205,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="134,205,0,0" VerticalAlignment="Top" Width="75" Height="39" Click="BtnEditar_Click"/>

@@ -15,11 +15,11 @@ namespace br.com.livrariashalom.MODEL
         private String autor;
         private String editora;
         private String fase;
-        private int qtd;
         private Categoria codCategoria;
         private double valorUnit;
         private String descricao;
         private int qtdAlerta;
+        private int qtd;
         private Fornecedor codFornecedor = new Fornecedor();
         
         public long CodLivro
@@ -54,8 +54,8 @@ namespace br.com.livrariashalom.MODEL
 
         public int Qtd
         {
-            get { return qtd; }
-            set { qtd = value; }
+            get { return Qtd1; }
+            set { Qtd1 = value; }
         }
 
         public int QtdAlerta
@@ -88,5 +88,6 @@ namespace br.com.livrariashalom.MODEL
             set { codCategoria = value; }
         }
 
+        public int Qtd1 { get => qtd; set => qtd = value; }
     }
 }

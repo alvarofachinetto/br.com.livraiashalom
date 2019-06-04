@@ -1,4 +1,5 @@
-﻿using System;
+﻿using br.com.livrariashalom.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace br.com.livrariashalom.View
         public TelaPrincipal()
         {
             InitializeComponent();
+        }
+
+        public TelaPrincipal(string usuario)
+        {
+            
         }
 
         private void MenuItemCadastros_Click(object sender, RoutedEventArgs e)
@@ -89,9 +95,9 @@ namespace br.com.livrariashalom.View
         //tela estoque
         private void MenuItem_Click_EstoqueLivroProduto(object sender, RoutedEventArgs e)
         {
-            TelaEstoque telaEstoque = new TelaEstoque();
-            telaEstoque.Show();
-            this.Hide();
+            //TelaEstoque telaEstoque = new TelaEstoque();
+            //telaEstoque.Show();
+            //this.Hide();
         }
 
         //receber contas

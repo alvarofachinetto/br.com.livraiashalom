@@ -6,30 +6,42 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace br.com.livrariashalom.BLL
 {
-    public class EstoqueBLL
+    public class SaidaBLL
     {
-        private EstoqueDAO estoqueDAO = new EstoqueDAO();
+        private SaidaDAO saidaDAO = new SaidaDAO();
+        
 
-        public void SalvarLivroEsoque(Estoque estoque)
+        public bool SalvarSaida (Saida saida)
         {
             try
             {
-                estoqueDAO.SalvarLivro(estoque);
+                if (saida.CodLivro == null || saida.Data == null || saida.QtdSaida == 0)
+                {
+                    MessageBox.Show("Obrigatório o preenchimeto dos campos com *");
+                    return false;
+                }
+                else
+                {
+                    saidaDAO.SalvarSaida(saida);
+                    return true;
+                }
             }catch(Exception erro)
             {
                 throw erro;
             }
         }
 
-        public DataTable ListarLivroEsoque()
+        public DataTable ListarSaida()
         {
             try
             {
                 DataTable dt = new DataTable();
-                dt = estoqueDAO.ListarEstoque();
+
+                dt = saidaDAO.ListarSaida();
 
                 return dt;
             }

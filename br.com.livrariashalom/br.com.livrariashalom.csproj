@@ -62,7 +62,7 @@
     <Compile Include="BLL\CategoriaBLL.cs" />
     <Compile Include="BLL\ContatoBLL.cs" />
     <Compile Include="BLL\EnderecoBLL.cs" />
-    <Compile Include="BLL\EstoqueBLL.cs" />
+    <Compile Include="BLL\EntradaBLL.cs" />
     <Compile Include="BLL\FluxoCaixaBLL.cs" />
     <Compile Include="BLL\FornecedorBLL.cs" />
     <Compile Include="BLL\ItemVendaBLL.cs" />
@@ -71,12 +71,13 @@
     <Compile Include="BLL\PagarContaBLL.cs" />
     <Compile Include="BLL\PrazoBLL.cs" />
     <Compile Include="BLL\ReceberContaBLL.cs" />
+    <Compile Include="BLL\SaidaBLL.cs" />
     <Compile Include="BLL\VendaBLL.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\Conexao.cs" />
     <Compile Include="DAO\ContatoDAO.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
-    <Compile Include="DAO\EstoqueDAO.cs" />
+    <Compile Include="DAO\EntradaDAO.cs" />
     <Compile Include="DAO\FluxoCaixaDAO.cs" />
     <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\ItemVendaDAO.cs" />
@@ -85,13 +86,18 @@
     <Compile Include="DAO\PagarContaDAO.cs" />
     <Compile Include="DAO\PrazoDAO.cs" />
     <Compile Include="DAO\ReceberContaDAO.cs" />
+    <Compile Include="DAO\SaidaDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
-    <Compile Include="Model\Estoque.cs" />
+    <Compile Include="Model\Entrada.cs" />
+    <Compile Include="Model\Saida.cs" />
+    <Compile Include="View\TelaEntrada.xaml.cs">
+      <DependentUpon>TelaEntrada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaSaida.xaml.cs">
+      <DependentUpon>TelaSaida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TelaCategoria.xaml.cs">
       <DependentUpon>TelaCategoria.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\TelaEstoque.xaml.cs">
-      <DependentUpon>TelaEstoque.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TelaFornecedor.xaml.cs">
       <DependentUpon>TelaFornecedor.xaml</DependentUpon>
@@ -166,11 +172,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\TelaCategoria.xaml">
+    <Page Include="View\TelaEntrada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TelaEstoque.xaml">
+    <Page Include="View\TelaSaida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaCategoria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

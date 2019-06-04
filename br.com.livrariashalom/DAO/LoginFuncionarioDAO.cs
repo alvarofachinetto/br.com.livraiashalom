@@ -158,26 +158,26 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
+                
                 Conectar();
                 command = new MySqlCommand("select usuario, senha from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
 
                 MySqlDataReader dr = command.ExecuteReader();
-
-                //verificar a autencação da senha
-                //while (telaLogin.Close() == true)
-                //{
-
-                TelaLogin telaLogin = new TelaLogin();
+                
                 //verifica a informação no banco
-                if (dr.HasRows)
+                if (dr.Read())
                 {
-                    string user = dr.GetString(4);
+                    TelaLogin telaLogin = new TelaLogin();
+                    string user = dr.GetString("Usuario");
+                    string admin = dr.GetString("Administrador");
+                    string usuario = login.Funcionario;
 
-                    if (user.Equals("usuario"))
+
+                    if (user.Equals("Usuario"))
                     {
-                        TelaPrincipal telaPrincipal = new TelaPrincipal();
+                        TelaPrincipal telaPrincipal = new TelaPrincipal(usuario.ToString());
                         telaPrincipal.menuItemEstoque.IsEnabled = false;
                         telaPrincipal.menuItemContas.IsEnabled = false;
                         telaPrincipal.menuItemFuncionario.IsEnabled = false;
@@ -189,22 +189,21 @@ namespace br.com.livrariashalom.DAO
                         telaPrincipal.Show();
                         telaLogin.Close();
                     }
-                    else if(user.Equals("Administrador"))
+                    else if(admin.Equals("Administrador"))
                     {
 
                         MessageBox.Show("Welcome !");
 
-                        TelaPrincipal telaPrincipal = new TelaPrincipal();
+                        TelaPrincipal telaPrincipal = new TelaPrincipal(usuario.ToString());
                         telaPrincipal.Show();
+                        telaLogin.Close();
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Usuário e/ou senha incorretos");
+                    MessageBox.Show("Usuario/Senha incorretos!");
                 }
-
-                //}
                 
             }
             catch (Exception erro)

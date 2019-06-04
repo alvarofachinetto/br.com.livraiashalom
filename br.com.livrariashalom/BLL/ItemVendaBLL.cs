@@ -18,7 +18,7 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-                itemVendaDAO.SalvarItemVenda(itemVenda);
+                //itemVendaDAO.SalvarItemVenda(itemVenda);
             }
             catch(Exception error)
             {
