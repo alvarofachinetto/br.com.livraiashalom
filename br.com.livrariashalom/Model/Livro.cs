@@ -1,13 +1,9 @@
 ﻿using br.com.livrariashalom.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace br.com.livrariashalom.MODEL
 {
-   
+
     public class Livro
     {
         private long codLivro;

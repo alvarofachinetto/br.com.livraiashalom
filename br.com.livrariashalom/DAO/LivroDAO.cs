@@ -83,9 +83,7 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("update livro set titulo = @titulo, autor = @autor, editora = @editora, " +
-                "fase = @fase, quantidade = @quantidade, categoriaLivro = @categoriaLivro, valorUnit = @valorUnit, " +
-                "descricao = @descricao ,Fornecedor_codFornecedor = @codFornecedor where codLivro = @codLivro", conexao);
+                command = new MySqlCommand("update livro set titulo = @titulo, autor = @autor, editora = @editora, fase = @fase, qtd = @quantidade, Categoria_codCategoria = @categoriaLivro, preco = @valorUnit, qtdAlerta = @alerta, descricao = @descricao ,Fornecedor_codFornecedor = @codFornecedor where codLivro = @codLivro", conexao);
 
                 command.Parameters.AddWithValue("@titulo", livro.Titulo);
                 command.Parameters.AddWithValue("@autor", livro.Autor);
@@ -94,6 +92,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@quantidade", livro.Qtd);
                 command.Parameters.AddWithValue("@categoriaLivro", livro.CodCategoria.CodCategoria);
                 command.Parameters.AddWithValue("@valorUnit", livro.ValorUnit);
+                command.Parameters.AddWithValue("@alerta", livro.QtdAlerta);
                 command.Parameters.AddWithValue("@descricao", livro.Descricao);
                 command.Parameters.AddWithValue("@codFornecedor", livro.Fornecedor.CodFornecedor);
                 command.Parameters.AddWithValue("@codLivro", livro.CodLivro);

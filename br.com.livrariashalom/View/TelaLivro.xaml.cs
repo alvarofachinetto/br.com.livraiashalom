@@ -43,10 +43,13 @@ namespace br.com.livrariashalom.View
             txtTitulo.Clear();
             txtAutor.Clear();
             txtEditora.Clear();
+            txtQtd.Clear();
             cmbFase.SelectedIndex = 0;
             txtCategoria.Clear();
             txtValor.Clear();
             txtFornecedorLivro.Clear();
+            txtDescricao.Clear();
+            txtAlerta.Clear();
         }
 
         private bool SalvarLivro(Livro livro)
@@ -77,6 +80,7 @@ namespace br.com.livrariashalom.View
 
                     MessageBox.Show("Cadastro feito com sucesso");
                     Limpar();
+                    ListarLivros();
                     return true;
                 }
 
@@ -104,8 +108,10 @@ namespace br.com.livrariashalom.View
                     livro.Autor = txtAutor.Text;
                     livro.Editora = txtTitulo.Text;
                     livro.Fase = cmbFase.Text;
+                    livro.Qtd = Convert.ToInt32(txtQtd.Text);
                     livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
+                    livro.QtdAlerta = Convert.ToInt32(txtAlerta.Text);
                     livro.Descricao = txtDescricao.Text;
                     livro.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorLivro.Text);
                     livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
@@ -119,9 +125,9 @@ namespace br.com.livrariashalom.View
                         livroBLL = new LivroBLL();
                         livroBLL.EditarLivro(livro);
                         MessageBox.Show("Edição feita com sucesso");
-                         
-                        Limpar();
 
+                        ListarLivros();
+                        Limpar();
                         return true;
                     }
 
