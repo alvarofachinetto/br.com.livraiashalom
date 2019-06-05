@@ -53,7 +53,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from fornecedor inner join contato inner join endereco order by codFornecedor;", conexao);
+                command = new MySqlCommand("select distinct * from fornecedor f inner join contato c inner join endereco e on (f.codFornecedor = c.codContato = e.codEndereco);", conexao);
 
                 dataAdapter.SelectCommand = command;
                 dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 

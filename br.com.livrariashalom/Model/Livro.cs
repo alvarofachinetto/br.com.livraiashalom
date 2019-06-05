@@ -15,7 +15,7 @@ namespace br.com.livrariashalom.MODEL
         private String autor;
         private String editora;
         private String fase;
-        private Categoria codCategoria;
+        private Categoria codCategoria = new Categoria();
         private double valorUnit;
         private String descricao;
         private int qtdAlerta;

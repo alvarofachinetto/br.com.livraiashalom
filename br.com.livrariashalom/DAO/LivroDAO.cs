@@ -21,7 +21,7 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, quantidade, qtd, qtdAlerta, Categoria_codCategoria, preco, qtdAlerta, descricao, Fornecedor_codFornecedor) values " +
+                command = new MySqlCommand("insert into livro (titulo, autor, editora, fase, qtd, Categoria_codCategoria, preco, qtdAlerta, descricao, Fornecedor_codFornecedor) values " +
                 "(@titulo, @autor, @editora, @fase, @codCategoria, @preco, @qtd, @qtdAlerta, @descricao, @codFornecedor)", conexao); //conexao está referente as infos do banco
                 //parameters são os @value, AddWithValue são as variaveis 
                 command.Parameters.AddWithValue("@titulo", livro.Titulo);
@@ -75,113 +75,6 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
-        //public DataTable BuscaLivro()
-        //{
-        //    try
-        //    {
-
-        //        Conectar();
-        //        DataTable dt = new DataTable();
-        //        MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-
-        //        TelaVendas telaVendas = new TelaVendas();
-        //        command = new MySqlCommand("select * from livro where titulo like '" +  telaVendas.txtCodLivro.Text+"%'", conexao);
-
-        //        dataAdapter.SelectCommand = command;
-        //        dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
-
-        //        //TelaEstoque telaEstoque = new TelaEstoque();
-        //        //telaEstoque.Show();
-        //        //return dt;
-
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        throw erro;
-        //    }
-        //    finally
-        //    {
-        //        Desconectar();
-        //    }
-        //}
-
-
-
-        //pesquisar livro
-        //public void PesquisarLivro(int codLivro)
-        //{
-        //    try
-        //    {
-        //        Conectar();
-                
-        //        command = new MySqlCommand("select * from livro where codLivro = @codLivro", conexao);
-        //        command.Parameters.AddWithValue("@codLivro", codLivro);
-
-        //        MySqlDataReader dr = command.ExecuteReader();
-
-        //        while(dr.Read())
-        //        {
-        //            if (dr.HasRows != true)
-        //            {
-        //                MessageBox.Show("Produto não existe no estoque");
-        //            }
-        //            else
-        //            {
-        //                TelaLivro telaLivro = new TelaLivro();
-
-        //                telaLivro.txtTitulo.Text = dr.GetString(1);
-        //                telaLivro.txtAutor.Text = dr.GetString(2);
-        //                telaLivro.txtEditora.Text = dr.GetString(3);
-        //                telaLivro.cmbFase.Text = dr.GetString(4);
-                        
-        //                telaLivro.txtCategoria.Text = dr.GetString(6);
-        //                telaLivro.txtValor.Text = dr.GetString(7);
-        //                telaLivro.txtFornecedorLivro.Text = dr.GetString(9);
-        //                telaLivro.txtDescricao.Text = dr.GetString(10);
-        //            }
-        //        }
-        //        dr.Close();
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        throw erro;
-        //    }
-        //    finally
-        //    {
-        //        Desconectar();
-        //    }
-        //}
-
-        //public DataTable PesquisarTituloLivro(String titulo)
-        //{
-        //    try
-        //    {
-        //        Conectar();
-
-        //        TelaEstoque telaEstoque = new TelaEstoque();
-        //        DataTable dt = new DataTable();
-        //        MySqlDataAdapter da = new MySqlDataAdapter();
-        //        command = new MySqlCommand("select * from livro where titulo like @titulo", conexao);
-        //        command.Parameters.AddWithValue("@titulo", titulo + "%");
-
-        //        command.CommandType = CommandType.Text;
-                
-        //        da.SelectCommand = command;
-        //        da.Fill(dt);
-
-        //        //dgLivro.ItemsSource = dt.AsDataView();
-
-        //        return dt;
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        throw erro;
-        //    }
-        //    finally
-        //    {
-        //        Desconectar();
-        //    }
-        //}
 
         //metodo editar
         public void EditarLivro(Livro livro)

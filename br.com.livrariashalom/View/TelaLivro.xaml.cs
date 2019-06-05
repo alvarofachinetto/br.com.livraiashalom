@@ -65,8 +65,8 @@ namespace br.com.livrariashalom.View
                     livro.Autor = txtAutor.Text;
                     livro.Editora = txtTitulo.Text;
                     livro.Fase = cmbFase.Text;
-                    
-                    livro.CodCategoria.CodCategoria = Convert.ToInt32(txtCategoria.Text);
+                    livro.QtdAlerta = Convert.ToInt32(txtAlerta.Text);
+                    livro.CodCategoria.CodCategoria = Convert.ToInt64(txtCategoria.Text);
                     livro.ValorUnit = Convert.ToDouble(txtValor.Text);
                     livro.Qtd = Convert.ToInt32(txtQtd.Text);
                     livro.Descricao = txtDescricao.Text;
@@ -187,7 +187,7 @@ namespace br.com.livrariashalom.View
                 throw erro;
             }
         }
-
+        //lista as categorias na combobox
         public void ListarCategoria()
         {
             try
@@ -209,7 +209,7 @@ namespace br.com.livrariashalom.View
                 throw erro;
             }
         }
-
+        //listar livros no datagrid
         public void ListarLivros()
         {
             try
@@ -229,49 +229,6 @@ namespace br.com.livrariashalom.View
         private void CmbFase_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String valor = cmbFase.SelectedValue.ToString();
-        }
-
-        private void BtnAtualizar_Click(object sender, RoutedEventArgs e)
-        {
-            Livro livro = new Livro();
-            EditarLivro(livro);
-        }
-
-        private void BtnPesquisar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                //caso os campos estiverem vazios
-                if (txtCodLivro.Text == "")
-                {
-                    MessageBox.Show("Preencha o campo do código");
-                    txtCodLivro.Focus();
-                }
-                else
-                {
-                    long codLivro = Convert.ToInt64(txtCodLivro.Text);
-
-                    MessageBoxResult excluir = MessageBox.Show("Deseja realmete excluir as informações ?", "Excluir", MessageBoxButton.YesNo);
-
-                    //caso o usuário realmente queira fazer a exclusão
-                    if (excluir == MessageBoxResult.Yes)
-                    {
-                        livroBLL = new LivroBLL();
-                        livroBLL.ExcluirLivro(codLivro);
-                        MessageBox.Show("Edição feita com sucesso");
-
-                        Limpar();
-
-                    }
-
-                }
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-            
         }
 
         private void BtnVoltar_Click(object sender, RoutedEventArgs e)
@@ -299,6 +256,7 @@ namespace br.com.livrariashalom.View
                 cmbFase.Text = rowView["fase"].ToString();
                 txtCategoria.Text = rowView["Categoria_codCategoria"].ToString();
                 txtValor.Text = rowView["preco"].ToString();
+                txtQtd.Text = rowView["qtd"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
                 txtAlerta.Text = rowView["qtdAlerta"].ToString();
                 txtFornecedorLivro.Text = rowView["Fornecedor_codFornecedor"].ToString();
@@ -330,6 +288,32 @@ namespace br.com.livrariashalom.View
             {
                 throw erro;
             }
+        }
+
+        private void btnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpar();
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                long codLivro = Convert.ToInt64(txtCodLivro.Text);
+
+                livroBLL.ExcluirLivro(codLivro);
+                ListarLivros();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
+        private void btnAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            Livro livro = new Livro();
+            EditarLivro(livro);
         }
     }
 }

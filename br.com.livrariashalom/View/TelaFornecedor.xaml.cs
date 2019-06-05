@@ -32,7 +32,6 @@ namespace br.com.livrariashalom.View
         {
             InitializeComponent();
             ListarFornecedor();
-
         }
 
         //limpa os valores após uma ação
@@ -66,13 +65,10 @@ namespace br.com.livrariashalom.View
                     fornecedor.Ie = txtIe.Text;
                     fornecedor.Empresa = cmbEmpresa.Text;
                     fornecedor.Observacoes = txtObservacoes.Text;
-
+                   
                     fornecedorBLL.SalvarFornecedor(fornecedor);
 
                     MessageBox.Show("Cadastro feito com sucesso");
-                    MessageBox.Show("Código do fornecedor: " + fornecedor.CodFornecedor);
-
-
                     tabControlFornecedor.SelectedIndex = 1;
 
                     return true;
@@ -215,7 +211,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedorContato.Text == "")
+                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionario.Text == "" || txtFornecedorContato.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
 
@@ -226,7 +222,7 @@ namespace br.com.livrariashalom.View
                     contato.EmailPrimario = txtEmailEmpresa.Text;
                     contato.EmailSecundario = txtEmailFuncionario.Text;
                     contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
-                    contato.TelefoneReserva = txtTelefoneFuncionrio.Text;
+                    contato.TelefoneReserva = txtTelefoneFuncionario.Text;
                     contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorContato.Text);
 
                     contatoBLL.SavarContato(contato);
@@ -253,7 +249,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionrio.Text == "" || txtFornecedorContato.Text == "")
+                if (txtEmailEmpresa.Text == "" || txtEmailFuncionario.Text == "" || txtTelefoneEmpresa.Text == "" || txtTelefoneFuncionario.Text == "" || txtFornecedorContato.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
 
@@ -266,7 +262,7 @@ namespace br.com.livrariashalom.View
                     contato.EmailPrimario = txtEmailEmpresa.Text;
                     contato.EmailSecundario = txtEmailFuncionario.Text;
                     contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
-                    contato.TelefoneReserva = txtTelefoneFuncionrio.Text;
+                    contato.TelefoneReserva = txtTelefoneFuncionario.Text;
                     contato.Fornecedor.CodFornecedor = Convert.ToInt64(txtFornecedorContato.Text);
 
                     //caso o usuário realmente queira fazer a alteração
@@ -352,8 +348,26 @@ namespace br.com.livrariashalom.View
                 txtIe.Text = rowView["ie"].ToString();
                 cmbEmpresa.Text = rowView["empresa"].ToString();
                 txtObservacoes.Text = rowView["observacoes"].ToString();
+
+                txtCodigoEndereco.Text = rowView["codEndereco"].ToString();
+
+                txtLogradouro.Text = rowView["logradouro"].ToString();
+                txtNumero.Text = rowView["numero"].ToString();
+                txtBairro.Text = rowView["bairro"].ToString();
+                txtCidade.Text = rowView["cidade"].ToString();
+                cmbEstado.Text = rowView["estado"].ToString();
+                txtCep.Text = rowView["cep"].ToString();
+                txtFornecedorEndereco.Text = rowView["Fornecedor_codFornecedor"].ToString();
+
+                txtCodContato.Text = rowView["codContato"].ToString();
+                txtEmailEmpresa.Text = rowView["email_primario"].ToString();
+                txtEmailFuncionario.Text = rowView["email_secundario"].ToString();
+                txtTelefoneEmpresa.Text = rowView["telefone_principal"].ToString();
+                txtTelefoneFuncionario.Text = rowView["telefone_reserva"].ToString();
+                txtFornecedorContato.Text = rowView["Fornecedor_codFornecedor"].ToString();
+
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 MessageBox.Show("Erro: " + error);
             }
