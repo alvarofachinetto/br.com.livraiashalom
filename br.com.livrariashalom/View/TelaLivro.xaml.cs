@@ -76,7 +76,7 @@ namespace br.com.livrariashalom.View
                     livroBLL.SalvarLivro(livro);
 
                     MessageBox.Show("Cadastro feito com sucesso");
-                    
+                    Limpar();
                     return true;
                 }
 

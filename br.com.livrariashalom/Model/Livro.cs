@@ -52,12 +52,6 @@ namespace br.com.livrariashalom.MODEL
             set { fase = value; }
         }
 
-        public int Qtd
-        {
-            get { return Qtd1; }
-            set { Qtd1 = value; }
-        }
-
         public int QtdAlerta
         {
             get { return qtdAlerta; }
@@ -88,6 +82,6 @@ namespace br.com.livrariashalom.MODEL
             set { codCategoria = value; }
         }
 
-        public int Qtd1 { get => qtd; set => qtd = value; }
+        public int Qtd { get => qtd; set => qtd = value; }
     }
 }
