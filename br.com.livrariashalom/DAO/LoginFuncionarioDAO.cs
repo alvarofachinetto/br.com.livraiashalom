@@ -160,7 +160,7 @@ namespace br.com.livrariashalom.DAO
             {
                 
                 Conectar();
-                command = new MySqlCommand("select usuario, senha from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
+                command = new MySqlCommand("select usuario, senha, tipo_usuario from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
                 command.Parameters.AddWithValue("@usuario", login.Funcionario);
                 command.Parameters.AddWithValue("@senha", login.Senha);
 
@@ -170,31 +170,27 @@ namespace br.com.livrariashalom.DAO
                 if (dr.Read())
                 {
                     TelaLogin telaLogin = new TelaLogin();
-                    string user = dr.GetString("Usuario");
-                    string admin = dr.GetString("Administrador");
-                    string usuario = login.Funcionario;
-
-
+                    string user = dr["tipo_usuario"].ToString();
+                    
                     if (user.Equals("Usuario"))
                     {
-                        TelaPrincipal telaPrincipal = new TelaPrincipal(usuario.ToString());
-                        telaPrincipal.menuItemEstoque.IsEnabled = false;
-                        telaPrincipal.menuItemContas.IsEnabled = false;
+                        TelaPrincipal telaPrincipal = new TelaPrincipal();
                         telaPrincipal.menuItemFuncionario.IsEnabled = false;
                         telaPrincipal.menuItemPagarContas.IsEnabled = false;
                         telaPrincipal.menuItemReceberContas.IsEnabled = false;
+                        telaPrincipal.menuVenda.IsEnabled = false;
 
                         MessageBox.Show("Welcome !");
 
                         telaPrincipal.Show();
-                        telaLogin.Close();
+                        telaLogin.Hide();
                     }
-                    else if(admin.Equals("Administrador"))
+                    else if(user.Equals("Administrador"))
                     {
 
                         MessageBox.Show("Welcome !");
 
-                        TelaPrincipal telaPrincipal = new TelaPrincipal(usuario.ToString());
+                        TelaPrincipal telaPrincipal = new TelaPrincipal();
                         telaPrincipal.Show();
                         telaLogin.Close();
                     }

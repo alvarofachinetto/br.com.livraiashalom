@@ -114,5 +114,17 @@ namespace br.com.livrariashalom.View
             telaVendas.Show();
             this.Hide();
         }
+
+        private void MenuItemSaida_Click(object sender, RoutedEventArgs e)
+        {
+            TelaSaida telaSaida = new TelaSaida();
+            telaSaida.ShowDialog();
+        }
+
+        private void MenuItemEntrada_Click(object sender, RoutedEventArgs e)
+        {
+            TelaEntrada telaEntrada = new TelaEntrada();
+            telaEntrada.ShowDialog();
+        }
     }
 }
