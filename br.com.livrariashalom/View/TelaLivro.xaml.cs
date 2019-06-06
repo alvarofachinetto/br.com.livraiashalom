@@ -142,10 +142,33 @@ namespace br.com.livrariashalom.View
             return false;
         }
 
-        //private bool ExcluirLivro(long codLivro)
-        //{
-            
-        //}
+        private bool ExcluirLivro()
+        {
+            try
+            {
+                long codLivro = Convert.ToInt64(txtCodLivro.Text);
+
+                MessageBoxResult alteracao = MessageBox.Show("Deseja realmete excluir o livro ?", "Excluir", MessageBoxButton.YesNo);
+
+                //caso o usuário realmente queira fazer a alteração
+                if (alteracao == MessageBoxResult.Yes)
+                {
+                    livroBLL.ExcluirLivro(codLivro);
+                    ListarLivros();
+                    MessageBox.Show("Edição feita com sucesso");
+
+                    ListarLivros();
+                    Limpar();
+                    return true;
+                }
+
+                return true;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
 
         //lista os fornecedores e categoria
         public void ListarFornecedor()
@@ -303,17 +326,7 @@ namespace br.com.livrariashalom.View
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                long codLivro = Convert.ToInt64(txtCodLivro.Text);
-
-                livroBLL.ExcluirLivro(codLivro);
-                ListarLivros();
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
+            ExcluirLivro();
         }
 
         private void btnAtualizar_Click(object sender, RoutedEventArgs e)

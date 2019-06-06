@@ -20,10 +20,11 @@
                 <TextBox x:Name="txtRazao" HorizontalAlignment="Right" Height="25" Margin="0,0,478,400" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="85"/>
                 <TextBox x:Name="txtIe" HorizontalAlignment="Right" Height="25" Margin="0,0,38,401" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="2" MaxLength="16"/>
                 <ComboBox x:Name="cmbEmpresa" HorizontalAlignment="Right" Margin="0,0,128,450" VerticalAlignment="Bottom" Width="120" Height="24" SelectionChanged="CmbEmpresa_SelectionChanged" Grid.Column="2">
+                    <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Matriz"/>
                     <ComboBoxItem Content="Filial"/>
                 </ComboBox>
-                <TextBox x:Name="txtcodFornecedor" Height="24" Margin="0,0,628,441" TextWrapping="Wrap" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" HorizontalAlignment="Right" Width="59" Grid.ColumnSpan="2">
+                <TextBox x:Name="txtcodFornecedor" Height="24" Margin="0,0,628,441" TextWrapping="Wrap" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" HorizontalAlignment="Right" Width="59" Grid.ColumnSpan="2" IsReadOnly="True">
                     <TextBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -43,7 +44,7 @@
                 <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,482,248" VerticalAlignment="Bottom" Width="85" Height="41" Click="BtnEditar_Click" Grid.Column="2"/>
                 <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,58,248" VerticalAlignment="Bottom" Width="86" Height="41" Click="BtnExcluir_Click" Grid.ColumnSpan="2"/>
                 <Label Content="Observações" HorizontalAlignment="Right" Margin="0,0,253,345" VerticalAlignment="Bottom" Width="86" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.Column="2"/>
-                <DataGrid x:Name="dgFornecedor" HorizontalAlignment="Right" Height="193" Margin="0,0,12,33" VerticalAlignment="Bottom" Width="785" MouseDoubleClick="DgFornecedor_MouseDoubleClick" Grid.ColumnSpan="3"/>
+                <DataGrid x:Name="dgFornecedor" HorizontalAlignment="Right" Height="193" Margin="0,0,10,33" VerticalAlignment="Bottom" Width="787" MouseDoubleClick="DgFornecedor_MouseDoubleClick" Grid.ColumnSpan="3"/>
                 <Button x:Name="btnListar" Content="Listar" Grid.Column="2" HorizontalAlignment="Left" Margin="177,199,0,0" VerticalAlignment="Top" Width="85" Height="41" Click="BtnListar_Click"/>
             </Grid>
         </TabItem>
@@ -62,13 +63,14 @@
                 <Label Content="CEP" Grid.Column="1" HorizontalAlignment="Left" Margin="495,62,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
                 <Label Content="Fornecedor" Grid.Column="1" HorizontalAlignment="Left" Margin="495,105,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
                 <TextBox x:Name="txtCodigoEndereco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37"/>
-                <TextBox x:Name="txtLogradouro" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
+                <TextBox x:Name="txtLogradouro" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
                 <TextBox x:Name="txtNumero" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="txtBairro" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="326,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="txtCidade" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="txtCep" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtFornecedorEndereco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37"/>
+                <TextBox x:Name="txtFornecedorEndereco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsReadOnly="True"/>
                 <ComboBox x:Name="cmbEstado" Grid.Column="1" HorizontalAlignment="Left" Margin="326,109,0,0" VerticalAlignment="Top" Width="120" IsEditable="True">
+                    <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Acre"/>
                     <ComboBoxItem Content="Alagoas"/>
                     <ComboBoxItem Content="Amapá"/>
@@ -98,9 +100,7 @@
                     <ComboBoxItem Content="Tocantins"/>
                 </ComboBox>
                 <Button x:Name="btnCadastrarEndereco" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="31,172,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnCadastrarEndereco_Click"/>
-                <Button x:Name="btnExcluir1" Content="Excluir" Grid.Column="1" HorizontalAlignment="Left" Margin="125,172,0,0" VerticalAlignment="Top" Width="75" Height="37"/>
-                <Button x:Name="btnPesquisar" Content="Pesquisar" Grid.Column="1" HorizontalAlignment="Left" Margin="218,172,0,0" VerticalAlignment="Top" Width="75" Height="37"/>
-                <Button x:Name="btnAlterar" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="314,172,0,0" VerticalAlignment="Top" Width="75" Height="37"/>
+                <Button x:Name="btnAlterar" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="122,172,0,0" VerticalAlignment="Top" Width="74" Height="37" Click="BtnAlterar_Click"/>
             </Grid>
         </TabItem>
         <TabItem x:Name="tabItemContato" Header="Contato" FontWeight="Bold" Foreground="#FFF70202" Background="Black">
@@ -118,11 +118,9 @@
                 <TextBox x:Name="txtEmailFuncionario" HorizontalAlignment="Left" Height="23" Margin="170,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Grid.Column="1"/>
                 <TextBox x:Name="txtTelefoneEmpresa" HorizontalAlignment="Left" Height="23" Margin="170,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Grid.Column="1"/>
                 <TextBox x:Name="txtTelefoneFuncionario" HorizontalAlignment="Left" Height="23" Margin="170,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Grid.Column="1"/>
-                <TextBox x:Name="txtFornecedorContato" HorizontalAlignment="Left" Height="23" Margin="170,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" Grid.Column="1"/>
+                <TextBox x:Name="txtFornecedorContato" HorizontalAlignment="Left" Height="23" Margin="170,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" Grid.Column="1" IsReadOnly="True"/>
                 <Button x:Name="btnCadastroContato" Content="Cadastrar" HorizontalAlignment="Left" Margin="40,293,0,0" VerticalAlignment="Top" Width="92"  Grid.Column="1" Click="BtnCadastroContato_Click" Height="37"/>
-                <Button x:Name="btnExcluir1_Copy" Content="Excluir" Grid.Column="1" HorizontalAlignment="Left" Margin="161,293,0,0" VerticalAlignment="Top" Width="75" Height="37"/>
-                <Button x:Name="btnPesquisar_Copy" Content="Pesquisar" Grid.Column="1" HorizontalAlignment="Left" Margin="254,293,0,0" VerticalAlignment="Top" Width="75" Height="37"/>
-                <Button x:Name="btnAlterar_Copy" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="350,293,0,0" VerticalAlignment="Top" Width="75" Height="37"/>
+                <Button x:Name="btnAlterar_Copy" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="148,293,0,0" VerticalAlignment="Top" Width="74" Height="37"/>
                 <Label Content="Código" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04" Grid.Column="1"/>
                 <TextBox x:Name="txtCodContato" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="170,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37"/>
             </Grid>

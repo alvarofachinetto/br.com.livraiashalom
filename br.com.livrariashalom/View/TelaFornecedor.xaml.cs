@@ -27,6 +27,8 @@ namespace br.com.livrariashalom.View
         private FornecedorBLL fornecedorBLL = new FornecedorBLL();
         private ContatoBLL contatoBLL = new ContatoBLL();
         private EnderecoBLL enderecoBLL = new EnderecoBLL();
+        private MySqlCommand command = null;
+        private Conexao Conexao = new Conexao();
 
         public TelaFornecedor()
         {
@@ -44,6 +46,19 @@ namespace br.com.livrariashalom.View
             cmbEmpresa.SelectedIndex = 0;
             txtIe.Clear();
             txtObservacoes.Clear();
+            txtCodigoEndereco.Clear();
+            txtLogradouro.Clear();
+            txtNumero.Clear();
+            txtBairro.Clear();
+            txtCidade.Clear();
+            cmbEstado.SelectedIndex = 0;
+            txtCodigoEndereco.Clear();
+            txtCodContato.Clear();
+            txtEmailEmpresa.Clear();
+            txtTelefoneEmpresa.Clear();
+            txtEmailFuncionario.Clear();
+            txtTelefoneFuncionario.Clear();
+            txtFornecedorContato.Clear();
         }
 
         //recebe os valores para salvar
@@ -69,8 +84,9 @@ namespace br.com.livrariashalom.View
                     fornecedorBLL.SalvarFornecedor(fornecedor);
 
                     MessageBox.Show("Cadastro feito com sucesso");
+                    
                     tabControlFornecedor.SelectedIndex = 1;
-
+                    EnviarCodFornecedor();
                     return true;
                 }
 
@@ -89,6 +105,8 @@ namespace br.com.livrariashalom.View
             try
             {
                 dgFornecedor.ItemsSource = fornecedorBLL.ListarFornecedor().DefaultView;//obtém todos os dados
+
+                
             }
             catch (Exception error)
             {
@@ -138,6 +156,29 @@ namespace br.com.livrariashalom.View
             }
 
             return false;
+        }
+
+        //colocará o codigo na text box do contato e endereco
+        public void EnviarCodFornecedor()
+        {
+            try
+            {
+                Conexao.Conectar();
+                command = new MySqlCommand("select max(codFornecedor) from fornecedor",Conexao.conexao);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    txtFornecedorEndereco.Text = reader["codFornecedor"].ToString();
+                    txtFornecedorContato.Text = reader["codFornecedor"].ToString();
+                }
+                reader.Close();
+            }
+            catch(Exception erro)
+            {
+                throw erro;
+            }
         }
 
         //deletar o fornecedor
@@ -406,6 +447,11 @@ namespace br.com.livrariashalom.View
         private void BtnListar_Click(object sender, RoutedEventArgs e)
         {
             ListarFornecedor();
+        }
+
+        private void BtnAlterar_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
