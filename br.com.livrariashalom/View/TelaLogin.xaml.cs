@@ -56,7 +56,7 @@ namespace br.com.livrariashalom.View
         private void BtnLogar_Click(object sender, RoutedEventArgs e)
         {
             Logar();
-            
+            this.Close();
         }
     }
 }

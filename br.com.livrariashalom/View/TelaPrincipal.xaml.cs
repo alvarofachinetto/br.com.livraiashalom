@@ -92,14 +92,6 @@ namespace br.com.livrariashalom.View
             this.Hide();
         }
 
-        //tela estoque
-        private void MenuItem_Click_EstoqueLivroProduto(object sender, RoutedEventArgs e)
-        {
-            //TelaEstoque telaEstoque = new TelaEstoque();
-            //telaEstoque.Show();
-            //this.Hide();
-        }
-
         //receber contas
         private void MenuItem_Click_ReceberContas(object sender, RoutedEventArgs e)
         {
@@ -125,6 +117,17 @@ namespace br.com.livrariashalom.View
         {
             TelaEntrada telaEntrada = new TelaEntrada();
             telaEntrada.ShowDialog();
+        }
+
+        private void MenuItemSair_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult sair = MessageBox.Show("Deseja realmete sair do sistema ?", "Sair", MessageBoxButton.YesNo);
+
+            if (sair == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

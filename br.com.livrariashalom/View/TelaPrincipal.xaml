@@ -44,6 +44,12 @@
                 <Separator/>
                 <MenuItem x:Name="menuItemReceberContas" Header="Contas a Receber" Click="MenuItem_Click_ReceberContas"/>
             </MenuItem>
+
+            <MenuItem x:Name="menuItemOpcoes" Header="Opções" FontWeight="Bold" FontSize="14">
+                <MenuItem x:Name="menuItemSobre" Header="Sobre"/>
+                <Separator/>
+                <MenuItem x:Name="menuItemSair" Header="Sair" Click="MenuItemSair_Click"/>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>
