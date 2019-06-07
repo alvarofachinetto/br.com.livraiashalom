@@ -45,10 +45,12 @@ namespace br.com.livrariashalom.DAO
             try
             {
                 Conectar();
+                ReceberConta receberConta = new ReceberConta();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from receberconta",conexao);
+                command = new MySqlCommand("select * from receberconta where data = @data",conexao);
+                command.Parameters.AddWithValue("@data", receberConta.Data);
                 dataAdapter.SelectCommand = command;
 
                 dataAdapter.Fill(dt);

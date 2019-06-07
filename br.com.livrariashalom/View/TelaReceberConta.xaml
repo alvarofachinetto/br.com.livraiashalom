@@ -8,18 +8,17 @@
         Title="TelaReceberConta" Height="450" Width="800" Background="Black">
     <Grid>
         <Label Content="Código" HorizontalAlignment="Left" Margin="66,62,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <Label Content="Data" HorizontalAlignment="Left" Margin="66,93,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="26,20,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold" Width="104"/>
         <Label Content="Descrição" HorizontalAlignment="Left" Margin="407,62,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <Label Content="Valor" HorizontalAlignment="Left" Margin="66,127,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="66,154,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <ComboBox x:Name="cmbStatus" HorizontalAlignment="Left" Margin="211,158,0,0" VerticalAlignment="Top" Width="120">
+        <Label Content="Valor" HorizontalAlignment="Left" Margin="66,90,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <Label Content="Status" HorizontalAlignment="Left" Margin="66,117,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <ComboBox x:Name="cmbStatus" HorizontalAlignment="Left" Margin="211,121,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Cobrar"/>
             <ComboBoxItem Content="Recebido"/>
         </ComboBox>
-        <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="211,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="211,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="73" Margin="552,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
         <TextBox x:Name="txtCodigoReceberConta" HorizontalAlignment="Left" Height="23" Margin="211,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="txtData" HorizontalAlignment="Left" Height="23" Margin="211,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnSalvarContaReceber" Content="Salvar" HorizontalAlignment="Left" Margin="617,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click"/>
         <DataGrid x:Name="dgReceberConta" HorizontalAlignment="Left" Height="149" Margin="66,244,0,0" VerticalAlignment="Top" Width="644" MouseDoubleClick="dgReceberConta_MouseDoubleClick"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="505,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="btnEditar_Click"/>

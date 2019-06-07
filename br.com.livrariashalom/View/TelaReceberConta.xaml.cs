@@ -28,6 +28,7 @@ namespace br.com.livrariashalom.View
         {
             InitializeComponent();
             ListarReceberConta();
+            lblData.Content = DateTime.Today;
         }
 
         private bool SalvarReceberConta(ReceberConta receberConta)
@@ -36,13 +37,13 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    receberConta.Data = Convert.ToDateTime(txtData.Text);
+                    receberConta.Data = Convert.ToDateTime(lblData.Content);
                     receberConta.Descricao = txtDescricao.Text;
                     receberConta.Valor = Convert.ToDouble(txtValor.Text);
                     receberConta.Status = cmbStatus.Text;
@@ -50,8 +51,7 @@ namespace br.com.livrariashalom.View
                     receberContaBLL.SalvarReceberConta(receberConta);
 
                     MessageBox.Show("Cadastro feito com sucesso");
-                    MessageBox.Show("Código do Conta: " + receberConta.CodReceberConta);
-
+                    
                     ListarReceberConta();
                     return true;
                 }
@@ -71,14 +71,14 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" )
+                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" )
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
                     receberConta.CodReceberConta = Convert.ToInt64(txtCodigoReceberConta.Text);
-                    receberConta.Data = Convert.ToDateTime(txtData.Text);
+                    receberConta.Data = Convert.ToDateTime(lblData.Content);
                     receberConta.Descricao = txtDescricao.Text;
                     receberConta.Valor = Convert.ToDouble(txtValor.Text);
                     receberConta.Status = cmbStatus.Text;
@@ -106,7 +106,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtData.Text == "" || txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -128,6 +128,11 @@ namespace br.com.livrariashalom.View
             }
             return false;
 
+        }
+
+        public void SomarEntradas()
+        {
+            
         }
 
         public void ListarReceberConta()
@@ -161,7 +166,6 @@ namespace br.com.livrariashalom.View
 
                 var rowView = dgReceberConta.SelectedItems[0] as DataRowView;
                 txtCodigoReceberConta.Text = rowView["codReceberConta"].ToString();
-                txtData.Text = rowView["data"].ToString();
                 cmbStatus.Text = rowView["status"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
                 txtValor.Text = rowView["valor"].ToString();

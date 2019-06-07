@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpfx ="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:mdi="clr-namespace:WPF.MDI;assembly=WPF.MDI"
+        xmlns:mdi="clr-namespace:Hammer.MDIContainer.Control.WindowControls;assembly=Hammer.MDIContainer.Control"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
         Title="TelaPrincipal" Height="590" Width="905">

@@ -367,9 +367,15 @@ namespace br.com.livrariashalom.View
             if (txtCnpjCpf.Text.Length == 18)
             {
                 lblCnpjCpf.Content = "CNPJ"; //se tiver 18 caraceres a label se chamará cnpj
+                txtCnpjCpf.Mask = "00.000.000/0000.00";
             }else if (txtCnpjCpf.Text.Length == 14)
             {
                 lblCnpjCpf.Content = "CPF";//se tiver 14 caraceres a label se chamará cpf
+            }
+            else
+            {
+                lblCnpjCpf.Content = "CPF/CNPJ";
+                txtCnpjCpf.Mask = "000.000.000.00";
             }
         }
 

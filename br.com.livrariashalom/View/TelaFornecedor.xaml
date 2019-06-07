@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
+        xmlns:wpfx ="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
         Title="TelaFornecedor" Height="546" Width="818" Background="#FF060404">
@@ -19,7 +19,7 @@
                 <Label Content="Código" HorizontalAlignment="Right" Margin="0,0,112,442" VerticalAlignment="Bottom" RenderTransformOrigin="0.053,0.192" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2" Height="27" Width="50"/>
                 <Label Content="Razao" HorizontalAlignment="Right" Margin="0,0,99,398" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="txtRazao" HorizontalAlignment="Right" Height="25" Margin="0,0,478,400" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="85"/>
-                <TextBox x:Name="txtIe" HorizontalAlignment="Right" Height="25" Margin="0,0,38,401" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="2" MaxLength="16"/>
+                <wpfx:MaskedTextBox x:Name="txtIe" HorizontalAlignment="Right" Height="25" Margin="0,0,38,401" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="2" MaxLength="16" Mask="000.000.000.000"/>
                 <ComboBox x:Name="cmbEmpresa" HorizontalAlignment="Right" Margin="0,0,128,450" VerticalAlignment="Bottom" Width="120" Height="24" SelectionChanged="CmbEmpresa_SelectionChanged" Grid.Column="2">
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Matriz"/>
@@ -36,10 +36,10 @@
                     </TextBox.RenderTransform>
                 </TextBox>
                 <Label Content="IE" HorizontalAlignment="Right" Margin="0,0,276,401" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.Column="2"/>
+                <wpfx:MaskedTextBox x:Name="txtCnpjCpf" HorizontalAlignment="Right" Height="25" Margin="0,0,478,310" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" TextChanged="TxtCnpjCpf_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="18" />
                 <Label Content="Fantasia" HorizontalAlignment="Right" Margin="0,0,99,354" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 <Label x:Name="lblCnpjCpf" Content="CNPJ/CPF" HorizontalAlignment="Right" Margin="0,0,94,311" VerticalAlignment="Bottom" Width="68" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="txtFantasia" HorizontalAlignment="Right" Height="25" Margin="0,0,478,356" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="85"/>
-                <TextBox x:Name="txtCnpjCpf" HorizontalAlignment="Right" Height="25" Margin="0,0,478,310" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" TextChanged="TxtCnpjCpf_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="18"/>
                 <TextBox x:Name="txtObservacoes" Height="67" Margin="0,0,84,311" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="164" Grid.Column="2" MaxLength="200"/>
                 <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Right" Margin="0,0,587,248" VerticalAlignment="Bottom" Width="85" Click="BtnCadastrar_Click" Height="41" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,482,248" VerticalAlignment="Bottom" Width="85" Height="41" Click="BtnEditar_Click" Grid.Column="2"/>
@@ -68,7 +68,7 @@
                 <TextBox x:Name="txtNumero" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="txtBairro" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="326,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="txtCidade" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtCep" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <wpfx:MaskedTextBox x:Name="txtCep" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Mask="00000-000" />
                 <TextBox x:Name="txtFornecedorEndereco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsReadOnly="True"/>
                 <ComboBox x:Name="cmbEstado" Grid.Column="1" HorizontalAlignment="Left" Margin="326,109,0,0" VerticalAlignment="Top" Width="120" IsEditable="True">
                     <ComboBoxItem Content=""/>
