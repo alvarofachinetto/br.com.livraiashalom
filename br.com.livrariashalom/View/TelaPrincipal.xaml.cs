@@ -40,8 +40,9 @@ namespace br.com.livrariashalom.View
         private void MenuItem_Click_Fornecedor(object sender, RoutedEventArgs e)
         {
             TelaFornecedor telaFornecedor = new TelaFornecedor();
-            telaFornecedor.Show();
-            this.Hide();
+            
+            telaFornecedor.ShowDialog();
+            
         }
 
         //Mostrar Tela Funcionario

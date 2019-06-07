@@ -106,7 +106,6 @@ namespace br.com.livrariashalom.View
             {
                 dgFornecedor.ItemsSource = fornecedorBLL.ListarFornecedor().DefaultView;//obtém todos os dados
 
-                
             }
             catch (Exception error)
             {
@@ -170,8 +169,8 @@ namespace br.com.livrariashalom.View
 
                 if (reader.Read())
                 {
-                    txtFornecedorEndereco.Text = reader["codFornecedor"].ToString();
-                    txtFornecedorContato.Text = reader["codFornecedor"].ToString();
+                    txtFornecedorEndereco.Text = reader["max(codFornecedor)"].ToString();
+                    txtFornecedorContato.Text = reader["max(codFornecedor)"].ToString();
                 }
                 reader.Close();
             }
@@ -259,7 +258,6 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
-
                     contato.EmailPrimario = txtEmailEmpresa.Text;
                     contato.EmailSecundario = txtEmailFuncionario.Text;
                     contato.TelefonePrincipal = txtTelefoneEmpresa.Text;
