@@ -13,8 +13,7 @@ namespace br.com.livrariashalom.Model
         private DateTime data;
         private String descricao;
         private double valor;
-        private DateTime dataVencimento;
-        private String status;
+        
 
         public long CodPagarConta
         {
@@ -38,18 +37,6 @@ namespace br.com.livrariashalom.Model
         {
             get { return valor; }
             set { valor = value; }
-        }
-
-        public DateTime DataVencimento
-        {
-            get { return dataVencimento; }
-            set { dataVencimento = value; }
-        }
-
-        public String Status
-        {
-            get { return status; }
-            set { status = value; }
         }
 
 

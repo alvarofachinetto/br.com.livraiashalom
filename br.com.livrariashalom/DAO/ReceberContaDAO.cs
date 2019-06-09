@@ -20,12 +20,11 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into receberconta (data, descricao, valor, status) values (@data, @descricao, @valor, @status)", conexao);
+                command = new MySqlCommand("insert into receberconta (data, descricao, valor) values (@data, @descricao, @valor)", conexao);
                 command.Parameters.AddWithValue("@data", receberConta.Data);
                 command.Parameters.AddWithValue("@descricao", receberConta.Descricao);
                 command.Parameters.AddWithValue("@valor", receberConta.Valor);
-                command.Parameters.AddWithValue("@status", receberConta.Status);
-
+                
                 command.ExecuteNonQuery();
 
             }
@@ -74,11 +73,10 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("update receberconta set data = @data, descricao = @descricao, valor = @valor, status = @status where codReceberConta = @codReceberConta", conexao);
+                command = new MySqlCommand("update receberconta set data = @data, descricao = @descricao, valor = @valor where codReceberConta = @codReceberConta", conexao);
                 command.Parameters.AddWithValue("@data", receberConta.Data);
                 command.Parameters.AddWithValue("@descricao", receberConta.Descricao);
                 command.Parameters.AddWithValue("@valor", receberConta.Valor);
-                command.Parameters.AddWithValue("@status", receberConta.Status);
                 command.Parameters.AddWithValue("@codReceberConta", receberConta.CodReceberConta);
 
                 command.ExecuteNonQuery();

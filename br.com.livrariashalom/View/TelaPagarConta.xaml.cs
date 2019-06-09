@@ -53,9 +53,7 @@ namespace br.com.livrariashalom.View
                     pagarConta.Data = Convert.ToDateTime(txtData.Text);
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
-                    pagarConta.Status = cmbStatus.Text;
-
+                    
                     pagarContaBLL.SalvarContaPagar(pagarConta);
 
                     MessageBox.Show("Cadastro feito com sucesso");
@@ -88,8 +86,7 @@ namespace br.com.livrariashalom.View
                     pagarConta.Data = Convert.ToDateTime(txtData.Text);
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
-                    pagarConta.DataVencimento = Convert.ToDateTime(txtDataVencimento.Text);
-                    pagarConta.Status = cmbStatus.Text;
+                    
 
 
                     MessageBoxResult alteracao = MessageBox.Show("Deseja realmete salvar as alterações ?", "Editar", MessageBoxButton.YesNo);

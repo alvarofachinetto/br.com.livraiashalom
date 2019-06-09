@@ -183,7 +183,7 @@ namespace br.com.livrariashalom.DAO
                         MessageBox.Show("Welcome !");
 
                         telaPrincipal.Show();
-                        telaLogin.Hide();
+                        
                     }
                     else if(user.Equals("Administrador"))
                     {

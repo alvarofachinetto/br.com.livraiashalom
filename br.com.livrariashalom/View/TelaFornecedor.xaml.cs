@@ -364,19 +364,7 @@ namespace br.com.livrariashalom.View
         //ler cpf ou cnpj
         private void TxtCnpjCpf_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtCnpjCpf.Text.Length == 18)
-            {
-                lblCnpjCpf.Content = "CNPJ"; //se tiver 18 caraceres a label se chamará cnpj
-                txtCnpjCpf.Mask = "00.000.000/0000.00";
-            }else if (txtCnpjCpf.Text.Length == 14)
-            {
-                lblCnpjCpf.Content = "CPF";//se tiver 14 caraceres a label se chamará cpf
-            }
-            else
-            {
-                lblCnpjCpf.Content = "CPF/CNPJ";
-                txtCnpjCpf.Mask = "000.000.000.00";
-            }
+  
         }
 
         //metodo para aparecer as informações nas labels
@@ -456,6 +444,30 @@ namespace br.com.livrariashalom.View
         private void BtnAlterar_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void cmbCpfCnpj_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            int validar = cmbCpfCnpj.SelectedIndex;
+            if (validar == 1)
+            {
+                txtCnpjCpf.IsReadOnly = false;
+                lblCnpjCpf.Content = "CPF";
+                txtCnpjCpf.Mask = "000.000.000-00";
+            }
+            else if (validar == 2)
+            {
+                
+                txtCnpjCpf.IsReadOnly = false;
+                lblCnpjCpf.Content = "CNPJ";
+                txtCnpjCpf.Mask = "00.000.000/0000.00";
+            }
+            else
+            {
+                lblCnpjCpf.Content = "CPF/CNPJ";
+
+            }
         }
     }
 }

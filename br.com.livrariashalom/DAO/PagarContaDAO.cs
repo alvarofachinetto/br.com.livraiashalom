@@ -19,13 +19,11 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into pagarconta (data, descricao, valor, datavencimento, status) values (@data, @descricao, @valor, @dataVencimento, @status)", conexao);
+                command = new MySqlCommand("insert into pagarconta (data, descricao, valor, datavencimento) values (@data, @descricao, @valor)", conexao);
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
                 command.Parameters.AddWithValue("@descricao", pagarConta.Descricao);
                 command.Parameters.AddWithValue("@valor", pagarConta.Valor);
-                command.Parameters.AddWithValue("@dataVencimento", pagarConta.DataVencimento);
-                command.Parameters.AddWithValue("@status", pagarConta.Status);
-
+                
                 command.ExecuteNonQuery();
 
             }catch(Exception error)
@@ -73,8 +71,6 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
                 command.Parameters.AddWithValue("@descricao", pagarConta.Descricao);
                 command.Parameters.AddWithValue("@valor", pagarConta.Valor);
-                command.Parameters.AddWithValue("@dataVencimento", pagarConta.DataVencimento);
-                command.Parameters.AddWithValue("@status", pagarConta.Status);
                 command.Parameters.AddWithValue("@codPagarConta", pagarConta.CodPagarConta);
 
                 command.ExecuteNonQuery();

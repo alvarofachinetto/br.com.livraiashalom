@@ -14,7 +14,6 @@ namespace br.com.livrariashalom.Model
         private DateTime data;
         private String descricao;
         private double valor;
-        private String status;
 
         public long CodReceberConta
         {
@@ -40,11 +39,5 @@ namespace br.com.livrariashalom.Model
             set { valor = value; }
         }
 
-      
-        public String Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
     }
 }

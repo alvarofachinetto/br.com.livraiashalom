@@ -28,7 +28,7 @@ namespace br.com.livrariashalom.View
         public TelaFuxoCaixa()
         {
             InitializeComponent();
-
+            lblDia.Content = DateTime.Today;
         }
 
         
@@ -39,7 +39,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtDia.Text == "" || txtObservaoes.Text == "" || txtEntrada.Text == "" || txtSaida.Text == "" || txtPagarConta.Text == "" || txtReceberConta.Text == "" || txtPrevisto.Text == "" || txtSaldo.Text == "")
+                if (txtObservaoes.Text == "" || txtEntrada.Text == "" || txtSaida.Text == "" || txtPagarConta.Text == "" || txtReceberConta.Text == "" || txtPrevisto.Text == "" || txtSaldo.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }

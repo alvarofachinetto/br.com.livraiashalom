@@ -27,7 +27,7 @@ namespace br.com.livrariashalom.View
         public TelaReceberConta()
         {
             InitializeComponent();
-            ListarReceberConta();
+            
             lblData.Content = DateTime.Today;
         }
 
@@ -37,7 +37,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "" )
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -46,13 +46,11 @@ namespace br.com.livrariashalom.View
                     receberConta.Data = Convert.ToDateTime(lblData.Content);
                     receberConta.Descricao = txtDescricao.Text;
                     receberConta.Valor = Convert.ToDouble(txtValor.Text);
-                    receberConta.Status = cmbStatus.Text;
 
                     receberContaBLL.SalvarReceberConta(receberConta);
 
                     MessageBox.Show("Cadastro feito com sucesso");
                     
-                    ListarReceberConta();
                     return true;
                 }
 
@@ -71,7 +69,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" )
+                if (txtDescricao.Text == "" || txtValor.Text == "" )
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -81,13 +79,12 @@ namespace br.com.livrariashalom.View
                     receberConta.Data = Convert.ToDateTime(lblData.Content);
                     receberConta.Descricao = txtDescricao.Text;
                     receberConta.Valor = Convert.ToDouble(txtValor.Text);
-                    receberConta.Status = cmbStatus.Text;
+                    
 
                     receberContaBLL.EditarReceberConta(receberConta);
 
                     MessageBox.Show("Edição feita com sucesso");
 
-                    ListarReceberConta();
                     return true;
                 }
 
@@ -106,7 +103,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "" )
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -117,7 +114,7 @@ namespace br.com.livrariashalom.View
 
                     MessageBox.Show("Exclusão feita com sucesso");
 
-                    ListarReceberConta();
+                    
                     return true;
                 }
 
@@ -135,12 +132,7 @@ namespace br.com.livrariashalom.View
             
         }
 
-        public void ListarReceberConta()
-        {
-            dgReceberConta.ItemsSource = receberContaBLL.ListarReceberConta().DefaultView;
-        }
-
-
+        
         private void BtnSalvarContaPagar_Click(object sender, RoutedEventArgs e)
         {
             ReceberConta receberConta = new ReceberConta();
@@ -159,21 +151,9 @@ namespace br.com.livrariashalom.View
             EditarReceberConta(receberConta);
         }
 
-        private void dgReceberConta_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void txtDescricao_TextChanged(object sender, TextChangedEventArgs e)
         {
-            try
-            {
 
-                var rowView = dgReceberConta.SelectedItems[0] as DataRowView;
-                txtCodigoReceberConta.Text = rowView["codReceberConta"].ToString();
-                cmbStatus.Text = rowView["status"].ToString();
-                txtDescricao.Text = rowView["descricao"].ToString();
-                txtValor.Text = rowView["valor"].ToString();
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
         }
     }
 }
