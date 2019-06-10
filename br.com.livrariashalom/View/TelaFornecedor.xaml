@@ -6,10 +6,10 @@
         xmlns:wpfx ="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaFornecedor" Height="546" Width="818" Background="#FF060404">
+        Title="TelaFornecedor" Height="546" Width="818" Background="#FF060404" ShowInTaskbar="False">
     <TabControl x:Name="tabControlFornecedor" HorizontalAlignment="Left" Height="514" VerticalAlignment="Top" Width="808" SelectionChanged="TabControlFornecedor_SelectionChanged">
         <TabItem x:Name="tabItemFornecedor" Header="Fornecedor" Foreground="#FFD32626" Background="Black" FontWeight="Bold">
-            <Grid x:Name="gridFornecedor" Background="#FF0C0101" Margin="0,-1">
+            <Grid x:Name="gridFornecedor" Background="#FF0C0101" Margin="0,-1,0,-26">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="31*"/>
                     <ColumnDefinition Width="136*"/>
@@ -46,7 +46,7 @@
                 <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,58,248" VerticalAlignment="Bottom" Width="86" Height="41" Click="BtnExcluir_Click" Grid.ColumnSpan="2"/>
                 <Label Content="Observações" HorizontalAlignment="Right" Margin="0,0,253,345" VerticalAlignment="Bottom" Width="86" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.Column="2"/>
                 <DataGrid x:Name="dgFornecedor" HorizontalAlignment="Right" Height="193" Margin="0,0,10,33" VerticalAlignment="Bottom" Width="787" MouseDoubleClick="DgFornecedor_MouseDoubleClick" Grid.ColumnSpan="3"/>
-                <Button x:Name="btnListar" Content="Listar" Grid.Column="2" HorizontalAlignment="Left" Margin="177,199,0,0" VerticalAlignment="Top" Width="85" Height="41" Click="BtnListar_Click"/>
+                <Button x:Name="btnListar" Content="Listar" Grid.Column="2" HorizontalAlignment="Left" Margin="178,224,0,0" VerticalAlignment="Top" Width="85" Height="41" Click="BtnListar_Click"/>
                 <ComboBox x:Name="cmbCpfCnpj" Grid.Column="2" HorizontalAlignment="Left" Margin="75,153,0,0" VerticalAlignment="Top" Width="82" Height="25" SelectionChanged="cmbCpfCnpj_SelectionChanged">
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="CPF"/>
