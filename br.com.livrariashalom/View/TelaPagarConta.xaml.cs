@@ -28,6 +28,7 @@ namespace br.com.livrariashalom.View
         {
             InitializeComponent();
             ListarContaPagar();
+            lblData.Content = DateTime.Today;
         }
 
         //limpa os valores após uma ação
@@ -44,13 +45,13 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                if (txtDescricao.Text == "" || txtValor.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
+                    pagarConta.Data = Convert.ToDateTime(lblData.Content);
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
                     
@@ -76,14 +77,14 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if ( txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "")
+                if ( txtDescricao.Text == "" || txtValor.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
                     pagarConta.CodPagarConta = Convert.ToInt64(txtCodigoPagarConta.Text);
-                    pagarConta.Data = Convert.ToDateTime(txtData.Text);
+                    pagarConta.Data = Convert.ToDateTime(lblData.Content);
                     pagarConta.Descricao = txtDescricao.Text;
                     pagarConta.Valor = Convert.ToDouble(txtValor.Text);
                     
@@ -120,7 +121,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtDescricao.Text == "" || txtValor.Text == "" || cmbStatus.Text == "" )
+                if (txtDescricao.Text == "" || txtValor.Text == "" )
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -179,9 +180,6 @@ namespace br.com.livrariashalom.View
 
                 var rowView = dgPagarConta.SelectedItems[0] as DataRowView;
                 txtCodigoPagarConta.Text = rowView["codPagarConta"].ToString();
-                txtData.Text = rowView["data"].ToString();
-                cmbStatus.Text = rowView["status"].ToString();
-                txtDataVencimento.Text =rowView["dataVencimento"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
                 txtValor.Text = rowView["valor"].ToString();
             }

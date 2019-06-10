@@ -7,25 +7,17 @@
         mc:Ignorable="d"
         Title="TelaPagarConta" Height="450" Width="800" Background="Black">
     <Grid>
-        <Label Content="Código" HorizontalAlignment="Left" Margin="66,26,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <Label Content="Data" HorizontalAlignment="Left" Margin="66,73,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <Label Content="Código" HorizontalAlignment="Left" Margin="274,29,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="54,29,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold" Width="94"/>
         <Label Content="Descrição" HorizontalAlignment="Left" Margin="460,29,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold" RenderTransformOrigin="0.875,0.346"/>
         <Label Content="Valor" HorizontalAlignment="Left" Margin="485,119,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <Label Content="Data Vencimento" HorizontalAlignment="Left" Margin="66,158,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <Label Content="Status" HorizontalAlignment="Left" Margin="483,146,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <ComboBox x:Name="cmbStatus" HorizontalAlignment="Left" Margin="605,150,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Pagar"></ComboBoxItem>
-            <ComboBoxItem Content="Pago"></ComboBoxItem>
-        </ComboBox>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="605,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="73" Margin="605,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtCodigoPagarConta" HorizontalAlignment="Left" Height="23" Margin="188,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" IsReadOnly="True"/>
+        <TextBox x:Name="txtCodigoPagarConta" HorizontalAlignment="Left" Height="23" Margin="340,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" IsReadOnly="True"/>
         <Button x:Name="btnSalvarContaPagar" Content="Salvar" HorizontalAlignment="Left" Margin="617,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click"/>
         <DataGrid x:Name="dgPagarConta" HorizontalAlignment="Left" Height="143" Margin="66,242,0,0" VerticalAlignment="Top" Width="644" MouseDoubleClick="dgPagarConta_MouseDoubleClick"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="506,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnEditar_Click"/>
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="396,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnExcluir_Click"/>
-        <TextBox x:Name="txtData" HorizontalAlignment="Left" Height="23" Margin="188,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtDataVencimento" HorizontalAlignment="Left" Height="23" Margin="188,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
