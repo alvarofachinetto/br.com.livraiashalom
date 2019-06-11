@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaHistoricoPagarConta" Height="450" Width="800">
+        Title="TelaHistoricoPagarConta" Height="371.111" Width="637.778" Background="Black">
     <Grid>
-        
+        <DataGrid x:Name="dgHistoricoPagarConta" HorizontalAlignment="Left" Height="208" Margin="54,101,0,0" VerticalAlignment="Top" Width="532"/>
+        <ComboBox HorizontalAlignment="Left" Margin="73,26,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label Content="Dia" HorizontalAlignment="Left" Margin="28,23,0,0" VerticalAlignment="Top" Foreground="#FFEEF900" FontWeight="Bold" Height="25"/>
+        <ComboBox HorizontalAlignment="Left" Margin="185,26,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label Content="Mês" HorizontalAlignment="Left" Margin="140,23,0,0" VerticalAlignment="Top" Foreground="#FFEEF900" FontWeight="Bold" Height="25"/>
+        <ComboBox HorizontalAlignment="Left" Margin="300,26,0,0" VerticalAlignment="Top" Width="53"/>
+        <Label Content="Ano" HorizontalAlignment="Left" Margin="255,23,0,0" VerticalAlignment="Top" Foreground="#FFEEF900" FontWeight="Bold" Height="25"/>
+
     </Grid>
 </Window>
