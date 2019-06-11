@@ -111,6 +111,12 @@
     <Compile Include="View\TelaEntrada.xaml.cs">
       <DependentUpon>TelaEntrada.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TelaHistoricoPagarConta.xaml.cs">
+      <DependentUpon>TelaHistoricoPagarConta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TelaHistoricoRecebimento.xaml.cs">
+      <DependentUpon>TelaHistoricoRecebimento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TelaSaida.xaml.cs">
       <DependentUpon>TelaSaida.xaml</DependentUpon>
     </Compile>
@@ -192,6 +198,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\TelaEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaHistoricoPagarConta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TelaHistoricoRecebimento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

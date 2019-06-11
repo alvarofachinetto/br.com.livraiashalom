@@ -1,5 +1,7 @@
 ﻿using br.com.livrariashalom.BLL;
+using br.com.livrariashalom.DAO;
 using br.com.livrariashalom.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,12 +25,15 @@ namespace br.com.livrariashalom.View
     public partial class TelaPagarConta : Window
     {
         private PagarContaBLL pagarContaBLL = new PagarContaBLL();
+        private MySqlCommand command = null;
+        private Conexao conexao = new Conexao();
 
         public TelaPagarConta()
         {
             InitializeComponent();
             ListarContaPagar();
             lblData.Content = DateTime.Today;
+            SomaTotaMes();
         }
 
         //limpa os valores após uma ação
@@ -58,7 +63,9 @@ namespace br.com.livrariashalom.View
                     pagarContaBLL.SalvarContaPagar(pagarConta);
 
                     MessageBox.Show("Cadastro feito com sucesso");
+                    
                     ListarContaPagar();
+                    SomaTotaMes();
                     return true;
                 }
 
@@ -101,7 +108,7 @@ namespace br.com.livrariashalom.View
                         MessageBox.Show("Edição feito com sucesso");
                         Limpar();
                         ListarContaPagar();
-                        
+                        SomaTotaMes();
                     }
                     return true;
                 }
@@ -139,7 +146,7 @@ namespace br.com.livrariashalom.View
                         MessageBox.Show("Exclusão feito com sucesso");
                         Limpar();
                         ListarContaPagar();
-
+                        SomaTotaMes();
                     }
                     return true;
                 }
@@ -163,6 +170,27 @@ namespace br.com.livrariashalom.View
             catch (Exception error)
             {
                 MessageBox.Show("Erro: " + error);
+            }
+
+        }
+
+        public void SomaTotaMes()
+        {
+            try
+            {
+                conexao.Conectar();
+                
+                command = new MySqlCommand("select sum(valor) from pagarconta;", conexao.conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+                if (dr.Read())
+                {
+                    txtTotalMes.Text = dr["sum(valor)"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
             }
 
         }
@@ -198,6 +226,12 @@ namespace br.com.livrariashalom.View
         private void BtnExcluir_Click(object sender, RoutedEventArgs e)
         {
             ExcluirPagarConta();
+        }
+
+        
+        private void TxtTotalMes_KeyUp(object sender, KeyEventArgs e)
+        {
+            
         }
     }
 }

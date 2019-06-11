@@ -19,7 +19,7 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into pagarconta (data, descricao, valor, datavencimento) values (@data, @descricao, @valor)", conexao);
+                command = new MySqlCommand("insert into pagarconta (data, descricao, valor) values (@data, @descricao, @valor)", conexao);
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
                 command.Parameters.AddWithValue("@descricao", pagarConta.Descricao);
                 command.Parameters.AddWithValue("@valor", pagarConta.Valor);
@@ -45,7 +45,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from pagarconta",conexao);
+                command = new MySqlCommand("select * from pagarconta order by data",conexao);
                 dataAdapter.SelectCommand = command;
 
                 dataAdapter.Fill(dt);
@@ -67,7 +67,7 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("update pagarconta set data = @data, descricao = @descricao, valor = @valor, datavencimento = @dataVencimento, status = @status where codPagarConta = @codPagarConta", conexao);
+                command = new MySqlCommand("update pagarconta set data = @data, descricao = @descricao, valor = @valor, where codPagarConta = @codPagarConta", conexao);
                 command.Parameters.AddWithValue("@data", pagarConta.Data);
                 command.Parameters.AddWithValue("@descricao", pagarConta.Descricao);
                 command.Parameters.AddWithValue("@valor", pagarConta.Valor);

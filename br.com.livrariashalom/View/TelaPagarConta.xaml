@@ -5,19 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaPagarConta" Height="450" Width="800" Background="Black">
+        Title="TelaPagarConta" Height="387" Width="757" Background="Black">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="677*"/>
+            <ColumnDefinition Width="115*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Código" HorizontalAlignment="Left" Margin="274,29,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
         <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="54,29,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold" Width="94"/>
         <Label Content="Descrição" HorizontalAlignment="Left" Margin="460,29,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold" RenderTransformOrigin="0.875,0.346"/>
         <Label Content="Valor" HorizontalAlignment="Left" Margin="485,119,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
-        <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="605,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="73" Margin="605,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="73" Margin="605,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtCodigoPagarConta" HorizontalAlignment="Left" Height="23" Margin="340,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" IsReadOnly="True"/>
-        <Button x:Name="btnSalvarContaPagar" Content="Salvar" HorizontalAlignment="Left" Margin="617,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click"/>
-        <DataGrid x:Name="dgPagarConta" HorizontalAlignment="Left" Height="143" Margin="66,242,0,0" VerticalAlignment="Top" Width="644" MouseDoubleClick="dgPagarConta_MouseDoubleClick"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="506,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnEditar_Click"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="396,189,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnExcluir_Click"/>
+        <Button x:Name="btnSalvarContaPagar" Content="Salvar" HorizontalAlignment="Left" Margin="296,114,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click"/>
+        <DataGrid x:Name="dgPagarConta" HorizontalAlignment="Left" Height="143" Margin="54,188,0,0" VerticalAlignment="Top" Width="671" MouseDoubleClick="dgPagarConta_MouseDoubleClick" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="185,114,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnEditar_Click"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="75,114,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnExcluir_Click"/>
+        <Label Content="Valor" HorizontalAlignment="Left" Margin="485,119,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="605,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Label Content="Total Mês" HorizontalAlignment="Left" Margin="485,157,0,0" VerticalAlignment="Top" Foreground="Yellow" FontWeight="Bold"/>
+        <TextBox x:Name="txtTotalMes" HorizontalAlignment="Left" Height="23" Margin="605,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" IsReadOnly="True" KeyUp="TxtTotalMes_KeyUp"/>
 
     </Grid>
 </Window>
