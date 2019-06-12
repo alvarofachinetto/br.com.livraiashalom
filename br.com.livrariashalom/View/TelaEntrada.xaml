@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Entrada" Height="450" Width="800">
     <Grid Background="Black" Margin="0,0,2,1">
-        <Label Content="Codigo" HorizontalAlignment="Left" Margin="20,59,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold"/>
+        <Label Content="Livro" HorizontalAlignment="Left" Margin="20,59,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold"/>
         <TextBox x:Name="txtCodigoLivro" HorizontalAlignment="Left" Height="23" Margin="75,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
         <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold" Width="111"/>
         <Label Content="Entrada" HorizontalAlignment="Left" Margin="293,59,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold" Height="25"/>
@@ -17,6 +17,9 @@
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="675,152,0,0" VerticalAlignment="Top" Width="77" Height="27" Click="BtnSalvar_Click"/>
         <DataGrid x:Name="dgEntrada" HorizontalAlignment="Left" Height="174" Margin="24,210,0,0" VerticalAlignment="Top" Width="745"/>
         <ComboBox x:Name="cmbLivro" HorizontalAlignment="Left" Margin="152,63,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbLivro_SelectionChanged" ItemsSource="{Binding}" IsEditable="True"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="585,152,0,0" VerticalAlignment="Top" Width="76" Height="27" Click="btnExcluir_Click"/>
+        <Label Content="Registro" HorizontalAlignment="Left" Margin="279,19,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodEntrada" HorizontalAlignment="Left" Height="23" Margin="351,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" IsReadOnly="True"/>
 
     </Grid>
 </Window>

@@ -13,22 +13,18 @@
         </Grid.RowDefinitions>
         <Label Content="Código" HorizontalAlignment="Right" Margin="0,50,687,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
         <Label x:Name="lblDia" Content="Dia" HorizontalAlignment="Right" Margin="0,10,712,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold" Width="70"/>
-        <Label Content="Valor Entrada" HorizontalAlignment="Right" Margin="0,74,651,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Valor Saída" HorizontalAlignment="Right" Margin="0,100,664,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,126,649,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,154,696,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Pagar Conta" HorizontalAlignment="Left" Margin="433,154,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Receber Conta" HorizontalAlignment="Left" Margin="431,130,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,74,649,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,102,696,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Pagar Conta" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Receber Conta" HorizontalAlignment="Left" Margin="53,136,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
         <Label Content="Observações" HorizontalAlignment="Left" Margin="431,49,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
         <TextBox x:Name="txtCodigo" HorizontalAlignment="Right" Height="23" Margin="0,51,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="txtEntrada" HorizontalAlignment="Right" Height="23" Margin="0,77,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtEntrada_TextChanged"/>
-        <TextBox x:Name="txtSaida" HorizontalAlignment="Left" Height="23" Margin="222,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtSaldo" HorizontalAlignment="Right" Height="23" Margin="0,157,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtSaldo_TextChanged" IsReadOnly="True"/>
-        <TextBox x:Name="txtPagarConta" HorizontalAlignment="Left" Height="23" Margin="606,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
-        <TextBox x:Name="txtReceberConta" HorizontalAlignment="Left" Height="23" Margin="606,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="txtSaldo" HorizontalAlignment="Right" Height="23" Margin="0,105,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtSaldo_TextChanged" IsReadOnly="True"/>
+        <TextBox x:Name="txtPagarConta" HorizontalAlignment="Left" Height="23" Margin="222,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="txtReceberConta" HorizontalAlignment="Left" Height="23" Margin="222,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <TextBox x:Name="txtObservaoes" HorizontalAlignment="Left" Height="75" Margin="606,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="636,200,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click"/>
-        <TextBox x:Name="txtPrevisto" HorizontalAlignment="Right" Height="23" Margin="0,129,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="675,146,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click"/>
+        <TextBox x:Name="txtPrevisto" HorizontalAlignment="Right" Height="23" Margin="0,77,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid x:Name="dgFluxoCaixa" HorizontalAlignment="Right" Height="158" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="772" Grid.RowSpan="2"/>
 
     </Grid>

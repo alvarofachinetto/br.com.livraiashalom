@@ -9,6 +9,7 @@ namespace br.com.livrariashalom.Model
 {
     public class Entrada
     {
+        private long codEntrada;
         private int codSaida;
         private int qtdEntrada;
         private DateTime data;
@@ -20,5 +21,6 @@ namespace br.com.livrariashalom.Model
         public DateTime Data { get => data; set => data = value; }
         public string Descricao { get => descricao; set => descricao = value; }
         public Livro CodLivro { get => codLivro; set => codLivro = value; }
+        public long CodEntrada { get => codEntrada; set => codEntrada = value; }
     }
 }

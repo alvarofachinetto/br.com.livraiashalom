@@ -106,5 +106,32 @@ namespace br.com.livrariashalom.DAO
                 Desconectar();
             }
         }
+
+        public DataTable PesquisarContaPagar(DateTime data)
+        {
+            try
+            {
+                Conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+
+                command = new MySqlCommand("select * from pagarconta where data = @data", conexao);
+                command.Parameters.AddWithValue("@data", data);
+                dataAdapter.SelectCommand = command;
+
+                dataAdapter.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
     }
 }

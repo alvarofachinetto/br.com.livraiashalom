@@ -31,7 +31,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@codLivro", entrada.CodLivro.CodLivro);
                 command.ExecuteNonQuery();
 
-                //diminui a qtd do livro
+                //adiciciona a qtd do livro
                 command = new MySqlCommand("update livro set qtd = (qtd + @qtdSaida) where codLivro = @codLivro", conexao);
                 command.Parameters.AddWithValue("@qtdSaida", entrada.QtdEntrada);
                 command.Parameters.AddWithValue("@codLivro", entrada.CodLivro.CodLivro);
@@ -71,6 +71,28 @@ namespace br.com.livrariashalom.DAO
             finally
             {
                 Desconectar();
+            }
+        }
+
+        public void ExcluirEntrada(Entrada entrada)
+        {
+            try
+            {
+                
+                command = new MySqlCommand("delete * from entrada where codEntrada = @codEntrada", conexao);
+                command.Parameters.AddWithValue("@codEntrada", entrada.CodEntrada);
+                command.ExecuteNonQuery();
+
+                //devolve a qtd original
+                command = new MySqlCommand("update livro set qtd = (qtd - @qtdSaida) where codLivro = @codLivro", conexao);
+                command.Parameters.AddWithValue("@qtdSaida", entrada.QtdEntrada);
+                command.Parameters.AddWithValue("@codLivro", entrada.CodLivro.CodLivro);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception erro)
+            {
+                throw erro;
             }
         }
     }

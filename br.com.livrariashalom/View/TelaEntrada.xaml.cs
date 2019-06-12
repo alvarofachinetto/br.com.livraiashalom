@@ -113,6 +113,25 @@ namespace br.com.livrariashalom.View
             }
         }
 
+        public void ExcluirEntrada(Entrada entrada)
+        {
+            try
+            {
+                entrada.Data = Convert.ToDateTime(lblData.Content);
+                entrada.QtdEntrada = Convert.ToInt32(txtQtdSaida.Text);
+                entrada.Descricao = txtDescricao.Text;
+                entrada.CodLivro.CodLivro = Convert.ToInt32(txtCodigoLivro.Text);
+                entrada.CodEntrada = Convert.ToInt64(txtCodEntrada.Text);
+
+                entradaBLL.ExcluirEntrada(entrada);
+                ListarEntrada();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
             Entrada entrada = new Entrada();
@@ -122,6 +141,12 @@ namespace br.com.livrariashalom.View
         private void CmbLivro_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BuscarPorCodigo();
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            Entrada entrada = new Entrada();
+            ExcluirEntrada(entrada);
         }
     }
 }

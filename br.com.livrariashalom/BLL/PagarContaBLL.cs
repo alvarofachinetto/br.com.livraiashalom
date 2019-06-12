@@ -64,5 +64,20 @@ namespace br.com.livrariashalom.BLL
                 throw error;
             }
         }
+
+        public DataTable PesquisarContaPagar(DateTime data)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = pagarContaDAO.PesquisarContaPagar(data);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
     }
 }

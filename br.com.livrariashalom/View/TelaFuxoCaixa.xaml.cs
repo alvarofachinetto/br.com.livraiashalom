@@ -33,42 +33,42 @@ namespace br.com.livrariashalom.View
 
         
 
-        private bool SalvarFluxo(FluxoCaixa fluxoCaixa)
-        {
+        //private bool SalvarFluxo(FluxoCaixa fluxoCaixa)
+        //{
 
-            try
-            {
-                //caso os campos estiverem vazios
-                if (txtObservaoes.Text == "" || txtEntrada.Text == "" || txtSaida.Text == "" || txtPagarConta.Text == "" || txtReceberConta.Text == "" || txtPrevisto.Text == "" || txtSaldo.Text == "")
-                {
-                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
-                }
-                else
-                {
-                    fluxoCaixa.Dia = DateTime.Now;
-                    fluxoCaixa.Observacoes = txtObservaoes.Text;
-                    fluxoCaixa.ValorEntrada = Convert.ToDouble(txtEntrada.Text);
-                    fluxoCaixa.ValorSaida = Convert.ToDouble(txtSaida.Text);
-                    fluxoCaixa.ValorPrevisto = Convert.ToDouble(txtPrevisto.Text);
-                    fluxoCaixa.PagarConta.CodPagarConta = Convert.ToInt32(txtPagarConta.Text);
-                    fluxoCaixa.ReceberConta.CodReceberConta = Convert.ToInt32(txtReceberConta.Text);
+        //    try
+        //    {
+        //        //caso os campos estiverem vazios
+        //        if (txtObservaoes.Text == "" || txtEntrada.Text == "" || txtSaida.Text == "" || txtPagarConta.Text == "" || txtReceberConta.Text == "" || txtPrevisto.Text == "" || txtSaldo.Text == "")
+        //        {
+        //            MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+        //        }
+        //        else
+        //        {
+        //            fluxoCaixa.Dia = DateTime.Now;
+        //            fluxoCaixa.Observacoes = txtObservaoes.Text;
+        //            fluxoCaixa.ValorEntrada = Convert.ToDouble(txtEntrada.Text);
+        //            fluxoCaixa.ValorSaida = Convert.ToDouble(txtSaida.Text);
+        //            fluxoCaixa.ValorPrevisto = Convert.ToDouble(txtPrevisto.Text);
+        //            fluxoCaixa.PagarConta.CodPagarConta = Convert.ToInt32(txtPagarConta.Text);
+        //            fluxoCaixa.ReceberConta.CodReceberConta = Convert.ToInt32(txtReceberConta.Text);
 
-                    fluxoCaixaBLL.SalvarFluxo(fluxoCaixa);
+        //            fluxoCaixaBLL.SalvarFluxo(fluxoCaixa);
 
-                    MessageBox.Show("Cadastro feito com sucesso");
+        //            MessageBox.Show("Cadastro feito com sucesso");
                     
 
-                    return true;
-                }
+        //            return true;
+        //        }
 
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-            return false;
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        MessageBox.Show("Erro: " + error);
+        //    }
+        //    return false;
 
-        }
+        //}
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
