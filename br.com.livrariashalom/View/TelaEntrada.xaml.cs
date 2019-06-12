@@ -36,6 +36,13 @@ namespace br.com.livrariashalom.View
             lblData.Content = DateTime.Now;
         }
 
+        public void Limpar()
+        {
+            txtCodEntrada.Clear();
+            txtCodigoLivro.Clear();
+            txtDescricao.Clear();
+            txtQtdSaida.Clear();
+        }
 
         public void RegistrarEntrada(Entrada entrada)
         {
@@ -48,6 +55,7 @@ namespace br.com.livrariashalom.View
 
                 entradaBLL.SalvarEntrada(entrada);
                 ListarEntrada();
+                Limpar();
             }
             catch (Exception erro)
             {
@@ -126,6 +134,7 @@ namespace br.com.livrariashalom.View
 
                 entradaBLL.ExcluirEntrada(entrada);
                 ListarEntrada();
+                Limpar();
             }
             catch (Exception erro)
             {
