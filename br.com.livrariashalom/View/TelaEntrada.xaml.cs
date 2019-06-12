@@ -4,6 +4,7 @@ using br.com.livrariashalom.Model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -147,6 +148,23 @@ namespace br.com.livrariashalom.View
         {
             Entrada entrada = new Entrada();
             ExcluirEntrada(entrada);
+        }
+
+        private void DgEntrada_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var rowView = dgEntrada.SelectedItems[0] as DataRowView;
+                txtCodEntrada.Text = rowView["codEntrada"].ToString();
+                txtCodigoLivro.Text = rowView["Livro_codLivro"].ToString();
+                txtDescricao.Text = rowView["descricao"].ToString();
+                txtQtdSaida.Text = rowView["qtdEntrada"].ToString();
+            }
+            catch (Exception erro)
+            {
+
+                throw erro;
+            }
         }
     }
 }

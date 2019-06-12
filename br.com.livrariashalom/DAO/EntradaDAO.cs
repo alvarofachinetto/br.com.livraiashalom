@@ -78,8 +78,9 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-                
-                command = new MySqlCommand("delete * from entrada where codEntrada = @codEntrada", conexao);
+                Conectar();
+
+                command = new MySqlCommand("delete from entrada where codEntrada = @codEntrada", conexao);
                 command.Parameters.AddWithValue("@codEntrada", entrada.CodEntrada);
                 command.ExecuteNonQuery();
 

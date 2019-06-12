@@ -72,16 +72,16 @@ namespace br.com.livrariashalom.View
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            SalvarFluxo(fluxoCaixa);
+            //SalvarFluxo(fluxoCaixa);
         }
 
         private void TxtEntrada_TextChanged(object sender, TextChangedEventArgs e)
         {
-            double entrada = Convert.ToDouble(txtEntrada.Text);
-            double saida = Convert.ToDouble(txtSaida.Text);
-            double saldo = entrada - saida;
+            //double entrada = Convert.ToDouble(txtEntrada.Text);
+            //double saida = Convert.ToDouble(txtSaida.Text);
+            //double saldo = entrada - saida;
 
-            txtSaldo.Text = String.Format("{0:C}", saldo);
+            //txtSaldo.Text = String.Format("{0:C}", saldo);
 
         }
         
