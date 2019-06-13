@@ -48,8 +48,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from receberconta where data = @data",conexao);
-                command.Parameters.AddWithValue("@data", receberConta.Data);
+                command = new MySqlCommand("select * from receberconta ",conexao);
                 dataAdapter.SelectCommand = command;
 
                 dataAdapter.Fill(dt);
@@ -114,6 +113,31 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
+        public DataTable PesquisarContaReceber(DateTime data)
+        {
+            try
+            {
+                Conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
+                command = new MySqlCommand("select * from receberconta where data = @data", conexao);
+                command.Parameters.AddWithValue("@data", data);
+                dataAdapter.SelectCommand = command;
+
+                dataAdapter.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
     }
 }

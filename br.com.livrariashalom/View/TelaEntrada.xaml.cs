@@ -41,7 +41,7 @@ namespace br.com.livrariashalom.View
             txtCodEntrada.Clear();
             txtCodigoLivro.Clear();
             txtDescricao.Clear();
-            txtQtdSaida.Clear();
+            txtQtdEntrada.Clear();
         }
 
         public void RegistrarEntrada(Entrada entrada)
@@ -49,7 +49,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 entrada.Data = Convert.ToDateTime(lblData.Content);
-                entrada.QtdEntrada = Convert.ToInt32(txtQtdSaida.Text);
+                entrada.QtdEntrada = Convert.ToInt32(txtQtdEntrada.Text);
                 entrada.Descricao = txtDescricao.Text;
                 entrada.CodLivro.CodLivro = Convert.ToInt32(txtCodigoLivro.Text);
 
@@ -127,7 +127,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 entrada.Data = Convert.ToDateTime(lblData.Content);
-                entrada.QtdEntrada = Convert.ToInt32(txtQtdSaida.Text);
+                entrada.QtdEntrada = Convert.ToInt32(txtQtdEntrada.Text);
                 entrada.Descricao = txtDescricao.Text;
                 entrada.CodLivro.CodLivro = Convert.ToInt32(txtCodigoLivro.Text);
                 entrada.CodEntrada = Convert.ToInt64(txtCodEntrada.Text);
@@ -167,7 +167,7 @@ namespace br.com.livrariashalom.View
                 txtCodEntrada.Text = rowView["codEntrada"].ToString();
                 txtCodigoLivro.Text = rowView["Livro_codLivro"].ToString();
                 txtDescricao.Text = rowView["descricao"].ToString();
-                txtQtdSaida.Text = rowView["qtdEntrada"].ToString();
+                txtQtdEntrada.Text = rowView["qtdEntrada"].ToString();
             }
             catch (Exception erro)
             {

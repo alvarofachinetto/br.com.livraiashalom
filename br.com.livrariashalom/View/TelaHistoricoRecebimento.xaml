@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaHistoricoRecebimento" Height="450" Width="800">
+        Title="TelaHistoricoRecebimento" Height="346.443" Width="583.473" Background="#FF0E0D0D">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="146*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgHistoricoPagarConta" Height="208" Margin="34,64,48,0" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="6"/>
+        <DatePicker x:Name="datePickerData" HorizontalAlignment="Left" Margin="33,25,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnPesquisar" Content="Pesquisar" Margin="122,29,157,0" VerticalAlignment="Top" Click="btnPesquisar_Click" Grid.Column="1" Grid.ColumnSpan="3"/>
+
     </Grid>
 </Window>

@@ -50,5 +50,26 @@ namespace br.com.livrariashalom.BLL
                 throw erro;
             }
         }
+
+        public bool ExcluirSaida(Saida saida)
+        {
+            try
+            {
+                if (saida.CodSaida == null || saida.CodLivro == null || saida.Data == null || saida.QtdSaida== 0)
+                {
+                    MessageBox.Show("Obrigatório o preenchimeto dos campos com *");
+                    return false;
+                }
+                else
+                {
+                    saidaDAO.ExcluirSaida(saida);
+                    return true;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
     }
 }

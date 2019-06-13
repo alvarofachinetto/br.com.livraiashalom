@@ -32,12 +32,31 @@ namespace br.com.livrariashalom.DAO
                 command.ExecuteNonQuery();
 
                 //diminui a qtd do livro
-                command = new MySqlCommand("update livro set qtd = (qtd - @qtdSaida) where codLivro = @codLivro", conexao);
-                command.Parameters.AddWithValue("@qtdSaida", saida.QtdSaida);
-                command.Parameters.AddWithValue("@codLivro", saida.CodLivro.CodLivro);
-                command.ExecuteNonQuery();
 
-                MessageBox.Show("Baixa realizada com sucesso");
+                command = new MySqlCommand("select qtd from livro where codLivro = @codLivro", conexao);
+                command.Parameters.AddWithValue("@codLivro", saida.CodLivro.CodLivro);
+                MySqlDataReader dr = command.ExecuteReader();
+                int qtdEstoque = 0;
+                while (dr.Read())
+                {
+                    qtdEstoque = dr.GetInt32("qtd");
+                    MessageBox.Show("Baixa realizada com sucesso");
+                }
+                dr.Close();
+
+                if (qtdEstoque > saida.QtdSaida)
+                {
+                    command = new MySqlCommand("update livro set qtd = (qtd - @qtdSaida) where codLivro = @codLivro", conexao);
+                    command.Parameters.AddWithValue("@qtdSaida", saida.QtdSaida);
+                    command.Parameters.AddWithValue("@codLivro", saida.CodLivro.CodLivro);
+                    command.ExecuteNonQuery();
+
+                }
+                else
+                {
+                    MessageBox.Show("Quantidade não suficiente para realizar baixa");
+                }
+
             }
             catch (Exception error)
             {
@@ -71,6 +90,29 @@ namespace br.com.livrariashalom.DAO
             finally
             {
                 Desconectar();
+            }
+        }
+
+        public void ExcluirSaida(Saida saida)
+        {
+            try
+            {
+                Conectar();
+
+                command = new MySqlCommand("delete from saida where codSaida= @codSaida", conexao);
+                command.Parameters.AddWithValue("@codSaida", saida.CodSaida);
+                command.ExecuteNonQuery();
+
+                //devolve a qtd original
+                command = new MySqlCommand("update livro set qtd = (qtd + @qtdSaida) where codLivro = @codLivro", conexao);
+                command.Parameters.AddWithValue("@qtdSaida", saida.QtdSaida);
+                command.Parameters.AddWithValue("@codLivro", saida.CodLivro.CodLivro);
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception erro)
+            {
+                throw erro;
             }
         }
     }

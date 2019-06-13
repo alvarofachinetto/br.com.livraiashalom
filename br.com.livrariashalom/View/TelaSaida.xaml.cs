@@ -28,12 +28,21 @@ namespace br.com.livrariashalom.View
         private Conexao conexao = new Conexao();
         private MySqlCommand command = null;
         private SaidaBLL saidaBLL = new SaidaBLL();
+
         public TelaSaida()
         {
             InitializeComponent();
             lblData.Content = DateTime.Now;
             ListarSaida();
             ListarLivro();
+        }
+
+        public void Limpar()
+        {
+            txtCodigoLivro.Clear();
+            txtCodSaida.Clear();
+            txtDescricao.Clear();
+            txtQtdSaida.Clear();
         }
 
         public void RegistrarSaida(Saida saida)
@@ -47,6 +56,7 @@ namespace br.com.livrariashalom.View
 
                 saidaBLL.SalvarSaida(saida);
                 ListarSaida();
+                Limpar();
             } catch(Exception erro)
             {
                 throw erro;
@@ -93,7 +103,7 @@ namespace br.com.livrariashalom.View
             {
                 string titulo = (string) cmbLivro.SelectedValue;
                 //coloca o cod na textbox
-                command = new MySqlCommand("select codLivro from livro where titulo = @titulo", conexao.conexao);
+                command = new MySqlCommand("select codLivro, qtd from livro where titulo = @titulo", conexao.conexao);
                 command.Parameters.AddWithValue("@titulo", titulo);
 
 
@@ -102,10 +112,30 @@ namespace br.com.livrariashalom.View
                 if (dr.HasRows)
                 {
                     txtCodigoLivro.Text = dr["codLivro"].ToString();
+                    txtQtdEstoque.Text = dr["qtd"].ToString();
                 }
                 dr.Close();
             }
             catch(Exception erro)
+            {
+                throw erro;
+            }
+        }
+
+        public void ExcluirSaida(Saida saida)
+        {
+            try
+            {
+                saida.QtdSaida = Convert.ToInt32(txtQtdSaida.Text);
+                saida.Descricao = txtDescricao.Text;
+                saida.CodLivro.CodLivro = Convert.ToInt32(txtCodigoLivro.Text);
+                saida.CodSaida = Convert.ToInt64(txtCodSaida.Text);
+
+                saidaBLL.ExcluirSaida(saida);
+                ListarSaida();
+                Limpar();
+            }
+            catch (Exception erro)
             {
                 throw erro;
             }
@@ -129,13 +159,22 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                 
-                
+                var rowView = dgSaida.SelectedItems[0] as DataRowView;
+                txtCodSaida.Text = rowView["codSaida"].ToString();
+                txtCodigoLivro.Text = rowView["Livro_codLivro"].ToString();
+                txtDescricao.Text = rowView["descricao"].ToString();
+                txtQtdSaida.Text = rowView["qtdSaida"].ToString();
+
             }
             catch (Exception erro)
             {
                 throw erro;
             }
+        }
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

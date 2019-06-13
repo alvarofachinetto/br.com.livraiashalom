@@ -127,10 +127,7 @@ namespace br.com.livrariashalom.View
 
         }
 
-        public void SomarEntradas()
-        {
-            
-        }
+       
 
         
         private void BtnSalvarContaPagar_Click(object sender, RoutedEventArgs e)
