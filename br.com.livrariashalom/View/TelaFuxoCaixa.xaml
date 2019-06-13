@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaFuxoCaixa" Height="450" Width="800" Background="Black">
+        Title="TelaFuxoCaixa" Height="450" Width="800" Background="#FF012345">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="333*"/>
             <RowDefinition Height="86*"/>
         </Grid.RowDefinitions>
-        <Label Content="Código" HorizontalAlignment="Right" Margin="0,50,687,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label x:Name="lblDia" Content="Dia" HorizontalAlignment="Right" Margin="0,10,712,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold" Width="70"/>
-        <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,74,649,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,102,696,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Pagar Conta" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Receber Conta" HorizontalAlignment="Left" Margin="53,136,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
-        <Label Content="Observações" HorizontalAlignment="Left" Margin="431,49,0,0" VerticalAlignment="Top" Foreground="#FFDCFF00" FontWeight="Bold"/>
+        <Label Content="Código" HorizontalAlignment="Right" Margin="0,50,687,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblDia" Content="Dia" HorizontalAlignment="Right" Margin="0,10,712,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="70"/>
+        <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,74,649,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,102,696,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Pagar Conta" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Receber Conta" HorizontalAlignment="Left" Margin="53,136,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Observações" HorizontalAlignment="Left" Margin="431,49,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="txtCodigo" HorizontalAlignment="Right" Height="23" Margin="0,51,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="txtSaldo" HorizontalAlignment="Right" Height="23" Margin="0,105,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TxtSaldo_TextChanged" IsReadOnly="True"/>
         <TextBox x:Name="txtPagarConta" HorizontalAlignment="Left" Height="23" Margin="222,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <TextBox x:Name="txtReceberConta" HorizontalAlignment="Left" Height="23" Margin="222,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <TextBox x:Name="txtObservaoes" HorizontalAlignment="Left" Height="75" Margin="606,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
-        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="675,146,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click"/>
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="675,146,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click" Background="#FF2167A9" Foreground="White"/>
         <TextBox x:Name="txtPrevisto" HorizontalAlignment="Right" Height="23" Margin="0,77,450,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid x:Name="dgFluxoCaixa" HorizontalAlignment="Right" Height="158" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="772" Grid.RowSpan="2"/>
 

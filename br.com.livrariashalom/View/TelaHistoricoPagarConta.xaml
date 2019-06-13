@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaHistoricoPagarConta" Height="327.111" Width="593.778" Background="Black">
+        Title="TelaHistoricoPagarConta" Height="327.111" Width="593.778" Background="#FF012345">
     <Grid>
         <DataGrid x:Name="dgHistoricoPagarConta" HorizontalAlignment="Left" Height="208" Margin="34,64,0,0" VerticalAlignment="Top" Width="532" SelectionChanged="dgHistoricoPagarConta_SelectionChanged" IsReadOnly="True"/>
         <DatePicker x:Name="datePickerData" HorizontalAlignment="Left" Margin="33,25,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="193,29,0,0" VerticalAlignment="Top" Width="75" Click="btnPesquisar_Click"/>
+        <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="193,29,0,0" VerticalAlignment="Top" Width="75" Click="btnPesquisar_Click" Background="#FF2167A9" Foreground="White"/>
 
     </Grid>
 </Window>

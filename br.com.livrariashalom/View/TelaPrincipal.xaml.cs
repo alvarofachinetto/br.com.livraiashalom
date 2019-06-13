@@ -142,6 +142,20 @@ namespace br.com.livrariashalom.View
                 this.Close();
             }
         }
+
+        private void MenuItemTodasEntradas_Click(object sender, RoutedEventArgs e)
+        {
+            TelaHistoricoRecebimento telaHistoricoRecebimento = new TelaHistoricoRecebimento();
+            telaHistoricoRecebimento.Topmost = true;
+            telaHistoricoRecebimento.ShowDialog();
+        }
+
+        private void MenuItemTodasSaidas_Click(object sender, RoutedEventArgs e)
+        {
+            TelaHistoricoPagarConta telaHistoricoPagarConta = new TelaHistoricoPagarConta();
+            telaHistoricoPagarConta.Topmost = true;
+            telaHistoricoPagarConta.Show();
+        }
     }
 
 }

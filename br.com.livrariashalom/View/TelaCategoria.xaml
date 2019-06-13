@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaCategoriaLivro" Height="224" Width="520" Background="#FF080404">
+        Title="TelaCategoriaLivro" Height="224" Width="520" Background="#FF012345">
     <Grid>
-        <Label Content="Código" HorizontalAlignment="Left" Margin="49,49,0,0" VerticalAlignment="Top" Foreground="#FFFDFD04" FontWeight="Bold"/>
-        <Label Content="Categoria" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Foreground="#FFFDFD04" FontWeight="Bold"/>
+        <Label Content="Código" HorizontalAlignment="Left" Margin="49,49,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Categoria" HorizontalAlignment="Left" Margin="49,80,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="txtCodCategoriaLivro" HorizontalAlignment="Left" Height="23" Margin="129,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51"/>
         <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Height="23" Margin="129,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="49,130,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnCadastrar_Click"/>
-        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="164,130,0,0" VerticalAlignment="Top" Width="79" Height="36" Click="btnAlterar_Click"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="270,130,0,0" VerticalAlignment="Top" Width="80" Height="37" Click="btnExcluir_Click"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="49,130,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnCadastrar_Click" Background="#FF2167A9" Foreground="#FFFFF2F2"/>
+        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="164,130,0,0" VerticalAlignment="Top" Width="79" Height="36" Click="btnAlterar_Click" Background="#FF2167A9" Foreground="#FFFFF2F2"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="270,130,0,0" VerticalAlignment="Top" Width="80" Height="37" Click="btnExcluir_Click" Background="#FF2167A9" Foreground="#FFFFF2F2"/>
 
     </Grid>
 </Window>

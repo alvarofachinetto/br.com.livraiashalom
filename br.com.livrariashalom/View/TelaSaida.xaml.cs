@@ -142,7 +142,6 @@ namespace br.com.livrariashalom.View
 
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
-
             Saida saida = new Saida();
             RegistrarSaida(saida);
             

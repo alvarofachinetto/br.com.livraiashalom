@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaPrazo" Height="323.333" Width="683.333" Background="#FF080707">
+        Title="TelaPrazo" Height="323.333" Width="683.333" Background="#FF012345">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Codigo" HorizontalAlignment="Left" Margin="68,83,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" Height="38" Width="76" FontSize="18"/>
-        <Label Content="Condição Pagamento" HorizontalAlignment="Left" Margin="68,141,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" Height="38" Width="200" FontSize="18"/>
+        <Label Content="Codigo" HorizontalAlignment="Left" Margin="68,83,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="38" Width="76" FontSize="18"/>
+        <Label Content="Condição Pagamento" HorizontalAlignment="Left" Margin="68,141,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="38" Width="200" FontSize="18"/>
         <TextBox x:Name="txtCodigo" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="0,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"/>
         <TextBox x:Name="txtCondPagamento" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="0,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
-        <Button x:Name="btnPrazo" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="277,238,0,0" VerticalAlignment="Top" Width="88" Height="44" Click="BtnPrazo_Click"/>
-        <Label Content="Pracelamento" HorizontalAlignment="Left" Margin="68,184,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" Height="38" Width="200" FontSize="18"/>
+        <Button x:Name="btnPrazo" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="277,238,0,0" VerticalAlignment="Top" Width="88" Height="44" Click="BtnPrazo_Click" Background="#FF2167A9" Foreground="White"/>
+        <Label Content="Pracelamento" HorizontalAlignment="Left" Margin="68,184,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="38" Width="200" FontSize="18"/>
         <TextBox x:Name="txtParcelamento" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
 
     </Grid>

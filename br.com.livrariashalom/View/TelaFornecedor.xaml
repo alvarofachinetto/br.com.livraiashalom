@@ -6,18 +6,18 @@
         xmlns:wpfx ="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaFornecedor" Height="546" Width="818" Background="#FF060404" ShowInTaskbar="False">
-    <TabControl x:Name="tabControlFornecedor" HorizontalAlignment="Left" Height="514" VerticalAlignment="Top" Width="808" SelectionChanged="TabControlFornecedor_SelectionChanged">
-        <TabItem x:Name="tabItemFornecedor" Header="Fornecedor" Foreground="#FFD32626" Background="Black" FontWeight="Bold">
-            <Grid x:Name="gridFornecedor" Background="#FF0C0101" Margin="0,-1,0,-26">
+        Title="TelaFornecedor" Height="546" Width="818" Background="Yellow" ShowInTaskbar="False">
+    <TabControl x:Name="tabControlFornecedor" HorizontalAlignment="Left" Height="514" VerticalAlignment="Top" Width="808" SelectionChanged="TabControlFornecedor_SelectionChanged" Background="Yellow">
+        <TabItem x:Name="tabItemFornecedor" Header="Fornecedor" Foreground="White" Background="#FF012345" FontWeight="Bold">
+            <Grid x:Name="gridFornecedor" Background="#FF012345" Margin="0,-1,0,-26">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="31*"/>
                     <ColumnDefinition Width="136*"/>
                     <ColumnDefinition Width="635*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Empresa" HorizontalAlignment="Right" Margin="0,0,276,450" VerticalAlignment="Bottom" Height="28" Width="63" Foreground="#FFF1B515" FontWeight="Bold" Grid.Column="2"/>
-                <Label Content="Código" HorizontalAlignment="Right" Margin="0,0,112,442" VerticalAlignment="Bottom" RenderTransformOrigin="0.053,0.192" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2" Height="27" Width="50"/>
-                <Label Content="Razao" HorizontalAlignment="Right" Margin="0,0,99,398" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label Content="Empresa" HorizontalAlignment="Right" Margin="0,0,276,450" VerticalAlignment="Bottom" Height="28" Width="63" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.Column="2"/>
+                <Label Content="Código" HorizontalAlignment="Right" Margin="0,0,112,442" VerticalAlignment="Bottom" RenderTransformOrigin="0.053,0.192" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.ColumnSpan="2" Height="27" Width="50"/>
+                <Label Content="Razao" HorizontalAlignment="Right" Margin="0,0,99,398" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="txtRazao" HorizontalAlignment="Right" Height="25" Margin="0,0,478,400" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="85"/>
                 <wpfx:MaskedTextBox x:Name="txtIe" HorizontalAlignment="Right" Height="25" Margin="0,0,38,401" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="2" MaxLength="16" Mask="000.000.000.000"/>
                 <ComboBox x:Name="cmbEmpresa" HorizontalAlignment="Right" Margin="0,0,128,450" VerticalAlignment="Bottom" Width="120" Height="24" SelectionChanged="CmbEmpresa_SelectionChanged" Grid.Column="2">
@@ -35,39 +35,39 @@
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
-                <Label Content="IE" HorizontalAlignment="Right" Margin="0,0,276,401" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.Column="2"/>
-                <wpfx:MaskedTextBox x:Name="txtCnpjCpf" HorizontalAlignment="Right" Height="25" Margin="0,0,565,310" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="123" TextChanged="TxtCnpjCpf_TextChanged" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="18" IsReadOnly="True" />
-                <Label Content="Fantasia" HorizontalAlignment="Right" Margin="0,0,99,354" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <Label x:Name="lblCnpjCpf" Content="CNPJ/CPF" HorizontalAlignment="Right" Margin="0,0,94,311" VerticalAlignment="Bottom" Width="68" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label Content="IE" HorizontalAlignment="Right" Margin="0,0,276,401" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.Column="2"/>
+                <wpfx:MaskedTextBox x:Name="txtCnpjCpf" HorizontalAlignment="Right" Height="25" Margin="0,0,478,310" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="123" TextChanged="TxtCnpjCpf_TextChanged" Grid.Column="2" MaxLength="18" IsReadOnly="True" />
+                <Label Content="Fantasia" HorizontalAlignment="Right" Margin="0,0,99,354" VerticalAlignment="Bottom" Width="63" Height="28" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblCnpjCpf" Content="CNPJ/CPF" HorizontalAlignment="Right" Margin="0,0,94,311" VerticalAlignment="Bottom" Width="68" Height="28" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="txtFantasia" HorizontalAlignment="Right" Height="25" Margin="0,0,478,356" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="210" Grid.Column="1" Grid.ColumnSpan="2" MaxLength="85"/>
                 <TextBox x:Name="txtObservacoes" Height="67" Margin="0,0,84,311" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="164" Grid.Column="2" MaxLength="200"/>
-                <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Right" Margin="0,0,587,248" VerticalAlignment="Bottom" Width="85" Click="BtnCadastrar_Click" Height="41" Grid.Column="1" Grid.ColumnSpan="2"/>
-                <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,482,248" VerticalAlignment="Bottom" Width="85" Height="41" Click="BtnEditar_Click" Grid.Column="2"/>
-                <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,58,248" VerticalAlignment="Bottom" Width="86" Height="41" Click="BtnExcluir_Click" Grid.ColumnSpan="2"/>
-                <Label Content="Observações" HorizontalAlignment="Right" Margin="0,0,253,345" VerticalAlignment="Bottom" Width="86" Height="28" Foreground="#FFF1B515" FontWeight="Bold" Grid.Column="2"/>
+                <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Right" Margin="0,0,587,248" VerticalAlignment="Bottom" Width="85" Click="BtnCadastrar_Click" Height="41" Grid.Column="1" Grid.ColumnSpan="2" Background="#FF2167A9" Foreground="White"/>
+                <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Right" Margin="0,0,482,248" VerticalAlignment="Bottom" Width="85" Height="41" Click="BtnEditar_Click" Grid.Column="2" Background="#FF2167A9" Foreground="White"/>
+                <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,58,248" VerticalAlignment="Bottom" Width="86" Height="41" Click="BtnExcluir_Click" Grid.ColumnSpan="2" Background="#FF2167A9" Foreground="White"/>
+                <Label Content="Observações" HorizontalAlignment="Right" Margin="0,0,253,345" VerticalAlignment="Bottom" Width="86" Height="28" Foreground="#FFFBFBFB" FontWeight="Bold" Grid.Column="2"/>
                 <DataGrid x:Name="dgFornecedor" HorizontalAlignment="Right" Height="193" Margin="0,0,10,33" VerticalAlignment="Bottom" Width="787" MouseDoubleClick="DgFornecedor_MouseDoubleClick" Grid.ColumnSpan="3"/>
-                <Button x:Name="btnListar" Content="Listar" Grid.Column="2" HorizontalAlignment="Left" Margin="178,224,0,0" VerticalAlignment="Top" Width="85" Height="41" Click="BtnListar_Click"/>
-                <ComboBox x:Name="cmbCpfCnpj" Grid.Column="2" HorizontalAlignment="Left" Margin="75,153,0,0" VerticalAlignment="Top" Width="82" Height="25" SelectionChanged="cmbCpfCnpj_SelectionChanged">
+                <Button x:Name="btnListar" Content="Listar" Grid.Column="2" HorizontalAlignment="Left" Margin="178,224,0,0" VerticalAlignment="Top" Width="85" Height="41" Click="BtnListar_Click" Background="#FF2167A9" Foreground="White"/>
+                <ComboBox x:Name="cmbCpfCnpj" Grid.Column="1" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="82" Height="25" SelectionChanged="cmbCpfCnpj_SelectionChanged" Grid.ColumnSpan="2">
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="CPF"/>
                     <ComboBoxItem Content="CNPJ"/>
                 </ComboBox>
             </Grid>
         </TabItem>
-        <TabItem x:Name="tabItemEndereco" Header="Endereço" FontWeight="Bold" Foreground="#FFF70202" Background="Black">
-            <Grid x:Name="gridEndereco" Background="#F7000000">
+        <TabItem x:Name="tabItemEndereco" Header="Endereço" FontWeight="Bold" Foreground="White" Background="#FF012345">
+            <Grid x:Name="gridEndereco" Background="#FF012345">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25*"/>
                     <ColumnDefinition Width="376*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Código" HorizontalAlignment="Left" Margin="495,22,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04" Grid.Column="1"/>
-                <Label Content="Logradouro" Grid.Column="1" HorizontalAlignment="Left" Margin="23,22,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
-                <Label Content="Número" Grid.Column="1" HorizontalAlignment="Left" Margin="23,62,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
-                <Label Content="Bairro" Grid.Column="1" HorizontalAlignment="Left" Margin="245,62,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
-                <Label Content="Cidade" Grid.Column="1" HorizontalAlignment="Left" Margin="23,105,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
-                <Label Content="Estado" Grid.Column="1" HorizontalAlignment="Left" Margin="245,105,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
-                <Label Content="CEP" Grid.Column="1" HorizontalAlignment="Left" Margin="495,62,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
-                <Label Content="Fornecedor" Grid.Column="1" HorizontalAlignment="Left" Margin="495,105,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04"/>
+                <Label Content="Código" HorizontalAlignment="Left" Margin="495,22,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Column="1"/>
+                <Label Content="Logradouro" Grid.Column="1" HorizontalAlignment="Left" Margin="23,22,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
+                <Label Content="Número" Grid.Column="1" HorizontalAlignment="Left" Margin="23,62,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
+                <Label Content="Bairro" Grid.Column="1" HorizontalAlignment="Left" Margin="245,62,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
+                <Label Content="Cidade" Grid.Column="1" HorizontalAlignment="Left" Margin="23,105,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
+                <Label Content="Estado" Grid.Column="1" HorizontalAlignment="Left" Margin="245,105,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
+                <Label Content="CEP" Grid.Column="1" HorizontalAlignment="Left" Margin="495,62,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
+                <Label Content="Fornecedor" Grid.Column="1" HorizontalAlignment="Left" Margin="495,105,0,0" VerticalAlignment="Top" Foreground="#FFFBFBFB"/>
                 <TextBox x:Name="txtCodigoEndereco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="576,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37"/>
                 <TextBox x:Name="txtLogradouro" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342"/>
                 <TextBox x:Name="txtNumero" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -105,29 +105,29 @@
                     <ComboBoxItem Content="Sergipe"/>
                     <ComboBoxItem Content="Tocantins"/>
                 </ComboBox>
-                <Button x:Name="btnCadastrarEndereco" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="31,172,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnCadastrarEndereco_Click"/>
-                <Button x:Name="btnAlterar" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="122,172,0,0" VerticalAlignment="Top" Width="74" Height="37" Click="BtnAlterar_Click"/>
+                <Button x:Name="btnCadastrarEndereco" Content="Cadastrar" Grid.Column="1" HorizontalAlignment="Left" Margin="31,172,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnCadastrarEndereco_Click" Background="#FF2167A9" Foreground="White"/>
+                <Button x:Name="btnAlterar" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="122,172,0,0" VerticalAlignment="Top" Width="74" Height="37" Click="BtnAlterar_Click" Background="#FF2167A9" Foreground="White"/>
             </Grid>
         </TabItem>
-        <TabItem x:Name="tabItemContato" Header="Contato" FontWeight="Bold" Foreground="#FFF70202" Background="Black">
-            <Grid x:Name="gridContato" Background="Black">
+        <TabItem x:Name="tabItemContato" Header="Contato" FontWeight="Bold" Foreground="White" Background="#FF012345">
+            <Grid x:Name="gridContato" Background="#FF012345">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="376*"/>
+                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Email Empresa" HorizontalAlignment="Left" Margin="40,48,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="#FFF0FB00"/>
-                <Label Content="Email Funcionario" HorizontalAlignment="Left" Margin="40,92,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="#FFE2EC10"/>
-                <Label Content="Telefone Empresa" HorizontalAlignment="Left" Margin="40,142,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="#FFE2EC17"/>
-                <Label Content="Telefone Funcionario" HorizontalAlignment="Left" Margin="40,183,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="#FFD9E211"/>
-                <Label Content="Fornecedor" HorizontalAlignment="Left" Margin="40,227,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="#FFE3EE0D"/>
+                <Label Content="Email Empresa" HorizontalAlignment="Left" Margin="40,48,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Height="26" Width="92"/>
+                <Label Content="Email Funcionario" HorizontalAlignment="Left" Margin="40,92,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Height="26" Width="111"/>
+                <Label Content="Telefone Empresa" HorizontalAlignment="Left" Margin="40,142,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Height="26" Width="109"/>
+                <Label Content="Telefone Funcionario" HorizontalAlignment="Left" Margin="40,183,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Height="26" Width="128"/>
+                <Label Content="Fornecedor" HorizontalAlignment="Left" Margin="40,227,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Height="26" Width="74"/>
                 <TextBox x:Name="txtEmailEmpresa" HorizontalAlignment="Left" Height="23" Margin="170,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Grid.Column="1"/>
                 <TextBox x:Name="txtEmailFuncionario" HorizontalAlignment="Left" Height="23" Margin="170,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Grid.Column="1"/>
                 <TextBox x:Name="txtTelefoneEmpresa" HorizontalAlignment="Left" Height="23" Margin="170,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Grid.Column="1"/>
                 <TextBox x:Name="txtTelefoneFuncionario" HorizontalAlignment="Left" Height="23" Margin="170,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Grid.Column="1"/>
                 <TextBox x:Name="txtFornecedorContato" HorizontalAlignment="Left" Height="23" Margin="170,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" Grid.Column="1" IsReadOnly="True"/>
-                <Button x:Name="btnCadastroContato" Content="Cadastrar" HorizontalAlignment="Left" Margin="40,293,0,0" VerticalAlignment="Top" Width="92"  Grid.Column="1" Click="BtnCadastroContato_Click" Height="37"/>
-                <Button x:Name="btnAlterar_Copy" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="148,293,0,0" VerticalAlignment="Top" Width="74" Height="37"/>
-                <Label Content="Código" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" Foreground="#FFFFDD04" Grid.Column="1"/>
+                <Button x:Name="btnCadastroContato" Content="Cadastrar" HorizontalAlignment="Left" Margin="40,293,0,0" VerticalAlignment="Top" Width="92"  Grid.Column="1" Click="BtnCadastroContato_Click" Height="37" Background="#FF2167A9" Foreground="White"/>
+                <Button x:Name="btnAlterar_Copy" Content="Editar" Grid.Column="1" HorizontalAlignment="Left" Margin="148,293,0,0" VerticalAlignment="Top" Width="74" Height="37" Background="#FF2167A9" Foreground="White"/>
+                <Label Content="Código" Margin="41,21,647,439" Foreground="White" Grid.Column="1"/>
                 <TextBox x:Name="txtCodContato" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="170,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37"/>
             </Grid>
         </TabItem>

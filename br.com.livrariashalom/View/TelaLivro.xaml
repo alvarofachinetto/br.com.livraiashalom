@@ -6,17 +6,17 @@
         xmlns:wpfx ="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaLivro" Height="450" Width="800" Background="Black">
+        Title="TelaLivro" Height="450" Width="800" Background="#FF012345">
     <Grid RenderTransformOrigin="0.371,0.558">
-        <Label Content="Código" HorizontalAlignment="Left" Margin="55,19,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Título" HorizontalAlignment="Left" Margin="55,79,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Autor" HorizontalAlignment="Left" Margin="55,105,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Editora" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Fase" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Categoria" HorizontalAlignment="Left" Margin="423,46,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Valor" HorizontalAlignment="Left" Margin="552,115,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Fornecedor" HorizontalAlignment="Left" Margin="423,18,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
-        <Label Content="Descrição" HorizontalAlignment="Left" Margin="55,195,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
+        <Label Content="Código" HorizontalAlignment="Left" Margin="55,19,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Título" HorizontalAlignment="Left" Margin="55,79,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Autor" HorizontalAlignment="Left" Margin="55,105,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Editora" HorizontalAlignment="Left" Margin="55,131,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Fase" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Categoria" HorizontalAlignment="Left" Margin="423,46,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Valor" HorizontalAlignment="Left" Margin="552,115,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Fornecedor" HorizontalAlignment="Left" Margin="423,18,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Descrição" HorizontalAlignment="Left" Margin="55,195,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="23" Margin="175,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" IsReadOnly="True"/>
         <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="175,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
         <TextBox x:Name="txtAutor" HorizontalAlignment="Left" Height="23" Margin="175,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="315"/>
@@ -46,18 +46,18 @@
             <ComboBoxItem Content="Teologia"/>
             <ComboBoxItem Content="Vocação"/>
         </ComboBox>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="509,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="BtnCadastrar_Click"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="602,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="btnExcluir_Click"/>
-        <Button x:Name="btnVoltar" Content="Voltar" HorizontalAlignment="Left" Margin="509,223,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="BtnVoltar_Click"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="509,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="BtnCadastrar_Click" Background="#FF2167A9" Foreground="White"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="602,183,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="btnExcluir_Click" Background="#FF2167A9" Foreground="White"/>
+        <Button x:Name="btnVoltar" Content="Voltar" HorizontalAlignment="Left" Margin="509,223,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="BtnVoltar_Click" Background="#FF2167A9" Foreground="White"/>
         <DataGrid x:Name="dgLivro" HorizontalAlignment="Left" Height="132" Margin="55,278,0,0" VerticalAlignment="Top" Width="713" MouseDoubleClick="DgLivro_MouseDoubleClick"/>
-        <Label Content="Alerta" HorizontalAlignment="Left" Margin="553,144,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
+        <Label Content="Alerta" HorizontalAlignment="Left" Margin="553,144,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="txtAlerta" HorizontalAlignment="Left" Height="23" Margin="608,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
         <ComboBox x:Name="cmbFornecedor" HorizontalAlignment="Left" Margin="606,23,0,0" VerticalAlignment="Top" Width="162" Height="23" SelectionChanged="cmbFornecedor_SelectionChanged" IsEditable="True"/>
         <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Margin="608,51,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="CmbCategoria_SelectionChanged" IsEditable="True"/>
-        <Label Content="Quantidade" HorizontalAlignment="Left" Margin="55,47,0,0" VerticalAlignment="Top" Foreground="#FFE1EC04" FontWeight="Bold"/>
+        <Label Content="Quantidade" HorizontalAlignment="Left" Margin="55,47,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="txtQtd" HorizontalAlignment="Left" Height="23" Margin="175,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="606,223,0,0" VerticalAlignment="Top" Width="82" Height="33" Click="btnLimpar_Click"/>
-        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="695,183,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="btnAtualizar_Click"/>
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="606,223,0,0" VerticalAlignment="Top" Width="82" Height="33" Click="btnLimpar_Click" Background="#FF2167A9" Foreground="White"/>
+        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="695,183,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="btnAtualizar_Click" Background="#FF2167A9" Foreground="White"/>
 
     </Grid>
 </Window>

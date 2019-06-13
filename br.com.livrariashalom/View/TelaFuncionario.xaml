@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="Funcionario" Height="433.454" Width="604.59" Background="Black">
+        Title="Funcionario" Height="433.454" Width="604.59" Background="#FF012345">
     <Grid x:Name="gridFuncionario">
-        <Label Content="Funcionario" HorizontalAlignment="Left" Margin="40,31,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Senha" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Confirmação de Senha" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Tipo Funcionario" HorizontalAlignment="Left" Margin="40,133,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Funcionario" HorizontalAlignment="Left" Margin="40,31,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Senha" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Confirmação de Senha" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Tipo Funcionario" HorizontalAlignment="Left" Margin="40,133,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtFuncionario" HorizontalAlignment="Left" Height="23" Margin="223,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148"/>
         <PasswordBox x:Name="pswSenha" HorizontalAlignment="Left" Margin="223,71,0,0" VerticalAlignment="Top" Width="194" Height="23" TextInput="PswSenha_TextInput"/>
         <PasswordBox x:Name="pswConfSenha" HorizontalAlignment="Left" Margin="223,105,0,0" VerticalAlignment="Top" Width="194" Height="23" TextInput="PswConfSenha_TextInput"/>
@@ -19,11 +19,11 @@
             <ComboBoxItem Content="Administrador"/>
             <ComboBoxItem Content="Usuario"/>
         </ComboBox>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="223,205,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click"/>
-        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="134,205,0,0" VerticalAlignment="Top" Width="75" Height="39" Click="BtnEditar_Click"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="37,205,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnExcluir_Click"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="223,205,0,0" VerticalAlignment="Top" Width="76" Height="37" Click="BtnCadastrar_Click" Foreground="White" Background="#FF2167A9"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="134,205,0,0" VerticalAlignment="Top" Width="75" Height="39" Click="BtnEditar_Click" Foreground="White" Background="#FF2167A9"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="37,205,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="BtnExcluir_Click" Foreground="White" Background="#FF2167A9"/>
         <DataGrid x:Name="dgFuncionario" HorizontalAlignment="Left" Height="100" Margin="28,292,0,0" VerticalAlignment="Top" Width="542" MouseDoubleClick="dgFuncionario_MouseDoubleClick" SelectionChanged="dgFuncionario_SelectionChanged"/>
-        <Label Content="Funcionario" HorizontalAlignment="Left" Margin="410,31,0,0" VerticalAlignment="Top" Foreground="#FFFFF300" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Funcionario" HorizontalAlignment="Left" Margin="410,31,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtCodFuncionario" HorizontalAlignment="Left" Height="23" Margin="503,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" IsReadOnly="True"/>
 
     </Grid>

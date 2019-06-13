@@ -7,47 +7,40 @@
         xmlns:mdi="clr-namespace:Hammer.MDIContainer.Control.WindowControls;assembly=Hammer.MDIContainer.Control"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaPrincipal" Height="590" Width="905">
+        Title="TelaPrincipal" Height="590" Width="905" Background="#FF012345">
     <Grid x:Name="gridPrincipal" Margin="0,0,2,-3">
-        
-        <Menu x:Name="menuTelaPrincipal" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="895" UsesItemContainerTemplate="True">
+
+        <Menu x:Name="menuTelaPrincipal" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="895" UsesItemContainerTemplate="True" Background="#FFF5CF00">
             <ContentControl></ContentControl>
-            <MenuItem x:Name="menuItemCadastros" Header="Cadastros" Height="23" FontWeight="Bold" FontSize="14" Click="MenuItemCadastros_Click" Width="76">
-                <MenuItem x:Name="menuItemFuncionario" Header="Funcionario" Click="MenuItem_Click_Funcionario"/>
-                <Separator/>
-                <MenuItem x:Name="menuItemFornecedor" Header="Fornecedor" Click="MenuItem_Click_Fornecedor"/>
-                <Separator/>
-                <MenuItem x:Name="menuItemLivro" Header="Livro" Click="MenuItemLivro_Click" />
-                <Separator/>
-
-                <MenuItem x:Name="menuItemCategoria" Header="Categoria" Click="MenuItemCategoria_Click"/>
-                <Separator/>
-                <MenuItem x:Name="menuItemPrazo" Header="Prazo" Click="MenuItemPrazo_Click"/>
+            <MenuItem x:Name="menuItemCadastros" Header="Cadastros" Height="23" FontWeight="Bold" FontSize="14" Click="MenuItemCadastros_Click" Width="76" Foreground="#FF6E460F">
+                <MenuItem x:Name="menuItemFuncionario" Header="Funcionario" Click="MenuItem_Click_Funcionario" Background="#FFF5CF00" BorderBrush="#FFF5CF00"/>
+                <MenuItem x:Name="menuItemFornecedor" Header="Fornecedor" Click="MenuItem_Click_Fornecedor" Background="#FFF5CF00" BorderBrush="#FFF5CF00"/>
+                <MenuItem x:Name="menuItemLivro" Header="Livro" Click="MenuItemLivro_Click" Background="#FFF5CF00" BorderBrush="#FFF5CF00" />
+                <MenuItem x:Name="menuItemCategoria" Header="Categoria" Click="MenuItemCategoria_Click" Background="#FFF5CF00" BorderBrush="#FFF5CF00"/>
+                <MenuItem x:Name="menuItemPrazo" Header="Prazo" Click="MenuItemPrazo_Click" Background="#FFF5CF00" BorderBrush="#FFF5CF00"/>
             </MenuItem>
-            <MenuItem x:Name="barmenuItemVenda" Header="Venda" FontWeight="Bold" FontSize="14">
-                <MenuItem x:Name="menuVenda" Header="Venda" Click="MenuVenda_Click"/>
+            <MenuItem x:Name="barmenuItemVenda" Header="Venda" FontWeight="Bold" FontSize="14" Foreground="#FF6E460F">
+                <MenuItem x:Name="menuVenda" Header="Venda" Click="MenuVenda_Click" Background="#FFF5CF00"/>
 
             </MenuItem>
-            <MenuItem x:Name="menuItemEstoque" Header="Estoque" FontWeight="Bold" FontSize="14">
-                <MenuItem x:Name="menuItemEntrada" Header="Entradas" Click="MenuItemEntrada_Click"/>
-                <MenuItem x:Name="menuItemSaida" Header="Saidas" Click="MenuItemSaida_Click"/>
+            <MenuItem x:Name="menuItemEstoque" Header="Estoque" FontWeight="Bold" FontSize="14" Foreground="#FF6E460F">
+                <MenuItem x:Name="menuItemEntrada" Header="Entradas" Click="MenuItemEntrada_Click" Background="#FFF5CF00"/>
+                <MenuItem x:Name="menuItemSaida" Header="Saidas" Click="MenuItemSaida_Click" Background="#FFF5CF00"/>
             </MenuItem>
-            <MenuItem x:Name="menuItemFuxoCaixa" Header="Fluxo de Caixa" FontWeight="Bold" FontSize="14">
-                <MenuItem x:Name="menuItemFluxo" Header="Fluxo" Click="MenuItemFluxo_Click" />
-                <MenuItem x:Name="menuItemTodasEntradas" Header="Todas as Entradas" />
-                <MenuItem x:Name="menuItemTodasSaidas" Header="Todas as Saidas" />
-            </MenuItem>
-
-            <MenuItem x:Name="menuItemContas" Header="Contas" FontWeight="Bold" FontSize="14">
-                <MenuItem x:Name="menuItemPagarContas" Header="Contas a Pagar" Click="MenuItem_Click_PagarContas"/>
-                <Separator/>
-                <MenuItem x:Name="menuItemReceberContas" Header="Contas a Receber" Click="MenuItem_Click_ReceberContas"/>
+            <MenuItem x:Name="menuItemFuxoCaixa" Header="Fluxo de Caixa" FontWeight="Bold" FontSize="14" Foreground="#FF6E460F">
+                <MenuItem x:Name="menuItemFluxo" Header="Fluxo" Click="MenuItemFluxo_Click" Background="#FFF5CF00" />
+                <MenuItem x:Name="menuItemTodasEntradas" Header="Todas as Entradas" Background="#FFF5CF00" Click="MenuItemTodasEntradas_Click" />
+                <MenuItem x:Name="menuItemTodasSaidas" Header="Todas as Saidas" Background="#FFF5CF00" Click="MenuItemTodasSaidas_Click" />
             </MenuItem>
 
-            <MenuItem x:Name="menuItemOpcoes" Header="Opções" FontWeight="Bold" FontSize="14">
-                <MenuItem x:Name="menuItemSobre" Header="Sobre"/>
-                <Separator/>
-                <MenuItem x:Name="menuItemSair" Header="Sair" Click="MenuItemSair_Click"/>
+            <MenuItem x:Name="menuItemContas" Header="Contas" FontWeight="Bold" FontSize="14" Foreground="#FF6E460F">
+                <MenuItem x:Name="menuItemPagarContas" Header="Contas a Pagar" Click="MenuItem_Click_PagarContas" Background="#FFF5CF00"/>
+                <MenuItem x:Name="menuItemReceberContas" Header="Contas a Receber" Click="MenuItem_Click_ReceberContas" Background="#FFF5CF00"/>
+            </MenuItem>
+
+            <MenuItem x:Name="menuItemOpcoes" Header="Opções" FontWeight="Bold" FontSize="14" Foreground="#FF6E460F">
+                <MenuItem x:Name="menuItemSobre" Header="Sobre" Background="#FFF5CF00"/>
+                <MenuItem x:Name="menuItemSair" Header="Sair" Click="MenuItemSair_Click" Background="#FFF5CF00"/>
             </MenuItem>
         </Menu>
     </Grid>

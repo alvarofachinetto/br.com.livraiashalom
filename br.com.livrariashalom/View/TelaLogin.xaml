@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaLogin" Height="330" Width="600" Background="Black">
+        Title="TelaLogin" Height="330" Width="600" Background="#FF012345">
     <Grid Margin="0,0,0,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="263*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="User" HorizontalAlignment="Left" Margin="82,103,0,0" VerticalAlignment="Top" Height="32" Width="84" Background="Black" FontSize="18" FontWeight="Bold" Grid.Column="1" Foreground="#FFD1D128"/>
+        <Label Content="User" HorizontalAlignment="Left" Margin="82,103,0,0" VerticalAlignment="Top" Height="32" Width="84" Background="#FF012345" FontSize="18" FontWeight="Bold" Grid.Column="1" Foreground="White"/>
         <TextBox x:Name="txtFuncionario" HorizontalAlignment="Left" Height="23" Margin="229,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Grid.Column="1"/>
-        <Label Content="Password" Grid.Column="1" HorizontalAlignment="Left" Margin="82,156,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#FFC7C71F"/>
-        <Label Content="Welcome" Grid.Column="1" HorizontalAlignment="Left" Margin="201,20,0,0" VerticalAlignment="Top" Width="177" Height="47" FontFamily="Verdana" FontSize="32" FontWeight="Bold" Foreground="#FFCBCB1A"/>
-        <Button x:Name="btnLogar" Content="Login" Grid.Column="1" HorizontalAlignment="Left" Margin="375,241,0,0" VerticalAlignment="Top" Width="85" Height="37" Background="Black" Foreground="#FFB8B82B" BorderBrush="White" FontSize="18" FontWeight="Bold" Click="BtnLogar_Click"/>
+        <Label Content="Password" Grid.Column="1" HorizontalAlignment="Left" Margin="82,156,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Welcome" Grid.Column="1" HorizontalAlignment="Left" Margin="201,20,0,0" VerticalAlignment="Top" Width="177" Height="47" FontFamily="Verdana" FontSize="32" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="btnLogar" Content="Login" Grid.Column="1" HorizontalAlignment="Left" Margin="375,241,0,0" VerticalAlignment="Top" Width="85" Height="37" Background="#FF2167A9" Foreground="White" BorderBrush="White" FontSize="18" FontWeight="Bold" Click="BtnLogar_Click"/>
         <PasswordBox x:Name="pswSenha" Grid.Column="1" HorizontalAlignment="Left" Margin="229,167,0,0" VerticalAlignment="Top" Width="231" Height="21"/>
 
     </Grid>
