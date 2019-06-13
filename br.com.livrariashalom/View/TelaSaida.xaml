@@ -19,13 +19,11 @@
         <Label Content="Descricao" HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold" Width="64"/>
         <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="27" Margin="93,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="514,104,0,0" VerticalAlignment="Top" Width="77" Height="27" Click="BtnSalvar_Click" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="dgSaida" HorizontalAlignment="Left" Height="158" Margin="22,155,0,0" VerticalAlignment="Top" Width="569" Grid.ColumnSpan="2" IsReadOnly="True"/>
-        <ComboBox x:Name="cmbLivro" HorizontalAlignment="Left" Margin="152,63,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbLivro_SelectionChanged" ItemsSource="{Binding}" MouseDoubleClick="CmbLivro_MouseDoubleClick" IsEditable="True"/>
+        <DataGrid x:Name="dgSaida" HorizontalAlignment="Left" Height="158" Margin="22,155,0,0" VerticalAlignment="Top" Width="569" Grid.ColumnSpan="2" IsReadOnly="True" MouseDoubleClick="DgSaida_MouseDoubleClick"/>
+        <ComboBox x:Name="cmbLivro" HorizontalAlignment="Left" Margin="152,63,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbLivro_SelectionChanged" ItemsSource="{Binding}" IsEditable="True"/>
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="417,104,0,0" VerticalAlignment="Top" Width="76" Height="27" Click="btnExcluir_Click"/>
         <Label Content="Registro" HorizontalAlignment="Left" Margin="432,59,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold"/>
         <TextBox x:Name="txtCodSaida" HorizontalAlignment="Left" Height="23" Margin="504,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" IsReadOnly="True" Grid.ColumnSpan="2"/>
-        <Label Content="Estoque" HorizontalAlignment="Left" Margin="449,15,0,0" VerticalAlignment="Top" Background="#FF0A0A09" Foreground="#FFC8D11D" FontWeight="Bold" Height="25"/>
-        <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="22" Margin="504,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" Grid.ColumnSpan="2" IsReadOnly="True"/>
 
     </Grid>
 </Window>

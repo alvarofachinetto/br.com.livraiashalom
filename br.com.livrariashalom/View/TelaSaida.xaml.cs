@@ -112,7 +112,6 @@ namespace br.com.livrariashalom.View
                 if (dr.HasRows)
                 {
                     txtCodigoLivro.Text = dr["codLivro"].ToString();
-                    txtQtdEstoque.Text = dr["qtd"].ToString();
                 }
                 dr.Close();
             }
@@ -155,7 +154,14 @@ namespace br.com.livrariashalom.View
 
         }
 
-        private void CmbLivro_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+       
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            Saida saida = new Saida();
+            ExcluirSaida(saida);
+        }
+
+        private void DgSaida_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -170,11 +176,6 @@ namespace br.com.livrariashalom.View
             {
                 throw erro;
             }
-        }
-
-        private void btnExcluir_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
