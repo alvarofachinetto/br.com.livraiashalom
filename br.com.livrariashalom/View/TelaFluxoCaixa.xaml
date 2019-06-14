@@ -1,0 +1,31 @@
+﻿<Window x:Class="br.com.livrariashalom.View.TelaFluxoCaixa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:br.com.livrariashalom.View"
+        mc:Ignorable="d"
+        Title="TelaFuxoCaixa" Height="450" Width="800" Background="#FF012345">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="333*"/>
+            <RowDefinition Height="86*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Código" HorizontalAlignment="Right" Margin="0,12,540,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblDia" Content="Dia" HorizontalAlignment="Right" Margin="0,10,712,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="70"/>
+        <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,140,679,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,168,726,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblPagarConta" Content="Pagar Conta" HorizontalAlignment="Left" Margin="25,94,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblReceberConta" Content="Receber Conta" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Observações" HorizontalAlignment="Left" Margin="262,119,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodigo" HorizontalAlignment="Right" Height="23" Margin="0,13,437,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" IsReadOnly="True"/>
+        <TextBox x:Name="txtSaldo" HorizontalAlignment="Right" Height="23" Margin="0,171,555,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="txtObservaoes" HorizontalAlignment="Left" Height="75" Margin="366,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
+        <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="591,154,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click" Background="#FF2167A9" Foreground="White"/>
+        <TextBox x:Name="txtPrevisto" HorizontalAlignment="Right" Height="23" Margin="0,143,555,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dgFluxoCaixa" HorizontalAlignment="Right" Height="158" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="772" Grid.RowSpan="2" SelectionChanged="dgFluxoCaixa_SelectionChanged"/>
+        <TextBox x:Name="txtTotalReceber" HorizontalAlignment="Right" Height="23" Margin="0,66,550,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="txtTotalPagar" HorizontalAlignment="Right" Height="23" Margin="0,94,550,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" TextChanged="txtTotalPagar_TextChanged"/>
+
+    </Grid>
+</Window>
