@@ -1,5 +1,7 @@
 ﻿using br.com.livrariashalom.BLL;
+using br.com.livrariashalom.DAO;
 using br.com.livrariashalom.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,41 +25,71 @@ namespace br.com.livrariashalom.View
     {
         private LoginFuncionarioBLL loginFuncionarioBLL = new LoginFuncionarioBLL();
         private LoginFuncionario loginFuncionario = new LoginFuncionario();
+        MySqlCommand command = null;
+        Conexao conexao = new Conexao();
 
         public TelaLogin()
         {
             InitializeComponent();
         }
 
-        private bool Logar()
+        //metodo para entrar no sistema 
+        public void Logar()
         {
             try
             {
-                if (txtFuncionario.Text == "" || pswSenha.Password == "")
+
+                conexao.Conectar();
+                command = new MySqlCommand("select usuario, senha, tipo_usuario from loginfuncionario where usuario = @usuario and senha = @senha", conexao.conexao);
+                command.Parameters.AddWithValue("@usuario", txtFuncionario.Text);
+                command.Parameters.AddWithValue("@senha", pswSenha.Password);
+
+                MySqlDataReader dr = command.ExecuteReader();
+
+                //verifica a informação no banco
+                if (dr.Read())
                 {
-                    MessageBox.Show("Campos usuário e/ou senha vazios");
+                    string user = dr["tipo_usuario"].ToString();
+
+                    if (user.Equals("Usuario"))
+                    {
+                        TelaPrincipal telaPrincipal = new TelaPrincipal();
+                        telaPrincipal.menuItemFuncionario.IsEnabled = false;
+                        telaPrincipal.menuItemPagarContas.IsEnabled = false;
+                        telaPrincipal.menuItemReceberContas.IsEnabled = false;
+                        telaPrincipal.menuVenda.IsEnabled = false;
+
+                        MessageBox.Show("Welcome !");
+
+                        telaPrincipal.Show();
+                        this.Close();
+                    }
+                    else if (user.Equals("Administrador"))
+                    {
+
+                        MessageBox.Show("Welcome !");
+
+                        TelaPrincipal telaPrincipal = new TelaPrincipal();
+                        telaPrincipal.Show();
+                        this.Close();
+                    }
+
                 }
                 else
                 {
-                    loginFuncionario.Funcionario = txtFuncionario.Text;
-                    loginFuncionario.Senha = pswSenha.Password;
-                    loginFuncionarioBLL.Logar(loginFuncionario);
-                    return true;
+                    MessageBox.Show("Usuario/Senha incorretos!");
                 }
 
-                return false;
             }
-            catch (Exception error)
+            catch (Exception erro)
             {
-                throw error;
+                throw erro;
             }
         }
 
         private void BtnLogar_Click(object sender, RoutedEventArgs e)
         {
             Logar();
-            TelaLogin telaLogin = new TelaLogin();
-            telaLogin.Close();
         }
     }
 }

@@ -153,61 +153,7 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
-        //metodo para entrar no sistema 
-        public void Logar(LoginFuncionario login)
-        {
-            try
-            {
-                
-                Conectar();
-                command = new MySqlCommand("select usuario, senha, tipo_usuario from loginfuncionario where usuario = @usuario and senha = @senha", conexao);
-                command.Parameters.AddWithValue("@usuario", login.Funcionario);
-                command.Parameters.AddWithValue("@senha", login.Senha);
-
-                MySqlDataReader dr = command.ExecuteReader();
-                
-                //verifica a informação no banco
-                if (dr.Read())
-                {
-                    TelaLogin telaLogin = new TelaLogin();
-                    string user = dr["tipo_usuario"].ToString();
-                    
-                    if (user.Equals("Usuario"))
-                    {
-                        TelaPrincipal telaPrincipal = new TelaPrincipal();
-                        telaPrincipal.menuItemFuncionario.IsEnabled = false;
-                        telaPrincipal.menuItemPagarContas.IsEnabled = false;
-                        telaPrincipal.menuItemReceberContas.IsEnabled = false;
-                        telaPrincipal.menuVenda.IsEnabled = false;
-
-                        MessageBox.Show("Welcome !");
-
-                        telaPrincipal.Show();
-                        
-                    }
-                    else if(user.Equals("Administrador"))
-                    {
-
-                        MessageBox.Show("Welcome !");
-
-                        TelaPrincipal telaPrincipal = new TelaPrincipal();
-                        telaPrincipal.Show();
-                        telaLogin.Close();
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Usuario/Senha incorretos!");
-                }
-                
-            }
-            catch (Exception erro)
-            {
-                throw erro;
-            }
-           
-        }
+        
     }
 
 }

@@ -39,8 +39,7 @@
             </MenuItem>
 
             <MenuItem x:Name="menuItemOpcoes" Header="Opções" FontWeight="Bold" FontSize="14" Foreground="#FF6E460F">
-                <MenuItem x:Name="menuItemSobre" Header="Sobre" Background="#FFF5CF00"/>
-                <MenuItem x:Name="menuItemSair" Header="Sair" Click="MenuItemSair_Click" Background="#FFF5CF00"/>
+               <MenuItem x:Name="menuItemSair" Header="Sair" Click="MenuItemSair_Click" Background="#FFF5CF00"/>
             </MenuItem>
         </Menu>
     </Grid>

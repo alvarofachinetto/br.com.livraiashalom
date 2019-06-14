@@ -14,19 +14,6 @@ namespace br.com.livrariashalom.BLL
     {
         private LoginFuncionarioDAO loginFuncionarioDAO = new LoginFuncionarioDAO();
 
-        public void Logar(LoginFuncionario login)
-        {
-            try
-            {
-                loginFuncionarioDAO.Logar(login);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Erro: " + error);
-            }
-            
-        }
-
         public void SalvarFuncionario(LoginFuncionario login)
         {
             try

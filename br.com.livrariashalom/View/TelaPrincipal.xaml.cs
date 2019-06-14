@@ -93,7 +93,7 @@ namespace br.com.livrariashalom.View
         //tela fluxo de caixa
         private void MenuItemFluxo_Click(object sender, RoutedEventArgs e)
         {
-            TelaFuxoCaixa telaFuxoCaixa = new TelaFuxoCaixa();
+            TelaFluxoCaixa telaFuxoCaixa = new TelaFluxoCaixa();
             telaFuxoCaixa.Topmost = true;
             telaFuxoCaixa.ShowDialog();
 
