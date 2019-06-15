@@ -76,6 +76,51 @@ namespace br.com.livrariashalom.DAO
         }
 
 
+        //pesquisar livro
+        public void PesquisarLivro(Livro livro)
+        {
+            try
+            {
+
+                Conectar();
+                
+                command = new MySqlCommand("select titulo, autor, editora, fase, quantidade, categoriaLivro, valorUnit, qtdAlerta, Fornecedor_codFornecedor, descricao from livro where codLivro = @codLivro", conexao);
+                command.Parameters.AddWithValue("@codLivro", livro.CodLivro);
+
+                MySqlDataReader dr = command.ExecuteReader();
+
+                if(dr.HasRows != true)
+                {
+                    MessageBox.Show("Produto não existe no estoque");
+                }
+                else { 
+                
+                    dr.Read();
+
+                    TelaLivro telaLivro = new TelaLivro();
+                    
+                    telaLivro.txtTitulo.Text = Convert.ToString(dr["titulo"]);
+                    telaLivro.txtAutor.Text = Convert.ToString(dr["autor"]);
+                    telaLivro.txtEditora.Text = Convert.ToString(dr["editora"]);
+                    telaLivro.cmbFase.Text = Convert.ToString(dr["fase"]);
+                    telaLivro.txtQtd.Text = Convert.ToString(dr["quantidade"]);
+                    telaLivro.txtCategoria.Text = Convert.ToString(dr["categoriaLivro"]);//mudar
+                    telaLivro.txtValor.Text = Convert.ToString(dr["valorUnit"]);
+                    telaLivro.txtAlerta.Text = Convert.ToString(dr["qtdAlerta"]);
+                    telaLivro.txtFornecedorLivro.Text = Convert.ToString(dr["Fornecedor_codFornecedor"]);
+                    telaLivro.txtDescricao.Text = Convert.ToString(dr["descricao"]);
+                }
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
         //metodo editar
         public void EditarLivro(Livro livro)
         {

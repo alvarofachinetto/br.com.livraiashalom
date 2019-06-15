@@ -59,5 +59,6 @@
         <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="606,223,0,0" VerticalAlignment="Top" Width="82" Height="33" Click="btnLimpar_Click" Background="#FF2167A9" Foreground="White"/>
         <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="695,183,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="btnAtualizar_Click" Background="#FF2167A9" Foreground="White"/>
 
+
     </Grid>
 </Window>

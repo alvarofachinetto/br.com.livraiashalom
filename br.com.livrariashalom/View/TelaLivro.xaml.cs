@@ -57,13 +57,13 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" ||  txtCategoria.Text == "" || txtValor.Text == "" ||  txtFornecedorLivro.Text == "")
+                if (txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtCategoria.Text == "" || txtValor.Text == "" || txtFornecedorLivro.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
                 else
                 {
-                    
+
                     livro.Titulo = txtTitulo.Text;
                     livro.Autor = txtAutor.Text;
                     livro.Editora = txtTitulo.Text;
@@ -98,7 +98,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtCodLivro.Text == "" || txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtCategoria.Text == "" || txtValor.Text == ""  || txtFornecedorLivro.Text == "")
+                if (txtCodLivro.Text == "" || txtTitulo.Text == "" || txtAutor.Text == "" || txtEditora.Text == "" || cmbFase.Text == "" || txtCategoria.Text == "" || txtValor.Text == "" || txtFornecedorLivro.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -182,7 +182,7 @@ namespace br.com.livrariashalom.View
                 while (dr.Read())
                 {
                     string razao = dr["nome_razao"].ToString();
-                    cmbFornecedor.Items.Add(razao);            
+                    cmbFornecedor.Items.Add(razao);
                 }
 
                 dr.Close();
@@ -244,7 +244,8 @@ namespace br.com.livrariashalom.View
             try
             {
                 dgLivro.ItemsSource = livroBLL.ListarLivro().DefaultView;
-            }catch(Exception erro)
+            }
+            catch (Exception erro)
             {
                 throw erro;
             }
@@ -334,5 +335,6 @@ namespace br.com.livrariashalom.View
             Livro livro = new Livro();
             EditarLivro(livro);
         }
+
     }
 }

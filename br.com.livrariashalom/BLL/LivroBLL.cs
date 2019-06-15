@@ -45,6 +45,7 @@ namespace br.com.livrariashalom.BLL
         }
 
         //pesquiar os livros
+
         //public void PesquisarLivro(int codLivro)
         //{
         //    try
@@ -57,6 +58,18 @@ namespace br.com.livrariashalom.BLL
 
         //    }
         //}
+        public void PesquisarLivro(Livro livro)
+        {
+            try
+            {
+                livroDAO.PesquisarLivro(livro);
+            }
+            catch (Exception error)
+            {
+                throw error;
+
+            }
+        }
 
         public void EditarLivro(Livro livro)
         {
@@ -68,6 +81,7 @@ namespace br.com.livrariashalom.BLL
             {
                 MessageBox.Show("Erro: " + error);
             }
+
         }
 
         public void ExcluirLivro(long codLivro)
