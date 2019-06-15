@@ -258,5 +258,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\principal_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Login.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

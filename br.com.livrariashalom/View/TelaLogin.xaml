@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaLogin" Height="330" Width="600" Background="#FF012345">
-    <Grid Margin="0,0,0,1">
+        Title="TelaLogin" Height="388.5" Width="663" Background="#FF012345">
+    <Grid Margin="0,0,0,1" HorizontalAlignment="Left" Width="653">
+        <Grid.Background>
+            <ImageBrush ImageSource="Login.png"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="263*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="User" HorizontalAlignment="Left" Margin="82,103,0,0" VerticalAlignment="Top" Height="32" Width="84" Background="#FF012345" FontSize="18" FontWeight="Bold" Grid.Column="1" Foreground="White"/>
-        <TextBox x:Name="txtFuncionario" HorizontalAlignment="Left" Height="23" Margin="229,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Grid.Column="1"/>
-        <Label Content="Password" Grid.Column="1" HorizontalAlignment="Left" Margin="82,156,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="White"/>
-        <Label Content="Welcome" Grid.Column="1" HorizontalAlignment="Left" Margin="201,20,0,0" VerticalAlignment="Top" Width="177" Height="47" FontFamily="Verdana" FontSize="32" FontWeight="Bold" Foreground="White"/>
-        <Button x:Name="btnLogar" Content="Login" Grid.Column="1" HorizontalAlignment="Left" Margin="375,241,0,0" VerticalAlignment="Top" Width="85" Height="37" Background="#FF2167A9" Foreground="White" BorderBrush="White" FontSize="18" FontWeight="Bold" Click="BtnLogar_Click"/>
-        <PasswordBox x:Name="pswSenha" Grid.Column="1" HorizontalAlignment="Left" Margin="229,167,0,0" VerticalAlignment="Top" Width="231" Height="21"/>
+        <Rectangle Grid.Column="1" Fill="#FF012345" HorizontalAlignment="Left" Height="150.334" Margin="338.86,107,0,0" Stroke="#FF012345" VerticalAlignment="Top" Width="279.667"/>
+        <Label Content="Usuário" HorizontalAlignment="Left" Margin="349.667,132.91,0,0" VerticalAlignment="Top" Height="32" Width="84" FontSize="18" FontWeight="Bold" Grid.Column="1" Foreground="White" FontFamily="Arial"/>
+        <TextBox x:Name="txtFuncionario" HorizontalAlignment="Left" Height="23" Margin="428.167,135.91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160.5" Grid.Column="1"/>
+        <Label Content="Senha" Grid.Column="1" HorizontalAlignment="Left" Margin="364.147,179.045,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="White" FontFamily="Arial"/>
+        <Label Content="Bem-Vindo" Grid.Column="1" HorizontalAlignment="Left" Margin="248.076,43.576,0,0" VerticalAlignment="Top" Width="134.699" Height="34" FontFamily="Arial" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="btnLogar" Content="Login" Grid.Column="1" HorizontalAlignment="Left" Margin="447.441,220.806,0,0" VerticalAlignment="Top" Width="75" Height="25" Background="#FF2167A9" Foreground="White" BorderBrush="#FF2167A9" FontSize="18" FontWeight="Bold" Click="BtnLogar_Click" FontFamily="Arial"/>
+        <PasswordBox x:Name="pswSenha" Grid.Column="1" HorizontalAlignment="Left" Margin="428.167,181.636,0,0" VerticalAlignment="Top" Width="160.5" Height="21"/>
 
     </Grid>
 </Window>

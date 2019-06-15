@@ -10,6 +10,10 @@
         Title="TelaPrincipal" Height="590" Width="905" Background="#FF012345">
     <Grid x:Name="gridPrincipal" Margin="0,0,2,-3">
 
+        <Grid.Background>
+            <ImageBrush ImageSource="principal_1.png"/>
+        </Grid.Background>
+
         <Menu x:Name="menuTelaPrincipal" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="895" UsesItemContainerTemplate="True" Background="#FFF5CF00">
             <ContentControl></ContentControl>
             <MenuItem x:Name="menuItemCadastros" Header="Cadastros" Height="23" FontWeight="Bold" FontSize="14" Click="MenuItemCadastros_Click" Width="76" Foreground="#FF6E460F">
