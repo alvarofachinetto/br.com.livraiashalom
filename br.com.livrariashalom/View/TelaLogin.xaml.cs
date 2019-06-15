@@ -57,6 +57,10 @@ namespace br.com.livrariashalom.View
                         telaPrincipal.menuItemFuncionario.IsEnabled = false;
                         telaPrincipal.menuItemPagarContas.IsEnabled = false;
                         telaPrincipal.menuItemReceberContas.IsEnabled = false;
+                        telaPrincipal.menuItemFluxo.IsEnabled = false;
+                        telaPrincipal.menuItemTodasEntradas.IsEnabled = false;
+                        telaPrincipal.menuItemTodasSaidas.IsEnabled = false;
+
                         telaPrincipal.menuVenda.IsEnabled = false;
 
                         MessageBox.Show("Welcome !");
