@@ -40,15 +40,17 @@ namespace br.com.livrariashalom.View
             try
             {
                 conexao.Conectar();
-                
-                command = new MySqlCommand("select sum(r.valor) from receberconta r where data  = @data",conexao.conexao);
-                command.Parameters.AddWithValue("@data", lblDia.Content);
 
+                
+                
+                command = new MySqlCommand("select sum(valor) from receberconta where data = curdate()", conexao.conexao);
+                
                 MySqlDataReader dr = command.ExecuteReader();
 
-                if (dr.Read())
+                dr.Read();
+                if (dr.HasRows)
                 {
-                    txtTotalReceber.Text = dr["sum(r.valor)"].ToString(); 
+                    txtRecebimentoDia.Text = dr["sum(valor)"].ToString(); 
                 }
                 dr.Close();
             }
@@ -68,14 +70,12 @@ namespace br.com.livrariashalom.View
             {
                 conexao.Conectar();
 
-                command = new MySqlCommand("select  sum(p.valor) from pagarconta p where data  = @data", conexao.conexao);
-                command.Parameters.AddWithValue("@data", lblDia.Content);
-
+                command = new MySqlCommand("select sum(valor) from pagarconta where data = curdate()", conexao.conexao);
                 MySqlDataReader dr = command.ExecuteReader();
-
-                if (dr.Read())
+                dr.Read();
+                if (dr.HasRows)
                 {
-                    txtTotalPagar.Text = dr["sum(p.valor)"].ToString();
+                    txtPagamentoDia.Text = dr["descricao"].ToString();
                 }
                 dr.Close();
             }
@@ -103,8 +103,8 @@ namespace br.com.livrariashalom.View
                 {
                     fluxoCaixa.Dia = DateTime.Now;
                     fluxoCaixa.Observacoes = txtObservaoes.Text;
-                    fluxoCaixa.ValorEntrada = Convert.ToDouble(txtTotalReceber.Text);
-                    fluxoCaixa.ValorSaida = Convert.ToDouble(txtTotalPagar.Text);
+                    fluxoCaixa.ValorEntrada = Convert.ToDouble(txtRecebimentoDia.Text);
+                    fluxoCaixa.ValorSaida = Convert.ToDouble(txtPagamentoDia.Text);
                     fluxoCaixa.ValorPrevisto = Convert.ToDouble(txtPrevisto.Text);
                     fluxoCaixa.Saldo = Convert.ToInt32(txtSaldo.Text);
 
@@ -142,8 +142,8 @@ namespace br.com.livrariashalom.View
 
         private void txtTotalPagar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            double totalEntrada = int.Parse(txtTotalReceber.Text);
-            double totalSaida = int.Parse(txtTotalPagar.Text);
+            double totalEntrada = int.Parse(txtRecebimentoDia.Text);
+            double totalSaida = int.Parse(txtPagamentoDia.Text);
             double saldo = totalEntrada - totalEntrada;
 
             txtSaldo.Text = String.Format("{0:C}", saldo);

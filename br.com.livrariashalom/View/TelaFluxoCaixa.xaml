@@ -12,7 +12,7 @@
             <RowDefinition Height="86*"/>
         </Grid.RowDefinitions>
         <Label Content="Código" HorizontalAlignment="Right" Margin="0,12,540,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
-        <Label x:Name="lblDia" Content="Dia" HorizontalAlignment="Right" Margin="0,10,712,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="70"/>
+        <Label x:Name="lblDia" Content="Dia" HorizontalAlignment="Right" Margin="0,10,688,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="94"/>
         <Label Content="Valor Previsto" HorizontalAlignment="Right" Margin="0,140,679,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <Label Content="Saldo" HorizontalAlignment="Right" Margin="0,168,726,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <Label x:Name="lblPagarConta" Content="Pagar Conta" HorizontalAlignment="Left" Margin="25,94,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
@@ -24,8 +24,8 @@
         <Button x:Name="btnSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="591,154,0,0" VerticalAlignment="Top" Width="90" Height="40" Click="btnSalvar_Click" Background="#FF2167A9" Foreground="White"/>
         <TextBox x:Name="txtPrevisto" HorizontalAlignment="Right" Height="23" Margin="0,143,555,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid x:Name="dgFluxoCaixa" HorizontalAlignment="Right" Height="158" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="772" Grid.RowSpan="2" SelectionChanged="dgFluxoCaixa_SelectionChanged"/>
-        <TextBox x:Name="txtTotalReceber" HorizontalAlignment="Right" Height="23" Margin="0,66,550,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="txtTotalPagar" HorizontalAlignment="Right" Height="23" Margin="0,94,550,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True" TextChanged="txtTotalPagar_TextChanged"/>
+        <TextBox x:Name="txtRecebimentoDia" HorizontalAlignment="Left" Height="23" Margin="117,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="txtPagamentoDia" HorizontalAlignment="Left" Height="23" Margin="117,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
 
     </Grid>
 </Window>

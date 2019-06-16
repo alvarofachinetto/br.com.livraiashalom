@@ -27,8 +27,8 @@ namespace br.com.livrariashalom.View
         public TelaReceberConta()
         {
             InitializeComponent();
-            
-            lblData.Content = DateTime.Today;
+
+            lblData.Content = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private bool SalvarReceberConta(ReceberConta receberConta)

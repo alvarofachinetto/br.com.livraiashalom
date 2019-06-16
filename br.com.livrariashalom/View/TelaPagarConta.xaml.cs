@@ -32,7 +32,7 @@ namespace br.com.livrariashalom.View
         {
             InitializeComponent();
             ListarContaPagar();
-            lblData.Content = DateTime.Today;
+            lblData.Content = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         //limpa os valores após uma ação
