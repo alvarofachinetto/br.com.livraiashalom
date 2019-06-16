@@ -27,7 +27,7 @@ namespace br.com.livrariashalom.View
         public TelaReceberConta()
         {
             InitializeComponent();
-
+            ListarContaReceber();
             lblData.Content = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
@@ -127,9 +127,21 @@ namespace br.com.livrariashalom.View
 
         }
 
-       
+        //listar
+        private void ListarContaReceber()
+        {
+            try
+            {
+                dgReceberConta.ItemsSource = receberContaBLL.ListarReceberConta().DefaultView;//obtém todos os dados
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
 
-        
+        }
+
+
         private void BtnSalvarContaPagar_Click(object sender, RoutedEventArgs e)
         {
             ReceberConta receberConta = new ReceberConta();
@@ -151,6 +163,22 @@ namespace br.com.livrariashalom.View
         private void txtDescricao_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void DgReceberConta_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+
+                var rowView = dgReceberConta.SelectedItems[0] as DataRowView;
+                txtCodigoReceberConta.Text = rowView["codReceberConta"].ToString();
+                txtDescricao.Text = rowView["descricao"].ToString();
+                txtValor.Text = rowView["valor"].ToString();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
         }
     }
 }

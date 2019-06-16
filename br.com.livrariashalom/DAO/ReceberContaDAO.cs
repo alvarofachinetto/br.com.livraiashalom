@@ -48,7 +48,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from receberconta ",conexao);
+                command = new MySqlCommand("select * from receberconta where data = curdate()", conexao);
                 dataAdapter.SelectCommand = command;
 
                 dataAdapter.Fill(dt);

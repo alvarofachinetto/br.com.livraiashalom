@@ -45,7 +45,7 @@ namespace br.com.livrariashalom.DAO
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
-                command = new MySqlCommand("select * from pagarconta order by data",conexao);
+                command = new MySqlCommand("select * from pagarconta where data = curdate()", conexao);
                 dataAdapter.SelectCommand = command;
 
                 dataAdapter.Fill(dt);

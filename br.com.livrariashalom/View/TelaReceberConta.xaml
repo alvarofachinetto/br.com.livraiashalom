@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaReceberConta" Height="257" Width="749" Background="#FF012345">
+        Title="TelaReceberConta" Height="385.889" Width="749" Background="#FF012345">
     <Grid>
         <Label Content="Código" HorizontalAlignment="Left" Margin="66,62,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
         <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="26,20,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Width="104"/>
@@ -17,6 +17,7 @@
         <Button x:Name="btnSalvarContaReceber" Content="Salvar" HorizontalAlignment="Left" Margin="295,135,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="BtnSalvarContaPagar_Click" Background="#FF2167A9" Foreground="White"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="183,135,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="btnEditar_Click" Background="#FF2167A9" Foreground="White"/>
         <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="73,135,0,0" VerticalAlignment="Top" Width="93" Height="31" Click="btnExcluir_Click" Background="#FF2167A9" Foreground="White"/>
+        <DataGrid x:Name="dgReceberConta" HorizontalAlignment="Left" Height="143" Margin="39,191,0,0" VerticalAlignment="Top" Width="671" MouseDoubleClick="DgReceberConta_MouseDoubleClick"/>
 
     </Grid>
 </Window>
