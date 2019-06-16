@@ -35,7 +35,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                dgHistoricoPagarConta.ItemsSource = contaBLL.ListarContaPagar().DefaultView;
+                dgHistoricoPagarConta.ItemsSource = contaBLL.ListarHistoricoPagarConta().DefaultView;
             }catch(Exception erro)
             {
                 throw erro;

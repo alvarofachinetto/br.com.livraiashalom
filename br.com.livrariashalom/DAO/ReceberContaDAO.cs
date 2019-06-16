@@ -113,6 +113,33 @@ namespace br.com.livrariashalom.DAO
             }
         }
 
+        //listar o hitorico
+        public DataTable ListarHistoricoContaReceber()
+        {
+            try
+            {
+                Conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+
+                command = new MySqlCommand("select * from receberconta", conexao);
+                dataAdapter.SelectCommand = command;
+
+                dataAdapter.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
+
         public DataTable PesquisarContaReceber(DateTime data)
         {
             try

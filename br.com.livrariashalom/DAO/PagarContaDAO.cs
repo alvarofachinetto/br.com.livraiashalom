@@ -133,5 +133,31 @@ namespace br.com.livrariashalom.DAO
                 Desconectar();
             }
         }
+        //listar o hitorico
+        public DataTable ListarHistoricoContaPagar()
+        {
+            try
+            {
+                Conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+
+                command = new MySqlCommand("select * from pagarconta", conexao);
+                dataAdapter.SelectCommand = command;
+
+                dataAdapter.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            finally
+            {
+                Desconectar();
+            }
+        }
     }
 }

@@ -72,6 +72,23 @@ namespace br.com.livrariashalom.BLL
 
         }
 
+        public DataTable ListarHistoricoReceberConta()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt = receberContaDAO.ListarHistoricoContaReceber();
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
+        }
+
         public DataTable PesquisarContaReceber(DateTime data)
         {
             try

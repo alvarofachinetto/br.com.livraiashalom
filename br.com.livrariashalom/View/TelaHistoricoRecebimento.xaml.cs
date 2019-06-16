@@ -32,7 +32,7 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                dgHistoricoPagarConta.ItemsSource = receberContaBLL.ListarReceberConta().DefaultView;
+                dgHistoricoPagarConta.ItemsSource = receberContaBLL.ListarHistoricoReceberConta().DefaultView;
             }
             catch (Exception erro)
             {
