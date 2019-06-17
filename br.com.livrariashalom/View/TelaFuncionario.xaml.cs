@@ -82,6 +82,8 @@ namespace br.com.livrariashalom.View
                         funcionarioBLL.SalvarFuncionario(loginFuncionario);
 
                         MessageBox.Show("Cadastro feito com sucesso");
+                        Limpar();
+                        ListarFuncionario();
                         return true;
                     }
                     
