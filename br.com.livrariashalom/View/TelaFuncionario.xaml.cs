@@ -33,6 +33,7 @@ namespace br.com.livrariashalom.View
         //limpa os valores após uma ação
         private void Limpar()
         {
+            txtCodFuncionario.Clear();
             txtFuncionario.Clear();
             pswSenha.Clear();
             pswConfSenha.Clear();
@@ -47,13 +48,15 @@ namespace br.com.livrariashalom.View
             {
                 MessageBox.Show("Senhas não são iguais");
                 pswSenha.Focus();
+                return false;
             }
             else if (pswSenha.Password.Length > 15)//caso ela tenha mais de 15 caracteres
             {
                 MessageBox.Show("Não é permitido senhas acima de 15 caracteres");
+                return false;
             }
 
-            return false;
+            return true;
         }
         //salvar
         public bool SalvarFuncionario(LoginFuncionario loginFuncionario)
@@ -121,7 +124,7 @@ namespace br.com.livrariashalom.View
                     {
                         funcionarioBLL.EditarFuncionario(loginFuncionario);
 
-                        MessageBox.Show("Edição feito com sucesso");
+                        MessageBox.Show("Edição feita com sucesso");
                         Limpar();
                         ListarFuncionario();
                         return true;
@@ -161,8 +164,9 @@ namespace br.com.livrariashalom.View
                     {
                         funcionarioBLL.ExcluirFuncionario(loginFuncionario);
 
-                        MessageBox.Show("Cadastro feito com sucesso");
+                        MessageBox.Show("Exclusão feita com sucesso");
                         Limpar();
+                        ListarFuncionario();
                         return true;
                     }
 
