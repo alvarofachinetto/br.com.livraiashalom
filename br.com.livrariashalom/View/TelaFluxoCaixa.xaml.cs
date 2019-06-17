@@ -34,6 +34,7 @@ namespace br.com.livrariashalom.View
             SomaEntrada();
             SomaSaida();
             CalcularSaldo();
+            ListarFluxo();
         }
 
         public void Limpar()
@@ -129,7 +130,7 @@ namespace br.com.livrariashalom.View
 
                     MessageBox.Show("Dia feito com sucesso");
                     Limpar();
-
+                    ListarFluxo();
                     return true;
                 }
 
@@ -142,6 +143,18 @@ namespace br.com.livrariashalom.View
 
         }
 
+        public void ListarFluxo()
+        {
+            try
+            {
+                dgFluxoCaixa.ItemsSource = fluxoCaixaBLL.ListarFluxo().DefaultView;
+            }
+            catch (Exception erro)
+            {
+
+                throw erro;
+            }
+        }
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
             FluxoCaixa fluxoCaixa = new FluxoCaixa();

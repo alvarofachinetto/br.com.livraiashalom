@@ -2,6 +2,7 @@
 using br.com.livrariashalom.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,15 +26,17 @@ namespace br.com.livrariashalom.BLL
             }
         }
 
-        public void EditarFluxo(FluxoCaixa fluxoCaixa)
+        public DataTable ListarFluxo()
         {
             try
             {
-                //fluxoCaixaDAO.ed(fluxoCaixa);
+                DataTable dt = new DataTable();
+                dt = fluxoCaixaDAO.ListarFluxoCaixa();
+                return dt;
             }
             catch (Exception error)
             {
-                MessageBox.Show("Erro: " + error);
+                throw error;
             }
         }
 
