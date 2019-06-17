@@ -30,9 +30,20 @@ namespace br.com.livrariashalom.View
         public TelaFluxoCaixa()
         {
             InitializeComponent();
-            lblDia.Content = DateTime.Today;
+            lblDia.Content = DateTime.Today.ToString("dd/MM/yyyy");
             SomaEntrada();
             SomaSaida();
+            CalcularSaldo();
+        }
+
+        public void Limpar()
+        {
+            txtCodigo.Clear();
+            txtObservaoes.Clear();
+            txtPagamentoDia.Clear();
+            txtPrevisto.Clear();
+            txtRecebimentoDia.Clear();
+            txtSaldo.Clear();
         }
 
         public void SomaEntrada()
@@ -40,9 +51,6 @@ namespace br.com.livrariashalom.View
             try
             {
                 conexao.Conectar();
-
-                
-                
                 command = new MySqlCommand("select sum(valor) from receberconta where data = curdate()", conexao.conexao);
                 
                 MySqlDataReader dr = command.ExecuteReader();
@@ -75,7 +83,7 @@ namespace br.com.livrariashalom.View
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    txtPagamentoDia.Text = dr["descricao"].ToString();
+                    txtPagamentoDia.Text = dr["sum(valor)"].ToString();
                 }
                 dr.Close();
             }
@@ -87,6 +95,15 @@ namespace br.com.livrariashalom.View
             {
                 conexao.Desconectar();
             }
+        }
+
+        public void CalcularSaldo()
+        {
+            double totalEntrada = Convert.ToDouble(txtRecebimentoDia.Text);
+            double totalSaida = Convert.ToDouble(txtPagamentoDia.Text);
+            double saldo = totalEntrada - totalSaida;
+
+            txtSaldo.Text = Convert.ToString(saldo);
         }
 
         private bool SalvarFluxo(FluxoCaixa fluxoCaixa)
@@ -106,12 +123,12 @@ namespace br.com.livrariashalom.View
                     fluxoCaixa.ValorEntrada = Convert.ToDouble(txtRecebimentoDia.Text);
                     fluxoCaixa.ValorSaida = Convert.ToDouble(txtPagamentoDia.Text);
                     fluxoCaixa.ValorPrevisto = Convert.ToDouble(txtPrevisto.Text);
-                    fluxoCaixa.Saldo = Convert.ToInt32(txtSaldo.Text);
+                    fluxoCaixa.Saldo = Convert.ToDouble(txtSaldo.Text);
 
                     fluxoCaixaBLL.SalvarFluxo(fluxoCaixa);
 
-                    MessageBox.Show("Cadastro feito com sucesso");
-
+                    MessageBox.Show("Dia feito com sucesso");
+                    Limpar();
 
                     return true;
                 }
@@ -142,11 +159,7 @@ namespace br.com.livrariashalom.View
 
         private void txtTotalPagar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            double totalEntrada = int.Parse(txtRecebimentoDia.Text);
-            double totalSaida = int.Parse(txtPagamentoDia.Text);
-            double saldo = totalEntrada - totalEntrada;
-
-            txtSaldo.Text = String.Format("{0:C}", saldo);
+            
 
         }
     }

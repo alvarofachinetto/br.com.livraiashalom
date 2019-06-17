@@ -31,6 +31,13 @@ namespace br.com.livrariashalom.View
             lblData.Content = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
+        public void Limpar()
+        {
+            txtCodigoReceberConta.Clear();
+            txtDescricao.Clear();
+            txtValor.Clear();
+        }
+
         private bool SalvarReceberConta(ReceberConta receberConta)
         {
 
@@ -50,7 +57,8 @@ namespace br.com.livrariashalom.View
                     receberContaBLL.SalvarReceberConta(receberConta);
 
                     MessageBox.Show("Cadastro feito com sucesso");
-                    
+                    ListarContaReceber();
+                    Limpar();
                     return true;
                 }
 
@@ -84,7 +92,8 @@ namespace br.com.livrariashalom.View
                     receberContaBLL.EditarReceberConta(receberConta);
 
                     MessageBox.Show("Edição feita com sucesso");
-
+                    ListarContaReceber();
+                    Limpar();
                     return true;
                 }
 
@@ -113,8 +122,8 @@ namespace br.com.livrariashalom.View
                     receberContaBLL.ExcluirReceberConta(codReceberConta);
 
                     MessageBox.Show("Exclusão feita com sucesso");
-
-                    
+                    ListarContaReceber();
+                    Limpar();
                     return true;
                 }
 

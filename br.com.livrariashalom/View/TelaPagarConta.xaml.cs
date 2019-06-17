@@ -64,7 +64,7 @@ namespace br.com.livrariashalom.View
                     MessageBox.Show("Cadastro feito com sucesso");
                     
                     ListarContaPagar();
-                   
+                    Limpar();
                     return true;
                 }
 
