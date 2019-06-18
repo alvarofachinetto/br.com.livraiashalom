@@ -32,7 +32,7 @@ namespace br.com.livrariashalom.View
         public TelaVendas()
         {
             InitializeComponent();
-            // BuscarCodVenda();
+            
 
         }
 
@@ -45,20 +45,6 @@ namespace br.com.livrariashalom.View
             txtQtd.Clear();
 
         }
-
-        //public void GerarColunas()
-        //{
-        //    dgItem.Columns.Count.Equals()
-
-        //    dgItem.Columns[0].Header = "CodItem";
-        //    dgItem.Columns[1].Header = "preco";
-        //    dgItem.Columns[2].Header = "quantidade";
-        //    dgItem.Columns[3].Header = "subTotal";
-        //    dgItem.Columns[4].Header = "Venda";
-        //}
-
-
-
 
         //recebe os valores para salvar
         private bool SalvarVenda(Venda venda)
@@ -137,15 +123,6 @@ namespace br.com.livrariashalom.View
             }
             else
             {
-                //var items = new []
-                //{
-                //    new{Item = codItem, Preco = preco, Qunatidade = qtd, SubTotal = subTotal, Info = info}
-                //};
-
-
-                //dgItem.ItemsSource = items;
-                //dgItem.Items.Add(codItem, qtd);
-                //dgItem.Items.Add(new ItemVenda { CodItemVenda = codItem, Preco = preco, Quantidade = qtd, SubTotal = subTotal, Info = info });
                 Total += subTotal;
 
                 txtTotal.Text = Convert.ToString(Total);
@@ -154,40 +131,53 @@ namespace br.com.livrariashalom.View
 
         }
 
-        //coloca os valores buscados na textbox
-        public void BuscarEstoque()
+        public void ListarLivro()
         {
             try
             {
                 conexao.Conectar();
 
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                command = new MySqlCommand("select titulo from livro", conexao.conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    string titulo = dr["titulo"].ToString();
+                    cmbLivro.Items.Add(titulo);
+                }
 
-                command = new MySqlCommand("select e.* , l.preco from estoque e inner join livro l", conexao.conexao);
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+
+        }
+
+        //coloca os valores buscados na textbox
+        public void BuscarPorInfos()
+        {
+            try
+            {
+                string titulo = (string)cmbLivro.SelectedValue;
+                //coloca o cod na textbox
+                command = new MySqlCommand("select codLivro, qtd, valor from livro where titulo = @titulo", conexao.conexao);
+                command.Parameters.AddWithValue("@titulo", titulo);
 
 
                 MySqlDataReader dr = command.ExecuteReader();
-
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    txtPreco.Text = dr["preco"].ToString();
+                    txtCodLivro.Text = dr["codLivro"].ToString();
                     txtQtdEstoque.Text = dr["qtd"].ToString();
-                    txtQtd.Focus();
+                    txtPreco.Text = dr["valor"].ToString();
                 }
-                else
-                {
-                    MessageBox.Show("Livro não cadastrado");
-                }
-
+                dr.Close();
             }
-            catch (Exception error)
+            catch (Exception erro)
             {
-                throw error;
-            }
-            finally
-            {
-                conexao.Desconectar();
+                throw erro;
             }
         }
 
@@ -337,14 +327,7 @@ namespace br.com.livrariashalom.View
             tabVenda.SelectedIndex = 1;
         }
 
-        //private void txtCodLivro_Copy_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    LivroDAO livroDAO = new LivroDAO();
-
-        //    livroDAO.BuscaLivro();
-        //    this.Close();
-
-    //}
+      
 
         private void TxtPreco_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -382,15 +365,23 @@ namespace br.com.livrariashalom.View
 
         private void DgItem_KeyUp(object sender, KeyEventArgs e)
         {
-            //for(int i=0; i<dgItem.m)
-            //var rowView = dgItem.SelectedItems[0] as DataRowView;
-            //txtTotal.Text = rowView["valorUnit"].ToString();
+            
 
         }
 
         private void TxtCodLivro_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             BuscarEstoque();
+        }
+
+        private void DgItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
