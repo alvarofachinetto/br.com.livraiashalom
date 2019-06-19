@@ -27,13 +27,15 @@ namespace br.com.livrariashalom.View
         private VendaBLL vendaBLL;
         private Conexao conexao = new Conexao();
         private MySqlCommand command = null;
-        private double Total;
+       
 
         public TelaVendas()
         {
             InitializeComponent();
+            lblData.Content = DateTime.Now;
             ListarLivro();
-
+            ListarUsuario();
+            ListarCondPagamento();
         }
 
         private void Limpar()
@@ -87,11 +89,18 @@ namespace br.com.livrariashalom.View
         {
             int quantidade = Convert.ToInt32(txtQtd.Text);
             double preco = Convert.ToDouble(txtPreco.Text);
+            //caso esteja nulo
+            if (txtQtd.Text == "")
+            {
+                quantidade = 0;
+            }
             double saldo = preco * quantidade;
 
             txtSubTotal.Text = Convert.ToString(saldo);
-        }
+            
 
+        }
+        //busca todos os livros
         public void ListarLivro()
         {
             try
@@ -122,7 +131,7 @@ namespace br.com.livrariashalom.View
             {
                 string titulo = (string)cmbLivro.SelectedValue;
                 //coloca o cod na textbox
-                command = new MySqlCommand("select codLivro, qtd, valor from livro where titulo = @titulo", conexao.conexao);
+                command = new MySqlCommand("select codLivro, qtd, preco from livro where titulo = @titulo", conexao.conexao);
                 command.Parameters.AddWithValue("@titulo", titulo);
 
 
@@ -132,7 +141,101 @@ namespace br.com.livrariashalom.View
                 {
                     txtCodLivro.Text = dr["codLivro"].ToString();
                     txtQtdEstoque.Text = dr["qtd"].ToString();
-                    txtPreco.Text = dr["valor"].ToString();
+                    txtPreco.Text = dr["preco"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+        //busca todos os usuarios
+        public void ListarUsuario()
+        {
+            try
+            {
+                conexao.Conectar();
+
+                command = new MySqlCommand("select usuario from loginfuncionario", conexao.conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+                
+                while(dr.Read())
+                {
+                    string usuario = dr["usuario"].ToString();
+                    cmbVendedor.Items.Add(usuario);
+                }
+
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+        //busca pelo codigo do vendedor
+        public void BuscarCodVendedor()
+        {
+            try
+            {
+                string vendedor = (string)cmbVendedor.SelectedValue;
+                //coloca o cod na textbox
+                command = new MySqlCommand("select codUsuario from loginfuncionario where usuario = @usuario", conexao.conexao);
+                command.Parameters.AddWithValue("@usuario", vendedor);
+
+
+                MySqlDataReader dr = command.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    txtCodVendedor.Text = dr["codUsuario"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+        //busca pela condicao de pagamento
+        public void ListarCondPagamento()
+        {
+            try
+            {
+                conexao.Conectar();
+
+                command = new MySqlCommand("select condicao_pagamento from prazo", conexao.conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string usuario = dr["condicao_pagamento"].ToString();
+                    cmbPrazo.Items.Add(usuario);
+                }
+
+                dr.Close();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+        //busca pelo codigo do condicao de pagamento
+        public void BuscarCodCondPagamento()
+        {
+            try
+            {
+                string condPagamento = (string) cmbPrazo.SelectedValue;
+                //coloca o cod na textbox
+                command = new MySqlCommand("select codCondicao_pagamento from prazo where condicao_pagamento = @pagamento", conexao.conexao);
+                command.Parameters.AddWithValue("@pagamento", condPagamento);
+
+
+                MySqlDataReader dr = command.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    txtCodPrazo.Text = dr["codCondicao_pagamento"].ToString();
                 }
                 dr.Close();
             }
@@ -199,44 +302,6 @@ namespace br.com.livrariashalom.View
             }
         }
 
-
-
-        ////busca o código da venda
-        //public void BuscarCodVenda()
-        //{
-        //    try
-        //    {
-
-        //        conexao.Conectar();
-
-        //        MySqlCommand command = new MySqlCommand("select codVenda from venda where codVenda = last_insert_id(codVenda)", conexao.conexao);
-
-        //        MySqlDataReader dr = command.ExecuteReader();
-
-        //        String codVenda = "";
-        //        while (dr.Read())
-        //        {
-        //            codVenda = dr["codVenda"].ToString();
-        //        }
-
-        //        txtInfos.Text = codVenda;
-        //        dr.Close();
-
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        throw erro;
-        //    }
-        //}
-
-
-
-        //private void BtnPesquisarLivro_Click(object sender, RoutedEventArgs e)
-        //{
-        //    TelaEstoque telaEstoque = new TelaEstoque();
-        //    telaEstoque.Show();
-        //}
-
         private void TxtCodLivro_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -247,12 +312,6 @@ namespace br.com.livrariashalom.View
             
 
         }
-
-        private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
 
         private void CmbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -280,11 +339,6 @@ namespace br.com.livrariashalom.View
             }
         }
 
-        private void TxtPreco_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
         private void TxtQtd_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -304,30 +358,20 @@ namespace br.com.livrariashalom.View
             }
         }
 
-        private void TxtCodVenda_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void GridItem_Initialized(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void DgItem_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-
-        }
-
-        private void DgItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BuscarPorInfos();
+        }
+
+        private void CmbVendedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BuscarCodVendedor();
+        }
+
+        private void CmbPrazo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BuscarCodCondPagamento();
         }
     }
 }

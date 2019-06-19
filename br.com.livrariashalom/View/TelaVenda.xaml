@@ -5,65 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:br.com.livrariashalom.View"
         mc:Ignorable="d"
-        Title="TelaVendas" Height="643.449" Width="823.529" Background="Black">
-    <TabControl x:Name="tabVenda" HorizontalAlignment="Left" Height="611" VerticalAlignment="Top" Width="814" Background="Black">
-        <TabItem Header="Infos" Background="Black" Foreground="#FFEA0000">
-            <Grid Background="Black" Margin="0,0,0,-2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="295*"/>
-                    <RowDefinition Height="14*"/>
-                    <RowDefinition Height="132*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="41*"/>
-                    <ColumnDefinition Width="767*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Cliente" HorizontalAlignment="Left" Margin="19,47,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtCliente" HorizontalAlignment="Left" Height="23" Margin="99,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="1" Panel.ZIndex="1"/>
-                <Label Content="Telefone" HorizontalAlignment="Left" Margin="19,75,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="99,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="1"/>
-                <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <Label Content="Forma Pag." HorizontalAlignment="Left" Margin="463,48,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
-                <Label Content="Prazo" HorizontalAlignment="Left" Margin="463,76,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtCodPrazo" HorizontalAlignment="Left" Height="23" Margin="601,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Grid.Column="1"/>
-                <Label Content="Vendedor" HorizontalAlignment="Left" Margin="19,104,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtCodVendedor" HorizontalAlignment="Left" Height="23" Margin="99,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Grid.Column="1"/>
-                <Label Content="Obsevação" HorizontalAlignment="Left" Margin="19,146,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtObservacao" HorizontalAlignment="Left" Height="55" Margin="99,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="1"/>
-                <ComboBox x:Name="cmbFormaPag" HorizontalAlignment="Left" Margin="601,51,0,0" VerticalAlignment="Top" Width="138" Grid.Column="1" SelectionChanged="CmbFormaPag_SelectionChanged">
-                    <ComboBoxItem>Débito</ComboBoxItem>
-                    <ComboBoxItem>Crédito</ComboBoxItem>
-                    <ComboBoxItem>Dinheiro</ComboBoxItem>
-                </ComboBox>
-                <Label Content="Frete" HorizontalAlignment="Left" Margin="463,104,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtFrete" HorizontalAlignment="Left" Height="23" Margin="601,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Grid.Column="1"/>
-                <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="159,107,0,0" VerticalAlignment="Top" Width="120"/>
-                <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="637,80,0,0" VerticalAlignment="Top" Width="102"/>
-                <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="5,297,0,0" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" AutoGenerateColumns="False" KeyUp="DgItem_KeyUp" SelectionChanged="DgItem_SelectionChanged" Grid.RowSpan="3">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding codItem}" Width="90" Header="Item" Foreground="#FF8F7C7C"/>
-                        <DataGridTextColumn Binding="{Binding preco}" Width="90" Header="Preco"/>
-                        <DataGridTextColumn Binding="{Binding quantidade}" Header="Quantidade"/>
-                        <DataGridTextColumn Binding="{Binding subTotal}" Width="90" Header="SubTotal"/>
-                        <DataGridTextColumn Binding="{Binding venda}" Width="90" Header="Venda"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Content="Total" HorizontalAlignment="Left" Margin="5,90,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="27,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" TextChanged="TxtTotal_TextChanged" Grid.Column="1" Grid.Row="2"/>
-                <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="637,248,0,0" VerticalAlignment="Top" Width="116" Height="44" Click="BtnAdicionarItem_Click" Grid.Column="1"/>
-                <Label Content="Estoque" HorizontalAlignment="Left" Margin="202,253,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="23" Margin="263,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Grid.Column="1" Text="0" IsReadOnly="True"/>
-                <Label Content="Livro" HorizontalAlignment="Left" Margin="7,254,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <Label Content="Sub Total" HorizontalAlignment="Left" Margin="115,90,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
-                <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="203,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Grid.Column="1" Grid.Row="2"/>
-                <Label Content="Preço" HorizontalAlignment="Left" Margin="463,252,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtPreco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="522,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Text="0" TextChanged="TxtPreco_TextChanged" IsReadOnly="True"/>
-                <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="26" Margin="28,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" TextChanged="TxtCodLivro_TextChanged_1" Grid.Column="1"/>
-                <Label Content="Quantidade" HorizontalAlignment="Left" Margin="315,250,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Name="txtQtd" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="410,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Text="0" TextChanged="TxtQtd_TextChanged" RenderTransformOrigin="3.048,0.913"/>
-                <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="641,81,0,0" VerticalAlignment="Top" Width="116" Height="44" Grid.Column="1" Click="BtnFinalizar_Click" Grid.Row="2"/>
-                <ComboBox x:Name="cmbLivro" Grid.Column="1" HorizontalAlignment="Left" Margin="58,254,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.44,0.705" Height="26" SelectionChanged="ComboBox_SelectionChanged"/>
-            </Grid>
-        </TabItem>
-    </TabControl>
+        Title="TelaVendas" Height="617.199" Width="823.529" Background="Black">
+    <Grid Background="Black" Margin="0,0,2,1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="295*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="132*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="767*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Cliente" HorizontalAlignment="Left" Margin="19,47,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtCliente" HorizontalAlignment="Left" Height="23" Margin="99,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="1" Panel.ZIndex="1"/>
+        <Label Content="Telefone" HorizontalAlignment="Left" Margin="19,75,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtTelefone" HorizontalAlignment="Left" Height="23" Margin="99,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="1"/>
+        <Label x:Name="lblData" Content="Data" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="Forma Pag." HorizontalAlignment="Left" Margin="463,48,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Prazo" HorizontalAlignment="Left" Margin="463,76,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="txtCodPrazo" HorizontalAlignment="Left" Height="23" Margin="601,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Grid.Column="1" IsReadOnly="True"/>
+        <Label Content="Vendedor" HorizontalAlignment="Left" Margin="19,104,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtCodVendedor" HorizontalAlignment="Left" Height="23" Margin="99,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Grid.Column="1" IsReadOnly="True"/>
+        <Label Content="Obsevação" HorizontalAlignment="Left" Margin="19,146,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtObservacao" HorizontalAlignment="Left" Height="55" Margin="99,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="1"/>
+        <ComboBox x:Name="cmbFormaPag" HorizontalAlignment="Left" Margin="601,51,0,0" VerticalAlignment="Top" Width="138" Grid.Column="1" SelectionChanged="CmbFormaPag_SelectionChanged">
+            <ComboBoxItem Content="Débito"/>
+            <ComboBoxItem Content="Crédito"/>
+            <ComboBoxItem Content="Dinheiro"/>
+        </ComboBox>
+        <Label Content="Frete" HorizontalAlignment="Left" Margin="463,104,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="txtFrete" HorizontalAlignment="Left" Height="23" Margin="601,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Grid.Column="1"/>
+        <ComboBox x:Name="cmbVendedor" Grid.Column="1" HorizontalAlignment="Left" Margin="159,107,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CmbVendedor_SelectionChanged"/>
+        <ComboBox x:Name="cmbPrazo" Grid.Column="1" HorizontalAlignment="Left" Margin="637,80,0,0" VerticalAlignment="Top" Width="102" SelectionChanged="CmbPrazo_SelectionChanged"/>
+        <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="5,297,0,0" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" AutoGenerateColumns="False" Grid.RowSpan="3" IsReadOnly="True"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="5,90,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="27,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"  Grid.Column="1" Grid.Row="2"/>
+        <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="637,248,0,0" VerticalAlignment="Top" Width="116" Height="44" Click="BtnAdicionarItem_Click" Grid.Column="1"/>
+        <Label Content="Estoque" HorizontalAlignment="Left" Margin="202,253,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="23" Margin="263,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Grid.Column="1" Text="0" IsReadOnly="True"/>
+        <Label Content="Livro" HorizontalAlignment="Left" Margin="7,254,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="Sub Total" HorizontalAlignment="Left" Margin="115,90,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="txtSubTotal" HorizontalAlignment="Left" Height="23" Margin="203,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Grid.Column="1" Grid.Row="2" IsReadOnly="True"/>
+        <Label Content="Preço" HorizontalAlignment="Left" Margin="463,252,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="txtPreco" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="522,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Text="0" IsReadOnly="True"/>
+        <TextBox x:Name="txtCodLivro" HorizontalAlignment="Left" Height="26" Margin="28,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Grid.Column="1"/>
+        <Label Content="Quantidade" HorizontalAlignment="Left" Margin="315,250,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
+        <TextBox x:Name="txtQtd" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="410,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Text="0" TextChanged="TxtQtd_TextChanged" RenderTransformOrigin="3.048,0.913"/>
+        <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="641,81,0,0" VerticalAlignment="Top" Width="116" Height="44" Grid.Column="1" Click="BtnFinalizar_Click" Grid.Row="2"/>
+        <ComboBox x:Name="cmbLivro" Grid.Column="1" HorizontalAlignment="Left" Margin="58,254,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.44,0.705" Height="26" SelectionChanged="ComboBox_SelectionChanged"/>
+    </Grid>
 </Window>

@@ -24,9 +24,9 @@ namespace br.com.livrariashalom.DAO
             {
                 Conectar();
 
-                command = new MySqlCommand("insert into itemvenda (Estoque_codRegistro, quantidade, subTotal) value (@codRegistro, @quantidade, @subTotal)", conexao.conexao); //conexao está referente as infos do banco
+                command = new MySqlCommand("insert into itemvenda (Estoque_codRegistro, quantidade, subTotal) value (@codRegistro, @quantidade, @subTotal)", conexao); //conexao está referente as infos do banco
 
-                command.Parameters.AddWithValue("@codRegistro", itemVenda.Estoque.CodRegistro);
+                //command.Parameters.AddWithValue("@codRegistro", itemVenda.Estoque.CodRegistro);
                 command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
                 command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
 
