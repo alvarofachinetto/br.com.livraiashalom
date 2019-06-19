@@ -16,8 +16,27 @@ namespace br.com.livrariashalom.DAO
     public class ItemVendaDAO : Conexao
     {
         MySqlCommand command = null;
-        
-        
+
+        //salvar item
+        public void SalvarItemVenda(ItemVenda itemVenda)
+        {
+            try
+            {
+                Conectar();
+
+                command = new MySqlCommand("insert into itemvenda (Estoque_codRegistro, quantidade, subTotal) value (@codRegistro, @quantidade, @subTotal)", conexao.conexao); //conexao está referente as infos do banco
+
+                command.Parameters.AddWithValue("@codRegistro", itemVenda.Estoque.CodRegistro);
+                command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
+                command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
 
         //Metodo listar 
         public DataTable ListarItemVenda(ItemVenda itemVenda)

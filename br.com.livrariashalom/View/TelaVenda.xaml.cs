@@ -32,7 +32,7 @@ namespace br.com.livrariashalom.View
         public TelaVendas()
         {
             InitializeComponent();
-            
+            ListarLivro();
 
         }
 
@@ -53,7 +53,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtCliente.Text == "" || txtData.Text == "" || txtFrete.Text == "" || cmbFormaPag.Text == "" || txtCodPrazo.Text == "" || txtCodVendedor.Text == "")
+                if (txtCliente.Text == "" || txtFrete.Text == "" || cmbFormaPag.Text == "" || txtCodPrazo.Text == "" || txtCodVendedor.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -62,7 +62,7 @@ namespace br.com.livrariashalom.View
                     venda.NomeCliente = txtCliente.Text;
                     venda.Telefone = txtTelefone.Text;
                     venda.LoginFuncionario.CodFuncionario = Convert.ToInt32(txtCodVendedor.Text);
-                    venda.DataVenda = Convert.ToDateTime(txtData.Text);
+                    venda.DataVenda = Convert.ToDateTime(lblData.Content);
                     venda.FormaPagamento = cmbFormaPag.Text;
                     venda.Frete = Convert.ToDouble(txtFrete.Text);
                     venda.CodPrazo.CodCondPagamento = Convert.ToInt16(txtCodPrazo.Text);
@@ -82,53 +82,14 @@ namespace br.com.livrariashalom.View
             return false;
 
         }
-        //salvar item
-        //public void SalvarItemVenda(ItemVenda itemVenda)
-        //{
-        //    try
-        //    {
-        //        conexao.Conectar();
-
-        //        //recebe os valores da textbox
-        //        itemVenda.Estoque.CodRegistro = Convert.ToInt32(txtCodLivro.Text);
-        //        itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
-        //        itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
-
-        //        command = new MySqlCommand("insert into itemvenda (Estoque_codRegistro, quantidade, subTotal) value (@codRegistro, @quantidade, @subTotal)",conexao.conexao); //conexao está referente as infos do banco
-
-        //        command.Parameters.AddWithValue("@codRegistro", itemVenda.Estoque.CodRegistro);
-        //        command.Parameters.AddWithValue("@quantidade", itemVenda.Quantidade);
-        //        command.Parameters.AddWithValue("@subTotal", itemVenda.SubTotal);
-
-        //        command.ExecuteNonQuery();
-        //    }
-        //    catch (Exception error)
-        //    {
-        //        throw error;
-        //    }
-        //}
-
-        //adiciona os itens no datgrid
-        public void AdicionarItemTabela()
+        //pre calcula o subtotal dos itens 
+        public void CalcularSaldo()
         {
-            int codItem = Convert.ToInt32(txtCodLivro.Text);
-            int qtd = Convert.ToInt32(txtQtd.Text);
-            double subTotal = Convert.ToDouble(txtSubTotal.Text);
+            int quantidade = Convert.ToInt32(txtQtd.Text);
             double preco = Convert.ToDouble(txtPreco.Text);
-            int info = Convert.ToInt32(txtInfos.Text);
+            double saldo = preco * quantidade;
 
-            if (int.Parse(txtQtdEstoque.Text) < codItem)
-            {
-                MessageBox.Show("Quantidade não suficiente no estoque");
-            }
-            else
-            {
-                Total += subTotal;
-
-                txtTotal.Text = Convert.ToString(Total);
-
-            }
-
+            txtSubTotal.Text = Convert.ToString(saldo);
         }
 
         public void ListarLivro()
@@ -283,7 +244,7 @@ namespace br.com.livrariashalom.View
 
         private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
         {
-            AdicionarItemTabela();
+            
 
         }
 
@@ -309,7 +270,7 @@ namespace br.com.livrariashalom.View
                 VendaLivro(); //realiza baixa
                 MessageBox.Show("Venda finalizada com sucesso !");
                 Limpar();//limpa os campos
-                tabVenda.SelectedIndex = 0; //volta para o inicio da tela
+                
             }
             //caso não a venda é totalmente excluida
             else if (finalizar == MessageBoxResult.No)
@@ -318,16 +279,6 @@ namespace br.com.livrariashalom.View
                 //vendaBLL.DeletarVenda(codVenda);
             }
         }
-
-        private void btnProximo_Click(object sender, RoutedEventArgs e)
-        {
-            Venda venda = new Venda();
-            SalvarVenda(venda);
-
-            tabVenda.SelectedIndex = 1;
-        }
-
-      
 
         private void TxtPreco_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -369,11 +320,6 @@ namespace br.com.livrariashalom.View
 
         }
 
-        private void TxtCodLivro_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            BuscarEstoque();
-        }
-
         private void DgItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -381,7 +327,7 @@ namespace br.com.livrariashalom.View
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            BuscarPorInfos();
         }
     }
 }
