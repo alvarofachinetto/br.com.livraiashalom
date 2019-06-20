@@ -48,6 +48,23 @@ namespace br.com.livrariashalom.View
 
         }
 
+        private void BloquearCamposInformativos()
+        {
+            txtCliente.IsReadOnly = true;
+            txtTelefone.IsReadOnly = true;
+            cmbVendedor.IsReadOnly = true;
+            txtObservacao.IsReadOnly = true;
+            cmbFormaPag.IsReadOnly = true;
+            cmbPrazo.IsReadOnly = true;
+            txtFrete.IsReadOnly = true;
+        }
+
+        private void DesbloquearCamposItens()
+        {
+            cmbLivro.IsReadOnly = false;
+            txtQtd.IsReadOnly = false;
+            txtTotal.IsReadOnly = false;
+        }
         //recebe os valores para salvar
         private bool SalvarVenda(Venda venda)
         {
@@ -61,6 +78,7 @@ namespace br.com.livrariashalom.View
                 }
                 else
                 {
+
                     venda.NomeCliente = txtCliente.Text;
                     venda.Telefone = txtTelefone.Text;
                     venda.LoginFuncionario.CodFuncionario = Convert.ToInt32(txtCodVendedor.Text);
@@ -70,10 +88,16 @@ namespace br.com.livrariashalom.View
                     venda.CodPrazo.CodCondPagamento = Convert.ToInt16(txtCodPrazo.Text);
                     venda.Observacao = txtObservacao.Text;
 
-                    vendaBLL = new VendaBLL();
-                    vendaBLL.SalvarVenda(venda);
+                    MessageBoxResult salvar = MessageBox.Show("Deseja salvar as informações ?", "Salvar", MessageBoxButton.YesNo);
+                    if (salvar == MessageBoxResult.Yes)
+                    {
+                        vendaBLL = new VendaBLL();
+                        vendaBLL.SalvarVenda(venda);
+                        BloquearCamposInformativos();
+                        DesbloquearCamposItens();
+                        return true;
+                    }
 
-                    return true;
                 }
 
             }
@@ -372,6 +396,12 @@ namespace br.com.livrariashalom.View
         private void CmbPrazo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BuscarCodCondPagamento();
+        }
+
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            Venda venda = new Venda();
+            SalvarVenda(venda);
         }
     }
 }
