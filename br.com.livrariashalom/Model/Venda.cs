@@ -14,13 +14,12 @@ namespace br.com.livrariashalom.Model
         private String nomeCliente;
         private String telefoneCli;
         private DateTime dataVenda;
+        private Prazo prazo = new Prazo();
         private double frete;
         private String formaPagamento;
-        private Prazo codPrazo = new Prazo();
         private LoginFuncionario loginFuncionario = new LoginFuncionario();
         private String observacao;
-        private ItemVenda itemVenda = new ItemVenda();
-
+        
         public long CodVenda
         {
             get { return codVenda; }
@@ -44,12 +43,6 @@ namespace br.com.livrariashalom.Model
         {
             get { return formaPagamento; }
             set { formaPagamento = value; }
-        }
-
-        public Prazo CodPrazo
-        {
-            get { return codPrazo; }
-            set { codPrazo = value; }
         }
 
         public double Frete
@@ -76,6 +69,7 @@ namespace br.com.livrariashalom.Model
             set { observacao = value; }
         }
 
-        public ItemVenda ItemVenda { get => itemVenda; set => itemVenda = value; }
+        
+        public Prazo Prazo { get => prazo; set => prazo = value; }
     }
 }

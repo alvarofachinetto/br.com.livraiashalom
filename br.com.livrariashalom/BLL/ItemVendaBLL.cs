@@ -18,7 +18,7 @@ namespace br.com.livrariashalom.BLL
         {
             try
             {
-                //itemVendaDAO.SalvarItemVenda(itemVenda);
+                itemVendaDAO.SalvarItemVenda(itemVenda);
             }
             catch(Exception error)
             {
@@ -26,13 +26,13 @@ namespace br.com.livrariashalom.BLL
             }
         }
 
-        public DataTable ListarItem(ItemVenda itemVenda)
+        public DataTable ListarItem()
         {
             try
             {
                 DataTable dt = new DataTable();
 
-                dt = itemVendaDAO.ListarItemVenda(itemVenda);
+                dt = itemVendaDAO.ListarItemVenda();
 
                 return dt;
             }
@@ -44,20 +44,16 @@ namespace br.com.livrariashalom.BLL
 
         }
 
-        
-        public void SomarSubTotal(long codVenda)
+        public void ExcluirItem(ItemVenda itemVenda)
         {
             try
             {
-                // itemVendaDAO.SomarSubtotal(codVenda);
-
+                itemVendaDAO.ExcluirItemVenda(itemVenda);
             }
             catch (Exception error)
             {
-                throw error;
-
+                MessageBox.Show("Erro: " + error);
             }
         }
-
     }
 }

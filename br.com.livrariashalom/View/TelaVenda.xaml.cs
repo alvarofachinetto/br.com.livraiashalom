@@ -25,6 +25,8 @@ namespace br.com.livrariashalom.View
     public partial class TelaVendas : Window
     {
         private VendaBLL vendaBLL;
+        private ItemVendaBLL ItemVendaBLL = new ItemVendaBLL();
+        private ItemVenda itemVenda = new ItemVenda();
         private Conexao conexao = new Conexao();
         private MySqlCommand command = null;
        
@@ -38,6 +40,7 @@ namespace br.com.livrariashalom.View
             ListarCondPagamento();
         }
 
+        //limpa os campos
         private void Limpar()
         {
             txtCodLivro.Clear();
@@ -47,7 +50,7 @@ namespace br.com.livrariashalom.View
             txtQtd.Clear();
 
         }
-
+        //deixa os campos bloqueados 
         private void BloquearCamposInformativos()
         {
             txtCliente.IsReadOnly = true;
@@ -58,7 +61,7 @@ namespace br.com.livrariashalom.View
             cmbPrazo.IsReadOnly = true;
             txtFrete.IsReadOnly = true;
         }
-
+        //desbloqueia os campos dos itens
         private void DesbloquearCamposItens()
         {
             cmbLivro.IsReadOnly = false;
@@ -66,9 +69,9 @@ namespace br.com.livrariashalom.View
             txtTotal.IsReadOnly = false;
         }
         //recebe os valores para salvar
-        private bool SalvarVenda(Venda venda)
+        private bool SalvarVenda()
         {
-
+            Venda venda = new Venda();
             try
             {
                 //caso os campos estiverem vazios
@@ -85,7 +88,7 @@ namespace br.com.livrariashalom.View
                     venda.DataVenda = Convert.ToDateTime(lblData.Content);
                     venda.FormaPagamento = cmbFormaPag.Text;
                     venda.Frete = Convert.ToDouble(txtFrete.Text);
-                    venda.CodPrazo.CodCondPagamento = Convert.ToInt16(txtCodPrazo.Text);
+                    venda.Prazo.CodCondPagamento = Convert.ToInt64(txtCodPrazo.Text);
                     venda.Observacao = txtObservacao.Text;
 
                     MessageBoxResult salvar = MessageBox.Show("Deseja salvar as informações ?", "Salvar", MessageBoxButton.YesNo);
@@ -269,72 +272,70 @@ namespace br.com.livrariashalom.View
             }
         }
 
-        //baixa no estoque de livro
-        public void VendaLivro()
+        public void SalvarItem()
         {
             try
             {
-                //    ItemVenda itemVenda = new ItemVenda();
-
-                //    conexao.Conectar();
-
-                //    command = new MySqlCommand("select Estoque_codRegistro, quantidade from itemvenda where Venda_codVenda = @codVenda;", conexao.conexao);
-                //    command.Parameters.AddWithValue("@codVenda", txtCodVenda.Text);
-
-                //    MySqlDataReader dataReader = command.ExecuteReader();
-                //    List<ItemVenda> listaItens = new List<ItemVenda>();
-
-                //    while (dataReader.Read())
-                //    {
-                //        itemVenda.Estoque.CodRegistro = Convert.ToInt32(dataReader["Estoque_codRegistro"]);
-                //        itemVenda.Estoque.QtdSaida = Convert.ToInt32(dataReader["quantidade"]);
-
-                //        listaItens.Add(itemVenda);
-                //    }
-                //    dataReader.Close();
-
-                for (int i = 0; i < dgItem.Items.Count; i++)
+                //caso os campos estiverem vazios
+                if (txtCodLivro.Text == "" || txtQtd.Text == "" || txtCodLivro.Text == "")
                 {
-                    DataRowView dataRow = (DataRowView)dgItem.SelectedItems;
-
-                    int saida = Convert.ToInt32(dataRow.Row[1].ToString());
-
-                    int codRegistro = Convert.ToInt32(dataRow.Row[3].ToString());
-                    int qtdEstoque = Convert.ToInt32(txtQtdEstoque.Text);
-
-                    if (qtdEstoque < saida)
-                    {
-                        MessageBox.Show("Quantidade não suficiente", "Alerta");
-                    }
-                    else
-                    {
-                        command = new MySqlCommand("update estoque set qtdSaida =  qtdSaida + @qtdSaida , qtd = qtd - @qtdSaida where codRegistro = @codRegistro ", conexao.conexao);
-                        command.Parameters.AddWithValue("@qtdSaida", saida);
-                        command.Parameters.AddWithValue("@codRegistro", codRegistro);
-                        command.ExecuteNonQuery();
-                    }
+                    MessageBox.Show("Campos com * são obrigatórios o preenchimento");
+                }
+                else
+                {
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+                    itemVenda.SubTotal = Convert.ToDouble(txtSubTotal.Text);
+                    itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+                    ItemVendaBLL.SalvarItem(itemVenda);
+                    ListarItem();
                 }
 
             }
-            catch (Exception erro)
+            catch (Exception error)
             {
-                MessageBox.Show("Erro" + erro);
-            }
-            finally
-            {
-                conexao.Desconectar();
+                MessageBox.Show("Erro: " + error);
             }
         }
 
-        private void TxtCodLivro_TextChanged(object sender, TextChangedEventArgs e)
+        public void ListarItem()
         {
+            try
+            {
+                dgItem.ItemsSource = ItemVendaBLL.ListarItem().DefaultView;
+            }
+            catch (Exception erro)
+            {
 
+                throw erro;
+            }
+        }
+
+        public void ExcluirItem()
+        {
+            try
+            {
+                if (txtCodItem.Text == "" || txtQtd.Text == "" || txtCodLivro.Text == "")
+                {
+                    MessageBox.Show("Selecione um item");
+                }
+                else
+                {
+                    itemVenda.CodItemVenda = Convert.ToInt64(txtCodItem.Text);
+                    itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
+                    itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
+                    ItemVendaBLL.ExcluirItem(itemVenda);
+                }
+            }
+            catch (Exception erro)
+            {
+
+                throw erro;
+            }
         }
 
         private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
         {
-            
-
+            SalvarItem();
         }
 
         private void CmbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -350,7 +351,7 @@ namespace br.com.livrariashalom.View
             if (finalizar == MessageBoxResult.Yes)
             {
                 ItemVenda itemVenda = new ItemVenda();
-                VendaLivro(); //realiza baixa
+                
                 MessageBox.Show("Venda finalizada com sucesso !");
                 Limpar();//limpa os campos
                 
@@ -401,7 +402,12 @@ namespace br.com.livrariashalom.View
         private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
             Venda venda = new Venda();
-            SalvarVenda(venda);
+            SalvarVenda();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ExcluirItem();
         }
     }
 }

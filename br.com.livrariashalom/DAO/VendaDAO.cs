@@ -26,7 +26,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@telefoneCli", venda.Telefone);
                 command.Parameters.AddWithValue("@dataVenda", venda.DataVenda);
                 command.Parameters.AddWithValue("@codFuncionario", venda.LoginFuncionario.CodFuncionario);
-                command.Parameters.AddWithValue("@condicaoPagamento", venda.CodPrazo.CodCondPagamento);
+                command.Parameters.AddWithValue("@condicaoPagamento", venda.Prazo.CodCondPagamento);
                 command.Parameters.AddWithValue("@formaPagamento", venda.FormaPagamento);
                 command.Parameters.AddWithValue("@frete", venda.Frete);
                 command.Parameters.AddWithValue("@observacao", venda.Observacao);
@@ -45,7 +45,6 @@ namespace br.com.livrariashalom.DAO
 
         }
 
-       
         public void EditarVenda(Venda venda)
         {
             try
@@ -59,7 +58,7 @@ namespace br.com.livrariashalom.DAO
                 command.Parameters.AddWithValue("@nomeCli", venda.NomeCliente);
                 command.Parameters.AddWithValue("@telefoneCli", venda.Telefone);
                 command.Parameters.AddWithValue("@dataVenda", venda.DataVenda);
-                command.Parameters.AddWithValue("@condicaoPagamento", venda.CodPrazo.CodCondPagamento);
+                command.Parameters.AddWithValue("@condicaoPagamento", venda.Prazo.CodCondPagamento);
                 command.Parameters.AddWithValue("@formaPagamento", venda.FormaPagamento);
                 command.Parameters.AddWithValue("@frete", venda.Frete);
                 command.Parameters.AddWithValue("@observacoes", venda.Observacao);
