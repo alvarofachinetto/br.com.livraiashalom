@@ -272,6 +272,20 @@ namespace br.com.livrariashalom.View
             }
         }
 
+        public void ListarItem()
+        {
+            try
+            {
+                
+
+                dgItem.ItemsSource = ItemVendaBLL.ListarItem().DefaultView;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         public void SalvarItem()
         {
             try
@@ -294,19 +308,6 @@ namespace br.com.livrariashalom.View
             catch (Exception error)
             {
                 MessageBox.Show("Erro: " + error);
-            }
-        }
-
-        public void ListarItem()
-        {
-            try
-            {
-                dgItem.ItemsSource = ItemVendaBLL.ListarItem().DefaultView;
-            }
-            catch (Exception erro)
-            {
-
-                throw erro;
             }
         }
 
@@ -408,6 +409,11 @@ namespace br.com.livrariashalom.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ExcluirItem();
+        }
+
+        private void DgItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

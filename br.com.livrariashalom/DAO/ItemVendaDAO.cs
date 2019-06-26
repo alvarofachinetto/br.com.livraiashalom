@@ -48,7 +48,7 @@ namespace br.com.livrariashalom.DAO
                 throw error;
             }
         }
-
+        //diminui a qtd do estoque
         public void DiminuirQuantidade(long codLivro, int qtd)
         {
             try
@@ -67,7 +67,7 @@ namespace br.com.livrariashalom.DAO
                 throw erro;
             }
         }
-
+        //aumenta a qtd do estoque
         public void AumentarQuantidade(long codLivro, int qtd)
         {
             try
@@ -92,15 +92,23 @@ namespace br.com.livrariashalom.DAO
         {
             try
             {
-
                 Conectar();
+
+                command = new MySqlCommand("select max(codVenda) from venda", conexao);
+                MySqlDataReader dr = command.ExecuteReader();
+                long codVenda = 0;
+                while (dr.Read())
+                {
+                    codVenda = dr.GetInt64("max(codVenda)");
+                }
+                dr.Close();
 
                 ItemVenda itemVenda = new ItemVenda();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
 
                 command = new MySqlCommand("select * from itemvenda where Venda_codVenda = @codVenda", conexao);
-                command.Parameters.AddWithValue("@codVenda", itemVenda.Venda.CodVenda);
+                command.Parameters.AddWithValue("@codVenda", codVenda);
 
                 dataAdapter.SelectCommand = command;
                 dataAdapter.Fill(dt);//adiciona ou atualiza as linhas 
