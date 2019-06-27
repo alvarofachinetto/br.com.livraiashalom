@@ -39,7 +39,7 @@
         <ComboBox x:Name="cmbPrazo" Grid.Column="1" HorizontalAlignment="Left" Margin="637,80,0,0" VerticalAlignment="Top" Width="102" SelectionChanged="CmbPrazo_SelectionChanged"/>
         <DataGrid x:Name="dgItem" HorizontalAlignment="Left" Height="179" Margin="5,336,0,0" VerticalAlignment="Top" Width="799" Grid.ColumnSpan="2" Grid.RowSpan="3" IsReadOnly="True" MouseDoubleClick="DgItem_MouseDoubleClick"/>
         <Label Content="Total" HorizontalAlignment="Left" Margin="5,119,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="27,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"  Grid.Column="1" Grid.Row="2" IsReadOnly="True"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="27,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"  Grid.Column="1" Grid.Row="2" IsReadOnly="True" TextChanged="TxtTotal_TextChanged"/>
         <Button x:Name="btnAdicionarItem" Content="Adicionar" HorizontalAlignment="Left" Margin="690,284,0,0" VerticalAlignment="Top" Width="67" Height="36" Click="BtnAdicionarItem_Click" Grid.Column="1"/>
         <Label Content="Estoque" HorizontalAlignment="Left" Margin="206,280,0,0" VerticalAlignment="Top" Foreground="#FFFFE800" FontWeight="Bold" Grid.Column="1"/>
         <TextBox x:Name="txtQtdEstoque" HorizontalAlignment="Left" Height="24" Margin="267,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Grid.Column="1" Text="0" IsReadOnly="True"/>

@@ -51,6 +51,8 @@ namespace br.com.livrariashalom.View
 
         }
         //deixa os campos bloqueados 
+
+
         private void BloquearCamposInformativos()
         {
             txtCliente.IsReadOnly = true;
@@ -302,6 +304,7 @@ namespace br.com.livrariashalom.View
                     itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
                     ItemVendaBLL.SalvarItem(itemVenda);
                     ListarItem();
+                    
                 }
 
             }
@@ -310,7 +313,7 @@ namespace br.com.livrariashalom.View
                 MessageBox.Show("Erro: " + error);
             }
         }
-
+        //excluir itrem
         public void ExcluirItem()
         {
             try
@@ -325,6 +328,7 @@ namespace br.com.livrariashalom.View
                     itemVenda.Quantidade = Convert.ToInt32(txtQtd.Text);
                     itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
                     ItemVendaBLL.ExcluirItem(itemVenda);
+                    ListarItem();
                 }
             }
             catch (Exception erro)
@@ -333,6 +337,7 @@ namespace br.com.livrariashalom.View
                 throw erro;
             }
         }
+        
 
         private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
         {
@@ -413,7 +418,26 @@ namespace br.com.livrariashalom.View
 
         private void DgItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+                var rowView = dgItem.SelectedItems[0] as DataRowView;
+                txtCodItem.Text = rowView["codItemVenda"].ToString();
 
+                txtQtd.Text = rowView["quantidade"].ToString();
+                txtPreco.Text = rowView["preco"].ToString();
+                txtSubTotal.Text = rowView["subTotal"].ToString();
+                txtCodLivro.Text = rowView["Livro_codLivro"].ToString();
+                
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro: " + error);
+            }
+        }
+
+        private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }
