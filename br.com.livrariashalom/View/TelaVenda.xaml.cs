@@ -38,6 +38,7 @@ namespace br.com.livrariashalom.View
             ListarLivro();
             ListarUsuario();
             ListarCondPagamento();
+            
         }
 
         //limpa os campos
@@ -278,8 +279,6 @@ namespace br.com.livrariashalom.View
         {
             try
             {
-                
-
                 dgItem.ItemsSource = ItemVendaBLL.ListarItem().DefaultView;
             }
             catch (Exception erro)
@@ -304,7 +303,8 @@ namespace br.com.livrariashalom.View
                     itemVenda.Livro.CodLivro = Convert.ToInt64(txtCodLivro.Text);
                     ItemVendaBLL.SalvarItem(itemVenda);
                     ListarItem();
-                    
+                    SomaTotal();
+                    Limpar();
                 }
 
             }
@@ -337,11 +337,23 @@ namespace br.com.livrariashalom.View
                 throw erro;
             }
         }
-        
 
+        public void SomaTotal()
+        {
+            
+            double total = 0;
+            foreach (DataRowView dr in dgItem.ItemsSource)
+            {
+                total += Convert.ToDouble(dr["subTotal"].ToString());
+            }
+
+            txtTotal.Text = Convert.ToString(total);
+
+        }
         private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
         {
             SalvarItem();
+            
         }
 
         private void CmbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -356,18 +368,12 @@ namespace br.com.livrariashalom.View
             //se sim finaliza a venda e da a baxia no estoque 
             if (finalizar == MessageBoxResult.Yes)
             {
-                ItemVenda itemVenda = new ItemVenda();
                 
                 MessageBox.Show("Venda finalizada com sucesso !");
                 Limpar();//limpa os campos
                 
             }
-            //caso não a venda é totalmente excluida
-            else if (finalizar == MessageBoxResult.No)
-            {
-                //long codVenda = Convert.ToInt64(txtCodVenda.Text);
-                //vendaBLL.DeletarVenda(codVenda);
-            }
+           
         }
 
         private void TxtQtd_TextChanged(object sender, TextChangedEventArgs e)
@@ -388,7 +394,6 @@ namespace br.com.livrariashalom.View
                 MessageBox.Show("Erro: " + erro);
             }
         }
-
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
