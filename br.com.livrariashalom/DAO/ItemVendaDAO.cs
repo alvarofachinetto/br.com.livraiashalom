@@ -46,56 +46,7 @@ namespace br.com.livrariashalom.DAO
                 throw error;
             }
         }
-        //diminui a qtd do estoque
-        //public void DiminuirQuantidadeEstoque()
-        //{
-        //    try
-        //    {
-        //        ItemVenda itemVenda = new ItemVenda();
-        //        Conectar();
-
-        //        command = new MySqlCommand("select max(codVenda) from venda", conexao);
-
-        //        long codVenda = 0;
-        //        MySqlDataReader dr = command.ExecuteReader();
-        //        while (dr.Read())
-        //        {
-        //            codVenda = dr.GetInt64("max(codVenda)");
-        //        }
-        //        dr.Close();
-
-        //        command = new MySqlCommand("select Livro_codLivro, quantidade from itemvenda where Venda_codVenda = @codVenda", conexao);
-        //        command.Parameters.AddWithValue("@codVenda", codVenda);
-
-        //        MySqlDataReader dataReader = command.ExecuteReader();
-                
-        //        while (dr.Read())
-        //        {
-        //            itemVenda.Livro.CodLivro = dataReader.GetInt64("Livro_codLivro");
-        //            itemVenda.Quantidade = dataReader.GetInt32("quantidade"); 
-        //        }
-        //        dr.Close();
-
-        //        List<ItemVenda> listaItens = new List<ItemVenda>();
-        //        listaItens.Add(itemVenda);
-
-        //        foreach (var item in listaItens)
-        //        {
-        //            command = new MySqlCommand("update livro set qtd = (qtd - @qtdSaida) where codLivro = @codLivro", conexao);
-
-        //            command.Parameters.AddWithValue("@qtdSaida", qtd);
-        //            command.Parameters.AddWithValue("@codLivro", codLivro);
-        //            command.ExecuteNonQuery();
-        //        }
-
-
-        //    }
-        //    catch (Exception erro)
-        //    {
-
-        //        throw erro;
-        //    }
-        //}
+       
         //aumenta a qtd do estoque
         public void AumentarQuantidadeEstoque(long codLivro, int qtd)
         {

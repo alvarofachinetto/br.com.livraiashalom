@@ -5,17 +5,9 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace br.com.livrariashalom.View
 {
@@ -41,6 +33,15 @@ namespace br.com.livrariashalom.View
             
         }
 
+        public bool ValidaCampos()
+        {
+            if (txtTelefone.Text != "(?[0-9]{10})" || txtFrete.Text != "(?[0-9]{10})")
+            {
+                MessageBox.Show("Campo(s) não apresentam somente números");
+                return false;
+            }
+            return true;
+        }
 
         //limpa os campos
         private void Limpar()
@@ -99,14 +100,16 @@ namespace br.com.livrariashalom.View
                     if (salvar == MessageBoxResult.Yes)
                     {
                         vendaBLL = new VendaBLL();
-                        vendaBLL.SalvarVenda(venda);
-                        BloquearCamposInformativos();
-                        DesbloquearCamposItens();
-                        return true;
+                        
+                        if(ValidaCampos() == true)
+                        {
+                            vendaBLL.SalvarVenda(venda);
+                            BloquearCamposInformativos();
+                            DesbloquearCamposItens();
+                            return true;
+                        }
                     }
-
                 }
-
             }
             catch (Exception error)
             {
@@ -294,7 +297,7 @@ namespace br.com.livrariashalom.View
             try
             {
                 //caso os campos estiverem vazios
-                if (txtCodLivro.Text == "" || txtQtd.Text == "" || txtCodLivro.Text == "")
+                if (txtCodLivro.Text == "" || txtQtd.Text == "0" || txtCodLivro.Text == "")
                 {
                     MessageBox.Show("Campos com * são obrigatórios o preenchimento");
                 }
@@ -459,9 +462,8 @@ namespace br.com.livrariashalom.View
                 txtCodItem.Text = rowView["codItemVenda"].ToString();
 
                 txtQtd.Text = rowView["quantidade"].ToString();
-                txtPreco.Text = rowView["preco"].ToString();
                 txtSubTotal.Text = rowView["subTotal"].ToString();
-                txtCodLivro.Text = rowView["Livro_codLivro"].ToString();
+                txtCodLivro.Text = rowView["LivrocodLivro"].ToString();
                 
             }
             catch (Exception error)

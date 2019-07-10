@@ -52,7 +52,7 @@
         <Label Content="Quantidade" HorizontalAlignment="Left" Margin="319,278,0,0" VerticalAlignment="Top" Foreground="#FFECF700" FontWeight="Bold" Grid.Column="1"/>
         <TextBox x:Name="txtQtd" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="414,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Text="0" TextChanged="TxtQtd_TextChanged" RenderTransformOrigin="3.048,0.913" IsReadOnly="True"/>
         <Button x:Name="btnFinalizar" Content="Finalizar" HorizontalAlignment="Left" Margin="641,110,0,0" VerticalAlignment="Top" Width="116" Height="44" Grid.Column="1" Click="BtnFinalizar_Click" Grid.Row="2"/>
-        <ComboBox x:Name="cmbLivro" Grid.Column="1" HorizontalAlignment="Left" Margin="62,282,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.44,0.705" Height="26" SelectionChanged="ComboBox_SelectionChanged" IsReadOnly="True"/>
+        <ComboBox x:Name="cmbLivro" Grid.Column="1" HorizontalAlignment="Left" Margin="62,282,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.44,0.705" Height="26" SelectionChanged="ComboBox_SelectionChanged" IsReadOnly="True" IsEditable="True"/>
         <Button x:Name="btnSalvar" Content="Salvar" Grid.Column="1" HorizontalAlignment="Left" Margin="623,169,0,0" VerticalAlignment="Top" Width="116" Height="35" Click="BtnSalvar_Click"/>
         <Separator Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,218,0,154" Width="812"/>
         <Button x:Name="btnExcluir" Content="Excluir" Grid.Column="1" HorizontalAlignment="Left" Margin="615,284,0,0" VerticalAlignment="Top" Width="70" Height="36" Click="Button_Click"/>
