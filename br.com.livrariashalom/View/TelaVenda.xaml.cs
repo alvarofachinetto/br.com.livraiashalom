@@ -41,14 +41,15 @@ namespace br.com.livrariashalom.View
             
         }
 
+
         //limpa os campos
         private void Limpar()
         {
             txtCodLivro.Clear();
             txtSubTotal.Clear();
-            txtPreco.Clear();
+            txtPreco.Text = "0";
             txtQtdEstoque.Clear();
-            txtQtd.Clear();
+            txtQtd.Text = "0";
 
         }
         //deixa os campos bloqueados 
@@ -114,8 +115,9 @@ namespace br.com.livrariashalom.View
             return false;
 
         }
+
         //pre calcula o subtotal dos itens 
-        public void CalcularSaldo()
+        public void CalcularSubTotal()
         {
             int quantidade = Convert.ToInt32(txtQtd.Text);
             double preco = Convert.ToDouble(txtPreco.Text);
@@ -350,10 +352,38 @@ namespace br.com.livrariashalom.View
             txtTotal.Text = Convert.ToString(total);
 
         }
+
+
+        public void DiminuirQuantidadeEstoque()
+        {
+            List<ItemVenda> listaItems = new List<ItemVenda>();
+            foreach (DataRowView rowView in dgItem.ItemsSource)
+            {
+                itemVenda.Livro.CodLivro = Convert.ToInt64(rowView["Livro_codLivro"].ToString());
+                itemVenda.Quantidade = Convert.ToInt32(rowView["quantidade"].ToString());
+
+                listaItems.Add(itemVenda);
+            }
+
+            foreach (var item in listaItems)
+            {
+                conexao.Conectar();
+                command = new MySqlCommand("update livro set qtd = (qtd - @qtdSaida) where codLivro = @codLivro", conexao.conexao);
+
+                command.Parameters.AddWithValue("@qtdSaida", item.Quantidade);
+                command.Parameters.AddWithValue("@codLivro", item.Livro.CodLivro);
+                command.ExecuteNonQuery();
+            }
+
+
+        }
+
+
+
         private void BtnAdicionarItem_Click(object sender, RoutedEventArgs e)
         {
             SalvarItem();
-            
+            CalcularSubTotal();
         }
 
         private void CmbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -368,7 +398,7 @@ namespace br.com.livrariashalom.View
             //se sim finaliza a venda e da a baxia no estoque 
             if (finalizar == MessageBoxResult.Yes)
             {
-                
+                DiminuirQuantidadeEstoque();
                 MessageBox.Show("Venda finalizada com sucesso !");
                 Limpar();//limpa os campos
                 
@@ -420,7 +450,7 @@ namespace br.com.livrariashalom.View
         {
             ExcluirItem();
         }
-
+        //informação aparece no campo com um click sobre a tabela
         private void DgItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
@@ -440,9 +470,6 @@ namespace br.com.livrariashalom.View
             }
         }
 
-        private void TxtTotal_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
+       
     }
 }
