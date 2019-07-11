@@ -51,11 +51,9 @@ namespace br.com.livrariashalom.View
             txtPreco.Text = "0";
             txtQtdEstoque.Clear();
             txtQtd.Text = "0";
-
+            cmbLivro.Text = "";
         }
         //deixa os campos bloqueados 
-
-
         private void BloquearCamposInformativos()
         {
             txtCliente.IsReadOnly = true;
@@ -460,11 +458,7 @@ namespace br.com.livrariashalom.View
             {
                 var rowView = dgItem.SelectedItems[0] as DataRowView;
                 txtCodItem.Text = rowView["codItemVenda"].ToString();
-
-                txtQtd.Text = rowView["quantidade"].ToString();
-                txtSubTotal.Text = rowView["subTotal"].ToString();
-                txtCodLivro.Text = rowView["LivrocodLivro"].ToString();
-                
+            
             }
             catch (Exception error)
             {
